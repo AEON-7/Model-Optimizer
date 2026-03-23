@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>model_quant &mdash; Model Optimizer 0.0.1.dev1+g24a1e8961</title>
+  <title>model_quant &mdash; Model Optimizer 0.0.1.dev1+g068fecf05</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -526,9 +526,6 @@ different target without re-running calibration or scoring.</p></li>
 
 <span class="c1"># Or use the original result</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">mtq</span><span class="o">.</span><span class="n">get_auto_quantize_config</span><span class="p">(</span><span class="n">search_state</span><span class="p">)</span>
-
-<span class="c1"># [Optional] Customize algorithm if needed</span>
-<span class="n">config</span><span class="p">[</span><span class="s2">&quot;algorithm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;gptq&quot;</span><span class="p">,</span> <span class="s2">&quot;sequential&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
 
 <span class="c1"># Reuse on the same model (e.g. run a longer calibration pass)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">mtq</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">forward_loop</span><span class="o">=</span><span class="n">calibrate_loop</span><span class="p">)</span>

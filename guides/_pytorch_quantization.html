@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PyTorch Quantization &mdash; Model Optimizer 0.0.1.dev1+gc425524be</title>
+  <title>PyTorch Quantization &mdash; Model Optimizer 0.0.1.dev1+gd0bf0bef9</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -157,7 +157,7 @@
 <p>Key advantages offered by ModelOpt’s PyTorch quantization:</p>
 <ol class="arabic simple">
 <li><p>Support advanced quantization formats, e.g., Block-wise Int4 and FP8.</p></li>
-<li><p>Native support for LLM models in Hugging Face and NeMo.</p></li>
+<li><p>Native support for LLM models in Hugging Face, Megatron-Bridge and Megatron-LM.</p></li>
 <li><p>Advanced Quantization algorithms, e.g., SmoothQuant, AWQ.</p></li>
 <li><p>Deployment support to ONNX and NVIDIA TensorRT.</p></li>
 </ol>
@@ -216,7 +216,7 @@ It should wrap around the calibration dataloader and the model.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">onnx</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">sample_input</span><span class="p">,</span> <span class="n">onnx_file</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>ModelOpt also supports direct export of Huggingface or Nemo LLM models to TensorRT-LLM for deployment.
+<p>ModelOpt also supports direct export of Huggingface or Megatron-Bridge/Megatron-LM LLM models to TensorRT-LLM for deployment.
 Please see <a class="reference internal" href="../deployment/1_tensorrt_llm.html"><span class="doc">TensorRT-LLM Deployment</span></a> for more details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

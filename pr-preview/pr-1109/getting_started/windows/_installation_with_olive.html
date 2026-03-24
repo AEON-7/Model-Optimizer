@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Install ModelOpt-Windows with Olive &mdash; Model Optimizer 0.0.1.dev1+gf50cc8a22</title>
+  <title>Install ModelOpt-Windows with Olive &mdash; Model Optimizer 0.0.1.dev1+g89288280e</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -154,13 +154,14 @@
 </pre></div>
 </div>
 </li>
-<li><p><strong>Install Prerequisites:</strong> Ensure all required dependencies are installed. For example, to use DirectML Execution-Provider (EP) based onnxruntime and onnxruntime-genai packages, run the following commands:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>onnxruntime-genai-directml&gt;<span class="o">=</span><span class="m">0</span>.4.0
-$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>onnxruntime-directml<span class="o">==</span><span class="m">1</span>.20.0
+<li><p><strong>Install Prerequisites:</strong> Ensure all required dependencies are installed. For example, to install CUDA Execution-Provider (EP) based onnxruntime and onnxruntime-genai packages, run the following commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>onnxruntime-genai-cuda
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>onnxruntime-gpu
 </pre></div>
 </div>
 </li>
-<li><p>Above onnxruntime and onnxruntime-genai packages enable Olive workflow with DirectML Execution-Provider (EP). To use other EPs, install corresponding packages.</p></li>
+<li><p>Above onnxruntime and onnxruntime-genai packages enable Olive workflow with CUDA Execution-Provider (EP). To use other EPs, install corresponding packages.</p></li>
+<li><p>Refer to the ONNX Runtime’s <a class="reference external" href="https://onnxruntime.ai/docs/execution-providers/" rel="noopener noreferrer" target="_blank">EP documentation</a> for details about different EPs, their requirements, and installation instructions.</p></li>
 <li><p>Additionally, ensure that dependencies for Model Optimizer - Windows are met as mentioned in the <a class="reference internal" href="_installation_standalone.html#install-page-standalone-windows"><span class="std std-ref">Install ModelOpt-Windows as a Standalone Toolkit</span></a>.</p></li>
 </ul>
 </div></blockquote>

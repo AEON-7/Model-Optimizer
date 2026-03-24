@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PyTorch Quantization &mdash; Model Optimizer 0.0.1.dev1+gc7218585e</title>
+  <title>PyTorch Quantization &mdash; Model Optimizer 0.0.1.dev1+gb914b03cd</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -461,11 +461,11 @@ Here is the code to register the custom quantized module:</p>
 Write a custom calibration class derived from <a class="reference internal" href="../reference/generated/modelopt.torch.quantization.mode.html#modelopt.torch.quantization.mode.BaseCalibrateModeDescriptor" title="modelopt.torch.quantization.mode.BaseCalibrateModeDescriptor"><code class="xref py py-mod docutils literal notranslate"><span class="pre">BaseCalibrateModeDescriptor</span></code></a> and it should define attributes such as <code class="docutils literal notranslate"><span class="pre">convert</span></code>, <code class="docutils literal notranslate"><span class="pre">config_class</span></code>, <code class="docutils literal notranslate"><span class="pre">restore</span></code> etc. Find more details on these functions and their arguments in <a class="reference internal" href="../reference/generated/modelopt.torch.quantization.mode.html#modelopt.torch.quantization.mode.BaseCalibrateModeDescriptor" title="modelopt.torch.quantization.mode.BaseCalibrateModeDescriptor"><code class="xref py py-mod docutils literal notranslate"><span class="pre">BaseCalibrateModeDescriptor</span></code></a> and <a class="reference internal" href="../reference/generated/modelopt.torch.opt.mode.html#modelopt.torch.opt.mode.ModeDescriptor" title="modelopt.torch.opt.mode.ModeDescriptor"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ModeDescriptor</span></code></a>.</p>
 <p>Here is an example of creating custom calibration mode:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.torch.opt.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModeloptField</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.torch.quantization.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantizeAlgorithmConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.torch.quantization.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">CalibrationConfig</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.torch.quantization.mode</span><span class="w"> </span><span class="kn">import</span> <span class="n">CalibrateModeRegistry</span><span class="p">,</span> <span class="n">BaseCalibrateModeDescriptor</span>
 <span class="c1"># custom configuration comprising of method name and</span>
 <span class="c1"># any other parameters required by custom calibration function</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">CustomConfig</span><span class="p">(</span><span class="n">QuantizeAlgorithmConfig</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomConfig</span><span class="p">(</span><span class="n">CalibrationConfig</span><span class="p">):</span>
     <span class="n">method</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;custom_calib&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ModeloptField</span><span class="p">(</span><span class="s2">&quot;custom_calib&quot;</span><span class="p">)</span>
     <span class="o">...</span>
 
@@ -473,7 +473,7 @@ Write a custom calibration class derived from <a class="reference internal" href
 <span class="nd">@CalibrateModeRegistry</span><span class="o">.</span><span class="n">register_mode</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">CustomCalibrateModeDescriptor</span><span class="p">(</span><span class="n">BaseCalibrateModeDescriptor</span><span class="p">):</span>
     <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">config_class</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantizeAlgorithmConfig</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">config_class</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CalibrationConfig</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Specifies the config class.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">CustomConfig</span>
 

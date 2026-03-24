@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>base_hooks &mdash; Model Optimizer 0.0.1.dev1+g4c481c0b1</title>
+  <title>base_hooks &mdash; Model Optimizer 0.0.1.dev1+gbe87d8b74</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -329,24 +329,17 @@ Note: Synchronization should be handled at a higher level to avoid deadlocks.</p
 - Mean absolute activation for each channel (how strongly each channel is activated)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>linear_layer</strong> – The linear projection layer to analyze. Must have a <cite>weight</cite> attribute
-and either <cite>in_features</cite> (nn.Linear) or <cite>input_size</cite> (Megatron RowParallelLinear).</p></li>
-<li><p><strong>max_size</strong> – Optional maximum expected size to validate against (skips if mismatch).
-Useful for skipping non-max subnets during profiling.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>linear_layer</strong> – The linear projection layer to analyze. Must have a <cite>weight</cite> attribute
+and either <cite>in_features</cite> (nn.Linear) or <cite>input_size</cite> (Megatron RowParallelLinear).</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.prune.importance_hooks.base_hooks.IndependentChannelContributionHook.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linear_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.prune.importance_hooks.base_hooks.IndependentChannelContributionHook.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linear_layer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.prune.importance_hooks.base_hooks.IndependentChannelContributionHook.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initialize the independent channel contribution hook.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>linear_layer</strong> (<em>Module</em>)</p></li>
-<li><p><strong>max_size</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
-</ul>
+<dd class="field-odd"><p><strong>linear_layer</strong> (<em>Module</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -510,21 +503,18 @@ and either <cite>in_features</cite> (nn.Linear) or <cite>input_size</cite> (Mega
 - validation_full_iters (int): Number of pruning iterations.
 - clear_gpu_memory (bool, optional): Clear GPU memory during computation.
 - calibration_method (str, optional): “scale_by_magnitude” or None.</p></li>
-<li><p><strong>max_size</strong> – Optional maximum expected size to validate against (skips if mismatch).
-Useful for skipping non-max subnets during profiling.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.prune.importance_hooks.base_hooks.IterativeChannelContributionHook.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linear_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_hooks_kwargs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.prune.importance_hooks.base_hooks.IterativeChannelContributionHook.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linear_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_hooks_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.prune.importance_hooks.base_hooks.IterativeChannelContributionHook.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initialize the iterative channel contribution hook.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>linear_layer</strong> (<em>Module</em>)</p></li>
 <li><p><strong>activation_hooks_kwargs</strong> (<em>dict</em>)</p></li>
-<li><p><strong>max_size</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 </dl>

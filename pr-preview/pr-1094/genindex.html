@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g4655a3aeb</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g56fe25e01</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -138,6 +138,7 @@
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
  | <a href="#K"><strong>K</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
@@ -229,6 +230,10 @@
 </li>
         <li><a href="reference/generated/modelopt.torch.opt.hparam.html#modelopt.torch.opt.hparam.Hparam.__init__">(Hparam method)</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentChannelContributionHook.__init__">(IndependentChannelContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentKvHeadContributionHook.__init__">(IndependentKvHeadContributionHook method)</a>
+</li>
         <li><a href="reference/generated/modelopt.onnx.autocast.precisionconverter.html#modelopt.onnx.autocast.precisionconverter.InitializerConsumerTracker.__init__">(InitializerConsumerTracker method)</a>
 </li>
         <li><a href="reference/generated/modelopt.onnx.autocast.nodeclassifier.html#modelopt.onnx.autocast.nodeclassifier.InitializerRangeRule.__init__">(InitializerRangeRule method)</a>
@@ -239,7 +244,13 @@
 </li>
         <li><a href="reference/generated/modelopt.onnx.autocast.nodeclassifier.html#modelopt.onnx.autocast.nodeclassifier.IORangeRule.__init__">(IORangeRule method)</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IterativeChannelContributionHook.__init__">(IterativeChannelContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.L2NormHook.__init__">(L2NormHook method)</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LayernormConfig.__init__">(LayernormConfig method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.LayerNormContributionHook.__init__">(LayerNormContributionHook method)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LinearActConfig.__init__">(LinearActConfig method)</a>
 </li>
@@ -280,6 +291,8 @@
         <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.NodeInputInsertionPoint.__init__">(NodeInputInsertionPoint method)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.quantization.calib.mse.html#modelopt.torch.quantization.calib.mse.NVFP4MSECalibrator.__init__">(NVFP4MSECalibrator method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#modelopt.torch.prune.importance_hooks.compare_module_outputs.OutputSaveHook.__init__">(OutputSaveHook method)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.utils.distributed.html#modelopt.torch.utils.distributed.ParallelState.__init__">(ParallelState method)</a>
 </li>
@@ -396,6 +409,20 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.speculative.utils.html#modelopt.torch.speculative.utils.AcceptanceRateValidation">AcceptanceRateValidation (class in modelopt.torch.speculative.utils)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.ForwardHook.accumulate">accumulate() (ForwardHook method)</a>
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentChannelContributionHook.accumulate">(IndependentChannelContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentKvHeadContributionHook.accumulate">(IndependentKvHeadContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IterativeChannelContributionHook.accumulate">(IterativeChannelContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.L2NormHook.accumulate">(L2NormHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.LayerNormContributionHook.accumulate">(LayerNormContributionHook method)</a>
+</li>
+      </ul></li>
       <li><a href="reference/generated/modelopt.torch.utils.perf.html#modelopt.torch.utils.perf.AccumulatingTimer">AccumulatingTimer (class in modelopt.torch.utils.perf)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LinearConfig.activation_scaling_factor">activation_scaling_factor (LinearConfig attribute)</a>
@@ -468,14 +495,14 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig.alibi_bias_max">alibi_bias_max (DecoderLayerConfig attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.quant_rnn.html#modelopt.torch.quantization.nn.modules.quant_rnn.QuantRNNBase.all_input_quantizers_disabled">all_input_quantizers_disabled (QuantRNNBase property)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.quant_utils.html#modelopt.torch.export.quant_utils.all_items_same">all_items_same() (in module modelopt.torch.export.quant_utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.quant_linear.html#modelopt.torch.quantization.nn.modules.quant_linear.RealQuantLinear.allow_real_quant_gemm">allow_real_quant_gemm (RealQuantLinear attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.SmoothQuantCalibConfig.alpha">alpha (SmoothQuantCalibConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.AWQLiteCalibConfig.alpha_step">alpha_step (AWQLiteCalibConfig attribute)</a>
@@ -858,6 +885,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.network.html#modelopt.torch.utils.network.compare_dict">compare_dict() (in module modelopt.torch.utils.network)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#modelopt.torch.prune.importance_hooks.compare_module_outputs.compare_multi_layer">compare_multi_layer() (in module modelopt.torch.prune.importance_hooks.compare_module_outputs)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.RegionType.COMPOSITE">COMPOSITE (RegionType attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.CompressConfig.compress">compress (CompressConfig attribute)</a>
@@ -888,13 +917,19 @@
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.quantization.calib.bias.html#modelopt.torch.quantization.calib.bias.BiasCalibrator.compute_bias">compute_bias() (BiasCalibrator method)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#modelopt.torch.prune.importance_hooks.compare_module_outputs.compute_cosine_similarity">compute_cosine_similarity() (in module modelopt.torch.prune.importance_hooks.compare_module_outputs)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.calib.bias.html#modelopt.torch.quantization.calib.bias.BiasCalibrator.compute_dynamic_bias">compute_dynamic_bias() (BiasCalibrator method)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.quant_utils.html#modelopt.onnx.quantization.quant_utils.compute_e8m0">compute_e8m0() (in module modelopt.onnx.quantization.quant_utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.distill.distillation_model.html#modelopt.torch.distill.distillation_model.DistillationModel.compute_kd_loss">compute_kd_loss() (DistillationModel method)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#modelopt.torch.prune.importance_hooks.compare_module_outputs.compute_layer_metrics">compute_layer_metrics() (in module modelopt.torch.prune.importance_hooks.compare_module_outputs)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.model_quant.html#modelopt.torch.quantization.model_quant.compute_quantization_mse">compute_quantization_mse() (in module modelopt.torch.quantization.model_quant)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#modelopt.torch.prune.importance_hooks.compare_module_outputs.compute_rmse">compute_rmse() (in module modelopt.torch.prune.importance_hooks.compare_module_outputs)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.export.html#modelopt.onnx.export.FP8QuantExporter.compute_scales">compute_scales() (FP8QuantExporter static method)</a>
 
@@ -922,12 +957,12 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.nas.hparams.concat.html#modelopt.torch.nas.hparams.concat.ConcatTracedHp">ConcatTracedHp (class in modelopt.torch.nas.hparams.concat)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.config">config (BaseSearcher attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.Config">Config (class in modelopt.onnx.quantization.autotune)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.opt.dynamic.html#modelopt.torch.opt.dynamic.DynamicSpace.config">config() (DynamicSpace method)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.nas.autonas.html#modelopt.torch.nas.autonas.AutoNASModeDescriptor.config_class">config_class (AutoNASModeDescriptor property)</a>
@@ -1302,6 +1337,12 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.dummy_input">dummy_input (BaseSearcher attribute)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.ForwardHook.dump_activations_logs">dump_activations_logs() (ForwardHook class method)</a>
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.LayerNormContributionHook.dump_activations_logs">(LayerNormContributionHook class method)</a>
+</li>
+      </ul></li>
       <li><a href="reference/generated/modelopt.torch.export.layer_utils.html#modelopt.torch.export.layer_utils.dup_kv_weight">dup_kv_weight() (in module modelopt.torch.export.layer_utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.autocast.graphsanitizer.html#modelopt.onnx.autocast.graphsanitizer.GraphSanitizer.duplicate_shared_constants">duplicate_shared_constants() (GraphSanitizer method)</a>
@@ -1430,10 +1471,10 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.eos_token_id">eos_token_id (ModelConfig attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LayernormConfig.eps">eps (LayernormConfig attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.InsertionScheme.error">error (InsertionScheme attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.algorithms.html#modelopt.torch.quantization.algorithms.estimate_quant_compression">estimate_quant_compression() (in module modelopt.torch.quantization.algorithms)</a>
@@ -1445,6 +1486,8 @@
 </li>
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.eval_score">eval_score() (BaseSearcher method)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks_analysis.html#modelopt.torch.prune.importance_hooks.base_hooks_analysis.evaluate_importance_scores">evaluate_importance_scores() (in module modelopt.torch.prune.importance_hooks.base_hooks_analysis)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.nas.autonas.html#modelopt.torch.nas.autonas.EvolveSearcher">EvolveSearcher (class in modelopt.torch.nas.autonas)</a>
 </li>
@@ -1679,6 +1722,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.forward_loop">forward_loop (BaseSearcher attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.ForwardHook">ForwardHook (class in modelopt.torch.prune.importance_hooks.base_hooks)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.backends.utils.html#modelopt.torch.quantization.backends.utils.fp4_compatible">fp4_compatible() (in module modelopt.torch.quantization.backends.utils)</a>
 </li>
@@ -1954,14 +1999,14 @@
         <li><a href="reference/generated/modelopt.onnx.llm_export_utils.export_utils.html#modelopt.onnx.llm_export_utils.export_utils.ModelLoader.get_model_type">(ModelLoader method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.SequentialQuantizer.get_modelopt_state">get_modelopt_state() (SequentialQuantizer method)</a>
 
       <ul>
         <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.get_modelopt_state">(TensorQuantizer method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.utils.network.html#modelopt.torch.utils.network.get_module_device">get_module_device() (in module modelopt.torch.utils.network)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.utils.html#modelopt.torch.sparsity.attention_sparsity.utils.get_named_sparse_attention_modules">get_named_sparse_attention_modules() (in module modelopt.torch.sparsity.attention_sparsity.utils)</a>
@@ -1996,6 +2041,8 @@
 </li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.get_output_shapes">get_output_shapes() (in module modelopt.onnx.utils)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#modelopt.torch.prune.importance_hooks.compare_module_outputs.OutputSaveHook.get_outputs_list">get_outputs_list() (OutputSaveHook method)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.get_parent_nodes">get_parent_nodes() (in module modelopt.onnx.utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.PatternCache.get_pattern_schemes">get_pattern_schemes() (PatternCache method)</a>
@@ -2004,6 +2051,12 @@
 </li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.get_producer_nodes">get_producer_nodes() (in module modelopt.onnx.utils)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.ForwardHook.get_progress_info">get_progress_info() (ForwardHook method)</a>
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IterativeChannelContributionHook.get_progress_info">(IterativeChannelContributionHook method)</a>
+</li>
+      </ul></li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.get_qdq_precisions">get_qdq_precisions() (in module modelopt.onnx.utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.diffusers_utils.html#modelopt.torch.export.diffusers_utils.get_qkv_group_key">get_qkv_group_key() (in module modelopt.torch.export.diffusers_utils)</a>
@@ -2271,6 +2324,10 @@
       <li><a href="reference/generated/modelopt.onnx.autocast.nodeclassifier.html#modelopt.onnx.autocast.nodeclassifier.IncludeOpTypes">IncludeOpTypes (class in modelopt.onnx.autocast.nodeclassifier)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.trace.symbols.html#modelopt.torch.trace.symbols.Symbol.CLType.INCOMING">INCOMING (Symbol.CLType attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentChannelContributionHook">IndependentChannelContributionHook (class in modelopt.torch.prune.importance_hooks.base_hooks)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentKvHeadContributionHook">IndependentKvHeadContributionHook (class in modelopt.torch.prune.importance_hooks.base_hooks)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.diffusers_utils.html#modelopt.torch.export.diffusers_utils.infer_dtype_from_model">infer_dtype_from_model() (in module modelopt.torch.export.diffusers_utils)</a>
 </li>
@@ -2582,7 +2639,23 @@
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.nas.autonas.html#modelopt.torch.nas.autonas.IterativeSearcher.iter_num">iter_num (IterativeSearcher attribute)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IterativeChannelContributionHook">IterativeChannelContributionHook (class in modelopt.torch.prune.importance_hooks.base_hooks)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.nas.autonas.html#modelopt.torch.nas.autonas.IterativeSearcher">IterativeSearcher (class in modelopt.torch.nas.autonas)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.utils.robust_json.html#modelopt.torch.utils.robust_json.json_dump">json_dump() (in module modelopt.torch.utils.robust_json)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.utils.robust_json.html#modelopt.torch.utils.robust_json.json_dumps">json_dumps() (in module modelopt.torch.utils.robust_json)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.utils.robust_json.html#modelopt.torch.utils.robust_json.json_load">json_load() (in module modelopt.torch.utils.robust_json)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -2620,6 +2693,8 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.L2NormHook">L2NormHook (class in modelopt.torch.prune.importance_hooks.base_hooks)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.ModeloptStateManager.last_mode">last_mode (ModeloptStateManager property)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.InsertionScheme.latency_ms">latency_ms (InsertionScheme attribute)</a>
@@ -2633,6 +2708,8 @@
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LayernormConfig.layernorm_type">layernorm_type (LayernormConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LayernormConfig">LayernormConfig (class in modelopt.torch.export.model_config)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.LayerNormContributionHook">LayerNormContributionHook (class in modelopt.torch.prune.importance_hooks.base_hooks)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.tensorrt_llm_type.html#modelopt.torch.export.tensorrt_llm_type.LayerNormPositionType">LayerNormPositionType (class in modelopt.torch.export.tensorrt_llm_type)</a>
 </li>
@@ -2690,10 +2767,10 @@
         <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.lm_head">(ModelConfig attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.ln_embed">ln_embed (ModelConfig attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.ln_f">ln_f (ModelConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.PatternCache.load">load() (PatternCache class method)</a>
@@ -2721,6 +2798,18 @@
       <li><a href="reference/generated/modelopt.torch.distill.distillation_model.html#modelopt.torch.distill.distillation_model.DistillationModel.load_state_dict">load_state_dict() (DistillationModel method)</a>
 
       <ul>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.ForwardHook.load_state_dict">(ForwardHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentChannelContributionHook.load_state_dict">(IndependentChannelContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentKvHeadContributionHook.load_state_dict">(IndependentKvHeadContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IterativeChannelContributionHook.load_state_dict">(IterativeChannelContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.L2NormHook.load_state_dict">(L2NormHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.LayerNormContributionHook.load_state_dict">(LayerNormContributionHook method)</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.ModeloptStateManager.load_state_dict">(ModeloptStateManager method)</a>
 </li>
       </ul></li>
@@ -2771,6 +2860,8 @@
       <li><a href="reference/generated/modelopt.torch.sparsity.weight_sparsity.magnitude.html#modelopt.torch.sparsity.weight_sparsity.magnitude.m4n2_1d">m4n2_1d() (in module modelopt.torch.sparsity.weight_sparsity.magnitude)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.sparsity.weight_sparsity.magnitude.html#modelopt.torch.sparsity.weight_sparsity.magnitude.MagnitudeSearcher">MagnitudeSearcher (class in modelopt.torch.sparsity.weight_sparsity.magnitude)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#modelopt.torch.prune.importance_hooks.compare_module_outputs.main">main() (in module modelopt.torch.prune.importance_hooks.compare_module_outputs)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.speculative.eagle.utils.html#modelopt.torch.speculative.eagle.utils.make_causal_mask">make_causal_mask() (in module modelopt.torch.speculative.eagle.utils)</a>
 </li>
@@ -3741,6 +3832,41 @@
 </li>
       </ul></li>
       <li>
+    modelopt.torch.prune.importance_hooks
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.html#module-modelopt.torch.prune.importance_hooks">module</a>
+</li>
+      </ul></li>
+      <li>
+    modelopt.torch.prune.importance_hooks.base_hooks
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#module-modelopt.torch.prune.importance_hooks.base_hooks">module</a>
+</li>
+      </ul></li>
+      <li>
+    modelopt.torch.prune.importance_hooks.base_hooks_analysis
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks_analysis.html#module-modelopt.torch.prune.importance_hooks.base_hooks_analysis">module</a>
+</li>
+      </ul></li>
+      <li>
+    modelopt.torch.prune.importance_hooks.compare_module_outputs
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#module-modelopt.torch.prune.importance_hooks.compare_module_outputs">module</a>
+</li>
+      </ul></li>
+      <li>
+    modelopt.torch.prune.importance_hooks.plugins
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.plugins.html#module-modelopt.torch.prune.importance_hooks.plugins">module</a>
+</li>
+      </ul></li>
+      <li>
     modelopt.torch.prune.plugins
 
       <ul>
@@ -3999,6 +4125,8 @@
         <li><a href="reference/generated/modelopt.torch.quantization.qtensor.int8_tensor.html#module-modelopt.torch.quantization.qtensor.int8_tensor">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     modelopt.torch.quantization.qtensor.mxfp4_tensor
 
@@ -4006,8 +4134,6 @@
         <li><a href="reference/generated/modelopt.torch.quantization.qtensor.mxfp4_tensor.html#module-modelopt.torch.quantization.qtensor.mxfp4_tensor">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     modelopt.torch.quantization.qtensor.mxfp8_tensor
 
@@ -4492,6 +4618,13 @@
 </li>
       </ul></li>
       <li>
+    modelopt.torch.utils.robust_json
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.utils.robust_json.html#module-modelopt.torch.utils.robust_json">module</a>
+</li>
+      </ul></li>
+      <li>
     modelopt.torch.utils.speech_dataset_utils
 
       <ul>
@@ -4760,6 +4893,16 @@
 </li>
         <li><a href="reference/generated/modelopt.torch.prune.gradnas.html#module-modelopt.torch.prune.gradnas">modelopt.torch.prune.gradnas</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.html#module-modelopt.torch.prune.importance_hooks">modelopt.torch.prune.importance_hooks</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#module-modelopt.torch.prune.importance_hooks.base_hooks">modelopt.torch.prune.importance_hooks.base_hooks</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks_analysis.html#module-modelopt.torch.prune.importance_hooks.base_hooks_analysis">modelopt.torch.prune.importance_hooks.base_hooks_analysis</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#module-modelopt.torch.prune.importance_hooks.compare_module_outputs">modelopt.torch.prune.importance_hooks.compare_module_outputs</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.plugins.html#module-modelopt.torch.prune.importance_hooks.plugins">modelopt.torch.prune.importance_hooks.plugins</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.prune.plugins.html#module-modelopt.torch.prune.plugins">modelopt.torch.prune.plugins</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.prune.pruning.html#module-modelopt.torch.prune.pruning">modelopt.torch.prune.pruning</a>
@@ -4973,6 +5116,8 @@
         <li><a href="reference/generated/modelopt.torch.utils.random.html#module-modelopt.torch.utils.random">modelopt.torch.utils.random</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.utils.regex.html#module-modelopt.torch.utils.regex">modelopt.torch.utils.regex</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.utils.robust_json.html#module-modelopt.torch.utils.robust_json">modelopt.torch.utils.robust_json</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.utils.speech_dataset_utils.html#module-modelopt.torch.utils.speech_dataset_utils">modelopt.torch.utils.speech_dataset_utils</a>
 </li>
@@ -5368,6 +5513,8 @@
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.ChildRegionOutputInsertionPoint.output_index">output_index (ChildRegionOutputInsertionPoint attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.quant_module.html#modelopt.torch.quantization.nn.modules.quant_module.QuantInputBase.output_quantizer">output_quantizer (QuantInputBase attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#modelopt.torch.prune.importance_hooks.compare_module_outputs.OutputSaveHook">OutputSaveHook (class in modelopt.torch.prune.importance_hooks.compare_module_outputs)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -6161,6 +6308,8 @@
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.export.moe_utils.html#modelopt.torch.export.moe_utils.save_expert_token_count_table">save_expert_token_count_table() (in module modelopt.torch.export.moe_utils)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.ForwardHook.save_hook_states">save_hook_states() (ForwardHook class method)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.distill.mode.html#modelopt.torch.distill.mode.ExportStudentModeDescriptor.save_mode_in_state">save_mode_in_state (ExportStudentModeDescriptor property)</a>
 
       <ul>
@@ -6169,6 +6318,8 @@
         <li><a href="reference/generated/modelopt.torch.opt.mode.html#modelopt.torch.opt.mode.ModeDescriptor.save_mode_in_state">(ModeDescriptor property)</a>
 </li>
       </ul></li>
+      <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.compare_module_outputs.html#modelopt.torch.prune.importance_hooks.compare_module_outputs.save_multi_layer_outputs">save_multi_layer_outputs() (in module modelopt.torch.prune.importance_hooks.compare_module_outputs)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.save_onnx">save_onnx() (in module modelopt.onnx.utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.save_onnx_bytes_to_dir">save_onnx_bytes_to_dir() (in module modelopt.onnx.utils)</a>
@@ -6275,12 +6426,12 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.network.html#modelopt.torch.utils.network.set_submodule">set_submodule() (in module modelopt.torch.utils.network)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.trace.symbols.html#modelopt.torch.trace.symbols.SymMap.set_symbol">set_symbol() (SymMap method)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.trt_utils.html#modelopt.onnx.trt_utils.set_trt_plugin_domain">set_trt_plugin_domain() (in module modelopt.onnx.trt_utils)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.prune.gradnas.html#modelopt.torch.prune.gradnas.GradientBinarySearcher.SETUP_GRADIENT_FUNC">SETUP_GRADIENT_FUNC (GradientBinarySearcher attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.autocast.utils.html#modelopt.onnx.autocast.utils.setup_mappings">setup_mappings() (in module modelopt.onnx.autocast.utils)</a>
@@ -6373,6 +6524,18 @@
 
       <ul>
         <li><a href="reference/generated/modelopt.torch.distill.distillation_model.html#modelopt.torch.distill.distillation_model.DistillationModel.state_dict">(DistillationModel method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.ForwardHook.state_dict">(ForwardHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentChannelContributionHook.state_dict">(IndependentChannelContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentKvHeadContributionHook.state_dict">(IndependentKvHeadContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IterativeChannelContributionHook.state_dict">(IterativeChannelContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.L2NormHook.state_dict">(L2NormHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.LayerNormContributionHook.state_dict">(LayerNormContributionHook method)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.ModeloptStateManager.state_dict">(ModeloptStateManager method)</a>
 </li>
@@ -6490,7 +6653,19 @@
       <ul>
         <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.ChildRegionOutputInsertionPoint.to_dict">(ChildRegionOutputInsertionPoint method)</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.ForwardHook.to_dict">(ForwardHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentChannelContributionHook.to_dict">(IndependentChannelContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IndependentKvHeadContributionHook.to_dict">(IndependentKvHeadContributionHook method)</a>
+</li>
         <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.InsertionScheme.to_dict">(InsertionScheme method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.IterativeChannelContributionHook.to_dict">(IterativeChannelContributionHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.L2NormHook.to_dict">(L2NormHook method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.LayerNormContributionHook.to_dict">(LayerNormContributionHook method)</a>
 </li>
         <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.NodeInputInsertionPoint.to_dict">(NodeInputInsertionPoint method)</a>
 </li>

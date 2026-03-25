@@ -21,6 +21,10 @@ prune
 
 
 
+   modelopt.torch.prune.importance_hooks
+
+
+
    modelopt.torch.prune.plugins
 
 

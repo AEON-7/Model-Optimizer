@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>methods &mdash; Model Optimizer 0.0.1.dev1+g291498b6f</title>
+  <title>methods &mdash; Model Optimizer 0.0.1.dev1+gb1f9f0121</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -190,8 +190,11 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.apply_sparsity">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">apply_sparsity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attention_scores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sparse_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.apply_sparsity" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">apply_sparsity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attention_scores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sparse_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.apply_sparsity" title="Link to this definition"></a></dt>
 <dd><p>Apply sparsity mask to attention scores.</p>
+<p>Default: raises NotImplementedError. Override for methods that apply
+masks outside the kernel. Kernel-fused methods (Triton backend)
+don’t need this — sparsity is applied inside the kernel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -210,8 +213,11 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.calculate_sparsity">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_sparsity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attention_scores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.calculate_sparsity" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calculate_sparsity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attention_scores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.calculate_sparsity" title="Link to this definition"></a></dt>
 <dd><p>Calculate sparsity mask and statistics without applying.</p>
+<p>Default: no-op (keep all). Override for methods that compute masks
+outside the kernel (e.g. pytorch-backend softmax patching).
+Kernel-fused methods (Triton backend) can use this default.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>attention_scores</strong> (<em>Tensor</em>) – Pre-softmax attention scores [batch, heads, seq_q, seq_k]</p>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+g291498b6f</title>
+  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+gb1f9f0121</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -98,24 +98,24 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">NVIDIA Model Optimizer Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#xx">0.44 (2026-05-xx)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">0.43 (2026-04-09)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.42 (2026-03-10)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">0.41 (2026-01-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">0.40 (2025-12-12)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">0.39 (2025-11-11)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">0.37 (2025-10-08)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">0.35 (2025-09-04)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">0.33 (2025-07-14)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">0.31 (2025-06-04)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">0.29 (2025-05-08)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id12">0.27 (2025-04-03)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id13">0.25 (2025-03-03)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">0.23 (2025-01-29)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id15">0.21 (2024-12-03)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id16">0.19 (2024-10-23)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id17">0.17 (2024-09-11)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id18">0.15 (2024-07-25)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id19">0.13 (2024-06-14)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id21">0.11 (2024-05-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.42 (2026-03-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.41 (2026-01-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">0.40 (2025-12-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.39 (2025-11-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">0.37 (2025-10-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">0.35 (2025-09-04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">0.33 (2025-07-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">0.31 (2025-06-04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">0.29 (2025-05-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">0.27 (2025-04-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">0.25 (2025-03-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">0.23 (2025-01-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">0.21 (2024-12-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">0.19 (2024-10-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">0.17 (2024-09-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">0.15 (2024-07-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">0.13 (2024-06-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id22">0.11 (2024-05-07)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="1_modelopt_api.html">modelopt API</a></li>
@@ -158,6 +158,7 @@
 <ul class="simple">
 <li><p>Support full Transformer Engine spec for Minitron pruning (<code class="docutils literal notranslate"><span class="pre">mcore_minitron</span></code>). Now we no longer need to use custom ModelOpt spec. Note that this does not affect the usage of the pruning workflow but makes pruning slightly faster and may result in slightly different pruned model because of different kernel and numerics.</p></li>
 <li><p>Added iterator interface using CalibrationDataReader in ONNX quantization workflow.</p></li>
+<li><p>Add N:M sparse softmax support to the Triton flash attention kernel (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.kernels.triton_fa</span></code>). See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity" rel="noopener noreferrer" target="_blank">examples/llm_sparsity/attention_sparsity/README.md</a> for usage.</p></li>
 <li><p>Enable PTQ workflow for the Step3.5-Flash MoE model with NVFP4 W4A4 + FP8 KV cache quantization. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml" rel="noopener noreferrer" target="_blank">modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml</a> for more details.</p></li>
 </ul>
 <p><strong>Bug Fixes</strong></p>
@@ -209,8 +210,8 @@
 <li><p>Enable experimental Python 3.13 wheel support and unit tests in CI/CD.</p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>0.42 (2026-03-10)<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="id3">
+<h2>0.42 (2026-03-10)<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p><strong>Bug Fixes</strong></p>
 <ul class="simple">
 <li><p>Fix calibration data generation with multiple samples in the ONNX workflow.</p></li>
@@ -233,8 +234,8 @@
 <li><p>Add distillation support for LTX-2. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/diffusers/distillation" rel="noopener noreferrer" target="_blank">examples/diffusers/distillation/README.md</a> for more details.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>0.41 (2026-01-19)<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h2>0.41 (2026-01-19)<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p><strong>Bug Fixes</strong></p>
 <ul class="simple">
 <li><p>Fix Megatron KV Cache quantization checkpoint restore for QAT/QAD (device placement, amax sync across DP/TP, flash_decode compatibility).</p></li>
@@ -266,8 +267,8 @@
 <li><p>Add <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/windows/accuracy_benchmark/perplexity_metrics" rel="noopener noreferrer" target="_blank">Perplexity</a> and <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/windows/accuracy_benchmark/kl_divergence_metrics" rel="noopener noreferrer" target="_blank">KL-Divergence</a> accuracy benchmarks.</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>0.40 (2025-12-12)<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<section id="id5">
+<h2>0.40 (2025-12-12)<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p><strong>Bug Fixes</strong></p>
 <ul class="simple">
 <li><p>Fix a bug in FastNAS pruning (computer vision models) where the model parameters were sorted twice messing up the ordering.</p></li>
@@ -297,8 +298,8 @@
 <li><p>Replace ONNX simplification package from <code class="docutils literal notranslate"><span class="pre">onnxsim</span></code> to <code class="docutils literal notranslate"><span class="pre">onnxslim</span></code>.</p></li>
 </ul>
 </section>
-<section id="id5">
-<h2>0.39 (2025-11-11)<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<section id="id6">
+<h2>0.39 (2025-11-11)<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p><strong>Deprecations</strong></p>
 <ul class="simple">
 <li><p>Deprecated <code class="docutils literal notranslate"><span class="pre">modelopt.torch._deploy.utils.get_onnx_bytes</span></code> API. Please use <code class="docutils literal notranslate"><span class="pre">modelopt.torch._deploy.utils.get_onnx_bytes_and_metadata</span></code> instead to access the ONNX model bytes with external data. see <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/onnx_ptq/download_example_onnx.py" rel="noopener noreferrer" target="_blank">examples/onnx_ptq/download_example_onnx.py</a> for example usage.</p></li>
@@ -326,8 +327,8 @@
 <li><p>Added example for exporting QLoRA checkpoint for vLLM deployment. Refer to <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/79ef31bc7269ba4da0cfab446da5b64509cbfcef/examples/llm_qat/README.md#qlora-deployment" rel="noopener noreferrer" target="_blank">examples/llm_qat/README.md</a> for more details</p></li>
 </ul>
 </section>
-<section id="id6">
-<h2>0.37 (2025-10-08)<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<section id="id7">
+<h2>0.37 (2025-10-08)<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p><strong>Deprecations</strong></p>
 <ul class="simple">
 <li><p>Deprecated ModelOpt’s custom docker images. Please use the PyTorch, TensorRT-LLM or TensorRT docker image directly or refer to the <a class="reference external" href="https://nvidia.github.io/Model-Optimizer/getting_started/2_installation.html" rel="noopener noreferrer" target="_blank">installation guide</a> for more details.</p></li>
@@ -345,8 +346,8 @@
 <li><p>Add Minitron pruning example for Megatron-LM framework. See <a class="reference external" href="https://github.com/NVIDIA/Megatron-LM/tree/main/examples/post_training/modelopt" rel="noopener noreferrer" target="_blank">Megatron-LM/examples/post_training/modelopt</a> for more details.</p></li>
 </ul>
 </section>
-<section id="id8">
-<h2>0.35 (2025-09-04)<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<section id="id9">
+<h2>0.35 (2025-09-04)<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
 <p><strong>Deprecations</strong></p>
 <ul class="simple">
 <li><p>Deprecate <code class="docutils literal notranslate"><span class="pre">torch&lt;2.6</span></code> support.</p></li>
@@ -373,8 +374,8 @@ ModelOpt trainers can be used as drop in replacement of the corresponding Huggin
 <li><p>Add unified HuggingFace model export support for quantized NVFP4 GPT-OSS models.</p></li>
 </ul>
 </section>
-<section id="id9">
-<h2>0.33 (2025-07-14)<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<section id="id10">
+<h2>0.33 (2025-07-14)<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>PyTorch dependencies for <code class="docutils literal notranslate"><span class="pre">modelopt.torch</span></code> features are no longer optional and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nvidia-modelopt</span></code> is now same as <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nvidia-modelopt[torch]</span></code>.</p></li>
@@ -397,8 +398,8 @@ ModelOpt trainers can be used as drop in replacement of the corresponding Huggin
 <li><p>Model Optimizer for Windows now supports <a class="reference external" href="https://onnxruntime.ai/docs/execution-providers/TensorRTRTX-ExecutionProvider.html" rel="noopener noreferrer" target="_blank">NvTensorRtRtx</a> execution-provider.</p></li>
 </ul>
 </section>
-<section id="id10">
-<h2>0.31 (2025-06-04)<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<section id="id11">
+<h2>0.31 (2025-06-04)<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><dl class="simple">
@@ -435,8 +436,8 @@ ModelOpt trainers can be used as drop in replacement of the corresponding Huggin
 <li><p>Support <code class="docutils literal notranslate"><span class="pre">NemotronHForCausalLM</span></code>, <code class="docutils literal notranslate"><span class="pre">Qwen3ForCausalLM</span></code>, <code class="docutils literal notranslate"><span class="pre">Qwen3MoeForCausalLM</span></code> Megatron Core model import/export (from/to HuggingFace).</p></li>
 </ul>
 </section>
-<section id="id11">
-<h2>0.29 (2025-05-08)<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<section id="id12">
+<h2>0.29 (2025-05-08)<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>Refactor <code class="docutils literal notranslate"><span class="pre">SequentialQuantizer</span></code> to improve its implementation and maintainability while preserving its functionality.</p></li>
@@ -470,8 +471,8 @@ ModelOpt trainers can be used as drop in replacement of the corresponding Huggin
 <li><p>Add new example for torch quantization to ONNX for MXFP8, NVFP4 precision.</p></li>
 </ul>
 </section>
-<section id="id12">
-<h2>0.27 (2025-04-03)<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<section id="id13">
+<h2>0.27 (2025-04-03)<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
 <p><strong>Deprecations</strong></p>
 <ul class="simple">
 <li><p>Deprecate real quantization configs, please use <a class="reference internal" href="generated/modelopt.torch.quantization.compress.html#modelopt.torch.quantization.compress" title="modelopt.torch.quantization.compress"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mtq.compress</span></code></a> API for model compression after quantization.</p></li>
@@ -507,8 +508,8 @@ ModelOpt trainers can be used as drop in replacement of the corresponding Huggin
 <li><p>Quantization of T5 models is broken. Please use <code class="docutils literal notranslate"><span class="pre">nvidia-modelopt==0.25.0</span></code> with <code class="docutils literal notranslate"><span class="pre">transformers&lt;4.50</span></code> meanwhile.</p></li>
 </ul>
 </section>
-<section id="id13">
-<h2>0.25 (2025-03-03)<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
+<section id="id14">
+<h2>0.25 (2025-03-03)<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
 <p><strong>Deprecations</strong></p>
 <ul class="simple">
 <li><p>Deprecate Torch 2.1 support.</p></li>
@@ -529,8 +530,8 @@ It can be used for rotation based quantization methods, e.g. QuaRot. Users need 
 <li><p>Add end-to-end <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_autodeploy" rel="noopener noreferrer" target="_blank">AutoDeploy example for AutoQuant LLM models</a>.</p></li>
 </ul>
 </section>
-<section id="id14">
-<h2>0.23 (2025-01-29)<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<section id="id15">
+<h2>0.23 (2025-01-29)<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>Support TensorRT-LLM to 0.17. Examples (e.g. benchmark task in llm_ptq) may not be fully compatible with TensorRT-LLM 0.15.</p></li>
@@ -551,8 +552,8 @@ It can be used for rotation based quantization methods, e.g. QuaRot. Users need 
 <li><p>The unified llama3.1 FP8 huggingface checkpoints can be deployed on <a class="reference external" href="https://github.com/sgl-project/sglang/pull/2535" rel="noopener noreferrer" target="_blank">SGLang</a>.</p></li>
 </ul>
 </section>
-<section id="id15">
-<h2>0.21 (2024-12-03)<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<section id="id16">
+<h2>0.21 (2024-12-03)<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>Support TensorRT-LLM to 0.15. Examples (e.g. benchmark task in llm_ptq) may not be fully compatible with TensorRT-LLM 0.14.</p></li>
@@ -577,8 +578,8 @@ It can be used for rotation based quantization methods, e.g. QuaRot. Users need 
 <li><p>Added deprecation warnings for Python 3.8, torch 2.0, and CUDA 11.x. Support will be dropped in the next release.</p></li>
 </ul>
 </section>
-<section id="id16">
-<h2>0.19 (2024-10-23)<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<section id="id17">
+<h2>0.19 (2024-10-23)<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>Deprecated the summarize task in the <code class="docutils literal notranslate"><span class="pre">llm_ptq</span></code> example.</p></li>
@@ -616,8 +617,8 @@ quantization for NeMo &amp; MCore models (in addition to HuggingFace models).</p
 </ul>
 <p>* <em>This version includes experimental features such as TensorRT deployment of ONNX INT4 models, PyTorch quantization and sparsity. These are currently unverified on Windows.</em></p>
 </section>
-<section id="id17">
-<h2>0.17 (2024-09-11)<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
+<section id="id18">
+<h2>0.17 (2024-09-11)<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>Deprecated <code class="docutils literal notranslate"><span class="pre">torch&lt;2.0</span></code> support.</p></li>
@@ -652,8 +653,8 @@ no longer needed for supporting distributed data and tensor parallelism in quant
 a future release.</p></li>
 </ul>
 </section>
-<section id="id18">
-<h2>0.15 (2024-07-25)<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
+<section id="id19">
+<h2>0.15 (2024-07-25)<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>Deprecated <code class="xref py py-class docutils literal notranslate"><span class="pre">QuantDescriptor</span></code>.
@@ -685,8 +686,8 @@ Hugging Face models with namings aligned with its original checkpoints.</p></li>
 <li><p>Added deprecation warning for <code class="docutils literal notranslate"><span class="pre">torch&lt;2.0</span></code>. Support will be dropped in next release.</p></li>
 </ul>
 </section>
-<section id="id19">
-<h2>0.13 (2024-06-14)<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<section id="id20">
+<h2>0.13 (2024-06-14)<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_ptq" rel="noopener noreferrer" target="_blank">PTQ examples</a> have been
@@ -703,8 +704,8 @@ upgraded to use TensorRT-LLM 0.10.</p></li>
 <li><p>(Experimental) Python 3.12 support added.</p></li>
 </ul>
 </section>
-<section id="id21">
-<h2>0.11 (2024-05-07)<a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
+<section id="id22">
+<h2>0.11 (2024-05-07)<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
 <p><strong>Backward Breaking Changes</strong></p>
 <ul class="simple">
 <li><p>[!!!] The package was renamed from <code class="docutils literal notranslate"><span class="pre">ammo</span></code> to <code class="docutils literal notranslate"><span class="pre">modelopt</span></code>. The new full product

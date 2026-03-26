@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation for Linux &mdash; Model Optimizer 0.0.1.dev1+g531221cc7</title>
+  <title>Installation for Linux &mdash; Model Optimizer 0.0.1.dev1+ge3999693f</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -189,7 +189,7 @@ e.g., <code class="docutils literal notranslate"><span class="pre">nvcr.io/nvidi
 <p>You may need to install additional dependencies from the respective examples’s <cite>requirements.txt</cite> file.</p>
 <p><strong>Alternative NVIDIA docker images</strong></p>
 <p>For PyTorch, you can also use <a class="reference external" href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch/tags" rel="noopener noreferrer" target="_blank">NVIDIA NGC PyTorch container</a>
-and for NVIDIA NeMo framework, you can use the <a class="reference external" href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/nemo/tags" rel="noopener noreferrer" target="_blank">NeMo container</a>.
+and for NVIDIA Megatron-Bridge or Megatron-LM framework, you can use the <a class="reference external" href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/nemo/tags" rel="noopener noreferrer" target="_blank">NeMo container</a>.
 Both of these containers come with Model Optimizer pre-installed. Make sure to update the Model Optimizer to the latest version if not already.</p>
 <p>For ONNX / TensorRT use cases, you can also use the <a class="reference external" href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorrt/tags" rel="noopener noreferrer" target="_blank">TensorRT container</a>
 which provides superior performance to the PyTorch container.</p>
@@ -207,7 +207,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>modelopt
 be installed. If you want to install a specific PyTorch version for a specific CUDA version, please first
 follow the instructions to <a class="reference external" href="https://pytorch.org/get-started/locally/" rel="noopener noreferrer" target="_blank">install your desired PyTorch version</a>.</p>
 <p>(Optional) <strong>Install other NVIDIA dependencies</strong></p>
-<p>If you wish to use ModelOpt in conjunction with other NVIDIA libraries (e.g. TensorRT, TensorRT-LLM, NeMo, Triton, etc.),
+<p>If you wish to use ModelOpt in conjunction with other NVIDIA libraries (e.g. TensorRT, TensorRT-LLM, Megatron-Bridge, Megatron-LM, Triton, etc.),
 please make sure to check the ease of installation of these libraries in a local environment. If you face any
 issues, we recommend using a docker image for a seamless experience. You may still choose to use other ModelOpt’s
 features locally for example, quantizing a HuggingFace model and then use a docker image for deployment.</p>

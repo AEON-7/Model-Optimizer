@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NAS &mdash; Model Optimizer 0.0.1.dev1+g531221cc7</title>
+  <title>NAS &mdash; Model Optimizer 0.0.1.dev1+ge3999693f</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -492,7 +492,7 @@ can be converted into searchable units:</p>
 <span class="c1"># search over the number of layers (depth) in the sequential layer.</span>
 <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span>
 
-<span class="c1"># We convert Megatron-core / NeMo GPT or MoE or Mamba Hybrid style models (e.g. Llama3, Nemotron-H, Qwen3-30B-A3B)</span>
+<span class="c1"># We convert Megatron-core / Megatron-Bridge GPT or MoE or Mamba Hybrid style models (e.g. Llama3, Nemotron-3-Nano, Qwen3-30B-A3B)</span>
 <span class="c1"># to automatically search over the</span>
 <span class="c1"># MLP hidden size, number of attention heads</span>
 <span class="c1"># number of mamba heads, mamba head dimension,</span>
@@ -500,7 +500,6 @@ can be converted into searchable units:</p>
 <span class="c1"># and depth of the model.</span>
 <span class="n">megatron</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">gpt</span><span class="o">.</span><span class="n">GPTModel</span>
 <span class="n">megatron</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">mamba</span><span class="o">.</span><span class="n">MambaModel</span>
-<span class="n">nemo</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">llm</span><span class="o">.</span><span class="n">gpt</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">GPTModel</span>
 
 <span class="c1"># We convert Hugging Face Attention layers to automatically search over the number of heads</span>
 <span class="c1"># and MLP hidden size.</span>

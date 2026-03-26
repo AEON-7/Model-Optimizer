@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+g531221cc7</title>
+  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+ge3999693f</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -152,9 +152,6 @@
              
   <section id="nvidia-model-optimizer-changelog">
 <h1>NVIDIA Model Optimizer Changelog<a class="headerlink" href="#nvidia-model-optimizer-changelog" title="Link to this heading"></a></h1>
-<p>0.44 (2026-04-xx)</p>
-<p><strong>New Features</strong>
-- Added iterator interface using CalibrationDataReader in ONNX quantization workflow.</p>
 <section id="xx">
 <h2>0.44 (2026-05-xx)<a class="headerlink" href="#xx" title="Link to this heading"></a></h2>
 <p><strong>New Features</strong></p>
@@ -199,6 +196,11 @@
 <li><p>Add support for Nemotron-3 (NemotronHForCausalLM) model quantization and support for NemotronH MoE expert support in <code class="docutils literal notranslate"><span class="pre">auto_quantize</span></code> grouping and scoring rules.</p></li>
 <li><p>Add support for block-granular RHT for non-power-of-2 dimensions.</p></li>
 <li><p>Replace modelopt FP8 QDQ nodes with native ONNX QDQ nodes.</p></li>
+</ul>
+<p><strong>Deprecations</strong></p>
+<ul class="simple">
+<li><p>Removed MT-Bench (FastChat) support from <code class="docutils literal notranslate"><span class="pre">examples/llm_eval</span></code>. The <code class="docutils literal notranslate"><span class="pre">run_fastchat.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">gen_model_answer.py</span></code> scripts have been deleted, and the <code class="docutils literal notranslate"><span class="pre">mtbench</span></code> task has been removed from the <code class="docutils literal notranslate"><span class="pre">llm_ptq</span></code> example scripts.</p></li>
+<li><p>Remove deprecated NeMo-2.0 Framework references.</p></li>
 </ul>
 <p><strong>Misc</strong></p>
 <ul class="simple">

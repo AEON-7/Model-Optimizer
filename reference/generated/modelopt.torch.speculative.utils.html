@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g2bad66c8b</title>
+  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g7f5fd6500</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -27,7 +27,7 @@
       <script>let toggleHintShow = 'Click to show';</script>
       <script>let toggleHintHide = 'Click to hide';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+      <script src="../../_static/togglebutton.js?v=b8b12719"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/js/theme.js"></script>
@@ -194,8 +194,8 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.speculative.utils.get_ttt_msk_func" title="modelopt.torch.speculative.utils.get_ttt_msk_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ttt_msk_func</span></code></a></p></td>
 <td><p>Return mask function for Eagle3 Training Time Test.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.speculative.utils.load_vlm_or_llm_with_kwargs" title="modelopt.torch.speculative.utils.load_vlm_or_llm_with_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_vlm_or_llm_with_kwargs</span></code></a></p></td>
-<td><p>Load a VLM or LLM with kwargs.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.speculative.utils.load_vlm_or_llm" title="modelopt.torch.speculative.utils.load_vlm_or_llm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_vlm_or_llm</span></code></a></p></td>
+<td><p>Load a VLM or LLM.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.speculative.utils.patch_transformers5_params_loading" title="modelopt.torch.speculative.utils.patch_transformers5_params_loading"><code class="xref py py-obj docutils literal notranslate"><span class="pre">patch_transformers5_params_loading</span></code></a></p></td>
 <td><p>Patch transformers 5.x parameter loading to preserve original <cite>requires_grad</cite> settings.</p></td>
@@ -409,12 +409,23 @@ at each level.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.speculative.utils.load_vlm_or_llm_with_kwargs">
-<span class="sig-name descname"><span class="pre">load_vlm_or_llm_with_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name_or_path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.speculative.utils.load_vlm_or_llm_with_kwargs" title="Link to this definition"></a></dt>
-<dd><p>Load a VLM or LLM with kwargs. Returns the model and model config.</p>
+<dt class="sig sig-object py" id="modelopt.torch.speculative.utils.load_vlm_or_llm">
+<span class="sig-name descname"><span class="pre">load_vlm_or_llm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name_or_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_fake_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_offline_training</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">torch_dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_remote_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.speculative.utils.load_vlm_or_llm" title="Link to this definition"></a></dt>
+<dd><p>Load a VLM or LLM. Returns the model.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">use_offline_training=True</span></code>, returns a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">FakeBaseModel</span></code> containing only
+<code class="docutils literal notranslate"><span class="pre">lm_head</span></code> and <code class="docutils literal notranslate"><span class="pre">embed_tokens</span></code>, auto-detecting weight paths from the checkpoint.
+Otherwise, falls back to loading with <code class="docutils literal notranslate"><span class="pre">num_hidden_layers=0</span></code> for memory efficiency.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>model_name_or_path</strong> (<em>str</em>)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_name_or_path</strong> (<em>str</em>) – Local path or HuggingFace repo ID of the model.</p></li>
+<li><p><strong>use_offline_training</strong> (<em>bool</em>) – Whether to load a memory-efficient model for offline training.</p></li>
+<li><p><strong>torch_dtype</strong> (<em>str</em><em> | </em><em>dtype</em><em> | </em><em>None</em>) – dtype to use when loading the model.</p></li>
+<li><p><strong>device_map</strong> (<em>str</em><em> | </em><em>None</em>) – Device map passed to <code class="docutils literal notranslate"><span class="pre">from_pretrained</span></code>.</p></li>
+<li><p><strong>trust_remote_code</strong> (<em>bool</em>) – Whether to trust remote code.</p></li>
+<li><p><strong>use_fake_base</strong> (<em>bool</em>)</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

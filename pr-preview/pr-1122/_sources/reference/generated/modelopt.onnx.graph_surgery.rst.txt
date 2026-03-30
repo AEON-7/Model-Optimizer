@@ -39,7 +39,9 @@ graph\_surgery
    
       add_cross_kv_to_encoder
       convert_fp16_to_bf16
+      get_available_surgeries
       replace_attention_with_gqa
+      run_graph_surgery
       transpose_dequantize_linear_weights
    
    

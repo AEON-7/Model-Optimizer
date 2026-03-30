@@ -44,6 +44,7 @@ graph\_utils
       convert_fp16_io
       expand_node_names_from_patterns
       filter_quantizable_kgen_heads
+      find_conv_to_layernorm_nodes
       find_mha_partitions
       find_nodes_from_convs_to_exclude
       find_nodes_from_matmul_to_exclude

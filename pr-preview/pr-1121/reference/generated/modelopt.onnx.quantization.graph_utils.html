@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>graph_utils &mdash; Model Optimizer 0.0.1.dev1+g29da8c1a0</title>
+  <title>graph_utils &mdash; Model Optimizer 0.0.1.dev1+ga574cb1eb</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -191,91 +191,94 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.filter_quantizable_kgen_heads" title="modelopt.onnx.quantization.graph_utils.filter_quantizable_kgen_heads"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_quantizable_kgen_heads</span></code></a></p></td>
 <td><p>Returns the list of kgen head names if it follows a CASK partition.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_mha_partitions" title="modelopt.onnx.quantization.graph_utils.find_mha_partitions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_mha_partitions</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_conv_to_layernorm_nodes" title="modelopt.onnx.quantization.graph_utils.find_conv_to_layernorm_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_conv_to_layernorm_nodes</span></code></a></p></td>
+<td><p>Find LayerNormalization nodes whose input comes from a CASK (Conv) partition.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_mha_partitions" title="modelopt.onnx.quantization.graph_utils.find_mha_partitions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_mha_partitions</span></code></a></p></td>
 <td><p>Match MHA: BMM1 -&gt; .</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_nodes_from_convs_to_exclude" title="modelopt.onnx.quantization.graph_utils.find_nodes_from_convs_to_exclude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nodes_from_convs_to_exclude</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_nodes_from_convs_to_exclude" title="modelopt.onnx.quantization.graph_utils.find_nodes_from_convs_to_exclude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nodes_from_convs_to_exclude</span></code></a></p></td>
 <td><p>Find unsupported Conv nodes to exclude from quantization.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_nodes_from_matmul_to_exclude" title="modelopt.onnx.quantization.graph_utils.find_nodes_from_matmul_to_exclude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nodes_from_matmul_to_exclude</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_nodes_from_matmul_to_exclude" title="modelopt.onnx.quantization.graph_utils.find_nodes_from_matmul_to_exclude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nodes_from_matmul_to_exclude</span></code></a></p></td>
 <td><p>Find MatMul nodes that meets gemv condition to exclude.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_nodes_from_mha_to_exclude" title="modelopt.onnx.quantization.graph_utils.find_nodes_from_mha_to_exclude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nodes_from_mha_to_exclude</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_nodes_from_mha_to_exclude" title="modelopt.onnx.quantization.graph_utils.find_nodes_from_mha_to_exclude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nodes_from_mha_to_exclude</span></code></a></p></td>
 <td><p>Find MatMul nodes in MHA pattern to exclude.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_nodes_to_exclude" title="modelopt.onnx.quantization.graph_utils.find_nodes_to_exclude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nodes_to_exclude</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.find_nodes_to_exclude" title="modelopt.onnx.quantization.graph_utils.find_nodes_to_exclude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nodes_to_exclude</span></code></a></p></td>
 <td><p>Find the node names from the ONNX graph which matches user's exclusion patterns.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_concat_eliminated_tensors" title="modelopt.onnx.quantization.graph_utils.get_concat_eliminated_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_concat_eliminated_tensors</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_concat_eliminated_tensors" title="modelopt.onnx.quantization.graph_utils.get_concat_eliminated_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_concat_eliminated_tensors</span></code></a></p></td>
 <td><p>Find the input tensors and output tensor of concat that will be quantized.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_extended_model_outputs" title="modelopt.onnx.quantization.graph_utils.get_extended_model_outputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_extended_model_outputs</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_extended_model_outputs" title="modelopt.onnx.quantization.graph_utils.get_extended_model_outputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_extended_model_outputs</span></code></a></p></td>
 <td><p>Run one inference step on an onnx model which has some intermediate tensor marked as model outputs.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_fusible_backbone" title="modelopt.onnx.quantization.graph_utils.get_fusible_backbone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fusible_backbone</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_fusible_backbone" title="modelopt.onnx.quantization.graph_utils.get_fusible_backbone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fusible_backbone</span></code></a></p></td>
 <td><p>Returns the linear backbone node for a given node if it matches the pattern.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_input_shapes" title="modelopt.onnx.quantization.graph_utils.get_input_shapes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_shapes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_input_shapes" title="modelopt.onnx.quantization.graph_utils.get_input_shapes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_input_shapes</span></code></a></p></td>
 <td><p>Returns the input shapes of the given ONNX model.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_layer_info" title="modelopt.onnx.quantization.graph_utils.get_layer_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_layer_info</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_layer_info" title="modelopt.onnx.quantization.graph_utils.get_layer_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_layer_info</span></code></a></p></td>
 <td><p>Generate a mapping of weight tensor names to their quantization configuration.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_layer_precision_mapping" title="modelopt.onnx.quantization.graph_utils.get_layer_precision_mapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_layer_precision_mapping</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_layer_precision_mapping" title="modelopt.onnx.quantization.graph_utils.get_layer_precision_mapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_layer_precision_mapping</span></code></a></p></td>
 <td><p>Generate a mapping of layer names to their quantization precision (4 bits or 8 bits) for an ONNX model.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_resize_scales" title="modelopt.onnx.quantization.graph_utils.get_resize_scales"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_resize_scales</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_resize_scales" title="modelopt.onnx.quantization.graph_utils.get_resize_scales"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_resize_scales</span></code></a></p></td>
 <td><p>Record Resize op's old scale value before converting to fp16.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_tensor_consumer_node_indices" title="modelopt.onnx.quantization.graph_utils.get_tensor_consumer_node_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tensor_consumer_node_indices</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_tensor_consumer_node_indices" title="modelopt.onnx.quantization.graph_utils.get_tensor_consumer_node_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tensor_consumer_node_indices</span></code></a></p></td>
 <td><p>Build a mapping from tensor names to the indices of nodes that use them.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_tensor_consumer_nodes" title="modelopt.onnx.quantization.graph_utils.get_tensor_consumer_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tensor_consumer_nodes</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_tensor_consumer_nodes" title="modelopt.onnx.quantization.graph_utils.get_tensor_consumer_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tensor_consumer_nodes</span></code></a></p></td>
 <td><p>Returns a dictionary of tensor name and their consumer node object mapping.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_tensor_from_name" title="modelopt.onnx.quantization.graph_utils.get_tensor_from_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tensor_from_name</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_tensor_from_name" title="modelopt.onnx.quantization.graph_utils.get_tensor_from_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tensor_from_name</span></code></a></p></td>
 <td><p>Returns a ValueInfoProto given a tensor name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_tensor_producer_nodes" title="modelopt.onnx.quantization.graph_utils.get_tensor_producer_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tensor_producer_nodes</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.get_tensor_producer_nodes" title="modelopt.onnx.quantization.graph_utils.get_tensor_producer_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tensor_producer_nodes</span></code></a></p></td>
 <td><p>Returns a dictionary of tensor name and their producer node object mapping.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.has_const_input" title="modelopt.onnx.quantization.graph_utils.has_const_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_const_input</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.has_const_input" title="modelopt.onnx.quantization.graph_utils.has_const_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_const_input</span></code></a></p></td>
 <td><p>Returns whether the given node has any constant input.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.has_path_type" title="modelopt.onnx.quantization.graph_utils.has_path_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_path_type</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.has_path_type" title="modelopt.onnx.quantization.graph_utils.has_path_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_path_type</span></code></a></p></td>
 <td><p>Checks if the given node is start/end of a given forward/backward path type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.insert_fp8_mha_casts" title="modelopt.onnx.quantization.graph_utils.insert_fp8_mha_casts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_fp8_mha_casts</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.insert_fp8_mha_casts" title="modelopt.onnx.quantization.graph_utils.insert_fp8_mha_casts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_fp8_mha_casts</span></code></a></p></td>
 <td><p>Insert three cast ops.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.insert_matmul_casts" title="modelopt.onnx.quantization.graph_utils.insert_matmul_casts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_matmul_casts</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.insert_matmul_casts" title="modelopt.onnx.quantization.graph_utils.insert_matmul_casts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_matmul_casts</span></code></a></p></td>
 <td><p>Insert three cast nodes for MatMul's two inputs and output.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.is_const_input" title="modelopt.onnx.quantization.graph_utils.is_const_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_const_input</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.is_const_input" title="modelopt.onnx.quantization.graph_utils.is_const_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_const_input</span></code></a></p></td>
 <td><p>Returns whether the given tensor is an initializer or produced by const-foldable nodes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.match_fp8_mha_pattern" title="modelopt.onnx.quantization.graph_utils.match_fp8_mha_pattern"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_fp8_mha_pattern</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.match_fp8_mha_pattern" title="modelopt.onnx.quantization.graph_utils.match_fp8_mha_pattern"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_fp8_mha_pattern</span></code></a></p></td>
 <td><p>Match FP8 fMHA v2 with the given softmax_op.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.print_stat" title="modelopt.onnx.quantization.graph_utils.print_stat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_stat</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.print_stat" title="modelopt.onnx.quantization.graph_utils.print_stat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_stat</span></code></a></p></td>
 <td><p>Collect and print stats of the quantized model.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.remove_output_initializers" title="modelopt.onnx.quantization.graph_utils.remove_output_initializers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_output_initializers</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.remove_output_initializers" title="modelopt.onnx.quantization.graph_utils.remove_output_initializers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_output_initializers</span></code></a></p></td>
 <td><p>Remove initializers that are also listed as graph outputs.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.remove_partial_input_qdq" title="modelopt.onnx.quantization.graph_utils.remove_partial_input_qdq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_partial_input_qdq</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.remove_partial_input_qdq" title="modelopt.onnx.quantization.graph_utils.remove_partial_input_qdq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_partial_input_qdq</span></code></a></p></td>
 <td><p>Modifies the onnx model by removing QDQ nodes from the marked inputs, ex.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.remove_redundant_cast_nodes" title="modelopt.onnx.quantization.graph_utils.remove_redundant_cast_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_redundant_cast_nodes</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.remove_redundant_cast_nodes" title="modelopt.onnx.quantization.graph_utils.remove_redundant_cast_nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_redundant_cast_nodes</span></code></a></p></td>
 <td><p>Remove redundant Cast nodes from the ONNX graph to optimize model performance.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.should_quantize_to_8bit" title="modelopt.onnx.quantization.graph_utils.should_quantize_to_8bit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">should_quantize_to_8bit</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.should_quantize_to_8bit" title="modelopt.onnx.quantization.graph_utils.should_quantize_to_8bit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">should_quantize_to_8bit</span></code></a></p></td>
 <td><p>Check if layer should be quantized to 8 bits.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.validate_8bit_layers" title="modelopt.onnx.quantization.graph_utils.validate_8bit_layers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_8bit_layers</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.validate_8bit_layers" title="modelopt.onnx.quantization.graph_utils.validate_8bit_layers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_8bit_layers</span></code></a></p></td>
 <td><p>Validate the format of layers_8bit string.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.validate_op_types_spelling" title="modelopt.onnx.quantization.graph_utils.validate_op_types_spelling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_op_types_spelling</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.graph_utils.validate_op_types_spelling" title="modelopt.onnx.quantization.graph_utils.validate_op_types_spelling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_op_types_spelling</span></code></a></p></td>
 <td><p>Validate spelling in op types.</p></td>
 </tr>
 </tbody>
@@ -393,6 +396,30 @@ List of partially-quantizable inputs with non-quantizable input info as (src, ds
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>tuple</em>[<em>list</em>[<em>Node</em>], <em>list</em>[<em>tuple</em>[<em>Node</em>, <em>Node</em>, <em>str</em>]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.quantization.graph_utils.find_conv_to_layernorm_nodes">
+<span class="sig-name descname"><span class="pre">find_conv_to_layernorm_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cask_fusible_partitions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.quantization.graph_utils.find_conv_to_layernorm_nodes" title="Link to this definition"></a></dt>
+<dd><p>Find LayerNormalization nodes whose input comes from a CASK (Conv) partition.</p>
+<p>When a Conv’s output feeds into a LayerNormalization, the Conv output should be
+quantized to enable faster INT8 kernels in TRT. This function detects such patterns
+and returns the LayerNormalization nodes that should be added to the quantizable
+nodes list so that Q/DQ pairs are inserted on their input (i.e. the Conv output).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>Graph</em>) – ONNX model graph.</p></li>
+<li><p><strong>cask_fusible_partitions</strong> (<em>list</em><em>[</em><em>list</em><em>[</em><em>Node</em><em>]</em><em>]</em>) – List of CASK fusible partitions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of LayerNormalization nodes that consume CASK partition outputs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>list</em>[<em>Node</em>]</p>
 </dd>
 </dl>
 </dd></dl>

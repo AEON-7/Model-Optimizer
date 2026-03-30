@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>graph_surgery &mdash; Model Optimizer 0.0.1.dev1+g24ceba61f</title>
+  <title>graph_surgery &mdash; Model Optimizer 0.0.1.dev1+ga3f5c464d</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -104,7 +104,9 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">graph_surgery</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.graph_surgery.add_cross_kv_to_encoder"><code class="docutils literal notranslate"><span class="pre">add_cross_kv_to_encoder()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.graph_surgery.convert_fp16_to_bf16"><code class="docutils literal notranslate"><span class="pre">convert_fp16_to_bf16()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.graph_surgery.get_available_surgeries"><code class="docutils literal notranslate"><span class="pre">get_available_surgeries()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.graph_surgery.replace_attention_with_gqa"><code class="docutils literal notranslate"><span class="pre">replace_attention_with_gqa()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.graph_surgery.run_graph_surgery"><code class="docutils literal notranslate"><span class="pre">run_graph_surgery()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#modelopt.onnx.graph_surgery.transpose_dequantize_linear_weights"><code class="docutils literal notranslate"><span class="pre">transpose_dequantize_linear_weights()</span></code></a></li>
 </ul>
 </li>
@@ -187,13 +189,13 @@ after export. Common use cases include:</p>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Add cross-attention KV cache outputs to encoder (GenAI compatible)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">add_cross_kv_to_encoder</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">encoder_path</span><span class="o">=</span><span class="s2">&quot;encoder_model.onnx&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;encoder_model.onnx&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;encoder_with_kv.onnx&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">hf_model_id</span><span class="o">=</span><span class="s2">&quot;openai/whisper-large-v3-turbo&quot;</span><span class="p">,</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Standalone FP16 to BF16 conversion</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">convert_fp16_to_bf16</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">input_path</span><span class="o">=</span><span class="s2">&quot;model_fp16.onnx&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;model_fp16.onnx&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;model_bf16.onnx&quot;</span><span class="p">,</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
@@ -215,8 +217,14 @@ after export. Common use cases include:</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.graph_surgery.convert_fp16_to_bf16" title="modelopt.onnx.graph_surgery.convert_fp16_to_bf16"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_fp16_to_bf16</span></code></a></p></td>
 <td><p>Convert an ONNX model from FP16 to BF16.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.graph_surgery.replace_attention_with_gqa" title="modelopt.onnx.graph_surgery.replace_attention_with_gqa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_attention_with_gqa</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.graph_surgery.get_available_surgeries" title="modelopt.onnx.graph_surgery.get_available_surgeries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_available_surgeries</span></code></a></p></td>
+<td><p>Return a list of all registered graph surgery names.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.graph_surgery.replace_attention_with_gqa" title="modelopt.onnx.graph_surgery.replace_attention_with_gqa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_attention_with_gqa</span></code></a></p></td>
 <td><p>Replace attention subgraphs with GroupQueryAttention (GQA) in an ONNX model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.graph_surgery.run_graph_surgery" title="modelopt.onnx.graph_surgery.run_graph_surgery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_graph_surgery</span></code></a></p></td>
+<td><p>Run a graph surgery by name.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.graph_surgery.transpose_dequantize_linear_weights" title="modelopt.onnx.graph_surgery.transpose_dequantize_linear_weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transpose_dequantize_linear_weights</span></code></a></p></td>
 <td><p>Transpose weights in DequantizeLinear nodes for column-major storage.</p></td>
@@ -225,7 +233,7 @@ after export. Common use cases include:</p>
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.graph_surgery.add_cross_kv_to_encoder">
-<span class="sig-name descname"><span class="pre">add_cross_kv_to_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoder_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hf_model_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_state_output_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'last_hidden_state'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename_input_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_external_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external_data_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoder_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'decoder_with_past_model.onnx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generate_genai_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provider</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cuda'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_remote_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.graph_surgery.add_cross_kv_to_encoder" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_cross_kv_to_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hf_model_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_state_output_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'last_hidden_state'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename_input_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_external_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external_data_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoder_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'decoder_with_past_model.onnx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generate_genai_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provider</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cuda'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_remote_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.graph_surgery.add_cross_kv_to_encoder" title="Link to this definition"></a></dt>
 <dd><p>Add cross-attention KV cache outputs to encoder model.</p>
 <p>This function transforms an Optimum-exported encoder model by adding
 cross-attention Key/Value projection outputs. This is required for
@@ -241,7 +249,7 @@ encoder K/V caches.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>encoder_path</strong> (<em>str</em>) – Path to encoder ONNX model.</p></li>
+<li><p><strong>model_path</strong> (<em>str</em>) – Path to encoder ONNX model.</p></li>
 <li><p><strong>output_path</strong> (<em>str</em>) – Path to save modified encoder.</p></li>
 <li><p><strong>hf_model_id</strong> (<em>str</em>) – HuggingFace model ID for loading cross-attention weights.</p></li>
 <li><p><strong>hidden_state_output_name</strong> (<em>str</em>) – Name of encoder hidden state output.</p></li>
@@ -266,7 +274,7 @@ Default is “decoder_with_past_model.onnx”.</p></li>
 <p class="rubric">Example</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.onnx.graph_surgery</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_cross_kv_to_encoder</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">add_cross_kv_to_encoder</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">encoder_path</span><span class="o">=</span><span class="s2">&quot;encoder_model.onnx&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;encoder_model.onnx&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;encoder_model_with_kv.onnx&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">hf_model_id</span><span class="o">=</span><span class="s2">&quot;openai/whisper-large-v3-turbo&quot;</span><span class="p">,</span>
 <span class="gp">... </span><span class="p">)</span>
@@ -276,7 +284,7 @@ Default is “decoder_with_past_model.onnx”.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.onnx.graph_surgery.convert_fp16_to_bf16">
-<span class="sig-name descname"><span class="pre">convert_fp16_to_bf16</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.graph_surgery.convert_fp16_to_bf16" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_fp16_to_bf16</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.graph_surgery.convert_fp16_to_bf16" title="Link to this definition"></a></dt>
 <dd><p>Convert an ONNX model from FP16 to BF16.</p>
 <p>This function converts:
 1. All FP16 initializers (weights) to BF16
@@ -286,7 +294,7 @@ Default is “decoder_with_past_model.onnx”.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input_path</strong> (<em>str</em>) – Path to input FP16 ONNX model.</p></li>
+<li><p><strong>model_path</strong> (<em>str</em>) – Path to input FP16 ONNX model.</p></li>
 <li><p><strong>output_path</strong> (<em>str</em>) – Path to output BF16 ONNX model.</p></li>
 <li><p><strong>external_data</strong> (<em>bool</em>) – Whether to save weights as external data.</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em>) – Whether to print progress messages.</p></li>
@@ -301,12 +309,23 @@ Default is “decoder_with_past_model.onnx”.</p></li>
 </dl>
 <p class="rubric">Example</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span> <span class="o">=</span> <span class="n">convert_fp16_to_bf16</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">input_path</span><span class="o">=</span><span class="s2">&quot;model_fp16.onnx&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;model_fp16.onnx&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;model_bf16.onnx&quot;</span><span class="p">,</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Converted </span><span class="si">{</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;initializers_converted&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> initializers&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.graph_surgery.get_available_surgeries">
+<span class="sig-name descname"><span class="pre">get_available_surgeries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.graph_surgery.get_available_surgeries" title="Link to this definition"></a></dt>
+<dd><p>Return a list of all registered graph surgery names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>list</em>[<em>str</em>]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -357,6 +376,45 @@ compatibility with older ONNX Runtime versions (e.g., set to 9 for ORT 1.16).</p
 <span class="gp">... </span>    <span class="n">hf_model_id</span><span class="o">=</span><span class="s2">&quot;meta-llama/Llama-2-7b-hf&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">max_seq_len</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">io_dtype</span><span class="o">=</span><span class="s2">&quot;float16&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.onnx.graph_surgery.run_graph_surgery">
+<span class="sig-name descname"><span class="pre">run_graph_surgery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surgery_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.onnx.graph_surgery.run_graph_surgery" title="Link to this definition"></a></dt>
+<dd><p>Run a graph surgery by name.</p>
+<p>This is the unified entry point for all graph surgeries. It dispatches
+to the appropriate surgery function based on the surgery name.</p>
+<p>When new surgeries are added to the registry, they are automatically
+available through this function without any changes to calling code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surgery_name</strong> (<em>str</em>) – Name of the surgery to run (e.g. ‘replace-gqa’, ‘transpose-dq’).
+Use get_available_surgeries() to see all available options.</p></li>
+<li><p><strong>model_path</strong> (<em>str</em>) – Path to the input ONNX model.</p></li>
+<li><p><strong>output_path</strong> (<em>str</em>) – Path to save the output ONNX model.</p></li>
+<li><p><strong>**kwargs</strong> – Surgery-specific parameters. Passed directly to the surgery function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The return value of the surgery function (typically ModelProto or dict).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If surgery_name is not registered.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.onnx.graph_surgery</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_graph_surgery</span><span class="p">,</span> <span class="n">get_available_surgeries</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">get_available_surgeries</span><span class="p">())</span>
+<span class="go">[&#39;replace-gqa&#39;, &#39;add-cross-kv&#39;, &#39;convert-bf16&#39;, &#39;transpose-dq&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">run_graph_surgery</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s2">&quot;replace-gqa&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;model.onnx&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">output_path</span><span class="o">=</span><span class="s2">&quot;model_gqa.onnx&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">hf_model_id</span><span class="o">=</span><span class="s2">&quot;meta-llama/Llama-2-7b-hf&quot;</span><span class="p">,</span>
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
 </div>

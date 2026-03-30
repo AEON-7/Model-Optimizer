@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g88335f411</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+ge7865c3c6</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -26,7 +26,7 @@
       <script>let toggleHintShow = 'Click to show';</script>
       <script>let toggleHintHide = 'Click to hide';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="_static/togglebutton.js?v=1ae7504c"></script>
+      <script src="_static/togglebutton.js?v=b8b12719"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
@@ -1459,6 +1459,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig.dense_attention_every_n_layers">dense_attention_every_n_layers (DecoderLayerConfig attribute)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.dense_window_size">dense_window_size (SparseAttentionAttributeConfig attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.deployment">deployment (BaseSearcher attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.logging.html#modelopt.torch.utils.logging.DeprecatedError">DeprecatedError</a>
@@ -2135,6 +2137,8 @@
         <li><a href="reference/generated/modelopt.torch.quantization.model_quant.html#modelopt.torch.quantization.model_quant.get_auto_quantize_config">(in module modelopt.torch.quantization.model_quant)</a>
 </li>
       </ul></li>
+      <li><a href="reference/generated/modelopt.onnx.graph_surgery.html#modelopt.onnx.graph_surgery.get_available_surgeries">get_available_surgeries() (in module modelopt.onnx.graph_surgery)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.get_batch_size">get_batch_size() (in module modelopt.onnx.utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.get_batch_size_from_bytes">get_batch_size_from_bytes() (in module modelopt.onnx.utils)</a>
@@ -3219,7 +3223,7 @@
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.html#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_state_dict_to_shards">load_state_dict_to_shards() (in module modelopt.torch.puzzletron.tools.sharded_checkpoint_utils)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.speculative.utils.html#modelopt.torch.speculative.utils.load_vlm_or_llm_with_kwargs">load_vlm_or_llm_with_kwargs() (in module modelopt.torch.speculative.utils)</a>
+      <li><a href="reference/generated/modelopt.torch.speculative.utils.html#modelopt.torch.speculative.utils.load_vlm_or_llm">load_vlm_or_llm() (in module modelopt.torch.speculative.utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.model_calib.html#modelopt.torch.quantization.model_calib.local_hessian_calibrate">local_hessian_calibrate() (in module modelopt.torch.quantization.model_calib)</a>
 </li>
@@ -5989,8 +5993,6 @@
         <li><a href="reference/generated/modelopt.torch.prune.gradnas.html#modelopt.torch.prune.gradnas.GradNASConfig.nn_convtranspose1d">(GradNASConfig attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.nas.autonas.html#modelopt.torch.nas.autonas.AutoNASConfig.nn_convtranspose2d">nn_convtranspose2d (AutoNASConfig attribute)</a>
 
       <ul>
@@ -5999,6 +6001,8 @@
         <li><a href="reference/generated/modelopt.torch.prune.gradnas.html#modelopt.torch.prune.gradnas.GradNASConfig.nn_convtranspose2d">(GradNASConfig attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.nas.autonas.html#modelopt.torch.nas.autonas.AutoNASConfig.nn_convtranspose3d">nn_convtranspose3d (AutoNASConfig attribute)</a>
 
       <ul>
@@ -6140,6 +6144,8 @@
       <li><a href="reference/generated/modelopt.torch.nas.autonas.html#modelopt.torch.nas.autonas.IterativeSearcher.num_satisfied">num_satisfied (IterativeSearcher attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.PatternSchemes.num_schemes">num_schemes (PatternSchemes property)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.num_sink_tokens">num_sink_tokens (SparseAttentionAttributeConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.tensor.html#modelopt.torch.utils.tensor.numpy_to_torch">numpy_to_torch() (in module modelopt.torch.utils.tensor)</a>
 </li>
@@ -7011,6 +7017,8 @@
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.utils.network.html#modelopt.torch.utils.network.run_forward_loop">run_forward_loop() (in module modelopt.torch.utils.network)</a>
 </li>
+      <li><a href="reference/generated/modelopt.onnx.graph_surgery.html#modelopt.onnx.graph_surgery.run_graph_surgery">run_graph_surgery() (in module modelopt.onnx.graph_surgery)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.run_search">run_search() (BaseSearcher method)</a>
 
       <ul>
@@ -7235,10 +7243,10 @@
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.share_embedding_table">share_embedding_table (ModelConfig attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.MOEConfig.shared_expert">shared_expert (MOEConfig attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.MOEConfig.shared_expert_gate">shared_expert_gate (MOEConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.graph_utils.html#modelopt.onnx.quantization.graph_utils.should_quantize_to_8bit">should_quantize_to_8bit() (in module modelopt.onnx.quantization.graph_utils)</a>
@@ -7260,6 +7268,8 @@
 </li>
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.tools.checkpoint_utils.html#modelopt.torch.puzzletron.tools.checkpoint_utils.skip_init">skip_init() (in module modelopt.torch.puzzletron.tools.checkpoint_utils)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.skip_softmax_threshold">skip_softmax_threshold (SparseAttentionAttributeConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.trace.modules.nn.html#modelopt.torch.trace.modules.nn.SymDepth.skippable_idxs">skippable_idxs (SymDepth property)</a>
 </li>
@@ -7299,6 +7309,10 @@
         <li><a href="reference/generated/modelopt.torch.sparsity.weight_sparsity.sparsification.html#modelopt.torch.sparsity.weight_sparsity.sparsification.sparsify">(in module modelopt.torch.sparsity.weight_sparsity.sparsification)</a>
 </li>
       </ul></li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.sparsity_m">sparsity_m (SparseAttentionAttributeConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.sparsity_n">sparsity_n (SparseAttentionAttributeConfig attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.tools.post_init_sparse.html#modelopt.torch.puzzletron.tools.post_init_sparse.SparsityMethod">SparsityMethod (class in modelopt.torch.puzzletron.tools.post_init_sparse)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.tools.post_init_sparse.html#modelopt.torch.puzzletron.tools.post_init_sparse.SparsityMethod2o4">SparsityMethod2o4 (class in modelopt.torch.puzzletron.tools.post_init_sparse)</a>

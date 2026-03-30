@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>compare_module_outputs &mdash; Model Optimizer 0.0.1.dev1+gf9eeafdac</title>
+  <title>compare_module_outputs &mdash; Model Optimizer 0.0.1.dev1+ga3240aadd</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -192,7 +192,8 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>compare_module_outputs.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--reference<span class="w"> </span>output_unpruned.pt<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--compare<span class="w"> </span>output_l2norm.pt<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--output-json<span class="w"> </span>comparison_stats.json
+<span class="w">    </span>--output-json<span class="w"> </span>comparison_stats.json<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--trust-inputs
 </pre></div>
 </div>
 <p>The saved file format:</p>

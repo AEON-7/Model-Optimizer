@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>checkpoint_utils &mdash; Model Optimizer 0.0.1.dev1+gf9eeafdac</title>
+  <title>checkpoint_utils &mdash; Model Optimizer 0.0.1.dev1+ga3240aadd</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -188,7 +188,7 @@
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.checkpoint_utils.copy_tokenizer">
-<span class="sig-name descname"><span class="pre">copy_tokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dir_or_tokenizer_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_failure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.copy_tokenizer" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">copy_tokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dir_or_tokenizer_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_failure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_remote_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.copy_tokenizer" title="Link to this definition"></a></dt>
 <dd><p>Prefer loading the tokenizer from huggingface hub (when tokenizer_name.txt file is available)
 to avoid collision between transformers versions.</p>
 <dl class="field-list simple">
@@ -197,6 +197,7 @@ to avoid collision between transformers versions.</p>
 <li><p><strong>source_dir_or_tokenizer_name</strong> (<em>Path</em><em> | </em><em>str</em>)</p></li>
 <li><p><strong>target_dir</strong> (<em>Path</em><em> | </em><em>str</em>)</p></li>
 <li><p><strong>on_failure</strong> (<em>Literal</em><em>[</em><em>'raise'</em><em>, </em><em>'warn'</em><em>]</em>)</p></li>
+<li><p><strong>trust_remote_code</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>

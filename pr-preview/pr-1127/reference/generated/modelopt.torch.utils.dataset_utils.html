@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dataset_utils &mdash; Model Optimizer 0.0.1.dev1+gfe19f3cc1</title>
+  <title>dataset_utils &mdash; Model Optimizer 0.0.1.dev1+g48bb0ae28</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -271,17 +271,18 @@ for the model.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.utils.dataset_utils.download_hf_dataset_as_jsonl">
-<span class="sig-name descname"><span class="pre">download_hf_dataset_as_jsonl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['text']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_samples_per_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.dataset_utils.download_hf_dataset_as_jsonl" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">download_hf_dataset_as_jsonl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['text']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_samples_per_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_proc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.dataset_utils.download_hf_dataset_as_jsonl" title="Link to this definition"></a></dt>
 <dd><p>Download a Hugging Face dataset and save as JSONL files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dataset_name</strong> (<em>str</em>) – Name or HuggingFace path of the dataset to download</p></li>
 <li><p><strong>output_dir</strong> (<em>str</em><em> | </em><em>Path</em>) – Directory to save the JSONL files</p></li>
-<li><p><strong>json_keys</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of keys to extract from the dataset. Defaults to [“text”].</p></li>
+<li><p><strong>json_keys</strong> (<em>str</em><em> | </em><em>list</em><em>[</em><em>str</em><em>]</em>) – Key or list of keys to extract from the dataset. Defaults to [“text”].</p></li>
 <li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – Name of the subset to download</p></li>
 <li><p><strong>split</strong> (<em>str</em><em> | </em><em>None</em>) – Split of the dataset to download. Defaults to “train”.</p></li>
 <li><p><strong>max_samples_per_split</strong> (<em>int</em><em> | </em><em>None</em>) – Maximum number of samples to download per split. Defaults to None.</p></li>
+<li><p><strong>num_proc</strong> (<em>int</em><em> | </em><em>None</em>) – Number of processes to use for parallel processing. Defaults to None.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>

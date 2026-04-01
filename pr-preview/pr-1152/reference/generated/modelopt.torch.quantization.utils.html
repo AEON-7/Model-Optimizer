@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g643000f39</title>
+  <title>utils &mdash; Model Optimizer 0.0.1.dev1+ge95d7c738</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -181,29 +181,23 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.export_torch_mode" title="modelopt.torch.quantization.utils.export_torch_mode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_torch_mode</span></code></a></p></td>
 <td><p>Context manager enabling the export mode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.get_checkpoint_saver" title="modelopt.torch.quantization.utils.get_checkpoint_saver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_checkpoint_saver</span></code></a></p></td>
-<td><p>Return the registered save function for <em>model</em>, or <em>None</em>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized" title="modelopt.torch.quantization.utils.is_quantized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized" title="modelopt.torch.quantization.utils.is_quantized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized</span></code></a></p></td>
 <td><p>Check if a module is quantized.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_column_parallel_linear" title="modelopt.torch.quantization.utils.is_quantized_column_parallel_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_column_parallel_linear</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_column_parallel_linear" title="modelopt.torch.quantization.utils.is_quantized_column_parallel_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_column_parallel_linear</span></code></a></p></td>
 <td><p>Check if a module is a quantized column parallel linear module.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_linear" title="modelopt.torch.quantization.utils.is_quantized_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_linear</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_linear" title="modelopt.torch.quantization.utils.is_quantized_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_linear</span></code></a></p></td>
 <td><p>Check if a module is a quantized linear module.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_row_parallel_linear" title="modelopt.torch.quantization.utils.is_quantized_row_parallel_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_row_parallel_linear</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_row_parallel_linear" title="modelopt.torch.quantization.utils.is_quantized_row_parallel_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_row_parallel_linear</span></code></a></p></td>
 <td><p>Check if a module is a quantized row parallel linear module.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.reduce_amax" title="modelopt.torch.quantization.utils.reduce_amax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_amax</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.reduce_amax" title="modelopt.torch.quantization.utils.reduce_amax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_amax</span></code></a></p></td>
 <td><p>Compute the absolute maximum value of a tensor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.reduce_sum" title="modelopt.torch.quantization.utils.reduce_sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_sum</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.reduce_sum" title="modelopt.torch.quantization.utils.reduce_sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_sum</span></code></a></p></td>
 <td><p>Compute the sum of a tensor along specified axes.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.register_seq_calib_checkpoint_saver" title="modelopt.torch.quantization.utils.register_seq_calib_checkpoint_saver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_seq_calib_checkpoint_saver</span></code></a></p></td>
-<td><p>Register a (predicate, saver) pair for sequential calibration checkpointing.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.replace_function" title="modelopt.torch.quantization.utils.replace_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_function</span></code></a></p></td>
 <td><p>Replace a function with a new one within a context.</p></td>
@@ -240,20 +234,6 @@
 <dt class="sig sig-object py" id="modelopt.torch.quantization.utils.export_torch_mode">
 <span class="sig-name descname"><span class="pre">export_torch_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.utils.export_torch_mode" title="Link to this definition"></a></dt>
 <dd><p>Context manager enabling the export mode.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.utils.get_checkpoint_saver">
-<span class="sig-name descname"><span class="pre">get_checkpoint_saver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.utils.get_checkpoint_saver" title="Link to this definition"></a></dt>
-<dd><p>Return the registered save function for <em>model</em>, or <em>None</em>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>model</strong> (<em>nn.Module</em>)</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Callable</em>[[nn.Module, <em>str</em>], <em>None</em>] | <em>None</em></p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -328,25 +308,6 @@ reduces all dimensions. Must be in the range [-rank(input_tensor), rank(input_te
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The reduced tensor.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.utils.register_seq_calib_checkpoint_saver">
-<span class="sig-name descname"><span class="pre">register_seq_calib_checkpoint_saver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_supported</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.utils.register_seq_calib_checkpoint_saver" title="Link to this definition"></a></dt>
-<dd><p>Register a (predicate, saver) pair for sequential calibration checkpointing.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>is_supported</strong> (<em>Callable</em><em>[</em><em>[</em><em>nn.Module</em><em>]</em><em>, </em><em>bool</em><em>]</em>) – <code class="docutils literal notranslate"><span class="pre">Callable(model)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code> — returns <em>True</em> if <em>save_fn</em>
-can handle this model.</p></li>
-<li><p><strong>save_fn</strong> (<em>Callable</em><em>[</em><em>[</em><em>nn.Module</em><em>, </em><em>str</em><em>]</em><em>, </em><em>None</em><em>]</em>) – <code class="docutils literal notranslate"><span class="pre">Callable(model,</span> <span class="pre">checkpoint_dir)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code> — saves the model
-(weights + modelopt state) to <em>checkpoint_dir</em>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>None</em></p>
 </dd>
 </dl>
 </dd></dl>

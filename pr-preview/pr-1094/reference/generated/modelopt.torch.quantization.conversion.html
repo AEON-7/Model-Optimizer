@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>conversion &mdash; Model Optimizer 0.0.1.dev1+gf78ee0f7e</title>
+  <title>conversion &mdash; Model Optimizer 0.0.1.dev1+g3236eeb9a</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -181,19 +181,22 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.replace_quant_module" title="modelopt.torch.quantization.conversion.replace_quant_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_quant_module</span></code></a></p></td>
 <td><p>Recursively replace the module with quantized module.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_attributes_full" title="modelopt.torch.quantization.conversion.set_quantizer_attributes_full"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_quantizer_attributes_full</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_attribute" title="modelopt.torch.quantization.conversion.set_quantizer_attribute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_quantizer_attribute</span></code></a></p></td>
+<td><p>Deprecated: use <a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_attributes_partial" title="modelopt.torch.quantization.conversion.set_quantizer_attributes_partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_quantizer_attributes_partial()</span></code></a> instead.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_attributes_full" title="modelopt.torch.quantization.conversion.set_quantizer_attributes_full"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_quantizer_attributes_full</span></code></a></p></td>
 <td><p>Set quantizer attributes by wildcard or filter function, fully overwriting existing attributes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_attributes_partial" title="modelopt.torch.quantization.conversion.set_quantizer_attributes_partial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_quantizer_attributes_partial</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_attributes_partial" title="modelopt.torch.quantization.conversion.set_quantizer_attributes_partial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_quantizer_attributes_partial</span></code></a></p></td>
 <td><p>Update a subset of quantizer attributes by wildcard or filter function, merging with existing attributes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_by_cfg" title="modelopt.torch.quantization.conversion.set_quantizer_by_cfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_quantizer_by_cfg</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_by_cfg" title="modelopt.torch.quantization.conversion.set_quantizer_by_cfg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_quantizer_by_cfg</span></code></a></p></td>
 <td><p>Apply a quantization config list to the quantizers in <code class="docutils literal notranslate"><span class="pre">quant_model</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_by_cfg_context" title="modelopt.torch.quantization.conversion.set_quantizer_by_cfg_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_quantizer_by_cfg_context</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_by_cfg_context" title="modelopt.torch.quantization.conversion.set_quantizer_by_cfg_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_quantizer_by_cfg_context</span></code></a></p></td>
 <td><p>Context manager that temporarily applies a quantization config and restores the original state on exit.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.unregister" title="modelopt.torch.quantization.conversion.unregister"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unregister</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.conversion.unregister" title="modelopt.torch.quantization.conversion.unregister"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unregister</span></code></a></p></td>
 <td><p>Unregister the quantized class for the given un-quantized original class.</p></td>
 </tr>
 </tbody>
@@ -246,6 +249,22 @@ quantizers at the correct location.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>model</strong> (<em>Module</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.conversion.set_quantizer_attribute">
+<span class="sig-name descname"><span class="pre">set_quantizer_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quant_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wildcard_or_filter_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.conversion.set_quantizer_attribute" title="Link to this definition"></a></dt>
+<dd><p>Deprecated: use <a class="reference internal" href="#modelopt.torch.quantization.conversion.set_quantizer_attributes_partial" title="modelopt.torch.quantization.conversion.set_quantizer_attributes_partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_quantizer_attributes_partial()</span></code></a> instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>quant_model</strong> (<em>Module</em>)</p></li>
+<li><p><strong>wildcard_or_filter_func</strong> (<em>str</em><em> | </em><em>Callable</em>)</p></li>
+<li><p><strong>attribute</strong> (<em>Any</em>)</p></li>
+<li><p><strong>parent_class</strong> (<em>type</em><em>[</em><em>Module</em><em>] </em><em>| </em><em>None</em>)</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

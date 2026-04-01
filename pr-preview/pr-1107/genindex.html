@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+geb4bf5501</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g83c787d15</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -26,7 +26,7 @@
       <script>let toggleHintShow = 'Click to show';</script>
       <script>let toggleHintHide = 'Click to hide';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="_static/togglebutton.js?v=1ae7504c"></script>
+      <script src="_static/togglebutton.js?v=b8b12719"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/js/theme.js"></script>
@@ -1625,6 +1625,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig.final_logit_softcapping">final_logit_softcapping (DecoderLayerConfig attribute)</a>
 </li>
+      <li><a href="reference/generated/modelopt.onnx.quantization.graph_utils.html#modelopt.onnx.quantization.graph_utils.find_conv_to_layernorm_nodes">find_conv_to_layernorm_nodes() (in module modelopt.onnx.quantization.graph_utils)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.autocast.graphsanitizer.html#modelopt.onnx.autocast.graphsanitizer.GraphSanitizer.find_custom_nodes">find_custom_nodes() (GraphSanitizer method)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.partitioning.html#modelopt.onnx.quantization.partitioning.find_fusible_partitions">find_fusible_partitions() (in module modelopt.onnx.quantization.partitioning)</a>
@@ -1847,6 +1849,8 @@
         <li><a href="reference/generated/modelopt.torch.quantization.model_quant.html#modelopt.torch.quantization.model_quant.get_auto_quantize_config">(in module modelopt.torch.quantization.model_quant)</a>
 </li>
       </ul></li>
+      <li><a href="reference/generated/modelopt.onnx.graph_surgery.html#modelopt.onnx.graph_surgery.get_available_surgeries">get_available_surgeries() (in module modelopt.onnx.graph_surgery)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.get_batch_size">get_batch_size() (in module modelopt.onnx.utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.get_batch_size_from_bytes">get_batch_size_from_bytes() (in module modelopt.onnx.utils)</a>
@@ -2811,7 +2815,7 @@
         <li><a href="reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.ModeloptStateManager.load_state_dict">(ModeloptStateManager method)</a>
 </li>
       </ul></li>
-      <li><a href="reference/generated/modelopt.torch.speculative.utils.html#modelopt.torch.speculative.utils.load_vlm_or_llm_with_kwargs">load_vlm_or_llm_with_kwargs() (in module modelopt.torch.speculative.utils)</a>
+      <li><a href="reference/generated/modelopt.torch.speculative.utils.html#modelopt.torch.speculative.utils.load_vlm_or_llm">load_vlm_or_llm() (in module modelopt.torch.speculative.utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.model_calib.html#modelopt.torch.quantization.model_calib.local_hessian_calibrate">local_hessian_calibrate() (in module modelopt.torch.quantization.model_calib)</a>
 </li>
@@ -6222,6 +6226,8 @@
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.utils.network.html#modelopt.torch.utils.network.run_forward_loop">run_forward_loop() (in module modelopt.torch.utils.network)</a>
 </li>
+      <li><a href="reference/generated/modelopt.onnx.graph_surgery.html#modelopt.onnx.graph_surgery.run_graph_surgery">run_graph_surgery() (in module modelopt.onnx.graph_surgery)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.run_search">run_search() (BaseSearcher method)</a>
 
       <ul>
@@ -6422,10 +6428,10 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.prune.gradnas.html#modelopt.torch.prune.gradnas.GradientBinarySearcher.SETUP_GRADIENT_FUNC">SETUP_GRADIENT_FUNC (GradientBinarySearcher attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.onnx.autocast.utils.html#modelopt.onnx.autocast.utils.setup_mappings">setup_mappings() (in module modelopt.onnx.autocast.utils)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.onnx.autocast.referencerunner.html#modelopt.onnx.autocast.referencerunner.TensorStats.shape">shape (TensorStats attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.share_embedding_table">share_embedding_table (ModelConfig attribute)</a>
@@ -6450,6 +6456,8 @@
         <li><a href="reference/generated/modelopt.torch.utils.distributed.html#modelopt.torch.utils.distributed.size">(in module modelopt.torch.utils.distributed)</a>
 </li>
       </ul></li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.skip_softmax_threshold">skip_softmax_threshold (SparseAttentionAttributeConfig attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.trace.modules.nn.html#modelopt.torch.trace.modules.nn.SymDepth.skippable_idxs">skippable_idxs (SymDepth property)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.model_calib.html#modelopt.torch.quantization.model_calib.smoothquant">smoothquant() (in module modelopt.torch.quantization.model_calib)</a>

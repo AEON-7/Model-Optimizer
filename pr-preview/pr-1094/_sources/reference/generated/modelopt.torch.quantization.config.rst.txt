@@ -44,6 +44,7 @@ config
    .. autosummary::
       :nosignatures:
    
+      find_quant_cfg_entry
       need_calibration
       normalize_quant_cfg_list
    

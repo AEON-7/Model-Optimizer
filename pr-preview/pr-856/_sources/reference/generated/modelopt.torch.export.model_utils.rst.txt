@@ -40,5 +40,6 @@ model\_utils
       get_language_model_from_vl
       get_model_type
       is_multimodal_model
+      match_model_type_by_name
    
    

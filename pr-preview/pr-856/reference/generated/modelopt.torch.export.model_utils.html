@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>model_utils &mdash; Model Optimizer 0.0.1.dev1+g1f2ae7688</title>
+  <title>model_utils &mdash; Model Optimizer 0.0.1.dev1+g9bf1b70f0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -189,6 +189,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.export.model_utils.is_multimodal_model" title="modelopt.torch.export.model_utils.is_multimodal_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_multimodal_model</span></code></a></p></td>
 <td><p>Check if a model is a Vision-Language Model (VLM) or multimodal model.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.export.model_utils.match_model_type_by_name" title="modelopt.torch.export.model_utils.match_model_type_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_model_type_by_name</span></code></a></p></td>
+<td><p>Match a model type from MODEL_NAME_TO_TYPE by case-insensitive substring match.</p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py function">
@@ -258,6 +261,23 @@ language model might be stored.</p>
 <span class="go">True</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.export.model_utils.match_model_type_by_name">
+<span class="sig-name descname"><span class="pre">match_model_type_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.export.model_utils.match_model_type_by_name" title="Link to this definition"></a></dt>
+<dd><p>Match a model type from MODEL_NAME_TO_TYPE by case-insensitive substring match.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – String to match against (e.g. class name, architecture string, model_type field).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Matched model type string, or None.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>str</em> | <em>None</em></p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>

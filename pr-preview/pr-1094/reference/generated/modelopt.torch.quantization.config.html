@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>config &mdash; Model Optimizer 0.0.1.dev1+g61cf1dfae</title>
+  <title>config &mdash; Model Optimizer 0.0.1.dev1+gda2c56a26</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -307,7 +307,7 @@ the layer named <code class="docutils literal notranslate"><span class="pre">lm_
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.config.find_quant_cfg_entry" title="modelopt.torch.quantization.config.find_quant_cfg_entry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_quant_cfg_entry</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.config.find_quant_cfg_entry_by_path" title="modelopt.torch.quantization.config.find_quant_cfg_entry_by_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_quant_cfg_entry_by_path</span></code></a></p></td>
 <td><p>Find the last entry in a <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> list whose <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> key equals the query.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.config.need_calibration" title="modelopt.torch.quantization.config.need_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">need_calibration</span></code></a></p></td>
@@ -1288,8 +1288,8 @@ See <a class="reference external" href="https://arxiv.org/pdf/2211.10438" rel="n
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.config.find_quant_cfg_entry">
-<span class="sig-name descname"><span class="pre">find_quant_cfg_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quant_cfg_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantizer_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.config.find_quant_cfg_entry" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.find_quant_cfg_entry_by_path">
+<span class="sig-name descname"><span class="pre">find_quant_cfg_entry_by_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quant_cfg_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantizer_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.config.find_quant_cfg_entry_by_path" title="Link to this definition"></a></dt>
 <dd><p>Find the last entry in a <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> list whose <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> key equals the query.</p>
 <p>This performs an <strong>exact string comparison</strong> against the <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> field of each
 entry — it does <em>not</em> apply <code class="docutils literal notranslate"><span class="pre">fnmatch</span></code> pattern matching.  For example, passing

@@ -421,6 +421,3 @@ The recipe system is designed to grow:
   customize recipes.
 * **Unified entry point** -- a ``nv-modelopt`` CLI that accepts ``--recipe`` as the
   primary configuration mechanism, replacing per-example scripts.
-
-For the full design vision, see the
-`Model Optimizer Framework design doc <https://docs.google.com/document/d/1fbluNYpSNU2EA-uxfYlEnrf03Dw2K6QFjt53HMf_6B0>`_.

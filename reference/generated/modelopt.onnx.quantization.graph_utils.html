@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>graph_utils &mdash; Model Optimizer 0.0.1.dev1+gfcb09bf11</title>
+  <title>graph_utils &mdash; Model Optimizer 0.0.1.dev1+g00c002ffd</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -438,6 +438,8 @@ nodes list so that Q/DQ pairs are inserted on their input (i.e. the Conv output)
 <li><p>The input and output channels should be &gt;= 16. The exception is for Conv layers in INT8 quantization mode,
 which supports it if the input or output channel % 8.</p></li>
 <li><p>The filter size for FP8 conv kernels should be less than 32.</p></li>
+<li><p>For FP8 mode, Conv nodes with input or output channels &lt;= _MIN_CHANNELS_FP8 are excluded.
+Small-channel convolutions do not benefit from FP8 quantization.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

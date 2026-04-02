@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>config &mdash; Model Optimizer 0.0.1.dev1+gcb36f912f</title>
+  <title>config &mdash; Model Optimizer 0.0.1.dev1+ga4f42f729</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -190,7 +190,9 @@
 <span class="w">   </span><span class="nt">&quot;eagle_base_lora_rank&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;eagle_base_lora_alpha&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">16.0</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;eagle_base_lora_target_modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;eagle_base_lora_preservation_loss_weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span>
+<span class="w">   </span><span class="nt">&quot;eagle_base_lora_preservation_loss_weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;eagle_base_lora_warmup_steps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;eagle_base_lora_logits_detach_prob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -216,6 +218,13 @@
 </details></p></dd></dl>
 
 <dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.speculative.config.EagleConfig.eagle_base_lora_logits_detach_prob">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eagle_base_lora_logits_detach_prob</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#modelopt.torch.speculative.config.EagleConfig.eagle_base_lora_logits_detach_prob" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>After warmup, probability of detaching base_output_softmax_logits each step. Acts as dropout regularization on the eagle-loss-to-LoRA gradient path through logits, preventing LoRA from degenerating to maximize EAGLE accuracy at the cost of base model quality. 1.0 = always detach (no logits gradient), 0.0 = never detach.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
 <dt class="sig sig-object py" id="modelopt.torch.speculative.config.EagleConfig.eagle_base_lora_preservation_loss_weight">
 <em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eagle_base_lora_preservation_loss_weight</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#modelopt.torch.speculative.config.EagleConfig.eagle_base_lora_preservation_loss_weight" title="Link to this definition"></a></dt>
 <dd><p><details  class="autodoc_pydantic_collapsable_json">
@@ -234,6 +243,13 @@
 <em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eagle_base_lora_target_modules</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.speculative.config.EagleConfig.eagle_base_lora_target_modules" title="Link to this definition"></a></dt>
 <dd><p><details  class="autodoc_pydantic_collapsable_json">
 <summary>Show details</summary><p>List of module name patterns to apply LoRA to in the base model (e.g. [‘q_proj’, ‘v_proj’]). None uses peft defaults.</p>
+</details></p></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.speculative.config.EagleConfig.eagle_base_lora_warmup_steps">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eagle_base_lora_warmup_steps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#modelopt.torch.speculative.config.EagleConfig.eagle_base_lora_warmup_steps" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>Number of warmup steps where LoRA is frozen and only the EAGLE draft head trains. After warmup, LoRA is enabled for co-training.</p>
 </details></p></dd></dl>
 
 <dl class="py attribute pydantic_field">

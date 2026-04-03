@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+g18ce04f1c</title>
+  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+gdf80a0f7b</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -160,6 +160,7 @@
 <li><p>Added iterator interface using CalibrationDataReader in ONNX quantization workflow.</p></li>
 <li><p>Add N:M sparse softmax support to the Triton flash attention kernel (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.kernels.triton_fa</span></code>). See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity" rel="noopener noreferrer" target="_blank">examples/llm_sparsity/attention_sparsity/README.md</a> for usage.</p></li>
 <li><p>Add skip-softmax skipping to the Triton flash attention kernel (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.kernels.triton_fa</span></code>). See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity" rel="noopener noreferrer" target="_blank">examples/llm_sparsity/attention_sparsity/README.md</a> for usage.</p></li>
+<li><p>Add Video Sparse Attention (VSA) method for video diffusion models (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.sparsity.attention_sparsity</span></code>). VSA uses 3D block tiling with a two-branch architecture for attention speedup.</p></li>
 <li><p>Enable PTQ workflow for the Step3.5-Flash MoE model with NVFP4 W4A4 + FP8 KV cache quantization. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml" rel="noopener noreferrer" target="_blank">modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml</a> for more details.</p></li>
 <li><p>Add support for vLLM fakequant reload using ModelOpt state for HF models. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/vllm_serve#load-qatptq-model-and-serve-in-vllm-wip" rel="noopener noreferrer" target="_blank">examples/vllm_serve/README.md</a> for more details.</p></li>
 <li><p>[Early Testing] Add Claude Code PTQ skill (<code class="docutils literal notranslate"><span class="pre">.claude/skills/ptq/</span></code>) for agent-assisted post-training quantization. The skill guides the agent through environment detection, model support checking, format selection, and execution via the launcher or manual SLURM/Docker/bare GPU paths. Includes handling for unlisted models with custom module patching. This feature is in early testing — use with caution.</p></li>

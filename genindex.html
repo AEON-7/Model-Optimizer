@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g18ce04f1c</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+gdf80a0f7b</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -701,6 +701,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.RotateConfig.block_size">block_size (RotateConfig attribute)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.block_size_3d">block_size_3d (VSAAttributeConfig attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig.block_sizes">block_sizes (QuantizerAttributeConfig attribute)</a>
 
       <ul>
@@ -878,7 +880,11 @@
 </li>
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.collect_stats">collect_stats (SparseAttentionAttributeConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.collect_stats">(VSAAttributeConfig attribute)</a>
 </li>
+      </ul></li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.CombinedRegionSearch">CombinedRegionSearch (class in modelopt.onnx.quantization.autotune)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.network.html#modelopt.torch.utils.network.compare_dict">compare_dict() (in module modelopt.torch.utils.network)</a>
@@ -1430,6 +1436,8 @@
 </li>
         <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.enable">(SparseAttentionAttributeConfig attribute)</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.enable">(VSAAttributeConfig attribute)</a>
+</li>
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.sparse_attention.html#modelopt.torch.sparsity.attention_sparsity.sparse_attention.SparseAttentionModule.enable">enable() (SparseAttentionModule method)</a>
 
@@ -1721,6 +1729,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.methods.html#modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.forward_attention">forward_attention() (SparseAttentionMethod method)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.forward_loop">forward_loop (BaseSearcher attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.ForwardHook">ForwardHook (class in modelopt.torch.prune.importance_hooks.base_hooks)</a>
@@ -2995,6 +3005,8 @@
         <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.method">(SparseAttentionAttributeConfig attribute)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.SVDQuantConfig.method">(SVDQuantConfig attribute)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.method">(VSAAttributeConfig attribute)</a>
 </li>
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.quantization.algorithms.html#modelopt.torch.quantization.algorithms.AutoQuantizeGradientSearcher.method_name">method_name (AutoQuantizeGradientSearcher attribute)</a>
@@ -6471,6 +6483,8 @@
       <ul>
         <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionConfig.sparse_cfg">(SparseAttentionConfig attribute)</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAConfig.sparse_cfg">(VSAConfig attribute)</a>
+</li>
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig.sparse_mixer_epsilon">sparse_mixer_epsilon (DecoderLayerConfig attribute)</a>
 </li>
@@ -6688,6 +6702,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.speculative.utils.html#modelopt.torch.speculative.utils.AcceptanceRateValidation.tokenize">tokenize() (AcceptanceRateValidation method)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.top_k_ratio">top_k_ratio (VSAAttributeConfig attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.Config.top_percent_to_mutate">top_percent_to_mutate (Config attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.tensor.html#modelopt.torch.utils.tensor.torch_detach">torch_detach() (in module modelopt.torch.utils.tensor)</a>
@@ -6875,6 +6891,8 @@
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.Config.verbose">verbose (Config attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.quant_rnn.html#modelopt.torch.quantization.nn.modules.quant_rnn.VFRNNForward">VFRNNForward (class in modelopt.torch.quantization.nn.modules.quant_rnn)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.video_shape">video_shape (VSAAttributeConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.postprocess.html#modelopt.torch.export.postprocess.view_as_float8_e4m3fn_if_needed">view_as_float8_e4m3fn_if_needed() (in module modelopt.torch.export.postprocess)</a>
 </li>

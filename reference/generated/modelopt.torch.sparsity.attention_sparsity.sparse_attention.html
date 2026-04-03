@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sparse_attention &mdash; Model Optimizer 0.0.1.dev1+g18ce04f1c</title>
+  <title>sparse_attention &mdash; Model Optimizer 0.0.1.dev1+gdf80a0f7b</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -212,8 +212,12 @@ integrates with the forward pass (e.g. softmax patching, kernel flags).</p>
 <dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.sparse_attention.SparseAttentionModule.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.sparse_attention.SparseAttentionModule.forward" title="Link to this definition"></a></dt>
 <dd><p>Forward with selected sparse attention method.</p>
-<p>This method dispatches to the appropriate sparse attention implementation
-based on the configured method and backend.</p>
+<ul class="simple">
+<li><p>VSA: patches <code class="docutils literal notranslate"><span class="pre">F.scaled_dot_product_attention</span></code> to intercept the SDPA
+call inside the original forward. Cross-attention is skipped.</p></li>
+<li><p>Softmax-patching methods (e.g. <code class="docutils literal notranslate"><span class="pre">flash_skip_softmax</span></code>): use the
+context manager path below.</p></li>
+</ul>
 </dd></dl>
 
 <dl class="py method">

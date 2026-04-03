@@ -32,11 +32,4 @@ kernels
    .. Overview table of available functions in the module
    
    
-   .. rubric:: Functions
-
-   .. autosummary::
-      :nosignatures:
-   
-      register_vsa_attention
-   
    

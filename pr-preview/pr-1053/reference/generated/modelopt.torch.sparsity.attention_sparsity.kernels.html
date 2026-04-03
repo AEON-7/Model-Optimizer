@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kernels &mdash; Model Optimizer 0.0.1.dev1+g179863a2e</title>
+  <title>kernels &mdash; Model Optimizer 0.0.1.dev1+g45a0e1840</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -158,31 +158,6 @@
   <section id="kernels">
 <h1>kernels<a class="headerlink" href="#kernels" title="Link to this heading"></a></h1>
 <p id="module-modelopt.torch.sparsity.attention_sparsity.kernels">Re-exports from modelopt.torch.kernels for backward compatibility.</p>
-<p class="rubric">Functions</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.sparsity.attention_sparsity.kernels.register_vsa_attention" title="modelopt.torch.sparsity.attention_sparsity.kernels.register_vsa_attention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_vsa_attention</span></code></a></p></td>
-<td><p>Register the VSA backend with HF <code class="docutils literal notranslate"><span class="pre">ALL_ATTENTION_FUNCTIONS</span></code>.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.kernels.register_vsa_attention">
-<span class="sig-name descname"><span class="pre">register_vsa_attention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.kernels.register_vsa_attention" title="Link to this definition"></a></dt>
-<dd><p>Register the VSA backend with HF <code class="docutils literal notranslate"><span class="pre">ALL_ATTENTION_FUNCTIONS</span></code>.</p>
-<p>Called by <code class="docutils literal notranslate"><span class="pre">_set_attn_implementation()</span></code> during sparsification.  Must run
-before the model’s first forward pass so HF dispatches to VSA.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if registration succeeded, <code class="docutils literal notranslate"><span class="pre">False</span></code> if the transformers API
-is not available.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>bool</em></p>
-</dd>
-</dl>
-</dd></dl>
-
 </section>
 
 

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>model_calib &mdash; Model Optimizer 0.0.1.dev1+gb914b03cd</title>
+  <title>model_calib &mdash; Model Optimizer 0.0.1.dev1+g293b26826</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -27,7 +27,7 @@
       <script>let toggleHintShow = 'Click to show';</script>
       <script>let toggleHintHide = 'Click to hide';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+      <script src="../../_static/togglebutton.js?v=b8b12719"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/js/theme.js"></script>
@@ -223,13 +223,6 @@ details on the remaining arguments.</p>
 <p>Temporarily disables quantizers in modules that do not pass the include/exclude filters.
 Disabled quantizers retain their pre-existing <code class="docutils literal notranslate"><span class="pre">_amax</span></code> values because
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">TensorQuantizer.disable()</span></code> does not clear <code class="docutils literal notranslate"><span class="pre">_amax</span></code>.</p>
-<p>Supported module types:</p>
-<ul class="simple">
-<li><p>Quantized linear modules (identified by <code class="xref py py-func docutils literal notranslate"><span class="pre">is_quantized_linear()</span></code>): all child
-TensorQuantizers are disabled.</p></li>
-<li><p>Quantized attention modules (identified by <code class="xref py py-func docutils literal notranslate"><span class="pre">is_quantized_bmm()</span></code>): only the direct
-bmm TensorQuantizer attributes are disabled.</p></li>
-</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

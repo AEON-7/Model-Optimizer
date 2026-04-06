@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; Model Optimizer 0.0.1.dev1+gb914b03cd</title>
+  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g293b26826</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -27,7 +27,7 @@
       <script>let toggleHintShow = 'Click to show';</script>
       <script>let toggleHintHide = 'Click to hide';</script>
       <script>let toggleOpenOnPrint = 'true';</script>
-      <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+      <script src="../../_static/togglebutton.js?v=b8b12719"></script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
       <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/js/theme.js"></script>
@@ -184,31 +184,28 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized" title="modelopt.torch.quantization.utils.is_quantized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized</span></code></a></p></td>
 <td><p>Check if a module is quantized.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_bmm" title="modelopt.torch.quantization.utils.is_quantized_bmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_bmm</span></code></a></p></td>
-<td><p>Check if a module is a quantized module with bmm quantizers.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_column_parallel_linear" title="modelopt.torch.quantization.utils.is_quantized_column_parallel_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_column_parallel_linear</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_column_parallel_linear" title="modelopt.torch.quantization.utils.is_quantized_column_parallel_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_column_parallel_linear</span></code></a></p></td>
 <td><p>Check if a module is a quantized column parallel linear module.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_linear" title="modelopt.torch.quantization.utils.is_quantized_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_linear</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_linear" title="modelopt.torch.quantization.utils.is_quantized_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_linear</span></code></a></p></td>
 <td><p>Check if a module is a quantized linear module.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_row_parallel_linear" title="modelopt.torch.quantization.utils.is_quantized_row_parallel_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_row_parallel_linear</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.is_quantized_row_parallel_linear" title="modelopt.torch.quantization.utils.is_quantized_row_parallel_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_quantized_row_parallel_linear</span></code></a></p></td>
 <td><p>Check if a module is a quantized row parallel linear module.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.reduce_amax" title="modelopt.torch.quantization.utils.reduce_amax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_amax</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.reduce_amax" title="modelopt.torch.quantization.utils.reduce_amax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_amax</span></code></a></p></td>
 <td><p>Compute the absolute maximum value of a tensor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.reduce_sum" title="modelopt.torch.quantization.utils.reduce_sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_sum</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.reduce_sum" title="modelopt.torch.quantization.utils.reduce_sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_sum</span></code></a></p></td>
 <td><p>Compute the sum of a tensor along specified axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.replace_function" title="modelopt.torch.quantization.utils.replace_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_function</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.replace_function" title="modelopt.torch.quantization.utils.replace_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_function</span></code></a></p></td>
 <td><p>Replace a function with a new one within a context.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.update_quant_cfg_with_kv_cache_quant" title="modelopt.torch.quantization.utils.update_quant_cfg_with_kv_cache_quant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_quant_cfg_with_kv_cache_quant</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.update_quant_cfg_with_kv_cache_quant" title="modelopt.torch.quantization.utils.update_quant_cfg_with_kv_cache_quant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_quant_cfg_with_kv_cache_quant</span></code></a></p></td>
 <td><p>Update the quant_cfg with the kv cache quant_cfg.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.weight_attr_names" title="modelopt.torch.quantization.utils.weight_attr_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weight_attr_names</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.utils.weight_attr_names" title="modelopt.torch.quantization.utils.weight_attr_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weight_attr_names</span></code></a></p></td>
 <td><p>Get the weight param attribute names in a converted module, non-recursive.</p></td>
 </tr>
 </tbody>
@@ -243,12 +240,6 @@
 <dt class="sig sig-object py" id="modelopt.torch.quantization.utils.is_quantized">
 <span class="sig-name descname"><span class="pre">is_quantized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.utils.is_quantized" title="Link to this definition"></a></dt>
 <dd><p>Check if a module is quantized.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.utils.is_quantized_bmm">
-<span class="sig-name descname"><span class="pre">is_quantized_bmm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.utils.is_quantized_bmm" title="Link to this definition"></a></dt>
-<dd><p>Check if a module is a quantized module with bmm quantizers.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -334,12 +325,16 @@ reduces all dimensions. Must be in the range [-rank(input_tensor), rank(input_te
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>quant_cfg</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>)</p></li>
-<li><p><strong>kv_cache_quant_cfg</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>)</p></li>
+<li><p><strong>quant_cfg</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – The outer quantization config dict (with <code class="docutils literal notranslate"><span class="pre">&quot;quant_cfg&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;algorithm&quot;</span></code> keys).</p></li>
+<li><p><strong>kv_cache_quant_cfg</strong> (<em>list</em><em>[</em><a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry" title="modelopt.torch.quantization.config.QuantizerCfgEntry"><em>QuantizerCfgEntry</em></a><em>]</em>) – A list of <a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry" title="modelopt.torch.quantization.config.QuantizerCfgEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerCfgEntry</span></code></a> dicts for KV cache quantization,
+typically <code class="docutils literal notranslate"><span class="pre">some_kv_cfg[&quot;quant_cfg&quot;]</span></code>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>dict</em>[<em>str</em>, <em>Any</em>]</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A deep copy of <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> with the KV cache entries appended to <code class="docutils literal notranslate"><span class="pre">quant_cfg[&quot;quant_cfg&quot;]</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>dict</em>[<em>str</em>, <em>Any</em>]</p>
 </dd>
 </dl>
 </dd></dl>

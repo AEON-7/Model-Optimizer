@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; Model Optimizer 0.0.1.dev1+gc542c09b1</title>
+  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g1cceb950d</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -325,12 +325,16 @@ reduces all dimensions. Must be in the range [-rank(input_tensor), rank(input_te
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>quant_cfg</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>)</p></li>
-<li><p><strong>kv_cache_quant_cfg</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>)</p></li>
+<li><p><strong>quant_cfg</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – The outer quantization config dict (with <code class="docutils literal notranslate"><span class="pre">&quot;quant_cfg&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;algorithm&quot;</span></code> keys).</p></li>
+<li><p><strong>kv_cache_quant_cfg</strong> (<em>list</em><em>[</em><a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry" title="modelopt.torch.quantization.config.QuantizerCfgEntry"><em>QuantizerCfgEntry</em></a><em>]</em>) – A list of <a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry" title="modelopt.torch.quantization.config.QuantizerCfgEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerCfgEntry</span></code></a> dicts for KV cache quantization,
+typically <code class="docutils literal notranslate"><span class="pre">some_kv_cfg[&quot;quant_cfg&quot;]</span></code>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>dict</em>[<em>str</em>, <em>Any</em>]</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A deep copy of <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> with the KV cache entries appended to <code class="docutils literal notranslate"><span class="pre">quant_cfg[&quot;quant_cfg&quot;]</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>dict</em>[<em>str</em>, <em>Any</em>]</p>
 </dd>
 </dl>
 </dd></dl>

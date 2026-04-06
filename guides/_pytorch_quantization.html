@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PyTorch Quantization &mdash; Model Optimizer 0.0.1.dev1+gc542c09b1</title>
+  <title>PyTorch Quantization &mdash; Model Optimizer 0.0.1.dev1+g1cceb950d</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -33,7 +33,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Guides to quantize a customized model from Hugging Face for TensorRT-LLM deployment" href="_customized_model_quantization.html" />
+    <link rel="next" title="Quantization Configuration (quant_cfg)" href="_quant_cfg.html" />
     <link rel="prev" title="Best practices to choose the right quantization methods" href="_choosing_quant_methods.html" /> 
 </head>
 
@@ -91,6 +91,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="_quant_cfg.html">Quantization Configuration (quant_cfg)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_customized_model_quantization.html">Guides to quantize a customized model from Hugging Face for TensorRT-LLM deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_compress_quantized_models.html">Compress quantized models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_onnx_quantization.html">ONNX Quantization - Linux (Beta)</a></li>
@@ -351,32 +352,39 @@ By default the output quantizer is disabled.</p>
 <section id="basic-configuration-modification">
 <h4>Basic Configuration Modification<a class="headerlink" href="#basic-configuration-modification" title="Link to this heading"></a></h4>
 <p>For debugging purposes or simple customizations, you can modify an existing configuration:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a copy of the default INT8 configuration</span>
-<span class="n">config</span> <span class="o">=</span> <span class="n">mtq</span><span class="o">.</span><span class="n">INT8_DEFAULT_CFG</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
 
-<span class="c1"># Disable input quantizers for all layers</span>
-<span class="n">config</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">][</span><span class="s2">&quot;*input_quantizer&quot;</span><span class="p">][</span><span class="s2">&quot;enable&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1"># Create a deep copy of the default INT8 configuration</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">mtq</span><span class="o">.</span><span class="n">INT8_DEFAULT_CFG</span><span class="p">)</span>
+
+<span class="c1"># Disable input quantizers for all layers (appended last, so it takes precedence)</span>
+<span class="n">config</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
 
 <span class="c1"># Disable all quantizers for layers matching the pattern &quot;layer1.*&quot;</span>
-<span class="n">config</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">][</span><span class="s2">&quot;*layer1.*&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="n">config</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*layer1.*&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
 </pre></div>
 </div>
 </section>
 <section id="advanced-configuration-creation">
 <h4>Advanced Configuration Creation<a class="headerlink" href="#advanced-configuration-creation" title="Link to this heading"></a></h4>
 <p>For exploring new quantization recipes, you can compose a completely new configuration. The example below creates a custom configuration with INT4 block-wise weight quantization and INT8 token-wise dynamic activation quantization:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Custom configuration for INT4 block-wise weights and INT8 dynamic activations</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.torch.quantization.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">_default_disabled_quantizer_cfg</span>
+
+<span class="c1"># Custom configuration for INT4 block-wise weights and INT8 dynamic activations</span>
 <span class="n">MY_CUSTOM_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;quant_cfg&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;quant_cfg&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="c1"># Disable all quantizers by default, then enable selectively</span>
+        <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+
         <span class="c1"># Configure weight quantizers with 4-bit precision and 128-element blocks</span>
-        <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;block_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">128</span><span class="p">},</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;block_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">128</span><span class="p">}},</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
 
         <span class="c1"># Configure input quantizers with 8-bit dynamic quantization</span>
-        <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;dynamic&quot;</span><span class="p">,</span> <span class="s2">&quot;block_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="kc">None</span><span class="p">}},</span>
+        <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;dynamic&quot;</span><span class="p">,</span> <span class="s2">&quot;block_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="kc">None</span><span class="p">}}},</span>
 
         <span class="c1"># Include default disabled quantizer configurations</span>
-        <span class="o">**</span><span class="n">_default_disabled_quantizer_cfg</span><span class="p">,</span>
-    <span class="p">},</span>
+        <span class="o">*</span><span class="n">_default_disabled_quantizer_cfg</span><span class="p">,</span>
+    <span class="p">],</span>
     <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
@@ -487,8 +495,10 @@ Write a custom calibration class derived from <a class="reference internal" href
 <p>You can specify <code class="docutils literal notranslate"><span class="pre">custom_calib</span></code> as <code class="docutils literal notranslate"><span class="pre">algorithm</span></code> in <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> to use it. Here is an example of using a custom calibrator to quantize your model:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create quantization configuration with &quot;custom_calib&quot; method</span>
 <span class="n">quant_cfg</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;quant_cfg&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;*weight_quantizer&#39;</span><span class="p">:</span> <span class="o">..</span><span class="p">},</span>
-    <span class="s1">&#39;algorithm&#39;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s1">&#39;custom_calib&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;quant_cfg&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}},</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;algorithm&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s1">&#39;custom_calib&#39;</span><span class="p">},</span>
 <span class="p">}</span>
 
 
@@ -519,7 +529,7 @@ Write a custom calibration class derived from <a class="reference internal" href
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="_choosing_quant_methods.html" class="btn btn-neutral float-left" title="Best practices to choose the right quantization methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="_customized_model_quantization.html" class="btn btn-neutral float-right" title="Guides to quantize a customized model from Hugging Face for TensorRT-LLM deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="_quant_cfg.html" class="btn btn-neutral float-right" title="Quantization Configuration (quant_cfg)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

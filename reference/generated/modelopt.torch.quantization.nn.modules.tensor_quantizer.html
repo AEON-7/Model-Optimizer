@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tensor_quantizer &mdash; Model Optimizer 0.0.1.dev1+gc542c09b1</title>
+  <title>tensor_quantizer &mdash; Model Optimizer 0.0.1.dev1+g1cceb950d</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -294,7 +294,7 @@ This method is useful for individually calibrating the quantizers in a sequentia
 <dd><p>Set the attributes of contained quantizers from a list of attribute_dicts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>attributes</strong> (<em>list</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><em>QuantizerAttributeConfig</em></a><em>] </em><em>| </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><em>QuantizerAttributeConfig</em></a>)</p>
+<dd class="field-odd"><p><strong>attributes</strong> (<em>list</em><em>[</em><a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><em>QuantizerAttributeConfig</em></a><em>] </em><em>| </em><em>list</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -605,12 +605,12 @@ For restoring the quantizer fully including the parameters and buffers, use <cit
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.set_from_attribute_config">
 <span class="sig-name descname"><span class="pre">set_from_attribute_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attribute_cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.set_from_attribute_config" title="Link to this definition"></a></dt>
-<dd><p>Set quantizer attributes from attribute_dict.</p>
+<dd><p>Set quantizer attributes from attribute_cfg.</p>
 <p>The attributes are defined in
 <a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerAttributeConfig</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>attribute_cfg</strong> (<a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><em>QuantizerAttributeConfig</em></a><em> | </em><em>dict</em>)</p>
+<dd class="field-odd"><p><strong>attribute_cfg</strong> (<a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><em>QuantizerAttributeConfig</em></a><em> | </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>

@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+gc542c09b1</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g1cceb950d</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -795,6 +795,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.random.html#modelopt.torch.utils.random.centroid">centroid() (in module modelopt.torch.utils.random)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry.cfg">cfg (QuantizerCfgEntry attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.change_casts_to_fp16">change_casts_to_fp16() (in module modelopt.onnx.utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig.chatglm_version">chatglm_version (DecoderLayerConfig attribute)</a>
@@ -959,10 +961,10 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.trace.modules.concat.html#modelopt.torch.trace.modules.concat.ConcatSymbol.Input">ConcatSymbol.Input (class in modelopt.torch.trace.modules.concat)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.nas.hparams.concat.html#modelopt.torch.nas.hparams.concat.ConcatTracedHp">ConcatTracedHp (class in modelopt.torch.nas.hparams.concat)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.nas.hparams.concat.html#modelopt.torch.nas.hparams.concat.ConcatTracedHp">ConcatTracedHp (class in modelopt.torch.nas.hparams.concat)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.config">config (BaseSearcher attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.Config">Config (class in modelopt.onnx.quantization.autotune)</a>
@@ -1432,6 +1434,8 @@
       <ul>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig.enable">(QuantizerAttributeConfig attribute)</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry.enable">(QuantizerCfgEntry attribute)</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.RotateConfig.enable">(RotateConfig attribute)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.enable">(SparseAttentionAttributeConfig attribute)</a>
@@ -1477,10 +1481,10 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.eos_token_id">eos_token_id (ModelConfig attribute)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LayernormConfig.eps">eps (LayernormConfig attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LayernormConfig.eps">eps (LayernormConfig attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.InsertionScheme.error">error (InsertionScheme attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.algorithms.html#modelopt.torch.quantization.algorithms.estimate_quant_compression">estimate_quant_compression() (in module modelopt.torch.quantization.algorithms)</a>
@@ -1660,6 +1664,8 @@
       <li><a href="reference/generated/modelopt.onnx.quantization.graph_utils.html#modelopt.onnx.quantization.graph_utils.find_nodes_to_exclude">find_nodes_to_exclude() (in module modelopt.onnx.quantization.graph_utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.partitioning.html#modelopt.onnx.quantization.partitioning.find_non_quantizable_partitions_from_patterns">find_non_quantizable_partitions_from_patterns() (in module modelopt.onnx.quantization.partitioning)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.find_quant_cfg_entry_by_path">find_quant_cfg_entry_by_path() (in module modelopt.torch.quantization.config)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.partitioning.html#modelopt.onnx.quantization.partitioning.find_quantizable_nodes">find_quantizable_nodes() (in module modelopt.onnx.quantization.partitioning)</a>
 </li>
@@ -5440,6 +5446,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.trace.symbols.html#modelopt.torch.trace.symbols.Symbol.CLType.NONE">NONE (Symbol.CLType attribute)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.normalize_quant_cfg_list">normalize_quant_cfg_list() (in module modelopt.torch.quantization.config)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.functional.html#modelopt.torch.quantization.nn.functional.normalized_hadamard_transform">normalized_hadamard_transform() (in module modelopt.torch.quantization.nn.functional)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.logging.html#modelopt.torch.utils.logging.num2hrb">num2hrb() (in module modelopt.torch.utils.logging)</a>
@@ -5565,6 +5573,8 @@
       <li><a href="reference/generated/modelopt.torch.utils.network.html#modelopt.torch.utils.network.param_num_from_forward">param_num_from_forward() (in module modelopt.torch.utils.network)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.trace.symbols.html#modelopt.torch.trace.symbols.Symbol.parent">parent (Symbol property)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry.parent_class">parent_class (QuantizerCfgEntry attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.parse_shapes_spec">parse_shapes_spec() (in module modelopt.onnx.utils)</a>
 </li>
@@ -5886,6 +5896,10 @@
         <li><a href="reference/generated/modelopt.torch.quantization.qtensor.nvfp4_tensor.html#modelopt.torch.quantization.qtensor.nvfp4_tensor.NVFP4QTensor.quantized_data">(NVFP4QTensor attribute)</a>
 </li>
       </ul></li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry.quantizer_name">quantizer_name (QuantizerCfgEntry attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry">QuantizerCfgEntry (class in modelopt.torch.quantization.config)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.quant_linear.html#modelopt.torch.quantization.nn.modules.quant_linear.QuantLinear">QuantLinear (class in modelopt.torch.quantization.nn.modules.quant_linear)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.quant_module.html#modelopt.torch.quantization.nn.modules.quant_module.QuantLinearConvBase">QuantLinearConvBase (class in modelopt.torch.quantization.nn.modules.quant_module)</a>
@@ -6420,6 +6434,10 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_attribute">set_quantizer_attribute() (in module modelopt.torch.quantization.conversion)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_attributes_full">set_quantizer_attributes_full() (in module modelopt.torch.quantization.conversion)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_attributes_partial">set_quantizer_attributes_partial() (in module modelopt.torch.quantization.conversion)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_by_cfg">set_quantizer_by_cfg() (in module modelopt.torch.quantization.conversion)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_by_cfg_context">set_quantizer_by_cfg_context() (in module modelopt.torch.quantization.conversion)</a>
@@ -6442,10 +6460,10 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.prune.gradnas.html#modelopt.torch.prune.gradnas.GradientBinarySearcher.SETUP_GRADIENT_FUNC">SETUP_GRADIENT_FUNC (GradientBinarySearcher attribute)</a>
 </li>
-      <li><a href="reference/generated/modelopt.onnx.autocast.utils.html#modelopt.onnx.autocast.utils.setup_mappings">setup_mappings() (in module modelopt.onnx.autocast.utils)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.onnx.autocast.utils.html#modelopt.onnx.autocast.utils.setup_mappings">setup_mappings() (in module modelopt.onnx.autocast.utils)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.autocast.referencerunner.html#modelopt.onnx.autocast.referencerunner.TensorStats.shape">shape (TensorStats attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.share_embedding_table">share_embedding_table (ModelConfig attribute)</a>

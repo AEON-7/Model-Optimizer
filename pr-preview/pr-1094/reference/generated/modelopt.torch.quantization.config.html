@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>config &mdash; Model Optimizer 0.0.1.dev1+g51ae70176</title>
+  <title>config &mdash; Model Optimizer 0.0.1.dev1+gfea7b7601</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -220,7 +220,7 @@ quantizers to configure and how.</p></li>
 <h3><code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> — Entry Format<a class="headerlink" href="#quant-cfg-entry-format" title="Link to this heading"></a></h3>
 <p>Each entry in the <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> list is a <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerCfgEntry" title="modelopt.torch.quantization.config.QuantizerCfgEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerCfgEntry</span></code></a> with the following fields:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> <em>(required)</em>: a wildcard string matched against quantizer module names.
+<li><p><code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> <em>(required)</em>: a wildcard string matched against quantizer module names.
 Quantizer modules are instances of
 <a class="reference internal" href="modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer" title="modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TensorQuantizer</span></code></a>
 and have names ending with <code class="docutils literal notranslate"><span class="pre">weight_quantizer</span></code>, <code class="docutils literal notranslate"><span class="pre">input_quantizer</span></code>, etc.</p></li>
@@ -245,7 +245,7 @@ state — all other attributes remain unchanged.</p></li>
 <p>Entries are applied <strong>in list order</strong>; later entries override earlier ones for any quantizer they
 match. The recommended pattern is:</p>
 <ol class="arabic simple">
-<li><p>Start with a deny-all entry <code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_path&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code> (provided as
+<li><p>Start with a deny-all entry <code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_name&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code> (provided as
 <code class="xref py py-data docutils literal notranslate"><span class="pre">_base_disable_all</span></code>) to disable every quantizer by default.</p></li>
 <li><p>Follow with format-specific entries that selectively enable and configure the desired quantizers.</p></li>
 <li><p>Append <code class="xref py py-data docutils literal notranslate"><span class="pre">_default_disabled_quantizer_cfg</span></code> to enforce standard exclusions (e.g. BatchNorm
@@ -262,14 +262,14 @@ layers, LM head, MoE routers).</p></li>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MY_QUANT_CFG</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;quant_cfg&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="c1"># Deny all quantizers by default</span>
-        <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
 
         <span class="c1"># Enable and configure weight and input quantizers</span>
-        <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}},</span>
-        <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}},</span>
+        <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}},</span>
+        <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}},</span>
 
         <span class="c1"># Disable input quantizers specifically for LeakyReLU layers</span>
-        <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;parent_class&quot;</span><span class="p">:</span> <span class="s2">&quot;nn.LeakyReLU&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;parent_class&quot;</span><span class="p">:</span> <span class="s2">&quot;nn.LeakyReLU&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
     <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -289,7 +289,7 @@ For instance, if you want to quantize a model with int4 AWQ algorithm, but need 
 the layer named <code class="docutils literal notranslate"><span class="pre">lm_head</span></code>,  you can create a custom config and quantize your model as following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create custom config</span>
 <span class="n">CUSTOM_INT4_AWQ_CFG</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">mtq</span><span class="o">.</span><span class="n">INT4_AWQ_CFG</span><span class="p">)</span>
-<span class="n">CUSTOM_INT4_AWQ_CFG</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*lm_head*&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<span class="n">CUSTOM_INT4_AWQ_CFG</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*lm_head*&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
 
 <span class="c1"># quantize model</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">mtq</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">CUSTOM_INT4_AWQ_CFG</span><span class="p">,</span> <span class="n">forward_loop</span><span class="p">)</span>
@@ -308,7 +308,7 @@ the layer named <code class="docutils literal notranslate"><span class="pre">lm_
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.config.find_quant_cfg_entry_by_path" title="modelopt.torch.quantization.config.find_quant_cfg_entry_by_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_quant_cfg_entry_by_path</span></code></a></p></td>
-<td><p>Find the last entry in a <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> list whose <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> key equals the query.</p></td>
+<td><p>Find the last entry in a <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> list whose <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> key equals the query.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.config.need_calibration" title="modelopt.torch.quantization.config.need_calibration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">need_calibration</span></code></a></p></td>
 <td><p>Check if calibration is needed for the given config.</p></td>
@@ -887,7 +887,7 @@ reconstruction error of a tensor after uniform Q→DQ:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;quant_cfg&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;quantizer_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;quantizer_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
 <span class="w">         </span><span class="nt">&quot;cfg&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">            </span><span class="nt">&quot;num_bits&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span>
@@ -1170,8 +1170,8 @@ math for both FP8 and NVFP4 quantization, so the amax is hardcoded to the FP8 ra
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerCfgEntry.quantizer_path">
-<span class="sig-name descname"><span class="pre">quantizer_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Required</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerCfgEntry.quantizer_path" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizerCfgEntry.quantizer_name">
+<span class="sig-name descname"><span class="pre">quantizer_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Required</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizerCfgEntry.quantizer_name" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1289,11 +1289,11 @@ See <a class="reference external" href="https://arxiv.org/pdf/2211.10438" rel="n
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.quantization.config.find_quant_cfg_entry_by_path">
-<span class="sig-name descname"><span class="pre">find_quant_cfg_entry_by_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quant_cfg_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantizer_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.config.find_quant_cfg_entry_by_path" title="Link to this definition"></a></dt>
-<dd><p>Find the last entry in a <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> list whose <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> key equals the query.</p>
-<p>This performs an <strong>exact string comparison</strong> against the <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> field of each
+<span class="sig-name descname"><span class="pre">find_quant_cfg_entry_by_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quant_cfg_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantizer_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.config.find_quant_cfg_entry_by_path" title="Link to this definition"></a></dt>
+<dd><p>Find the last entry in a <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> list whose <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> key equals the query.</p>
+<p>This performs an <strong>exact string comparison</strong> against the <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> field of each
 entry — it does <em>not</em> apply <code class="docutils literal notranslate"><span class="pre">fnmatch</span></code> pattern matching.  For example, passing
-<code class="docutils literal notranslate"><span class="pre">&quot;*input_quantizer&quot;</span></code> will only match entries whose <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> is literally
+<code class="docutils literal notranslate"><span class="pre">&quot;*input_quantizer&quot;</span></code> will only match entries whose <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> is literally
 <code class="docutils literal notranslate"><span class="pre">&quot;*input_quantizer&quot;</span></code>, not entries with a different wildcard that would match the same
 module names at apply time.</p>
 <p>Returns the <em>last</em> match because entries are applied in list order and later entries
@@ -1302,14 +1302,14 @@ override earlier ones, so the last match represents the effective configuration.
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>quant_cfg_list</strong> (<em>list</em><em>[</em><a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerCfgEntry" title="modelopt.torch.quantization.config.QuantizerCfgEntry"><em>QuantizerCfgEntry</em></a><em>]</em>) – A list of <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerCfgEntry" title="modelopt.torch.quantization.config.QuantizerCfgEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerCfgEntry</span></code></a> dicts.</p></li>
-<li><p><strong>quantizer_path</strong> (<em>str</em>) – The exact <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> string to search for.</p></li>
+<li><p><strong>quantizer_name</strong> (<em>str</em>) – The exact <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> string to search for.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The last entry whose <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> equals <em>quantizer_path</em>.</p>
+<dd class="field-even"><p>The last entry whose <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> equals <em>quantizer_name</em>.</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>KeyError</strong> – If no entry with the given <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> is found.</p>
+<dd class="field-odd"><p><strong>KeyError</strong> – If no entry with the given <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> is found.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerCfgEntry" title="modelopt.torch.quantization.config.QuantizerCfgEntry"><em>QuantizerCfgEntry</em></a></p>
@@ -1335,16 +1335,16 @@ converted to a single-key dict entry and then normalized.</p></li>
 </ul>
 <p>Per-entry forms (when input is a list):</p>
 <ul class="simple">
-<li><p>New format: <code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_path&quot;:</span> <span class="pre">...,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">...,</span> <span class="pre">&quot;cfg&quot;:</span> <span class="pre">...}</span></code> — passed through.</p></li>
-<li><p>Legacy single-key format: <code class="docutils literal notranslate"><span class="pre">{&quot;&lt;quantizer_path&gt;&quot;:</span> <span class="pre">&lt;cfg_or_dict&gt;}</span></code> — converted to new format.</p></li>
-<li><p>Legacy <code class="docutils literal notranslate"><span class="pre">nn.*</span></code>-scoped format: <code class="docutils literal notranslate"><span class="pre">{&quot;nn.&lt;Class&gt;&quot;:</span> <span class="pre">{&quot;&lt;quantizer_path&gt;&quot;:</span> <span class="pre">&lt;cfg&gt;}}</span></code> — converted
+<li><p>New format: <code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_name&quot;:</span> <span class="pre">...,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">...,</span> <span class="pre">&quot;cfg&quot;:</span> <span class="pre">...}</span></code> — passed through.</p></li>
+<li><p>Legacy single-key format: <code class="docutils literal notranslate"><span class="pre">{&quot;&lt;quantizer_name&gt;&quot;:</span> <span class="pre">&lt;cfg_or_dict&gt;}</span></code> — converted to new format.</p></li>
+<li><p>Legacy <code class="docutils literal notranslate"><span class="pre">nn.*</span></code>-scoped format: <code class="docutils literal notranslate"><span class="pre">{&quot;nn.&lt;Class&gt;&quot;:</span> <span class="pre">{&quot;&lt;quantizer_name&gt;&quot;:</span> <span class="pre">&lt;cfg&gt;}}</span></code> — converted
 to a new-format entry with <code class="docutils literal notranslate"><span class="pre">parent_class</span></code> set.</p></li>
 </ul>
 <p><strong>Validation</strong> — an entry is rejected if it carries no instruction, i.e. it specifies neither
 <code class="docutils literal notranslate"><span class="pre">cfg</span></code> nor <code class="docutils literal notranslate"><span class="pre">enable</span></code>.  Concretely, the following are invalid:</p>
 <ul class="simple">
 <li><p>An empty entry <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p></li>
-<li><p>An entry with only <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> and no other keys — the only effect would be an
+<li><p>An entry with only <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> and no other keys — the only effect would be an
 implicit <code class="docutils literal notranslate"><span class="pre">enable=True</span></code>, which must be stated explicitly.</p></li>
 </ul>
 <p><strong>Normalization</strong> — after conversion and validation every entry is put into canonical form:</p>
@@ -1352,7 +1352,7 @@ implicit <code class="docutils literal notranslate"><span class="pre">enable=Tru
 <li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if not explicitly specified.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cfg</span></code> is set to <code class="docutils literal notranslate"><span class="pre">None</span></code> if not present in the entry.</p></li>
 </ul>
-<p>Every returned entry is therefore guaranteed to have the keys <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code>, <code class="docutils literal notranslate"><span class="pre">enable</span></code>,
+<p>Every returned entry is therefore guaranteed to have the keys <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code>, <code class="docutils literal notranslate"><span class="pre">enable</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">cfg</span></code> (plus optionally <code class="docutils literal notranslate"><span class="pre">parent_class</span></code>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1362,7 +1362,7 @@ and <code class="docutils literal notranslate"><span class="pre">cfg</span></cod
 <dd class="field-even"><p>A list of <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizerCfgEntry" title="modelopt.torch.quantization.config.QuantizerCfgEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerCfgEntry</span></code></a> dicts in canonical normalized form.</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – If any entry has only <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> with neither <code class="docutils literal notranslate"><span class="pre">cfg</span></code> nor <code class="docutils literal notranslate"><span class="pre">enable</span></code>,
+<dd class="field-odd"><p><strong>ValueError</strong> – If any entry has only <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> with neither <code class="docutils literal notranslate"><span class="pre">cfg</span></code> nor <code class="docutils literal notranslate"><span class="pre">enable</span></code>,
     or if the entry format is not recognized.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>

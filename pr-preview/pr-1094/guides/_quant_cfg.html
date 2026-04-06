@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quantization Configuration (quant_cfg) &mdash; Model Optimizer 0.0.1.dev1+g51ae70176</title>
+  <title>Quantization Configuration (quant_cfg) &mdash; Model Optimizer 0.0.1.dev1+gfea7b7601</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -196,7 +196,7 @@ quantizer modules in the model and specifies their configuration.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code></p></td>
 <td><p>Yes</p></td>
 <td><p>Wildcard string matched against quantizer module names (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;*weight_quantizer&quot;</span></code>).
 Uses <code class="xref py py-func docutils literal notranslate"><span class="pre">fnmatch()</span></code> rules.</p></td>
@@ -224,9 +224,9 @@ the quantizer is implicitly enabled (<code class="docutils literal notranslate">
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Every entry must specify at least one of <code class="docutils literal notranslate"><span class="pre">cfg</span></code> or <code class="docutils literal notranslate"><span class="pre">enable</span></code> in addition to
-<code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code>.  An entry with only <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> and no other keys is <strong>invalid</strong>
+<code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code>.  An entry with only <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> and no other keys is <strong>invalid</strong>
 and will raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> at config-processing time.  This prevents subtle bugs where
-a bare <code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_path&quot;:</span> <span class="pre">&quot;*&quot;}</span></code> would silently behave as <code class="docutils literal notranslate"><span class="pre">enable=True</span></code> for all
+a bare <code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_name&quot;:</span> <span class="pre">&quot;*&quot;}</span></code> would silently behave as <code class="docutils literal notranslate"><span class="pre">enable=True</span></code> for all
 quantizers.</p>
 </div>
 </section>
@@ -273,11 +273,11 @@ match. This gives a clear, composable precedence model:</p>
 <p>The recommended pattern used by all built-in configs is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="c1"># 1. Deny all quantizers by default</span>
-    <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
 
     <span class="c1"># 2. Enable and configure the target quantizers</span>
-    <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}},</span>
-    <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}},</span>
+    <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}},</span>
+    <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}},</span>
 
     <span class="c1"># 3. Apply standard exclusions last (BatchNorm, LM head, MoE routers, etc.)</span>
     <span class="o">*</span><span class="n">mtq</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">_default_disabled_quantizer_cfg</span><span class="p">,</span>
@@ -286,7 +286,7 @@ match. This gives a clear, composable precedence model:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The deny-all entry <code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_path&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code> is available as
+<p>The deny-all entry <code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_name&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code> is available as
 <code class="xref py py-data docutils literal notranslate"><span class="pre">modelopt.torch.quantization.config._base_disable_all</span></code> and is prepended to every
 built-in config. This ensures quantizers not explicitly targeted remain disabled.</p>
 </div>
@@ -317,18 +317,18 @@ default, not to the value set by an earlier entry.</p></li>
 full replacement — it solely flips the on/off state of matched quantizers, leaving all other
 attributes unchanged:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_path&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code> disables all quantizers without touching their
+<li><p><code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_name&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code> disables all quantizers without touching their
 configured attributes. Use this as the first step in a deny-all-then-configure pattern.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_path&quot;:</span> <span class="pre">&quot;*weight_quantizer&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">True}</span></code> (no <code class="docutils literal notranslate"><span class="pre">cfg</span></code>) re-enables weight
+<li><p><code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_name&quot;:</span> <span class="pre">&quot;*weight_quantizer&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">True}</span></code> (no <code class="docutils literal notranslate"><span class="pre">cfg</span></code>) re-enables weight
 quantizers using whatever attributes they currently carry (or their defaults if they were never
 configured by a <code class="docutils literal notranslate"><span class="pre">cfg</span></code> entry).</p></li>
 </ul>
 <p>For example, given the following two entries both matching <code class="docutils literal notranslate"><span class="pre">*weight_quantizer</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Entry 1 — sets FP8 per-channel</span>
-<span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}},</span>
+<span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}},</span>
 
 <span class="c1"># Entry 2 — sets INT4 blockwise (axis is NOT inherited from Entry 1)</span>
-<span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;block_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">128</span><span class="p">}}},</span>
+<span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;block_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">128</span><span class="p">}}},</span>
 </pre></div>
 </div>
 <p>After Entry 2 is applied, the quantizer has <code class="docutils literal notranslate"><span class="pre">num_bits=4</span></code>, <code class="docutils literal notranslate"><span class="pre">block_sizes={-1:</span> <span class="pre">128}</span></code>, and
@@ -336,7 +336,7 @@ configured by a <code class="docutils literal notranslate"><span class="pre">cfg
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The deny-all-then-configure pattern is safe and predictable precisely because
-<code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_path&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code> <strong>only</strong> disables quantizers without resetting
+<code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_name&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code> <strong>only</strong> disables quantizers without resetting
 their attributes. Subsequent <code class="docutils literal notranslate"><span class="pre">cfg</span></code> entries then configure targets from a known default state.</p>
 </div>
 </section>
@@ -353,7 +353,7 @@ Because it is appended last, it takes precedence over all earlier entries:</p>
 <span class="n">config</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">mtq</span><span class="o">.</span><span class="n">FP8_DEFAULT_CFG</span><span class="p">)</span>
 
 <span class="c1"># Skip the final projection layer</span>
-<span class="n">config</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*lm_head*&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<span class="n">config</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*lm_head*&quot;</span><span class="p">,</span> <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">mtq</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">forward_loop</span><span class="p">)</span>
 </pre></div>
@@ -364,7 +364,7 @@ Because it is appended last, it takes precedence over all earlier entries:</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">parent_class</span></code> to target quantizers only within a specific type of layer, leaving the
 same quantizer path in other layer types unaffected:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-    <span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span>
     <span class="s2">&quot;parent_class&quot;</span><span class="p">:</span> <span class="s2">&quot;nn.LayerNorm&quot;</span><span class="p">,</span>
     <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">})</span>
@@ -373,13 +373,13 @@ same quantizer path in other layer types unaffected:</p>
 </section>
 <section id="overriding-quantizer-precision-for-specific-layers">
 <h3>Overriding Quantizer Precision for Specific Layers<a class="headerlink" href="#overriding-quantizer-precision-for-specific-layers" title="Link to this heading"></a></h3>
-<p>A later entry with a matching <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> replaces the configuration set by an earlier
+<p>A later entry with a matching <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> replaces the configuration set by an earlier
 entry. This allows per-layer precision overrides without restructuring the entire config:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">mtq</span><span class="o">.</span><span class="n">FP8_DEFAULT_CFG</span><span class="p">)</span>
 
 <span class="c1"># Quantize attention output projections in higher-precision INT8 instead of FP8</span>
 <span class="n">config</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-    <span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*o_proj*weight_quantizer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*o_proj*weight_quantizer&quot;</span><span class="p">,</span>
     <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
 <span class="p">})</span>
 </pre></div>
@@ -393,8 +393,8 @@ entry. This allows per-layer precision overrides without restructuring the entir
 <span class="n">MY_CUSTOM_CFG</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;quant_cfg&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="o">*</span><span class="n">_base_disable_all</span><span class="p">,</span>
-        <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;block_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">128</span><span class="p">}}},</span>
-        <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}},</span>
+        <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;block_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">128</span><span class="p">}}},</span>
+        <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span> <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}},</span>
         <span class="o">*</span><span class="n">_default_disabled_quantizer_cfg</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
@@ -415,7 +415,7 @@ is replaced with a
 that applies each format in sequence. This is used, for example, in W4A8 quantization where weights
 are quantized first in INT4 and then in FP8:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span>
     <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;block_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;static&quot;</span><span class="p">}},</span>
         <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)},</span>  <span class="c1"># FP8</span>
@@ -458,11 +458,11 @@ should use the list format.</p>
 </div>
 </td>
 <td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
      <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*weight_quantizer&quot;</span><span class="p">,</span>
      <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}},</span>
-    <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span>
      <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;num_bits&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}},</span>
 <span class="p">]</span>
 </pre></div>
@@ -478,7 +478,7 @@ should use the list format.</p>
 </td>
 <td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Append to the end (last entry wins)</span>
 <span class="n">config</span><span class="p">[</span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*lm_head*&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*lm_head*&quot;</span><span class="p">,</span>
      <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
@@ -497,7 +497,7 @@ should use the list format.</p>
 </div>
 </td>
 <td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;quant_cfg&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s2">&quot;quantizer_path&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s2">&quot;quantizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;*input_quantizer&quot;</span><span class="p">,</span>
      <span class="s2">&quot;parent_class&quot;</span><span class="p">:</span> <span class="s2">&quot;nn.Linear&quot;</span><span class="p">,</span>
      <span class="s2">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
 <span class="p">]</span>
@@ -509,7 +509,7 @@ should use the list format.</p>
 </table>
 <p>Key differences to keep in mind:</p>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">&quot;default&quot;</span></code> key becomes <code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_path&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code> placed at the
+<li><p>The <code class="docutils literal notranslate"><span class="pre">&quot;default&quot;</span></code> key becomes <code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_name&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code> placed at the
 <strong>start</strong> of the list (deny-all-then-configure pattern).</p></li>
 <li><p>Dict key assignment (<code class="docutils literal notranslate"><span class="pre">config[&quot;quant_cfg&quot;][&quot;*lm_head*&quot;]</span> <span class="pre">=</span> <span class="pre">...</span></code>) becomes <code class="docutils literal notranslate"><span class="pre">list.append()</span></code>.
 Because later entries override earlier ones, appending achieves the same override effect.</p></li>

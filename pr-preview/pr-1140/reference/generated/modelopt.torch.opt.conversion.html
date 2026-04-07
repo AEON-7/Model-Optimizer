@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>conversion &mdash; Model Optimizer 0.0.1.dev1+gbbec3d149</title>
+  <title>conversion &mdash; Model Optimizer 0.0.1.dev1+g2c3eed48e</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -554,12 +554,13 @@ process. Please wrap the model after the restore process.</p>
 Please load the weights and biases with the original checkpoint loading method after restoring
 modelopt states with <cite>restore_from_modelopt_state</cite>. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">modelopt.torch.opt</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mto</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.torch.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">safe_load</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># Create the model-like object</span>
 
 <span class="c1"># Restore the previously saved modelopt state followed by model weights</span>
 <span class="n">mto</span><span class="o">.</span><span class="n">restore_from_modelopt_state</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">modelopt_state_path</span><span class="o">=</span><span class="s2">&quot;modelopt_state.pt&quot;</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;model_weights.pt&quot;</span><span class="p">),</span> <span class="o">...</span><span class="p">)</span>  <span class="c1"># Load the model weights</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">safe_load</span><span class="p">(</span><span class="s2">&quot;model_weights.pt&quot;</span><span class="p">),</span> <span class="o">...</span><span class="p">)</span>  <span class="c1"># Load the model weights</span>
 </pre></div>
 </div>
 <p>If you want to restore the model weights and the modelopt state with saved scales, please use

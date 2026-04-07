@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g56579df71</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g44d117534</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -783,10 +783,10 @@
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.bias_axis">bias_axis (TensorQuantizer property)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.bias_calibrator">bias_calibrator (TensorQuantizer property)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.bias_method">bias_method (TensorQuantizer property)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.bias_type">bias_type (TensorQuantizer property)</a>
@@ -812,6 +812,8 @@
       <li><a href="reference/generated/modelopt.torch.quantization.qtensor.mxfp8_tensor.html#modelopt.torch.quantization.qtensor.mxfp8_tensor.MXFP8QTensor.BLOCK_SIZE">BLOCK_SIZE (MXFP8QTensor attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.RotateConfig.block_size">block_size (RotateConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.block_size_3d">block_size_3d (VSAAttributeConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig.block_sizes">block_sizes (QuantizerAttributeConfig attribute)</a>
 
@@ -935,6 +937,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.random.html#modelopt.torch.utils.random.centroid">centroid() (in module modelopt.torch.utils.random)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry.cfg">cfg (QuantizerCfgEntry attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.change_casts_to_fp16">change_casts_to_fp16() (in module modelopt.onnx.utils)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig.chatglm_version">chatglm_version (DecoderLayerConfig attribute)</a>
@@ -1026,7 +1030,11 @@
 </li>
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.collect_stats">collect_stats (SparseAttentionAttributeConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.collect_stats">(VSAAttributeConfig attribute)</a>
 </li>
+      </ul></li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.CombinedRegionSearch">CombinedRegionSearch (class in modelopt.onnx.quantization.autotune)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.network.html#modelopt.torch.utils.network.compare_dict">compare_dict() (in module modelopt.torch.utils.network)</a>
@@ -1672,9 +1680,13 @@
       <ul>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig.enable">(QuantizerAttributeConfig attribute)</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry.enable">(QuantizerCfgEntry attribute)</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.RotateConfig.enable">(RotateConfig attribute)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.enable">(SparseAttentionAttributeConfig attribute)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.enable">(VSAAttributeConfig attribute)</a>
 </li>
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.sparse_attention.html#modelopt.torch.sparsity.attention_sparsity.sparse_attention.SparseAttentionModule.enable">enable() (SparseAttentionModule method)</a>
@@ -1717,10 +1729,10 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LayernormConfig.eps">eps (LayernormConfig attribute)</a>
 </li>
-      <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.InsertionScheme.error">error (InsertionScheme attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.InsertionScheme.error">error (InsertionScheme attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.algorithms.html#modelopt.torch.quantization.algorithms.estimate_quant_compression">estimate_quant_compression() (in module modelopt.torch.quantization.algorithms)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.algorithms.html#modelopt.torch.quantization.algorithms.AutoQuantizeGradientSearcher.estimate_sensitivity_scores">estimate_sensitivity_scores() (AutoQuantizeGradientSearcher method)</a>
@@ -1915,6 +1927,8 @@
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.partitioning.html#modelopt.onnx.quantization.partitioning.find_non_quantizable_partitions_from_patterns">find_non_quantizable_partitions_from_patterns() (in module modelopt.onnx.quantization.partitioning)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.find_quant_cfg_entry_by_path">find_quant_cfg_entry_by_path() (in module modelopt.torch.quantization.config)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.quantization.partitioning.html#modelopt.onnx.quantization.partitioning.find_quantizable_nodes">find_quantizable_nodes() (in module modelopt.onnx.quantization.partitioning)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.quant_utils.html#modelopt.onnx.quantization.quant_utils.find_scales">find_scales() (in module modelopt.onnx.quantization.quant_utils)</a>
@@ -1995,6 +2009,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.methods.html#modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.forward_attention">forward_attention() (SparseAttentionMethod method)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.forward_loop">forward_loop (BaseSearcher attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.prune.importance_hooks.base_hooks.html#modelopt.torch.prune.importance_hooks.base_hooks.ForwardHook">ForwardHook (class in modelopt.torch.prune.importance_hooks.base_hooks)</a>
@@ -3413,6 +3429,8 @@
         <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.method">(SparseAttentionAttributeConfig attribute)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.SVDQuantConfig.method">(SVDQuantConfig attribute)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.method">(VSAAttributeConfig attribute)</a>
 </li>
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.quantization.algorithms.html#modelopt.torch.quantization.algorithms.AutoQuantizeGradientSearcher.method_name">method_name (AutoQuantizeGradientSearcher attribute)</a>
@@ -5230,6 +5248,13 @@
 </li>
       </ul></li>
       <li>
+    modelopt.torch.utils.serialization
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.utils.serialization.html#module-modelopt.torch.utils.serialization">module</a>
+</li>
+      </ul></li>
+      <li>
     modelopt.torch.utils.speech_dataset_utils
 
       <ul>
@@ -5774,6 +5799,8 @@
 </li>
         <li><a href="reference/generated/modelopt.torch.utils.robust_json.html#module-modelopt.torch.utils.robust_json">modelopt.torch.utils.robust_json</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.utils.serialization.html#module-modelopt.torch.utils.serialization">modelopt.torch.utils.serialization</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.utils.speech_dataset_utils.html#module-modelopt.torch.utils.speech_dataset_utils">modelopt.torch.utils.speech_dataset_utils</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.utils.tensor.html#module-modelopt.torch.utils.tensor">modelopt.torch.utils.tensor</a>
@@ -6109,6 +6136,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.trace.symbols.html#modelopt.torch.trace.symbols.Symbol.CLType.NONE">NONE (Symbol.CLType attribute)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.normalize_quant_cfg_list">normalize_quant_cfg_list() (in module modelopt.torch.quantization.config)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.functional.html#modelopt.torch.quantization.nn.functional.normalized_hadamard_transform">normalized_hadamard_transform() (in module modelopt.torch.quantization.nn.functional)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.tools.kd_model.html#modelopt.torch.puzzletron.tools.kd_model.normalized_mse_loss">normalized_mse_loss() (in module modelopt.torch.puzzletron.tools.kd_model)</a>
@@ -6258,6 +6287,8 @@
       <li><a href="reference/generated/modelopt.torch.utils.network.html#modelopt.torch.utils.network.param_num_from_forward">param_num_from_forward() (in module modelopt.torch.utils.network)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.trace.symbols.html#modelopt.torch.trace.symbols.Symbol.parent">parent (Symbol property)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry.parent_class">parent_class (QuantizerCfgEntry attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.parse_shapes_spec">parse_shapes_spec() (in module modelopt.onnx.utils)</a>
 </li>
@@ -6607,6 +6638,10 @@
         <li><a href="reference/generated/modelopt.torch.quantization.qtensor.nvfp4_tensor.html#modelopt.torch.quantization.qtensor.nvfp4_tensor.NVFP4QTensor.quantized_data">(NVFP4QTensor attribute)</a>
 </li>
       </ul></li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry.quantizer_name">quantizer_name (QuantizerCfgEntry attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry">QuantizerCfgEntry (class in modelopt.torch.quantization.config)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.quant_linear.html#modelopt.torch.quantization.nn.modules.quant_linear.QuantLinear">QuantLinear (class in modelopt.torch.quantization.nn.modules.quant_linear)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.quant_module.html#modelopt.torch.quantization.nn.modules.quant_module.QuantLinearConvBase">QuantLinearConvBase (class in modelopt.torch.quantization.nn.modules.quant_module)</a>
@@ -7045,6 +7080,10 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.utils.serialization.html#modelopt.torch.utils.serialization.safe_load">safe_load() (in module modelopt.torch.utils.serialization)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.utils.serialization.html#modelopt.torch.utils.serialization.safe_save">safe_save() (in module modelopt.torch.utils.serialization)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.puzzletron.anymodel.html#modelopt.torch.puzzletron.anymodel.Same">Same (class in modelopt.torch.puzzletron.anymodel)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.tensor.html#modelopt.torch.utils.tensor.same_device_as">same_device_as() (in module modelopt.torch.utils.tensor)</a>
@@ -7211,6 +7250,10 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_attribute">set_quantizer_attribute() (in module modelopt.torch.quantization.conversion)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_attributes_full">set_quantizer_attributes_full() (in module modelopt.torch.quantization.conversion)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_attributes_partial">set_quantizer_attributes_partial() (in module modelopt.torch.quantization.conversion)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_by_cfg">set_quantizer_by_cfg() (in module modelopt.torch.quantization.conversion)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.conversion.html#modelopt.torch.quantization.conversion.set_quantizer_by_cfg_context">set_quantizer_by_cfg_context() (in module modelopt.torch.quantization.conversion)</a>
@@ -7247,10 +7290,10 @@
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.share_embedding_table">share_embedding_table (ModelConfig attribute)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.MOEConfig.shared_expert">shared_expert (MOEConfig attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.MOEConfig.shared_expert">shared_expert (MOEConfig attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.MOEConfig.shared_expert_gate">shared_expert_gate (MOEConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.graph_utils.html#modelopt.onnx.quantization.graph_utils.should_quantize_to_8bit">should_quantize_to_8bit() (in module modelopt.onnx.quantization.graph_utils)</a>
@@ -7287,6 +7330,8 @@
 
       <ul>
         <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionConfig.sparse_cfg">(SparseAttentionConfig attribute)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAConfig.sparse_cfg">(VSAConfig attribute)</a>
 </li>
       </ul></li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig.sparse_mixer_epsilon">sparse_mixer_epsilon (DecoderLayerConfig attribute)</a>
@@ -7549,6 +7594,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.speculative.utils.html#modelopt.torch.speculative.utils.AcceptanceRateValidation.tokenize">tokenize() (AcceptanceRateValidation method)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.top_k_ratio">top_k_ratio (VSAAttributeConfig attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.Config.top_percent_to_mutate">top_percent_to_mutate (Config attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.utils.tensor.html#modelopt.torch.utils.tensor.torch_detach">torch_detach() (in module modelopt.torch.utils.tensor)</a>
@@ -7760,6 +7807,8 @@
       <li><a href="reference/generated/modelopt.torch.puzzletron.tools.logger.html#modelopt.torch.puzzletron.tools.logger.DistributedLogger.verbosity">verbosity (DistributedLogger attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.quant_rnn.html#modelopt.torch.quantization.nn.modules.quant_rnn.VFRNNForward">VFRNNForward (class in modelopt.torch.quantization.nn.modules.quant_rnn)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.VSAAttributeConfig.video_shape">video_shape (VSAAttributeConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.postprocess.html#modelopt.torch.export.postprocess.view_as_float8_e4m3fn_if_needed">view_as_float8_e4m3fn_if_needed() (in module modelopt.torch.export.postprocess)</a>
 </li>

@@ -26,6 +26,13 @@ config
    .. Overview table of available classes in the module
    
    
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      QuantizerCfgEntry
+   
    
 
 
@@ -37,6 +44,8 @@ config
    .. autosummary::
       :nosignatures:
    
+      find_quant_cfg_entry_by_path
       need_calibration
+      normalize_quant_cfg_list
    
    

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>methods &mdash; Model Optimizer 0.0.1.dev1+gae852bb27</title>
+  <title>methods &mdash; Model Optimizer 0.0.1.dev1+gc0f17ad9f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -297,6 +297,20 @@ the entire attention computation rather than patching softmax.</p>
 <dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.name">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.name" title="Link to this definition"></a></dt>
 <dd><p>Method name identifier.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.set_calibration_mode">
+<span class="sig-name descname"><span class="pre">set_calibration_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enabled</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.set_calibration_mode" title="Link to this definition"></a></dt>
+<dd><p>Enable or disable calibration mode (called by DynamicThresholdCalibrator).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enabled</strong> (<em>bool</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>speculative_decoding &mdash; Model Optimizer 0.0.1.dev1+g55bcba06b</title>
+  <title>serialization &mdash; Model Optimizer 0.0.1.dev1+g55bcba06b</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -33,8 +33,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="utils" href="modelopt.torch.speculative.utils.html" />
-    <link rel="prev" title="plugins" href="modelopt.torch.speculative.plugins.html" /> 
+    <link rel="next" title="speech_dataset_utils" href="modelopt.torch.utils.speech_dataset_utils.html" />
+    <link rel="prev" title="robust_json" href="modelopt.torch.utils.robust_json.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -109,18 +109,31 @@
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.prune.html">prune</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.sparsity.html">sparsity</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.speculative.html">speculative</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.config.html">config</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.eagle.html">eagle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.medusa.html">medusa</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.mode.html">mode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.plugins.html">plugins</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">speculative_decoding</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.utils.html">utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.speculative.html">speculative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.trace.html">trace</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.utils.html">utils</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.cpp_extension.html">cpp_extension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.dataset_utils.html">dataset_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.distributed.html">distributed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.graph.html">graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.image_processor.html">image_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.import_utils.html">import_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.list.html">list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.logging.html">logging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.memory_monitor.html">memory_monitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.nemotron_vlm_dataset_utils.html">nemotron_vlm_dataset_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.network.html">network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.perf.html">perf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.plugins.html">plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.random.html">random</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.regex.html">regex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.robust_json.html">robust_json</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">serialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.speech_dataset_utils.html">speech_dataset_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.tensor.html">tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.vlm_dataset_utils.html">vlm_dataset_utils</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.trace.html">trace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.utils.html">utils</a></li>
 </ul>
 </li>
 </ul>
@@ -148,10 +161,10 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../1_modelopt_api.html">modelopt API</a></li>
           <li class="breadcrumb-item"><a href="modelopt.torch.html">torch</a></li>
-          <li class="breadcrumb-item"><a href="modelopt.torch.speculative.html">speculative</a></li>
-      <li class="breadcrumb-item active">speculative_decoding</li>
+          <li class="breadcrumb-item"><a href="modelopt.torch.utils.html">utils</a></li>
+      <li class="breadcrumb-item active">serialization</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/reference/generated/modelopt.torch.speculative.speculative_decoding.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/reference/generated/modelopt.torch.utils.serialization.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -159,50 +172,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="speculative-decoding">
-<h1>speculative_decoding<a class="headerlink" href="#speculative-decoding" title="Link to this heading"></a></h1>
-<p id="module-modelopt.torch.speculative.speculative_decoding">User-facing API for converting a model into a <cite>modelopt.torch.speculative.MedusaModel</cite>.</p>
+  <section id="serialization">
+<h1>serialization<a class="headerlink" href="#serialization" title="Link to this heading"></a></h1>
+<p id="module-modelopt.torch.utils.serialization">Serialization utilities for secure checkpoint saving and loading.</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.speculative.speculative_decoding.convert" title="modelopt.torch.speculative.speculative_decoding.convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert</span></code></a></p></td>
-<td><p>Main conversion function to turn a base model into a speculative decoding model.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.utils.serialization.safe_load" title="modelopt.torch.utils.serialization.safe_load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_load</span></code></a></p></td>
+<td><p>Load a checkpoint securely using weights_only=True by default.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.utils.serialization.safe_save" title="modelopt.torch.utils.serialization.safe_save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_save</span></code></a></p></td>
+<td><p>Save a checkpoint after sanitizing known types for <code class="docutils literal notranslate"><span class="pre">weights_only=True</span></code> compatibility.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.speculative.speculative_decoding.convert">
-<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.speculative.speculative_decoding.convert" title="Link to this definition"></a></dt>
-<dd><p>Main conversion function to turn a base model into a speculative decoding model.</p>
+<dt class="sig sig-object py" id="modelopt.torch.utils.serialization.safe_load">
+<span class="sig-name descname"><span class="pre">safe_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.serialization.safe_load" title="Link to this definition"></a></dt>
+<dd><p>Load a checkpoint securely using weights_only=True by default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>str</em><em> | </em><em>PathLike</em><em> | </em><em>BinaryIO</em><em> | </em><em>bytes</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Any</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.utils.serialization.safe_save">
+<span class="sig-name descname"><span class="pre">safe_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.serialization.safe_save" title="Link to this definition"></a></dt>
+<dd><p>Save a checkpoint after sanitizing known types for <code class="docutils literal notranslate"><span class="pre">weights_only=True</span></code> compatibility.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>Module</em>) – The base model to be used.</p></li>
-<li><p><strong>mode</strong> (<a class="reference internal" href="modelopt.torch.opt.mode.html#modelopt.torch.opt.mode.ModeDescriptor" title="modelopt.torch.opt.mode.ModeDescriptor"><em>ModeDescriptor</em></a><em> | </em><em>str</em><em> | </em><em>list</em><em>[</em><a class="reference internal" href="modelopt.torch.opt.mode.html#modelopt.torch.opt.mode.ModeDescriptor" title="modelopt.torch.opt.mode.ModeDescriptor"><em>ModeDescriptor</em></a><em> | </em><em>str</em><em>] </em><em>| </em><em>list</em><em>[</em><em>tuple</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>] </em><em>| </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – <p>A (list of) string(s) or Mode(s) or a list of tuples containing the mode and its
-config indicating the desired mode(s) (and configurations) for the convert
-process. Modes set up the model for different algorithms for model optimization. The
-following modes are available:</p>
-<ul>
-<li><p><a class="reference internal" href="modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.MedusaModeDescriptor" title="modelopt.torch.speculative.mode.MedusaModeDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">&quot;medusa&quot;</span></code></a>: The
-<code class="docutils literal notranslate"><span class="pre">model</span></code> will be converted into a medusa model with added medusa head.
-The mode’s config is described in
-<a class="reference internal" href="modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.MedusaConfig" title="modelopt.torch.speculative.config.MedusaConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">MedusaConfig</span></code></a>.</p></li>
-<li><p><a class="reference internal" href="modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.EagleModeDescriptor" title="modelopt.torch.speculative.mode.EagleModeDescriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">&quot;eagle&quot;</span></code></a>: The
-<code class="docutils literal notranslate"><span class="pre">model</span></code> will be converted into a eagle model with added eagle weights.
-The mode’s config is described in
-<a class="reference internal" href="modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.EagleConfig" title="modelopt.torch.speculative.config.EagleConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">EagleConfig</span></code></a>.</p></li>
-</ul>
-<p>If the mode argument is specified as a dictionary, the keys should indicate the mode and
-the values specify the per-mode configuration.</p>
-</p></li>
+<li><p><strong>obj</strong> (<em>Any</em>)</p></li>
+<li><p><strong>f</strong> (<em>str</em><em> | </em><em>PathLike</em><em> | </em><em>BinaryIO</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>An instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">MedusaModel</span> <span class="pre">&lt;modelopt.torch.distill.MedusaModel</span></code> or
-<code class="xref py py-class docutils literal notranslate"><span class="pre">EagleModel</span> <span class="pre">&lt;modelopt.torch.distill.EagleModel</span></code> its subclass.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>Module</em></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -213,8 +223,8 @@ the values specify the per-mode configuration.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modelopt.torch.speculative.plugins.html" class="btn btn-neutral float-left" title="plugins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modelopt.torch.speculative.utils.html" class="btn btn-neutral float-right" title="utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modelopt.torch.utils.robust_json.html" class="btn btn-neutral float-left" title="robust_json" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modelopt.torch.utils.speech_dataset_utils.html" class="btn btn-neutral float-right" title="speech_dataset_utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

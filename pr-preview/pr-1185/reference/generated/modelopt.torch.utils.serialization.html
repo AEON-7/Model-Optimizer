@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>onnx &mdash; Model Optimizer 0.0.1.dev1+g93a771f0a</title>
+  <title>serialization &mdash; Model Optimizer 0.0.1.dev1+g93a771f0a</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -33,8 +33,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="autocast" href="modelopt.onnx.autocast.html" />
-    <link rel="prev" title="generate" href="modelopt.deploy.llm.generate.html" /> 
+    <link rel="next" title="speech_dataset_utils" href="modelopt.torch.utils.speech_dataset_utils.html" />
+    <link rel="prev" title="robust_json" href="modelopt.torch.utils.robust_json.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -98,19 +98,44 @@
 <li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">onnx</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.autocast.html">autocast</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.export.html">export</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.graph_surgery.html">graph_surgery</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.llm_export_utils.html">llm_export_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.logging_config.html">logging_config</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.op_types.html">op_types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.quantization.html">quantization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.trt_utils.html">trt_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.utils.html">utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modelopt.torch.html">torch</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.distill.html">distill</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.export.html">export</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.kernels.html">kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.nas.html">nas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.opt.html">opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.peft.html">peft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.prune.html">prune</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.sparsity.html">sparsity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.speculative.html">speculative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.trace.html">trace</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.utils.html">utils</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.cpp_extension.html">cpp_extension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.dataset_utils.html">dataset_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.distributed.html">distributed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.graph.html">graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.image_processor.html">image_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.import_utils.html">import_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.list.html">list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.logging.html">logging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.memory_monitor.html">memory_monitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.nemotron_vlm_dataset_utils.html">nemotron_vlm_dataset_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.network.html">network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.perf.html">perf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.plugins.html">plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.random.html">random</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.regex.html">regex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.robust_json.html">robust_json</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">serialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.speech_dataset_utils.html">speech_dataset_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.tensor.html">tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.utils.vlm_dataset_utils.html">vlm_dataset_utils</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modelopt.torch.html">torch</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -135,9 +160,11 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../1_modelopt_api.html">modelopt API</a></li>
-      <li class="breadcrumb-item active">onnx</li>
+          <li class="breadcrumb-item"><a href="modelopt.torch.html">torch</a></li>
+          <li class="breadcrumb-item"><a href="modelopt.torch.utils.html">utils</a></li>
+      <li class="breadcrumb-item active">serialization</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/reference/generated/modelopt.onnx.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/reference/generated/modelopt.torch.utils.serialization.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -145,49 +172,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="onnx">
-<h1>onnx<a class="headerlink" href="#onnx" title="Link to this heading"></a></h1>
-<p class="rubric">Modules</p>
+  <section id="serialization">
+<h1>serialization<a class="headerlink" href="#serialization" title="Link to this heading"></a></h1>
+<p id="module-modelopt.torch.utils.serialization">Serialization utilities for secure checkpoint saving and loading.</p>
+<p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.onnx.autocast.html#module-modelopt.onnx.autocast" title="modelopt.onnx.autocast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.autocast</span></code></a></p></td>
-<td><p>AutoCast package for converting FP32 ONNX models to mixed precision.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.utils.serialization.safe_load" title="modelopt.torch.utils.serialization.safe_load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_load</span></code></a></p></td>
+<td><p>Load a checkpoint securely using weights_only=True by default.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.onnx.export.html#module-modelopt.onnx.export" title="modelopt.onnx.export"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.export</span></code></a></p></td>
-<td><p>ONNX export utilities.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.onnx.graph_surgery.html#module-modelopt.onnx.graph_surgery" title="modelopt.onnx.graph_surgery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.graph_surgery</span></code></a></p></td>
-<td><p>Graph surgery module for post-processing ONNX models.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.onnx.llm_export_utils.html#module-modelopt.onnx.llm_export_utils" title="modelopt.onnx.llm_export_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.llm_export_utils</span></code></a></p></td>
-<td><p>Utilities for exporting LLM models to ONNX.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.onnx.logging_config.html#module-modelopt.onnx.logging_config" title="modelopt.onnx.logging_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.logging_config</span></code></a></p></td>
-<td><p>Logging configuration for modelopt ONNX quantization.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.onnx.op_types.html#module-modelopt.onnx.op_types" title="modelopt.onnx.op_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.op_types</span></code></a></p></td>
-<td><p>Utility functions to categorize onnx ops.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.onnx.quantization.html#module-modelopt.onnx.quantization" title="modelopt.onnx.quantization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.quantization</span></code></a></p></td>
-<td><p>Model optimization subpackage for onnx quantization.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.onnx.trt_utils.html#module-modelopt.onnx.trt_utils" title="modelopt.onnx.trt_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.trt_utils</span></code></a></p></td>
-<td><p>This module contains TensorRT utils.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.onnx.utils.html#module-modelopt.onnx.utils" title="modelopt.onnx.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.utils</span></code></a></p></td>
-<td><p>Utility functions related to onnx.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.utils.serialization.safe_save" title="modelopt.torch.utils.serialization.safe_save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_save</span></code></a></p></td>
+<td><p>Save a checkpoint after sanitizing known types for <code class="docutils literal notranslate"><span class="pre">weights_only=True</span></code> compatibility.</p></td>
 </tr>
 </tbody>
 </table>
-<p id="module-modelopt.onnx">Model optimization subpackage for onnx.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.utils.serialization.safe_load">
+<span class="sig-name descname"><span class="pre">safe_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.serialization.safe_load" title="Link to this definition"></a></dt>
+<dd><p>Load a checkpoint securely using weights_only=True by default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>f</strong> (<em>str</em><em> | </em><em>PathLike</em><em> | </em><em>BinaryIO</em><em> | </em><em>bytes</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Any</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.utils.serialization.safe_save">
+<span class="sig-name descname"><span class="pre">safe_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.serialization.safe_save" title="Link to this definition"></a></dt>
+<dd><p>Save a checkpoint after sanitizing known types for <code class="docutils literal notranslate"><span class="pre">weights_only=True</span></code> compatibility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>Any</em>)</p></li>
+<li><p><strong>f</strong> (<em>str</em><em> | </em><em>PathLike</em><em> | </em><em>BinaryIO</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modelopt.deploy.llm.generate.html" class="btn btn-neutral float-left" title="generate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modelopt.onnx.autocast.html" class="btn btn-neutral float-right" title="autocast" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modelopt.torch.utils.robust_json.html" class="btn btn-neutral float-left" title="robust_json" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modelopt.torch.utils.speech_dataset_utils.html" class="btn btn-neutral float-right" title="speech_dataset_utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

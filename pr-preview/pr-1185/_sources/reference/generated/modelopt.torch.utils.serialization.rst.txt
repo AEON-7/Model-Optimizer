@@ -1,5 +1,5 @@
-autotune
-========
+serialization
+=============
 
 .. List the submodules
 
@@ -15,7 +15,7 @@ autotune
    __module__ should be manually overridden -- i.e. in the ``__init__.py`` which contains ``from xxx import YYY``,
    add in ``YYY.__module__ = __name__``.
 
-.. automodule:: modelopt.onnx.quantization.autotune
+.. automodule:: modelopt.torch.utils.serialization
    :members:
    :undoc-members:
 
@@ -25,28 +25,6 @@ autotune
 
    .. Overview table of available classes in the module
    
-   
-   .. rubric:: Classes
-
-   .. autosummary::
-      :nosignatures:
-   
-      StoreWithExplicitFlag
-      ChildRegionInputInsertionPoint
-      ChildRegionOutputInsertionPoint
-      CombinedRegionSearch
-      Config
-      InsertionScheme
-      NodeInputInsertionPoint
-      PatternCache
-      PatternSchemes
-      QDQAutotuner
-      Region
-      RegionPattern
-      RegionType
-      ResolvedInsertionPoint
-      TensorRTPyBenchmark
-      TrtExecBenchmark
    
    
 
@@ -59,6 +37,7 @@ autotune
    .. autosummary::
       :nosignatures:
    
-      get_node_filter_list
+      safe_load
+      safe_save
    
    

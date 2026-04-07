@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>autotune &mdash; Model Optimizer 0.0.1.dev1+gb507208b8</title>
+  <title>autotune &mdash; Model Optimizer 0.0.1.dev1+gbc886ced9</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -173,47 +173,47 @@ region analysis to efficiently explore and optimize Q/DQ insertion strategies.</
 <p class="rubric">Classes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.ChildRegionInputInsertionPoint" title="modelopt.onnx.quantization.autotune.ChildRegionInputInsertionPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChildRegionInputInsertionPoint</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.StoreWithExplicitFlag" title="modelopt.onnx.quantization.autotune.StoreWithExplicitFlag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StoreWithExplicitFlag</span></code></a></p></td>
+<td><p>Store the value and set an 'explicit' flag on the namespace so mode presets do not override.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.ChildRegionInputInsertionPoint" title="modelopt.onnx.quantization.autotune.ChildRegionInputInsertionPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChildRegionInputInsertionPoint</span></code></a></p></td>
 <td><p>Pattern-relative Q/DQ insertion point at a child region's input boundary (frozen/hashable).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.ChildRegionOutputInsertionPoint" title="modelopt.onnx.quantization.autotune.ChildRegionOutputInsertionPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChildRegionOutputInsertionPoint</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.ChildRegionOutputInsertionPoint" title="modelopt.onnx.quantization.autotune.ChildRegionOutputInsertionPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChildRegionOutputInsertionPoint</span></code></a></p></td>
 <td><p>Pattern-relative Q/DQ insertion point at a child region or node output (frozen/hashable).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.CombinedRegionSearch" title="modelopt.onnx.quantization.autotune.CombinedRegionSearch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CombinedRegionSearch</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.CombinedRegionSearch" title="modelopt.onnx.quantization.autotune.CombinedRegionSearch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CombinedRegionSearch</span></code></a></p></td>
 <td><p>Two-phase region search combining bottom-up partitioning with top-down refinement.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.Config" title="modelopt.onnx.quantization.autotune.Config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Config</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.Config" title="modelopt.onnx.quantization.autotune.Config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Config</span></code></a></p></td>
 <td><p>Configuration parameters for QDQ autotuning.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.InsertionScheme" title="modelopt.onnx.quantization.autotune.InsertionScheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InsertionScheme</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.InsertionScheme" title="modelopt.onnx.quantization.autotune.InsertionScheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InsertionScheme</span></code></a></p></td>
 <td><p>Complete Q/DQ insertion specification for a region pattern.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.NodeInputInsertionPoint" title="modelopt.onnx.quantization.autotune.NodeInputInsertionPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NodeInputInsertionPoint</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.NodeInputInsertionPoint" title="modelopt.onnx.quantization.autotune.NodeInputInsertionPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NodeInputInsertionPoint</span></code></a></p></td>
 <td><p>Pattern-relative Q/DQ insertion point at a node's input (frozen/hashable).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.PatternCache" title="modelopt.onnx.quantization.autotune.PatternCache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PatternCache</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.PatternCache" title="modelopt.onnx.quantization.autotune.PatternCache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PatternCache</span></code></a></p></td>
 <td><p>Pattern cache containing best-performing schemes for patterns with automatic eviction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.PatternSchemes" title="modelopt.onnx.quantization.autotune.PatternSchemes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PatternSchemes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.PatternSchemes" title="modelopt.onnx.quantization.autotune.PatternSchemes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PatternSchemes</span></code></a></p></td>
 <td><p>Collection of Q/DQ insertion schemes for a single pattern.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.QDQAutotuner" title="modelopt.onnx.quantization.autotune.QDQAutotuner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QDQAutotuner</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.QDQAutotuner" title="modelopt.onnx.quantization.autotune.QDQAutotuner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QDQAutotuner</span></code></a></p></td>
 <td><p>Q/DQ autotuner with automatic region discovery around compute-intensive ops.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.Region" title="modelopt.onnx.quantization.autotune.Region"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Region</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.Region" title="modelopt.onnx.quantization.autotune.Region"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Region</span></code></a></p></td>
 <td><p>A subgraph region in an ONNX graph, used as the unit for Q/DQ insertion.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.RegionPattern" title="modelopt.onnx.quantization.autotune.RegionPattern"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegionPattern</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.RegionPattern" title="modelopt.onnx.quantization.autotune.RegionPattern"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegionPattern</span></code></a></p></td>
 <td><p>Represents a structural pattern of a region.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.RegionType" title="modelopt.onnx.quantization.autotune.RegionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegionType</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.RegionType" title="modelopt.onnx.quantization.autotune.RegionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegionType</span></code></a></p></td>
 <td><p>Region type enumeration for hierarchical graph structure.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.ResolvedInsertionPoint" title="modelopt.onnx.quantization.autotune.ResolvedInsertionPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResolvedInsertionPoint</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.ResolvedInsertionPoint" title="modelopt.onnx.quantization.autotune.ResolvedInsertionPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ResolvedInsertionPoint</span></code></a></p></td>
 <td><p>Resolved Q/DQ insertion point with actual tensor name and optional node context.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.StoreWithExplicitFlag" title="modelopt.onnx.quantization.autotune.StoreWithExplicitFlag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StoreWithExplicitFlag</span></code></a></p></td>
-<td><p>Store the value and set an 'explicit' flag on the namespace so mode presets do not override.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.onnx.quantization.autotune.TensorRTPyBenchmark" title="modelopt.onnx.quantization.autotune.TensorRTPyBenchmark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorRTPyBenchmark</span></code></a></p></td>
 <td><p>TensorRT benchmark using Python API with plugin support.</p></td>

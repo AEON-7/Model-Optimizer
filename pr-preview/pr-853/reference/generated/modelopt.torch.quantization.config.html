@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>config &mdash; Model Optimizer 0.0.1.dev1+g70c5ee59f</title>
+  <title>config &mdash; Model Optimizer 0.0.1.dev1+gfdbd93147</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -544,7 +544,7 @@ the quantization of preceding layers.</p>
 <span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gptq&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;moe_calib_experts_ratio&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;use_sequential&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;percdamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;perc_damp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;block_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span>
 <span class="p">}</span>
 </pre></div>
@@ -563,8 +563,8 @@ group_size used in the quantization.</p>
 <dd></dd></dl>
 
 <dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQCalibConfig.percdamp">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">percdamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQCalibConfig.percdamp" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQCalibConfig.perc_damp">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">perc_damp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQCalibConfig.perc_damp" title="Link to this definition"></a></dt>
 <dd><p><details  class="autodoc_pydantic_collapsable_json">
 <summary>Show details</summary><p>The percentage of average Hessian diagonal used for damping.</p>
 </details></p><dl class="field-list simple">

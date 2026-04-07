@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+gbaf65b18b</title>
+  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+g3e1013832</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -172,6 +172,10 @@
 <p><strong>Bug Fixes</strong></p>
 <ul class="simple">
 <li><p>Fix Minitron pruning (<code class="docutils literal notranslate"><span class="pre">mcore_minitron</span></code>) for MoE models. Importance estimation hooks were incorrectly registered for MoE modules and NAS step was hanging before this.</p></li>
+</ul>
+<p><strong>Misc</strong></p>
+<ul class="simple">
+<li><p>[Security] Changed the default of <code class="docutils literal notranslate"><span class="pre">weights_only</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> in <code class="docutils literal notranslate"><span class="pre">torch.load</span></code> for secure checkpoint loading. If you need to load a checkpoint that requires unpickling arbitrary objects, first register the class in <code class="docutils literal notranslate"><span class="pre">torch.serialization.add_safe_globals([cls])</span></code> before loading. Added <a class="reference internal" href="generated/modelopt.torch.utils.serialization.html#modelopt.torch.utils.serialization.safe_save" title="modelopt.torch.utils.serialization.safe_save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">safe_save</span></code></a> and <a class="reference internal" href="generated/modelopt.torch.utils.serialization.html#modelopt.torch.utils.serialization.safe_load" title="modelopt.torch.utils.serialization.safe_load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">safe_load</span></code></a> API to save and load checkpoints securely.</p></li>
 </ul>
 </section>
 <section id="id2">

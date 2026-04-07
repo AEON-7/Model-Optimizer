@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>config &mdash; Model Optimizer 0.0.1.dev1+gb4d42b53d</title>
+  <title>config &mdash; Model Optimizer 0.0.1.dev1+gdaa160302</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -719,7 +719,8 @@ See <a class="reference external" href="https://arxiv.org/pdf/2004.09602" rel="n
 <span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;moe_calib_experts_ratio&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;use_sequential&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;distributed_sync&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">   </span><span class="nt">&quot;distributed_sync&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;sync_expert_weight_amax&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -734,6 +735,13 @@ See <a class="reference external" href="https://arxiv.org/pdf/2004.09602" rel="n
 <dt class="sig sig-object py" id="modelopt.torch.quantization.config.MaxCalibConfig.method">
 <em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'max'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.quantization.config.MaxCalibConfig.method" title="Link to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py attribute pydantic_field">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.MaxCalibConfig.sync_expert_weight_amax">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sync_expert_weight_amax</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.MaxCalibConfig.sync_expert_weight_amax" title="Link to this definition"></a></dt>
+<dd><p><details  class="autodoc_pydantic_collapsable_json">
+<summary>Show details</summary><p>If True, the weight quantizer amax values are synchronized (max) across local experts in SequentialMLP layers during calibration. This matches TEGroupedMLP behavior where all experts share a single weight quantizer. Only affects MoE models with SequentialMLP experts.</p>
+</details></p></dd></dl>
 
 </dd></dl>
 

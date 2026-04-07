@@ -40,6 +40,8 @@ conversion
       register
       replace_quant_module
       set_quantizer_attribute
+      set_quantizer_attributes_full
+      set_quantizer_attributes_partial
       set_quantizer_by_cfg
       set_quantizer_by_cfg_context
       unregister

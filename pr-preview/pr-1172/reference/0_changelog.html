@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+g0d6ced330</title>
+  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+gcc8e8d16f</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -164,10 +164,21 @@
 <li><p>Enable PTQ workflow for the Step3.5-Flash MoE model with NVFP4 W4A4 + FP8 KV cache quantization. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml" rel="noopener noreferrer" target="_blank">modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml</a> for more details.</p></li>
 <li><p>Add support for vLLM fakequant reload using ModelOpt state for HF models. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/vllm_serve#load-qatptq-model-and-serve-in-vllm-wip" rel="noopener noreferrer" target="_blank">examples/vllm_serve/README.md</a> for more details.</p></li>
 <li><p>[Early Testing] Add Claude Code PTQ skill (<code class="docutils literal notranslate"><span class="pre">.claude/skills/ptq/</span></code>) for agent-assisted post-training quantization. The skill guides the agent through environment detection, model support checking, format selection, and execution via the launcher or manual SLURM/Docker/bare GPU paths. Includes handling for unlisted models with custom module patching. This feature is in early testing — use with caution.</p></li>
+<li><p>Refactor <code class="docutils literal notranslate"><span class="pre">llm_qat</span></code> example with unified YAML-based configuration and flexible dataset blending.
+<code class="docutils literal notranslate"><span class="pre">ModelOptArgParser</span></code> adds <code class="docutils literal notranslate"><span class="pre">--config</span></code> YAML support with CLI overrides and auto-generates <code class="docutils literal notranslate"><span class="pre">ARGUMENTS.md</span></code> from dataclass definitions.
+Dataset blending (<code class="docutils literal notranslate"><span class="pre">configs/dataset/blend.yaml</span></code>) supports HuggingFace datasets, local JSON/JSONL/Parquet files, and weighted multi-source blends.</p></li>
+</ul>
+<p><strong>Backward Breaking Changes</strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> field in quantization configs is now an <strong>ordered list</strong> of <code class="docutils literal notranslate"><span class="pre">QuantizerCfgEntry</span></code> dicts instead of a flat dictionary. Each entry specifies a <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> wildcard, an optional <code class="docutils literal notranslate"><span class="pre">parent_class</span></code> filter, a <code class="docutils literal notranslate"><span class="pre">cfg</span></code> dict of quantizer attributes, and/or an <code class="docutils literal notranslate"><span class="pre">enable</span></code> flag. Entries are applied in list order with later entries overriding earlier ones. The old dict-based format is still accepted and automatically converted via <code class="docutils literal notranslate"><span class="pre">normalize_quant_cfg_list()</span></code>, but now emits a <code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code>; new code should use the list format. All built-in configs (e.g. <code class="docutils literal notranslate"><span class="pre">FP8_DEFAULT_CFG</span></code>, <code class="docutils literal notranslate"><span class="pre">INT4_AWQ_CFG</span></code>, <code class="docutils literal notranslate"><span class="pre">NVFP4_DEFAULT_CFG</span></code>), examples, and YAML recipes have been updated. See the <a class="reference internal" href="../guides/_quant_cfg.html#quant-cfg"><span class="std std-ref">Quantization Configuration (quant_cfg)</span></a> documentation for the new format reference and migration guide.</p></li>
 </ul>
 <p><strong>Bug Fixes</strong></p>
 <ul class="simple">
 <li><p>Fix Minitron pruning (<code class="docutils literal notranslate"><span class="pre">mcore_minitron</span></code>) for MoE models. Importance estimation hooks were incorrectly registered for MoE modules and NAS step was hanging before this.</p></li>
+</ul>
+<p><strong>Misc</strong></p>
+<ul class="simple">
+<li><p>[Security] Changed the default of <code class="docutils literal notranslate"><span class="pre">weights_only</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> in <code class="docutils literal notranslate"><span class="pre">torch.load</span></code> for secure checkpoint loading. If you need to load a checkpoint that requires unpickling arbitrary objects, first register the class in <code class="docutils literal notranslate"><span class="pre">torch.serialization.add_safe_globals([cls])</span></code> before loading. Added <a class="reference internal" href="generated/modelopt.torch.utils.serialization.html#modelopt.torch.utils.serialization.safe_save" title="modelopt.torch.utils.serialization.safe_save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">safe_save</span></code></a> and <a class="reference internal" href="generated/modelopt.torch.utils.serialization.html#modelopt.torch.utils.serialization.safe_load" title="modelopt.torch.utils.serialization.safe_load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">safe_load</span></code></a> API to save and load checkpoints securely.</p></li>
 </ul>
 </section>
 <section id="id2">

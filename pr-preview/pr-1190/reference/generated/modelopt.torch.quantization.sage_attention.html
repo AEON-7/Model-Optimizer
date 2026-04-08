@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>max &mdash; Model Optimizer 0.0.1.dev1+g95c040b01</title>
+  <title>sage_attention &mdash; Model Optimizer 0.0.1.dev1+g95c040b01</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -33,8 +33,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="mse" href="modelopt.torch.quantization.calib.mse.html" />
-    <link rel="prev" title="histogram" href="modelopt.torch.quantization.calib.histogram.html" /> 
+    <link rel="next" title="tensor_quant" href="modelopt.torch.quantization.tensor_quant.html" />
+    <link rel="prev" title="nvfp4_tensor" href="modelopt.torch.quantization.qtensor.nvfp4_tensor.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -110,7 +110,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.algorithms.html">algorithms</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.backends.html">backends</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="modelopt.torch.quantization.calib.html">calib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.calib.html">calib</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.compress.html">modelopt.torch.quantization.compress</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.config.html">config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.conversion.html">conversion</a></li>
@@ -122,7 +122,7 @@
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.nn.html">nn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.plugins.html">plugins</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.qtensor.html">qtensor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.sage_attention.html">sage_attention</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sage_attention</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.tensor_quant.html">tensor_quant</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.triton.html">triton</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.quantization.utils.html">utils</a></li>
@@ -160,10 +160,9 @@
           <li class="breadcrumb-item"><a href="../1_modelopt_api.html">modelopt API</a></li>
           <li class="breadcrumb-item"><a href="modelopt.torch.html">torch</a></li>
           <li class="breadcrumb-item"><a href="modelopt.torch.quantization.html">quantization</a></li>
-          <li class="breadcrumb-item"><a href="modelopt.torch.quantization.calib.html">calib</a></li>
-      <li class="breadcrumb-item active">max</li>
+      <li class="breadcrumb-item active">sage_attention</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/reference/generated/modelopt.torch.quantization.calib.max.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/reference/generated/modelopt.torch.quantization.sage_attention.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -171,74 +170,94 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="max">
-<h1>max<a class="headerlink" href="#max" title="Link to this heading"></a></h1>
-<p id="module-modelopt.torch.quantization.calib.max">Calibrator that returns the absolute max of all collected tensors.</p>
-<p class="rubric">Classes</p>
+  <section id="sage-attention">
+<h1>sage_attention<a class="headerlink" href="#sage-attention" title="Link to this heading"></a></h1>
+<p id="module-modelopt.torch.quantization.sage_attention">SageAttention-style attention quantization for diffusers models.</p>
+<p><code class="docutils literal notranslate"><span class="pre">apply_sage_attention</span></code> patches a diffusers transformer to quantize the
+post-softmax P tile to NVFP4 E2M1 inside ModelOpt’s Triton flash-attention
+kernel (<code class="docutils literal notranslate"><span class="pre">quantize_p=True</span></code>).  This is purely a <strong>quantization</strong> feature —
+it is independent of, and can be freely combined with, the sparse attention
+methods in <code class="docutils literal notranslate"><span class="pre">modelopt.torch.sparsity.attention_sparsity</span></code>.</p>
+<section id="design">
+<h2>Design<a class="headerlink" href="#design" title="Link to this heading"></a></h2>
+<p>SageAttention wraps the transformer’s <code class="docutils literal notranslate"><span class="pre">forward</span></code> once:</p>
+<ol class="arabic simple">
+<li><p>Before the forward, it sets <code class="docutils literal notranslate"><span class="pre">quantize_p=True</span></code> in a thread-local store
+that the Triton kernel reads.</p></li>
+<li><p>It activates the <code class="docutils literal notranslate"><span class="pre">modelopt_triton</span></code> diffusers attention backend for the
+duration of the forward pass so that attention calls are routed to the
+ModelOpt Triton kernel.</p></li>
+<li><p>After the forward (<code class="docutils literal notranslate"><span class="pre">finally</span></code> block), it resets <code class="docutils literal notranslate"><span class="pre">quantize_p=False</span></code>.</p></li>
+</ol>
+<p>Sparse attention methods (skip-softmax / N:M sparse softmax) manage their
+own thread-local params (threshold, sparsity_n/m, …) and deliberately <strong>do
+not touch</strong> <code class="docutils literal notranslate"><span class="pre">quantize_p</span></code>, enabling transparent combination:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">modelopt.torch.sparsity.attention_sparsity</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mtsa</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">modelopt.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_sage_attention</span>
+
+<span class="c1"># SageAttention standalone — NVFP4 P-matrix quantization only</span>
+<span class="n">apply_sage_attention</span><span class="p">(</span><span class="n">transformer</span><span class="p">)</span>
+
+<span class="c1"># Combined with N:M sparse softmax</span>
+<span class="n">mtsa</span><span class="o">.</span><span class="n">sparsify</span><span class="p">(</span><span class="n">transformer</span><span class="p">,</span> <span class="n">mtsa</span><span class="o">.</span><span class="n">SPARSE_SOFTMAX_DEFAULT</span><span class="p">)</span>
+<span class="n">apply_sage_attention</span><span class="p">(</span><span class="n">transformer</span><span class="p">)</span>
+
+<span class="c1"># Combined with skip-softmax tile pruning</span>
+<span class="n">mtsa</span><span class="o">.</span><span class="n">sparsify</span><span class="p">(</span><span class="n">transformer</span><span class="p">,</span> <span class="n">mtsa</span><span class="o">.</span><span class="n">SKIP_SOFTMAX_TRITON_DEFAULT</span><span class="p">)</span>
+<span class="n">apply_sage_attention</span><span class="p">(</span><span class="n">transformer</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="supported-models">
+<h2>Supported models<a class="headerlink" href="#supported-models" title="Link to this heading"></a></h2>
+<p>Currently targets <strong>diffusers</strong> transformer models (WAN, LTX, …) that use
+the diffusers attention-dispatch mechanism.  The <code class="docutils literal notranslate"><span class="pre">modelopt_triton</span></code> backend
+is registered in <code class="docutils literal notranslate"><span class="pre">diffusers._AttentionBackendRegistry</span></code> on first call.</p>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>CUDA GPU + Triton installed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">modelopt.torch.sparsity.attention_sparsity</span></code> (provides the Triton kernel
+and diffusers backend registration)</p></li>
+</ul>
+</section>
+<p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.calib.max.MaxCalibrator" title="modelopt.torch.quantization.calib.max.MaxCalibrator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MaxCalibrator</span></code></a></p></td>
-<td><p>Max calibrator, tracks the maximum value globally.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.sage_attention.apply_sage_attention" title="modelopt.torch.quantization.sage_attention.apply_sage_attention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_sage_attention</span></code></a></p></td>
+<td><p>Patch a diffusers transformer to use NVFP4 P-matrix quantization.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.calib.max.MaxCalibrator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MaxCalibrator</span></span><a class="headerlink" href="#modelopt.torch.quantization.calib.max.MaxCalibrator" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_Calibrator</span></code></p>
-<p>Max calibrator, tracks the maximum value globally.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.sage_attention.apply_sage_attention">
+<span class="sig-name descname"><span class="pre">apply_sage_attention</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantize_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.sage_attention.apply_sage_attention" title="Link to this definition"></a></dt>
+<dd><p>Patch a diffusers transformer to use NVFP4 P-matrix quantization.</p>
+<p>Wraps <code class="docutils literal notranslate"><span class="pre">transformer.forward</span></code> so that every call activates the
+<code class="docutils literal notranslate"><span class="pre">modelopt_triton</span></code> diffusers attention backend with <code class="docutils literal notranslate"><span class="pre">quantize_p=True</span></code>
+inside the Triton flash-attention kernel.</p>
+<p>This is a standalone quantization feature and does not depend on or
+conflict with <code class="docutils literal notranslate"><span class="pre">mtsa.sparsify()</span></code>.  Both can be applied to the same
+transformer — sparsity parameters and quantization parameters are stored
+in independent thread-local slots.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>calib_desc</strong> – A MaxCalibDescriptor.</p></li>
-<li><p><strong>num_bits</strong> – An integer. Number of bits of quantization.</p></li>
-<li><p><strong>axis</strong> – A tuple. see <code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerAttributeConfig</span></code>.</p></li>
-<li><p><strong>unsigned</strong> – A boolean. using unsigned quantization.</p></li>
+<li><p><strong>transformer</strong> (<em>Module</em>) – A diffusers transformer module (e.g. <code class="docutils literal notranslate"><span class="pre">pipe.transformer</span></code>
+for WAN2.2 / LTX Video).</p></li>
+<li><p><strong>quantize_p</strong> (<em>bool</em>) – If True (default), quantize the post-softmax P tile to
+NVFP4 E2M1 with per-tile max scaling inside the Triton kernel.</p></li>
 </ul>
 </dd>
-</dl>
-<dl class="simple">
-<dt>Readonly Properties:</dt><dd><p>amaxs: A list of amax. Numpy array is saved as it is likely to be used for some plot.</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.calib.max.MaxCalibrator.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_bits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsigned</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">track_amax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.calib.max.MaxCalibrator.__init__" title="Link to this definition"></a></dt>
-<dd><p>Initialize.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.calib.max.MaxCalibrator.amaxs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amaxs</span></span><a class="headerlink" href="#modelopt.torch.quantization.calib.max.MaxCalibrator.amaxs" title="Link to this definition"></a></dt>
-<dd><p>Returns the list of amax`s collected so far.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.calib.max.MaxCalibrator.collect">
-<span class="sig-name descname"><span class="pre">collect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.calib.max.MaxCalibrator.collect" title="Link to this definition"></a></dt>
-<dd><p>Tracks the absolute max of all tensors.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – A tensor</p>
-</dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>RuntimeError</strong> – If amax shape changes</p>
+<dd class="field-even"><p><strong>ImportError</strong> – If <code class="docutils literal notranslate"><span class="pre">modelopt.torch.sparsity.attention_sparsity</span></code> is not
+    installed (required for the Triton kernel and diffusers backend).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>None</em></p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.calib.max.MaxCalibrator.compute_amax">
-<span class="sig-name descname"><span class="pre">compute_amax</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.calib.max.MaxCalibrator.compute_amax" title="Link to this definition"></a></dt>
-<dd><p>Return the absolute max of all tensors collected.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.calib.max.MaxCalibrator.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.calib.max.MaxCalibrator.reset" title="Link to this definition"></a></dt>
-<dd><p>Reset the collected absolute max.</p>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -247,8 +266,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modelopt.torch.quantization.calib.histogram.html" class="btn btn-neutral float-left" title="histogram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modelopt.torch.quantization.calib.mse.html" class="btn btn-neutral float-right" title="mse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modelopt.torch.quantization.qtensor.nvfp4_tensor.html" class="btn btn-neutral float-left" title="nvfp4_tensor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modelopt.torch.quantization.tensor_quant.html" class="btn btn-neutral float-right" title="tensor_quant" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

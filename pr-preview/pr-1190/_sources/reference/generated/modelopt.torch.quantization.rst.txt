@@ -69,6 +69,10 @@ quantization
 
 
 
+   modelopt.torch.quantization.sage_attention
+
+
+
    modelopt.torch.quantization.tensor_quant
 
 

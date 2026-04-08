@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+gafe6ea2c4</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g95c040b01</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -519,6 +519,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.DecoderLayerConfig.apply_residual_connection_post_layernorm">apply_residual_connection_post_layernorm (DecoderLayerConfig attribute)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.quantization.sage_attention.html#modelopt.torch.quantization.sage_attention.apply_sage_attention">apply_sage_attention() (in module modelopt.torch.quantization.sage_attention)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.methods.html#modelopt.torch.sparsity.attention_sparsity.methods.SparseAttentionMethod.apply_sparsity">apply_sparsity() (SparseAttentionMethod method)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.architecture">architecture (ModelConfig attribute)</a>
@@ -691,7 +693,7 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.block_embedding">block_embedding (ModelConfig attribute)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQLiteConfig.block_size">block_size (GPTQLiteConfig attribute)</a>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQCalibConfig.block_size">block_size (GPTQCalibConfig attribute)</a>
 
       <ul>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.LocalHessianCalibConfig.block_size">(LocalHessianCalibConfig attribute)</a>
@@ -2267,8 +2269,6 @@
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.InsertionScheme.hash">hash (InsertionScheme property)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQLiteConfig.hessian_state_path">hessian_state_path (GPTQLiteConfig attribute)</a>
-</li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LinearActConfig.hidden_act">hidden_act (LinearActConfig attribute)</a>
 
       <ul>
@@ -2998,7 +2998,7 @@
 </li>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.AWQLiteCalibConfig.method">(AWQLiteCalibConfig attribute)</a>
 </li>
-        <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQLiteConfig.method">(GPTQLiteConfig attribute)</a>
+        <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQCalibConfig.method">(GPTQCalibConfig attribute)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.LocalHessianCalibConfig.method">(LocalHessianCalibConfig attribute)</a>
 </li>
@@ -4156,8 +4156,6 @@
         <li><a href="reference/generated/modelopt.torch.quantization.qtensor.mxfp4_tensor.html#module-modelopt.torch.quantization.qtensor.mxfp4_tensor">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     modelopt.torch.quantization.qtensor.mxfp8_tensor
 
@@ -4165,6 +4163,8 @@
         <li><a href="reference/generated/modelopt.torch.quantization.qtensor.mxfp8_tensor.html#module-modelopt.torch.quantization.qtensor.mxfp8_tensor">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     modelopt.torch.quantization.qtensor.nf4_tensor
 
@@ -4177,6 +4177,13 @@
 
       <ul>
         <li><a href="reference/generated/modelopt.torch.quantization.qtensor.nvfp4_tensor.html#module-modelopt.torch.quantization.qtensor.nvfp4_tensor">module</a>
+</li>
+      </ul></li>
+      <li>
+    modelopt.torch.quantization.sage_attention
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.quantization.sage_attention.html#module-modelopt.torch.quantization.sage_attention">module</a>
 </li>
       </ul></li>
       <li>
@@ -5016,6 +5023,8 @@
 </li>
         <li><a href="reference/generated/modelopt.torch.quantization.qtensor.nvfp4_tensor.html#module-modelopt.torch.quantization.qtensor.nvfp4_tensor">modelopt.torch.quantization.qtensor.nvfp4_tensor</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.quantization.sage_attention.html#module-modelopt.torch.quantization.sage_attention">modelopt.torch.quantization.sage_attention</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.quantization.tensor_quant.html#module-modelopt.torch.quantization.tensor_quant">modelopt.torch.quantization.tensor_quant</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.quantization.triton.html#module-modelopt.torch.quantization.triton">modelopt.torch.quantization.triton</a>
@@ -5633,7 +5642,7 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LinearConfig.per_channel_scale">per_channel_scale (LinearConfig attribute)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQLiteConfig.percdamp">percdamp (GPTQLiteConfig attribute)</a>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQCalibConfig.perc_damp">perc_damp (GPTQCalibConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.Config.performance_threshold">performance_threshold (Config attribute)</a>
 </li>
@@ -5879,8 +5888,6 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.config.html#modelopt.torch.sparsity.attention_sparsity.config.SparseAttentionAttributeConfig.quantize_p">quantize_p (SparseAttentionAttributeConfig attribute)</a>
-</li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.quant_module.html#modelopt.torch.quantization.nn.modules.quant_module.QuantLinearConvBase.quantize_weight">quantize_weight() (QuantLinearConvBase method)</a>
 
       <ul>

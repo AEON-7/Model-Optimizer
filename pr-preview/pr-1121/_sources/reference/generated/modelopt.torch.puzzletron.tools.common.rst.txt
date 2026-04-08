@@ -38,5 +38,6 @@ common
       :nosignatures:
    
       infer_weights_dtype
+      resolve_torch_dtype
    
    

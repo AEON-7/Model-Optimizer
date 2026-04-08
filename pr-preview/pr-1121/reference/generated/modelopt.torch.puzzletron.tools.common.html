@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>common &mdash; Model Optimizer 0.0.1.dev1+g44d117534</title>
+  <title>common &mdash; Model Optimizer 0.0.1.dev1+gc95c03bed</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -168,6 +168,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.common.infer_weights_dtype" title="modelopt.torch.puzzletron.tools.common.infer_weights_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">infer_weights_dtype</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.common.resolve_torch_dtype" title="modelopt.torch.puzzletron.tools.common.resolve_torch_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve_torch_dtype</span></code></a></p></td>
+<td><p>Resolve a dtype that may be a string (e.g. from Hydra/OmegaConf config) to torch.dtype.</p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py function">
@@ -176,6 +179,22 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>state_dict</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Tensor</em><em>]</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>dtype</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.common.resolve_torch_dtype">
+<span class="sig-name descname"><span class="pre">resolve_torch_dtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.common.resolve_torch_dtype" title="Link to this definition"></a></dt>
+<dd><p>Resolve a dtype that may be a string (e.g. from Hydra/OmegaConf config) to torch.dtype.</p>
+<p>Accepts <code class="docutils literal notranslate"><span class="pre">torch.dtype</span></code> objects (returned as-is) and strings like
+<code class="docutils literal notranslate"><span class="pre">&quot;torch.bfloat16&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;bfloat16&quot;</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dtype</strong> (<em>str</em><em> | </em><em>dtype</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>dtype</em></p>

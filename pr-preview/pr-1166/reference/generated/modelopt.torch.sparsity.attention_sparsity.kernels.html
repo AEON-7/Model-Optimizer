@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kernels &mdash; Model Optimizer 0.0.1.dev1+g0ece2a584</title>
+  <title>kernels &mdash; Model Optimizer 0.0.1.dev1+g23067581d</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -157,47 +157,15 @@
              
   <section id="kernels">
 <h1>kernels<a class="headerlink" href="#kernels" title="Link to this heading"></a></h1>
-<p id="module-modelopt.torch.sparsity.attention_sparsity.kernels">Kernel integrations for sparse attention: Triton FA and diffusers backends.</p>
+<p id="module-modelopt.torch.sparsity.attention_sparsity.kernels">Kernel integrations for sparse attention: Triton FA and diffusers/LTX backends.</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.sparsity.attention_sparsity.kernels.get_skip_softmax_context" title="modelopt.torch.sparsity.attention_sparsity.kernels.get_skip_softmax_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_skip_softmax_context</span></code></a></p></td>
-<td><p>Return True if skip-softmax eager attention is active in this thread.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_eager_attention" title="modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_eager_attention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_diffusers_eager_attention</span></code></a></p></td>
-<td><p>Register <code class="docutils literal notranslate"><span class="pre">modelopt_skip_softmax</span></code> backend in diffusers.</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention" title="modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_diffusers_triton_attention</span></code></a></p></td>
 <td><p>Register <code class="docutils literal notranslate"><span class="pre">modelopt_triton</span></code> backend in diffusers.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.sparsity.attention_sparsity.kernels.set_skip_softmax_context" title="modelopt.torch.sparsity.attention_sparsity.kernels.set_skip_softmax_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_skip_softmax_context</span></code></a></p></td>
-<td><p>Set thread-local flag indicating skip-softmax eager attention is active.</p></td>
-</tr>
 </tbody>
 </table>
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.kernels.get_skip_softmax_context">
-<span class="sig-name descname"><span class="pre">get_skip_softmax_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.kernels.get_skip_softmax_context" title="Link to this definition"></a></dt>
-<dd><p>Return True if skip-softmax eager attention is active in this thread.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>bool</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_eager_attention">
-<span class="sig-name descname"><span class="pre">register_diffusers_eager_attention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_eager_attention" title="Link to this definition"></a></dt>
-<dd><p>Register <code class="docutils literal notranslate"><span class="pre">modelopt_skip_softmax</span></code> backend in diffusers.</p>
-<p>Safe to call multiple times; registration happens only once.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>None</em></p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention">
 <span class="sig-name descname"><span class="pre">register_diffusers_triton_attention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention" title="Link to this definition"></a></dt>
@@ -206,20 +174,6 @@
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>None</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.kernels.set_skip_softmax_context">
-<span class="sig-name descname"><span class="pre">set_skip_softmax_context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.kernels.set_skip_softmax_context" title="Link to this definition"></a></dt>
-<dd><p>Set thread-local flag indicating skip-softmax eager attention is active.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>active</strong> (<em>bool</em>)</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>None</em></p>
 </dd>
 </dl>
 </dd></dl>

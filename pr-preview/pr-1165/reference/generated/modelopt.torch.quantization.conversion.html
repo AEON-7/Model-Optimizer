@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>conversion &mdash; Model Optimizer 0.0.1.dev1+g3708a12e3</title>
+  <title>conversion &mdash; Model Optimizer 0.0.1.dev1+gd0b0cc97c</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -95,7 +95,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -350,20 +350,20 @@ an instance of this class. If <code class="docutils literal notranslate"><span c
 <p><code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> is an <strong>ordered list</strong> of <a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerCfgEntry" title="modelopt.torch.quantization.config.QuantizerCfgEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerCfgEntry</span></code></a>
 dicts. Each entry has the following fields:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> <em>(required)</em>: wildcard matched against quantizer module names via
+<li><p><code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> <em>(required)</em>: wildcard matched against quantizer module names via
 <code class="xref py py-func docutils literal notranslate"><span class="pre">fnmatch()</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cfg</span></code> <em>(optional)</em>: a dict of <a class="reference internal" href="modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.QuantizerAttributeConfig" title="modelopt.torch.quantization.config.QuantizerAttributeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizerAttributeConfig</span></code></a>
 fields, or a list of such dicts for sequential quantization.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code> <em>(optional)</em>: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> to toggle matched quantizers on or off.
 When omitted but <code class="docutils literal notranslate"><span class="pre">cfg</span></code> is present, defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.  Every entry must specify at
-least one of <code class="docutils literal notranslate"><span class="pre">cfg</span></code> or <code class="docutils literal notranslate"><span class="pre">enable</span></code> — an entry with only <code class="docutils literal notranslate"><span class="pre">quantizer_path</span></code> is invalid.</p></li>
+least one of <code class="docutils literal notranslate"><span class="pre">cfg</span></code> or <code class="docutils literal notranslate"><span class="pre">enable</span></code> — an entry with only <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> is invalid.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">parent_class</span></code> <em>(optional)</em>: restricts matching to quantizers whose immediate parent
 module is of this PyTorch class name.</p></li>
 </ul>
 <p><strong>Ordering and atomicity:</strong> entries are applied in list order; later entries override earlier
 ones for any quantizer they match. Each entry with a <code class="docutils literal notranslate"><span class="pre">cfg</span></code> is a <strong>complete replacement</strong> —
 unspecified attributes revert to their defaults rather than inheriting from a prior entry.
-The typical pattern is to deny all first (<code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_path&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code>), then
+The typical pattern is to deny all first (<code class="docutils literal notranslate"><span class="pre">{&quot;quantizer_name&quot;:</span> <span class="pre">&quot;*&quot;,</span> <span class="pre">&quot;enable&quot;:</span> <span class="pre">False}</span></code>), then
 selectively enable and configure target quantizers in subsequent entries.</p>
 <p><strong>``enable`` and ``cfg`` are independent:</strong></p>
 <ul class="simple">

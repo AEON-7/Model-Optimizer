@@ -1,4 +1,4 @@
-export\_utils
+serialization
 =============
 
 .. List the submodules
@@ -15,7 +15,7 @@ export\_utils
    __module__ should be manually overridden -- i.e. in the ``__init__.py`` which contains ``from xxx import YYY``,
    add in ``YYY.__module__ = __name__``.
 
-.. automodule:: modelopt.onnx.llm_export_utils.export_utils
+.. automodule:: modelopt.torch.utils.serialization
    :members:
    :undoc-members:
 
@@ -25,15 +25,6 @@ export\_utils
 
    .. Overview table of available classes in the module
    
-   
-   .. rubric:: Classes
-
-   .. autosummary::
-      :nosignatures:
-   
-      ModelLoader
-      RopeType
-      WrapperModelForCausalLM
    
    
 
@@ -46,7 +37,7 @@ export\_utils
    .. autosummary::
       :nosignatures:
    
-      llm_to_onnx
-      torch_to_onnx
+      safe_load
+      safe_save
    
    

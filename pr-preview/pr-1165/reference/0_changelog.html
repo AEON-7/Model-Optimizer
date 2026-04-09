@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+g3708a12e3</title>
+  <title>Changelog &mdash; Model Optimizer 0.0.1.dev1+gd0b0cc97c</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -95,7 +95,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">NVIDIA Model Optimizer Changelog</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#xx">0.44 (2026-05-xx)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">0.43 (2026-04-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">0.42 (2026-03-10)</a></li>
@@ -140,7 +140,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">NVIDIA Model Optimizer Changelog</li>
+      <li class="breadcrumb-item active">Changelog</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/reference/0_changelog.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -150,8 +150,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nvidia-model-optimizer-changelog">
-<h1>NVIDIA Model Optimizer Changelog<a class="headerlink" href="#nvidia-model-optimizer-changelog" title="Link to this heading"></a></h1>
+  <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
 <section id="xx">
 <h2>0.44 (2026-05-xx)<a class="headerlink" href="#xx" title="Link to this heading"></a></h2>
 <p><strong>New Features</strong></p>
@@ -160,12 +160,25 @@
 <li><p>Added iterator interface using CalibrationDataReader in ONNX quantization workflow.</p></li>
 <li><p>Add N:M sparse softmax support to the Triton flash attention kernel (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.kernels.triton_fa</span></code>). See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity" rel="noopener noreferrer" target="_blank">examples/llm_sparsity/attention_sparsity/README.md</a> for usage.</p></li>
 <li><p>Add skip-softmax skipping to the Triton flash attention kernel (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.kernels.triton_fa</span></code>). See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity" rel="noopener noreferrer" target="_blank">examples/llm_sparsity/attention_sparsity/README.md</a> for usage.</p></li>
+<li><p>Add Video Sparse Attention (VSA) method for video diffusion models (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.sparsity.attention_sparsity</span></code>). VSA uses 3D block tiling with a two-branch architecture for attention speedup.</p></li>
 <li><p>Enable PTQ workflow for the Step3.5-Flash MoE model with NVFP4 W4A4 + FP8 KV cache quantization. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml" rel="noopener noreferrer" target="_blank">modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml</a> for more details.</p></li>
 <li><p>Add support for vLLM fakequant reload using ModelOpt state for HF models. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/vllm_serve#load-qatptq-model-and-serve-in-vllm-wip" rel="noopener noreferrer" target="_blank">examples/vllm_serve/README.md</a> for more details.</p></li>
+<li><p>[Early Testing] Add Claude Code PTQ skill (<code class="docutils literal notranslate"><span class="pre">.claude/skills/ptq/</span></code>) for agent-assisted post-training quantization. The skill guides the agent through environment detection, model support checking, format selection, and execution via the launcher or manual SLURM/Docker/bare GPU paths. Includes handling for unlisted models with custom module patching. This feature is in early testing — use with caution.</p></li>
+</ul>
+<p><strong>Backward Breaking Changes</strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> field in quantization configs is now an <strong>ordered list</strong> of <code class="docutils literal notranslate"><span class="pre">QuantizerCfgEntry</span></code> dicts instead of a flat dictionary. Each entry specifies a <code class="docutils literal notranslate"><span class="pre">quantizer_name</span></code> wildcard, an optional <code class="docutils literal notranslate"><span class="pre">parent_class</span></code> filter, a <code class="docutils literal notranslate"><span class="pre">cfg</span></code> dict of quantizer attributes, and/or an <code class="docutils literal notranslate"><span class="pre">enable</span></code> flag. Entries are applied in list order with later entries overriding earlier ones. The old dict-based format is still accepted and automatically converted via <code class="docutils literal notranslate"><span class="pre">normalize_quant_cfg_list()</span></code>, but now emits a <code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code>; new code should use the list format. All built-in configs (e.g. <code class="docutils literal notranslate"><span class="pre">FP8_DEFAULT_CFG</span></code>, <code class="docutils literal notranslate"><span class="pre">INT4_AWQ_CFG</span></code>, <code class="docutils literal notranslate"><span class="pre">NVFP4_DEFAULT_CFG</span></code>), examples, and YAML recipes have been updated. See the <a class="reference internal" href="../guides/_quant_cfg.html#quant-cfg"><span class="std std-ref">Quantization Configuration (quant_cfg)</span></a> documentation for the new format reference and migration guide.</p></li>
 </ul>
 <p><strong>Bug Fixes</strong></p>
 <ul class="simple">
 <li><p>Fix Minitron pruning (<code class="docutils literal notranslate"><span class="pre">mcore_minitron</span></code>) for MoE models. Importance estimation hooks were incorrectly registered for MoE modules and NAS step was hanging before this.</p></li>
+</ul>
+<p><strong>Misc</strong></p>
+<ul class="simple">
+<li><p>[Security] Changed the default of <code class="docutils literal notranslate"><span class="pre">weights_only</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> in <code class="docutils literal notranslate"><span class="pre">torch.load</span></code> for secure checkpoint loading. If you need to load a checkpoint that requires unpickling arbitrary objects, first register the class in <code class="docutils literal notranslate"><span class="pre">torch.serialization.add_safe_globals([cls])</span></code> before loading. Added <a class="reference internal" href="generated/modelopt.torch.utils.serialization.html#modelopt.torch.utils.serialization.safe_save" title="modelopt.torch.utils.serialization.safe_save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">safe_save</span></code></a> and <a class="reference internal" href="generated/modelopt.torch.utils.serialization.html#modelopt.torch.utils.serialization.safe_load" title="modelopt.torch.utils.serialization.safe_load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">safe_load</span></code></a> API to save and load checkpoints securely.</p></li>
+<li><p>Bump minimum required PyTorch version to 2.8.</p></li>
+<li><p>[Experimental] Add support for transformers&gt;=5.0. Unified Hugging Face checkpoint export for quantized checkpoints may not work for MoE models with transformers&gt;=5.0 yet.</p></li>
+<li><p>Improve <code class="docutils literal notranslate"><span class="pre">megatron_preprocess_data</span></code>: add <code class="docutils literal notranslate"><span class="pre">--reasoning_content</span></code> support for Nemotron v3 datasets, eliminate intermediate JSONL for HuggingFace datasets, return output file prefixes from the Python API, add gzip input support (<code class="docutils literal notranslate"><span class="pre">.jsonl.gz</span></code>), add <code class="docutils literal notranslate"><span class="pre">--strip_newlines</span></code> flag for plain-text pretraining data, add <code class="docutils literal notranslate"><span class="pre">--hf_streaming</span></code> for very large datasets (only consumed rows downloaded), and auto-shuffle when <code class="docutils literal notranslate"><span class="pre">--hf_max_samples_per_split</span></code> is set to avoid biased sampling.</p></li>
 </ul>
 </section>
 <section id="id2">

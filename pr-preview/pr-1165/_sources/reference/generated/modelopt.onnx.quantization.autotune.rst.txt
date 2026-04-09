@@ -31,6 +31,7 @@ autotune
    .. autosummary::
       :nosignatures:
    
+      StoreWithExplicitFlag
       ChildRegionInputInsertionPoint
       ChildRegionOutputInsertionPoint
       CombinedRegionSearch
@@ -44,7 +45,6 @@ autotune
       RegionPattern
       RegionType
       ResolvedInsertionPoint
-      StoreWithExplicitFlag
       TensorRTPyBenchmark
       TrtExecBenchmark
    

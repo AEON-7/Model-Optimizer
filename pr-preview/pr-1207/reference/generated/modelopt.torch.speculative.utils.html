@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g8b7f13599</title>
+  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g35fd47db7</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -95,7 +95,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -410,7 +410,7 @@ at each level.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.speculative.utils.load_vlm_or_llm">
-<span class="sig-name descname"><span class="pre">load_vlm_or_llm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name_or_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_fake_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_offline_training</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">torch_dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_remote_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.speculative.utils.load_vlm_or_llm" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_vlm_or_llm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name_or_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_fake_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_offline_training</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_remote_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.speculative.utils.load_vlm_or_llm" title="Link to this definition"></a></dt>
 <dd><p>Load a VLM or LLM. Returns the model.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">use_offline_training=True</span></code>, returns a
 <code class="xref py py-class docutils literal notranslate"><span class="pre">FakeBaseModel</span></code> containing only
@@ -421,7 +421,7 @@ Otherwise, falls back to loading with <code class="docutils literal notranslate"
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model_name_or_path</strong> (<em>str</em>) – Local path or HuggingFace repo ID of the model.</p></li>
 <li><p><strong>use_offline_training</strong> (<em>bool</em>) – Whether to load a memory-efficient model for offline training.</p></li>
-<li><p><strong>torch_dtype</strong> (<em>str</em><em> | </em><em>dtype</em><em> | </em><em>None</em>) – dtype to use when loading the model.</p></li>
+<li><p><strong>dtype</strong> (<em>str</em><em> | </em><em>dtype</em><em> | </em><em>None</em>) – dtype to use when loading the model.</p></li>
 <li><p><strong>device_map</strong> (<em>str</em><em> | </em><em>None</em>) – Device map passed to <code class="docutils literal notranslate"><span class="pre">from_pretrained</span></code>.</p></li>
 <li><p><strong>trust_remote_code</strong> (<em>bool</em>) – Whether to trust remote code.</p></li>
 <li><p><strong>use_fake_base</strong> (<em>bool</em>)</p></li>

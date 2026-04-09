@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>config &mdash; Model Optimizer 0.0.1.dev1+gc95c03bed</title>
+  <title>config &mdash; Model Optimizer 0.0.1.dev1+g5f70fea4a</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -95,7 +95,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -526,55 +526,46 @@ See <a class="reference external" href="https://arxiv.org/pdf/2306.00978" rel="n
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQLiteConfig">
-<em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GPTQLiteConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQLiteConfig" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQCalibConfig">
+<em class="property"><span class="pre">ModeloptConfig</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GPTQCalibConfig</span></span><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQCalibConfig" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelopt.torch.quantization.config.QuantizeAlgorithmConfig" title="modelopt.torch.quantization.config.QuantizeAlgorithmConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantizeAlgorithmConfig</span></code></a></p>
-<p>The config for GPTQ lite.</p>
-<p>GPTQ lite is a variant of GPTQ that does not exactly follow the official GPTQ implementation.</p>
-<p>GPTQ lite does not perform sequential quantization of layers. This means that the updated
-activations are not used to process the next layer.</p>
+<p>The config for GPTQ quantization.</p>
+<p>GPTQ minimizes the layer-wise quantization error by using second-order (Hessian) information
+to perform blockwise weight updates that compensate for rounding loss. Layers are quantized
+sequentially so that each layer’s Hessian is computed from activations that already reflect
+the quantization of preceding layers.</p>
 <p>The default values are taken from the official GPTQ implementation:
 <a class="reference external" href="https://github.com/IST-DASLab/FP-Quant/blob/d2e3092f968262c4de5fb050e1aef568a280dadd/src/quantization/gptq.py#L35" rel="noopener noreferrer" target="_blank">https://github.com/IST-DASLab/FP-Quant/blob/d2e3092f968262c4de5fb050e1aef568a280dadd/src/quantization/gptq.py#L35</a></p>
-<p>Note: This feature is currently experimental and may not translate to improved accuracy as expected.</p>
 <p><details  class="autodoc_pydantic_collapsable_json">
 <summary>Show default config as JSON</summary><dl class="field-list simple">
 <dt class="field-odd">Default config (JSON)<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gptq_lite&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gptq&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;moe_calib_experts_ratio&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;use_sequential&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;percdamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;block_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;hessian_state_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">   </span><span class="nt">&quot;perc_damp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;block_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </details></p><dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQLiteConfig.block_size">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">block_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQLiteConfig.block_size" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQCalibConfig.block_size">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">block_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQCalibConfig.block_size" title="Link to this definition"></a></dt>
 <dd><p><details  class="autodoc_pydantic_collapsable_json">
 <summary>Show details</summary><p>The block size for GPTQ weight update, which must be a multiple of the
 group_size used in the quantization.</p>
 </details></p></dd></dl>
 
 <dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQLiteConfig.hessian_state_path">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hessian_state_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQLiteConfig.hessian_state_path" title="Link to this definition"></a></dt>
-<dd><p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show details</summary><p>The path to the Hessian state file. If hessian path exists, we load from
-hessian file instead of recomputing them.</p>
-</details></p></dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQLiteConfig.method">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'gptq_lite'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQLiteConfig.method" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQCalibConfig.method">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'gptq'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQCalibConfig.method" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQLiteConfig.percdamp">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">percdamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQLiteConfig.percdamp" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="modelopt.torch.quantization.config.GPTQCalibConfig.perc_damp">
+<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">perc_damp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.GPTQCalibConfig.perc_damp" title="Link to this definition"></a></dt>
 <dd><p><details  class="autodoc_pydantic_collapsable_json">
 <summary>Show details</summary><p>The percentage of average Hessian diagonal used for damping.</p>
 </details></p><dl class="field-list simple">

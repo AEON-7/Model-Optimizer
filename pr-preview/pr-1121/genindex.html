@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+gc95c03bed</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g5f70fea4a</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -92,7 +92,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="reference/0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/0_changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/1_modelopt_api.html">modelopt API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Support</span></p>
@@ -222,6 +222,8 @@
 </li>
         <li><a href="reference/generated/modelopt.torch.puzzletron.sewing_kit.utils.html#modelopt.torch.puzzletron.sewing_kit.utils.DynamoSkip.__init__">(DynamoSkip method)</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.speculative.eagle.utils.html#modelopt.torch.speculative.eagle.utils.EagleOfflineDataCollator.__init__">(EagleOfflineDataCollator method)</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.EmbeddingConfig.__init__">(EmbeddingConfig method)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.nas.utils.html#modelopt.torch.nas.utils.enable_modelopt_patches.__init__">(enable_modelopt_patches method)</a>
@@ -323,6 +325,8 @@
         <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.NodeInputInsertionPoint.__init__">(NodeInputInsertionPoint method)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.quantization.calib.mse.html#modelopt.torch.quantization.calib.mse.NVFP4MSECalibrator.__init__">(NVFP4MSECalibrator method)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.speculative.eagle.utils.html#modelopt.torch.speculative.eagle.utils.OfflineSupervisedDataset.__init__">(OfflineSupervisedDataset method)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.puzzletron.sewing_kit.core.html#modelopt.torch.puzzletron.sewing_kit.core.OutputDescriptor.__init__">(OutputDescriptor method)</a>
 </li>
@@ -803,7 +807,7 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.block_embedding">block_embedding (ModelConfig attribute)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQLiteConfig.block_size">block_size (GPTQLiteConfig attribute)</a>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQCalibConfig.block_size">block_size (GPTQCalibConfig attribute)</a>
 
       <ul>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.LocalHessianCalibConfig.block_size">(LocalHessianCalibConfig attribute)</a>
@@ -1663,6 +1667,8 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.speculative.eagle.eagle_model.html#modelopt.torch.speculative.eagle.eagle_model.EagleModel">EagleModel (class in modelopt.torch.speculative.eagle.eagle_model)</a>
 </li>
+      <li><a href="reference/generated/modelopt.torch.speculative.eagle.utils.html#modelopt.torch.speculative.eagle.utils.EagleOfflineDataCollator">EagleOfflineDataCollator (class in modelopt.torch.speculative.eagle.utils)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.prune.fastnas.html#modelopt.torch.prune.fastnas.BinarySearcher.early_stop">early_stop() (BinarySearcher method)</a>
 
       <ul>
@@ -1727,10 +1733,10 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.ModelConfig.eos_token_id">eos_token_id (ModelConfig attribute)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LayernormConfig.eps">eps (LayernormConfig attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LayernormConfig.eps">eps (LayernormConfig attribute)</a>
+</li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.InsertionScheme.error">error (InsertionScheme attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.algorithms.html#modelopt.torch.quantization.algorithms.estimate_quant_compression">estimate_quant_compression() (in module modelopt.torch.quantization.algorithms)</a>
@@ -2577,8 +2583,6 @@
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.InsertionScheme.hash">hash (InsertionScheme property)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQLiteConfig.hessian_state_path">hessian_state_path (GPTQLiteConfig attribute)</a>
-</li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LinearActConfig.hidden_act">hidden_act (LinearActConfig attribute)</a>
 
       <ul>
@@ -3414,7 +3418,7 @@
 </li>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.AWQLiteCalibConfig.method">(AWQLiteCalibConfig attribute)</a>
 </li>
-        <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQLiteConfig.method">(GPTQLiteConfig attribute)</a>
+        <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQCalibConfig.method">(GPTQCalibConfig attribute)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.LocalHessianCalibConfig.method">(LocalHessianCalibConfig attribute)</a>
 </li>
@@ -6200,6 +6204,8 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/generated/modelopt.torch.speculative.eagle.utils.html#modelopt.torch.speculative.eagle.utils.OfflineSupervisedDataset">OfflineSupervisedDataset (class in modelopt.torch.speculative.eagle.utils)</a>
+</li>
       <li><a href="reference/generated/modelopt.torch.distill.distillation_model.html#modelopt.torch.distill.distillation_model.DistillationModel.only_student_forward">only_student_forward() (DistillationModel method)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.distill.distillation_model.html#modelopt.torch.distill.distillation_model.DistillationModel.only_teacher_forward">only_teacher_forward() (DistillationModel method)</a>
@@ -6354,7 +6360,7 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.export.model_config.html#modelopt.torch.export.model_config.LinearConfig.per_channel_scale">per_channel_scale (LinearConfig attribute)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQLiteConfig.percdamp">percdamp (GPTQLiteConfig attribute)</a>
+      <li><a href="reference/generated/modelopt.torch.quantization.config.html#modelopt.torch.quantization.config.GPTQCalibConfig.perc_damp">perc_damp (GPTQCalibConfig attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.Config.performance_threshold">performance_threshold (Config attribute)</a>
 </li>

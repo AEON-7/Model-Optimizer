@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NVIDIA Model Optimizer Changelog &mdash; Model Optimizer 0.0.1.dev1+g1cf4b7d02</title>
+  <title>Changelog &mdash; Model Optimizer 0.0.1.dev1+gfca5ed3e3</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -95,7 +95,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">NVIDIA Model Optimizer Changelog</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#xx">0.44 (2026-05-xx)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">0.43 (2026-04-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">0.42 (2026-03-10)</a></li>
@@ -140,7 +140,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">NVIDIA Model Optimizer Changelog</li>
+      <li class="breadcrumb-item active">Changelog</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/reference/0_changelog.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -150,8 +150,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nvidia-model-optimizer-changelog">
-<h1>NVIDIA Model Optimizer Changelog<a class="headerlink" href="#nvidia-model-optimizer-changelog" title="Link to this heading"></a></h1>
+  <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
 <section id="xx">
 <h2>0.44 (2026-05-xx)<a class="headerlink" href="#xx" title="Link to this heading"></a></h2>
 <p><strong>New Features</strong></p>
@@ -176,6 +176,8 @@
 <p><strong>Misc</strong></p>
 <ul class="simple">
 <li><p>[Security] Changed the default of <code class="docutils literal notranslate"><span class="pre">weights_only</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> in <code class="docutils literal notranslate"><span class="pre">torch.load</span></code> for secure checkpoint loading. If you need to load a checkpoint that requires unpickling arbitrary objects, first register the class in <code class="docutils literal notranslate"><span class="pre">torch.serialization.add_safe_globals([cls])</span></code> before loading. Added <a class="reference internal" href="generated/modelopt.torch.utils.serialization.html#modelopt.torch.utils.serialization.safe_save" title="modelopt.torch.utils.serialization.safe_save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">safe_save</span></code></a> and <a class="reference internal" href="generated/modelopt.torch.utils.serialization.html#modelopt.torch.utils.serialization.safe_load" title="modelopt.torch.utils.serialization.safe_load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">safe_load</span></code></a> API to save and load checkpoints securely.</p></li>
+<li><p>Bump minimum required PyTorch version to 2.8.</p></li>
+<li><p>[Experimental] Add support for transformers&gt;=5.0. Unified Hugging Face checkpoint export for quantized checkpoints may not work for MoE models with transformers&gt;=5.0 yet.</p></li>
 </ul>
 </section>
 <section id="id2">

@@ -37,6 +37,8 @@ kernels
    .. autosummary::
       :nosignatures:
    
+      get_skip_softmax_context
       register_diffusers_triton_attention
+      set_skip_softmax_context
    
    

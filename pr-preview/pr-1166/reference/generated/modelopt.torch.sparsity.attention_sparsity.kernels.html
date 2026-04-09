@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kernels &mdash; Model Optimizer 0.0.1.dev1+g5c9b3d45c</title>
+  <title>kernels &mdash; Model Optimizer 0.0.1.dev1+gb94418838</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -161,11 +161,28 @@
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention" title="modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_diffusers_triton_attention</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.sparsity.attention_sparsity.kernels.get_skip_softmax_context" title="modelopt.torch.sparsity.attention_sparsity.kernels.get_skip_softmax_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_skip_softmax_context</span></code></a></p></td>
+<td><p>Return whether skip-softmax softmax patching is active.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention" title="modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_diffusers_triton_attention</span></code></a></p></td>
 <td><p>Register <code class="docutils literal notranslate"><span class="pre">modelopt_triton</span></code> backend in diffusers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.sparsity.attention_sparsity.kernels.set_skip_softmax_context" title="modelopt.torch.sparsity.attention_sparsity.kernels.set_skip_softmax_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_skip_softmax_context</span></code></a></p></td>
+<td><p>Set whether skip-softmax softmax patching is active (thread-local).</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.kernels.get_skip_softmax_context">
+<span class="sig-name descname"><span class="pre">get_skip_softmax_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.kernels.get_skip_softmax_context" title="Link to this definition"></a></dt>
+<dd><p>Return whether skip-softmax softmax patching is active.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>bool</em></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention">
 <span class="sig-name descname"><span class="pre">register_diffusers_triton_attention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.kernels.register_diffusers_triton_attention" title="Link to this definition"></a></dt>
@@ -174,6 +191,20 @@
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>None</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.kernels.set_skip_softmax_context">
+<span class="sig-name descname"><span class="pre">set_skip_softmax_context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.kernels.set_skip_softmax_context" title="Link to this definition"></a></dt>
+<dd><p>Set whether skip-softmax softmax patching is active (thread-local).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>active</strong> (<em>bool</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>None</em></p>
 </dd>
 </dl>
 </dd></dl>

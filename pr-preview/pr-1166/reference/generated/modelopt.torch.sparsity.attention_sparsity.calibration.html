@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>calibration &mdash; Model Optimizer 0.0.1.dev1+g23067581d</title>
+  <title>calibration &mdash; Model Optimizer 0.0.1.dev1+g5c9b3d45c</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -202,12 +202,17 @@ instead of per-threshold averages provides more accurate fitting without
 additional calibration time cost.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.sparsity.attention_sparsity.calibration.DynamicThresholdCalibrator.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold_trials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.calibration.DynamicThresholdCalibrator.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold_trials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_logspace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.sparsity.attention_sparsity.calibration.DynamicThresholdCalibrator.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initialize dynamic threshold calibrator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>threshold_trials</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) – List of thresholds to try during calibration.
-Should span a range that achieves sparsities from ~10% to ~95%.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>threshold_trials</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) – List of thresholds to try during calibration.
+Should span a range that achieves sparsities from ~10% to ~95%.</p></li>
+<li><p><strong>fit_logspace</strong> (<em>bool</em>) – If True, fit the exponential model in log space
+(minimizes relative error). Recommended for diffusion models
+where scale_factors span many orders of magnitude.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

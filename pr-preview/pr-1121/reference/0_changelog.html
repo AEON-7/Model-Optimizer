@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog &mdash; Model Optimizer 0.0.1.dev1+g8b00cd4de</title>
+  <title>Changelog &mdash; Model Optimizer 0.0.1.dev1+g59aa51414</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -157,6 +157,7 @@
 <p><strong>New Features</strong></p>
 <ul class="simple">
 <li><p>Support full Transformer Engine spec for Minitron pruning (<code class="docutils literal notranslate"><span class="pre">mcore_minitron</span></code>). Now we no longer need to use custom ModelOpt spec. Note that this does not affect the usage of the pruning workflow but makes pruning slightly faster and may result in slightly different pruned model because of different kernel and numerics.</p></li>
+<li><p>Add Puzzletron - a new algorithm for heterogeneous pruning of LLM and VLM models. See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/puzzletron" rel="noopener noreferrer" target="_blank">examples/puzzletron/README.md</a> for more details.</p></li>
 <li><p>Added iterator interface using CalibrationDataReader in ONNX quantization workflow.</p></li>
 <li><p>Add N:M sparse softmax support to the Triton flash attention kernel (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.kernels.triton_fa</span></code>). See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity" rel="noopener noreferrer" target="_blank">examples/llm_sparsity/attention_sparsity/README.md</a> for usage.</p></li>
 <li><p>Add skip-softmax skipping to the Triton flash attention kernel (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.kernels.triton_fa</span></code>). See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity" rel="noopener noreferrer" target="_blank">examples/llm_sparsity/attention_sparsity/README.md</a> for usage.</p></li>

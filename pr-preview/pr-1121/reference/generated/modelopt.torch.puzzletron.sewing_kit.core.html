@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>core &mdash; Model Optimizer 0.0.1.dev1+g8b00cd4de</title>
+  <title>core &mdash; Model Optimizer 0.0.1.dev1+g59aa51414</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -179,10 +179,10 @@
 <td><p>IOReducer()</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.InputDescriptor" title="modelopt.torch.puzzletron.sewing_kit.core.InputDescriptor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputDescriptor</span></code></a></p></td>
-<td><p>InputDescriptor(target: 'Target', input_name: 'str' = '', input_adapter: 'InputAdapter' = &lt;function default_input_adapter_fn at 0x7f01365bd300&gt;, reducer: 'InputReducer' = &lt;factory&gt;)</p></td>
+<td><p>InputDescriptor(target: 'Target', input_name: 'str' = '', input_adapter: 'InputAdapter' = &lt;function default_input_adapter_fn at 0x7f4682a2e020&gt;, reducer: 'InputReducer' = &lt;factory&gt;)</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.InputReducer" title="modelopt.torch.puzzletron.sewing_kit.core.InputReducer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputReducer</span></code></a></p></td>
-<td><p>InputReducer(reducer_fn: 'Callable[[InputArgs, InputArgs, InputArgs, int, list[InputArgs]], InputArgs]' = &lt;function default_input_reducer_fn at 0x7f01365beb60&gt;)</p></td>
+<td><p>InputReducer(reducer_fn: 'Callable[[InputArgs, InputArgs, InputArgs, int, list[InputArgs]], InputArgs]' = &lt;function default_input_reducer_fn at 0x7f4682a2f880&gt;)</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.ModuleTarget" title="modelopt.torch.puzzletron.sewing_kit.core.ModuleTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModuleTarget</span></code></a></p></td>
 <td><p>ModuleTarget(name: 'str', module: 'nn.Module')</p></td>
@@ -194,10 +194,10 @@
 <td><p>Node(target: 'Target', stitches_to: 'list[StitchDescriptor]' = &lt;factory&gt;, stitches_from: 'list[StitchDescriptor]' = &lt;factory&gt;)</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputDescriptor" title="modelopt.torch.puzzletron.sewing_kit.core.OutputDescriptor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutputDescriptor</span></code></a></p></td>
-<td><p>OutputDescriptor(target: 'Target', output_name: 'str' = '', output_adapter: 'OutputAdapter' = &lt;function default_output_adapter_fn at 0x7f01365bd440&gt;, reducer: 'OutputReducer' = &lt;factory&gt;)</p></td>
+<td><p>OutputDescriptor(target: 'Target', output_name: 'str' = '', output_adapter: 'OutputAdapter' = &lt;function default_output_adapter_fn at 0x7f4682a2e160&gt;, reducer: 'OutputReducer' = &lt;factory&gt;)</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer" title="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutputReducer</span></code></a></p></td>
-<td><p>OutputReducer(reducer_fn: 'Callable[[OutputValue, OutputValue, Optional[OutputValue], int, list[OutputValue]], OutputValue]' = &lt;function default_output_reducer_fn at 0x7f013646ae80&gt;, requires_original_output: 'bool' = False)</p></td>
+<td><p>OutputReducer(reducer_fn: 'Callable[[OutputValue, OutputValue, Optional[OutputValue], int, list[OutputValue]], OutputValue]' = &lt;function default_output_reducer_fn at 0x7f4682aafba0&gt;, requires_original_output: 'bool' = False)</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.RemoteDataDescriptor" title="modelopt.torch.puzzletron.sewing_kit.core.RemoteDataDescriptor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RemoteDataDescriptor</span></code></a></p></td>
 <td><p>RemoteDataDescriptor(key: 'str')</p></td>
@@ -367,7 +367,7 @@
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.InputDescriptor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InputDescriptor</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.InputDescriptor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>InputDescriptor(target: ‘Target’, input_name: ‘str’ = ‘’, input_adapter: ‘InputAdapter’ = &lt;function default_input_adapter_fn at 0x7f01365bd300&gt;, reducer: ‘InputReducer’ = &lt;factory&gt;)</p>
+<p>InputDescriptor(target: ‘Target’, input_name: ‘str’ = ‘’, input_adapter: ‘InputAdapter’ = &lt;function default_input_adapter_fn at 0x7f4682a2e020&gt;, reducer: ‘InputReducer’ = &lt;factory&gt;)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.InputDescriptor.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_name=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_adapter=&lt;function</span> <span class="pre">default_input_adapter_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reducer=&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.InputDescriptor.__init__" title="Link to this definition"></a></dt>
@@ -420,7 +420,7 @@
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.InputReducer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InputReducer</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.InputReducer" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.IOReducer" title="modelopt.torch.puzzletron.sewing_kit.core.IOReducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOReducer</span></code></a></p>
-<p>InputReducer(reducer_fn: ‘Callable[[InputArgs, InputArgs, InputArgs, int, list[InputArgs]], InputArgs]’ = &lt;function default_input_reducer_fn at 0x7f01365beb60&gt;)</p>
+<p>InputReducer(reducer_fn: ‘Callable[[InputArgs, InputArgs, InputArgs, int, list[InputArgs]], InputArgs]’ = &lt;function default_input_reducer_fn at 0x7f4682a2f880&gt;)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.InputReducer.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reducer_fn=&lt;function</span> <span class="pre">default_input_reducer_fn&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.InputReducer.__init__" title="Link to this definition"></a></dt>
@@ -620,7 +620,7 @@
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.OutputDescriptor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OutputDescriptor</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputDescriptor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>OutputDescriptor(target: ‘Target’, output_name: ‘str’ = ‘’, output_adapter: ‘OutputAdapter’ = &lt;function default_output_adapter_fn at 0x7f01365bd440&gt;, reducer: ‘OutputReducer’ = &lt;factory&gt;)</p>
+<p>OutputDescriptor(target: ‘Target’, output_name: ‘str’ = ‘’, output_adapter: ‘OutputAdapter’ = &lt;function default_output_adapter_fn at 0x7f4682a2e160&gt;, reducer: ‘OutputReducer’ = &lt;factory&gt;)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.OutputDescriptor.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_name=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_adapter=&lt;function</span> <span class="pre">default_output_adapter_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reducer=&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputDescriptor.__init__" title="Link to this definition"></a></dt>
@@ -673,7 +673,7 @@
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OutputReducer</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.IOReducer" title="modelopt.torch.puzzletron.sewing_kit.core.IOReducer"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOReducer</span></code></a></p>
-<p>OutputReducer(reducer_fn: ‘Callable[[OutputValue, OutputValue, Optional[OutputValue], int, list[OutputValue]], OutputValue]’ = &lt;function default_output_reducer_fn at 0x7f013646ae80&gt;, requires_original_output: ‘bool’ = False)</p>
+<p>OutputReducer(reducer_fn: ‘Callable[[OutputValue, OutputValue, Optional[OutputValue], int, list[OutputValue]], OutputValue]’ = &lt;function default_output_reducer_fn at 0x7f4682aafba0&gt;, requires_original_output: ‘bool’ = False)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reducer_fn=&lt;function</span> <span class="pre">default_output_reducer_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires_original_output=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer.__init__" title="Link to this definition"></a></dt>

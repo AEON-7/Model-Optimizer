@@ -5,6 +5,29 @@ anymodel
 
 
 
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+
+
+   modelopt.torch.puzzletron.anymodel.converter
+
+
+
+   modelopt.torch.puzzletron.anymodel.model_descriptor
+
+
+
+   modelopt.torch.puzzletron.anymodel.models
+
+
+
+   modelopt.torch.puzzletron.anymodel.puzzformer
+
+
 
 
 .. Autodoc anything defined in the module itself
@@ -26,31 +49,10 @@ anymodel
    .. Overview table of available classes in the module
    
    
-   .. rubric:: Classes
-
-   .. autosummary::
-      :nosignatures:
-   
-      Converter
-      ConverterFactory
-      ModelDescriptor
-      ModelDescriptorFactory
-      MatchingZeros
-      Same
-   
    
 
 
    .. Overview table of available functions in the module
    
-   
-   .. rubric:: Functions
-
-   .. autosummary::
-      :nosignatures:
-   
-      deci_x_patcher
-      return_tuple_of_size
-      convert_model
    
    

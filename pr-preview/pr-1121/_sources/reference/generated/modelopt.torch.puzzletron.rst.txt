@@ -13,6 +13,10 @@ puzzletron
 
 
 
+   modelopt.torch.puzzletron.activation_scoring
+
+
+
    modelopt.torch.puzzletron.anymodel
 
 
@@ -29,7 +33,31 @@ puzzletron
 
 
 
-   modelopt.torch.puzzletron.puzzletron
+   modelopt.torch.puzzletron.entrypoint
+
+
+
+   modelopt.torch.puzzletron.mip
+
+
+
+   modelopt.torch.puzzletron.plugins
+
+
+
+   modelopt.torch.puzzletron.pruning
+
+
+
+   modelopt.torch.puzzletron.puzzletron_nas_plugin
+
+
+
+   modelopt.torch.puzzletron.replacement_library
+
+
+
+   modelopt.torch.puzzletron.scoring
 
 
 
@@ -37,7 +65,15 @@ puzzletron
 
 
 
+   modelopt.torch.puzzletron.subblock_stats
+
+
+
    modelopt.torch.puzzletron.tools
+
+
+
+   modelopt.torch.puzzletron.utils
 
 
 

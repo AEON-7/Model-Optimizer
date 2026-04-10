@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>puzzletron &mdash; Model Optimizer 0.0.1.dev1+g59aa51414</title>
+  <title>puzzletron &mdash; Model Optimizer 0.0.1.dev1+g255045050</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -33,7 +33,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="anymodel" href="modelopt.torch.puzzletron.anymodel.html" />
+    <link rel="next" title="activation_scoring" href="modelopt.torch.puzzletron.activation_scoring.html" />
     <link rel="prev" title="pruning" href="modelopt.torch.prune.pruning.html" /> 
 </head>
 
@@ -108,13 +108,22 @@
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.peft.html">peft</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.prune.html">prune</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">puzzletron</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.activation_scoring.html">activation_scoring</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.html">anymodel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.block_config.html">block_config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.build_library_and_stats.html">build_library_and_stats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.dataset.html">dataset</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron.html">puzzletron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.entrypoint.html">entrypoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.mip.html">mip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.plugins.html">plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.pruning.html">pruning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron_nas_plugin.html">puzzletron_nas_plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.replacement_library.html">replacement_library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.scoring.html">scoring</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.html">sewing_kit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.subblock_stats.html">subblock_stats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.tools.html">tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.utils.html">utils</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a></li>
@@ -164,26 +173,53 @@
 <p class="rubric">Modules</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.html#module-modelopt.torch.puzzletron.anymodel" title="modelopt.torch.puzzletron.anymodel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.anymodel</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.activation_scoring.html#module-modelopt.torch.puzzletron.activation_scoring" title="modelopt.torch.puzzletron.activation_scoring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.activation_scoring</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.html#module-modelopt.torch.puzzletron.anymodel" title="modelopt.torch.puzzletron.anymodel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.anymodel</span></code></a></p></td>
 <td><p>AnyModel: Architecture-agnostic model compression for HuggingFace models.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.block_config.html#module-modelopt.torch.puzzletron.block_config" title="modelopt.torch.puzzletron.block_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.block_config</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.block_config.html#module-modelopt.torch.puzzletron.block_config" title="modelopt.torch.puzzletron.block_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.block_config</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.build_library_and_stats.html#module-modelopt.torch.puzzletron.build_library_and_stats" title="modelopt.torch.puzzletron.build_library_and_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.build_library_and_stats</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.build_library_and_stats.html#module-modelopt.torch.puzzletron.build_library_and_stats" title="modelopt.torch.puzzletron.build_library_and_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.build_library_and_stats</span></code></a></p></td>
 <td><p>Unified command that runs build_replacement_library followed by calc_subblock_stats.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.dataset.html#module-modelopt.torch.puzzletron.dataset" title="modelopt.torch.puzzletron.dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.dataset</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.dataset.html#module-modelopt.torch.puzzletron.dataset" title="modelopt.torch.puzzletron.dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.dataset</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron.html#module-modelopt.torch.puzzletron.puzzletron" title="modelopt.torch.puzzletron.puzzletron"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.puzzletron</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.entrypoint.html#module-modelopt.torch.puzzletron.entrypoint" title="modelopt.torch.puzzletron.entrypoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.entrypoint</span></code></a></p></td>
 <td><p>This module provides the main compression function for a model using MIP-based NAS search algorithm.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.html#module-modelopt.torch.puzzletron.sewing_kit" title="modelopt.torch.puzzletron.sewing_kit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.sewing_kit</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.mip.html#module-modelopt.torch.puzzletron.mip" title="modelopt.torch.puzzletron.mip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.mip</span></code></a></p></td>
+<td><p>MIP-based pruning: model optimization via mixed-integer programming.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.plugins.html#module-modelopt.torch.puzzletron.plugins" title="modelopt.torch.puzzletron.plugins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.plugins</span></code></a></p></td>
+<td><p>Export utilities for Puzzletron models.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.pruning.html#module-modelopt.torch.puzzletron.pruning" title="modelopt.torch.puzzletron.pruning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.pruning</span></code></a></p></td>
+<td><p>Structured pruning mixins and checkpoint utilities for Puzzletron.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron_nas_plugin.html#module-modelopt.torch.puzzletron.puzzletron_nas_plugin" title="modelopt.torch.puzzletron.puzzletron_nas_plugin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.puzzletron_nas_plugin</span></code></a></p></td>
+<td><p>Puzzletron NAS plugin for the Modelopt framework (based on Puzzle algorithm: <a class="reference external" href="https://arxiv.org/abs/2411.19146" rel="noopener noreferrer" target="_blank">https://arxiv.org/abs/2411.19146</a>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.replacement_library.html#module-modelopt.torch.puzzletron.replacement_library" title="modelopt.torch.puzzletron.replacement_library"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.replacement_library</span></code></a></p></td>
+<td><p>Replacement library for Puzzletron layer substitution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.scoring.html#module-modelopt.torch.puzzletron.scoring" title="modelopt.torch.puzzletron.scoring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.scoring</span></code></a></p></td>
+<td><p>Scoring utilities for Puzzletron subblock evaluation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.html#module-modelopt.torch.puzzletron.sewing_kit" title="modelopt.torch.puzzletron.sewing_kit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.sewing_kit</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.subblock_stats.html#module-modelopt.torch.puzzletron.subblock_stats" title="modelopt.torch.puzzletron.subblock_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.subblock_stats</span></code></a></p></td>
+<td><p>Subblock statistics collection for Puzzletron.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.tools.html#module-modelopt.torch.puzzletron.tools" title="modelopt.torch.puzzletron.tools"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.tools</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Shared tools: logging, hydra config, checkpoint utilities, and validation helpers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.puzzletron.utils.html#module-modelopt.torch.puzzletron.utils" title="modelopt.torch.puzzletron.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.puzzletron.utils</span></code></a></p></td>
+<td><p>Shared utilities for Puzzletron.</p></td>
 </tr>
 </tbody>
 </table>
@@ -194,7 +230,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modelopt.torch.prune.pruning.html" class="btn btn-neutral float-left" title="pruning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modelopt.torch.puzzletron.anymodel.html" class="btn btn-neutral float-right" title="anymodel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modelopt.torch.puzzletron.activation_scoring.html" class="btn btn-neutral float-right" title="activation_scoring" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

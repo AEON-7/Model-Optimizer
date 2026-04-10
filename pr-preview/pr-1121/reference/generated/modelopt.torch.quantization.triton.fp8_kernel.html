@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fp8_kernel &mdash; Model Optimizer 0.0.1.dev1+g59aa51414</title>
+  <title>fp8_kernel &mdash; Model Optimizer 0.0.1.dev1+g255045050</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -204,28 +204,6 @@
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>AssertionError</strong> – If <cite>x</cite> or <cite>s</cite> are not contiguous or if their dimensions are not 2.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.quantization.triton.fp8_kernel.weight_dequant_kernel">
-<span class="sig-name descname"><span class="pre">weight_dequant_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_ptr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BLOCK_SIZE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.triton.fp8_kernel.weight_dequant_kernel" title="Link to this definition"></a></dt>
-<dd><p>Dequantizes weights using the provided scaling factors and stores the result.</p>
-<p>Reference: <a class="reference external" href="https://github.com/deepseek-ai/DeepSeek-V3/blob/main/inference/kernel.py" rel="noopener noreferrer" target="_blank">https://github.com/deepseek-ai/DeepSeek-V3/blob/main/inference/kernel.py</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x_ptr</strong> (<em>tl.pointer</em>) – Pointer to the quantized weights.</p></li>
-<li><p><strong>s_ptr</strong> (<em>tl.pointer</em>) – Pointer to the scaling factors.</p></li>
-<li><p><strong>y_ptr</strong> (<em>tl.pointer</em>) – Pointer to the output buffer for dequantized weights.</p></li>
-<li><p><strong>M</strong> (<em>int</em>) – Number of rows in the weight matrix.</p></li>
-<li><p><strong>N</strong> (<em>int</em>) – Number of columns in the weight matrix.</p></li>
-<li><p><strong>BLOCK_SIZE</strong> (<em>tl.constexpr</em>) – Size of the block for tiling.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>

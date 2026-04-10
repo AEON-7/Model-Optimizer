@@ -31,14 +31,14 @@ block\_config
    .. autosummary::
       :nosignatures:
    
-      AttentionConfig
       BaseDataclass
-      BlockConfig
-      FFNConfig
-      Llama4AttentionConfig
-      MambaConfig
-      MoEConfig
       SubblockConfig
+      MoEConfig
+      MambaConfig
+      Llama4AttentionConfig
+      AttentionConfig
+      FFNConfig
+      BlockConfig
    
    
 

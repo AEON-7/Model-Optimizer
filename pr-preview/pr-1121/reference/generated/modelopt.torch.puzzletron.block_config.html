@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>block_config &mdash; Model Optimizer 0.0.1.dev1+g59aa51414</title>
+  <title>block_config &mdash; Model Optimizer 0.0.1.dev1+g255045050</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -34,7 +34,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="build_library_and_stats" href="modelopt.torch.puzzletron.build_library_and_stats.html" />
-    <link rel="prev" title="anymodel" href="modelopt.torch.puzzletron.anymodel.html" /> 
+    <link rel="prev" title="patcher" href="modelopt.torch.puzzletron.anymodel.puzzformer.patcher.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -108,13 +108,22 @@
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.peft.html">peft</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.prune.html">prune</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.puzzletron.html">puzzletron</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.activation_scoring.html">activation_scoring</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.html">anymodel</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">block_config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.build_library_and_stats.html">build_library_and_stats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.dataset.html">dataset</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron.html">puzzletron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.entrypoint.html">entrypoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.mip.html">mip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.plugins.html">plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.pruning.html">pruning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron_nas_plugin.html">puzzletron_nas_plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.replacement_library.html">replacement_library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.scoring.html">scoring</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.html">sewing_kit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.subblock_stats.html">subblock_stats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.tools.html">tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.utils.html">utils</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a></li>
@@ -165,29 +174,29 @@
 <span class="target" id="module-modelopt.torch.puzzletron.block_config"></span><p class="rubric">Classes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.AttentionConfig" title="modelopt.torch.puzzletron.block_config.AttentionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AttentionConfig</span></code></a></p></td>
-<td><p>Configuration for an attention subblock within a transformer block.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.BaseDataclass" title="modelopt.torch.puzzletron.block_config.BaseDataclass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseDataclass</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.BaseDataclass" title="modelopt.torch.puzzletron.block_config.BaseDataclass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseDataclass</span></code></a></p></td>
 <td><p>A dataclass base class with several utilities: 1.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.BlockConfig" title="modelopt.torch.puzzletron.block_config.BlockConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BlockConfig</span></code></a></p></td>
-<td><p>Configuration for a single transformer block, including its attention and FFN subblocks.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.FFNConfig" title="modelopt.torch.puzzletron.block_config.FFNConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FFNConfig</span></code></a></p></td>
-<td><p>Configuration for a feed-forward network subblock within a transformer block.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.Llama4AttentionConfig" title="modelopt.torch.puzzletron.block_config.Llama4AttentionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Llama4AttentionConfig</span></code></a></p></td>
-<td><p>Configuration for Llama-4-specific attention parameters.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.MambaConfig" title="modelopt.torch.puzzletron.block_config.MambaConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MambaConfig</span></code></a></p></td>
-<td><p>Configuration for a Mamba (state-space model) subblock.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.SubblockConfig" title="modelopt.torch.puzzletron.block_config.SubblockConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SubblockConfig</span></code></a></p></td>
+<td><p>Base configuration for a subblock (e.g. attention or FFN) within a transformer block.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.MoEConfig" title="modelopt.torch.puzzletron.block_config.MoEConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MoEConfig</span></code></a></p></td>
 <td><p>Configuration class for Mixture of Experts parameters.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.SubblockConfig" title="modelopt.torch.puzzletron.block_config.SubblockConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SubblockConfig</span></code></a></p></td>
-<td><p>Base configuration for a subblock (e.g. attention or FFN) within a transformer block.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.MambaConfig" title="modelopt.torch.puzzletron.block_config.MambaConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MambaConfig</span></code></a></p></td>
+<td><p>Configuration for a Mamba (state-space model) subblock.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.Llama4AttentionConfig" title="modelopt.torch.puzzletron.block_config.Llama4AttentionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Llama4AttentionConfig</span></code></a></p></td>
+<td><p>Configuration for Llama-4-specific attention parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.AttentionConfig" title="modelopt.torch.puzzletron.block_config.AttentionConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AttentionConfig</span></code></a></p></td>
+<td><p>Configuration for an attention subblock within a transformer block.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.FFNConfig" title="modelopt.torch.puzzletron.block_config.FFNConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FFNConfig</span></code></a></p></td>
+<td><p>Configuration for a feed-forward network subblock within a transformer block.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.block_config.BlockConfig" title="modelopt.torch.puzzletron.block_config.BlockConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BlockConfig</span></code></a></p></td>
+<td><p>Configuration for a single transformer block, including its attention and FFN subblocks.</p></td>
 </tr>
 </tbody>
 </table>
@@ -617,7 +626,7 @@ Convert to a block including this subblock only.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modelopt.torch.puzzletron.anymodel.html" class="btn btn-neutral float-left" title="anymodel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modelopt.torch.puzzletron.anymodel.puzzformer.patcher.html" class="btn btn-neutral float-left" title="patcher" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="modelopt.torch.puzzletron.build_library_and_stats.html" class="btn btn-neutral float-right" title="build_library_and_stats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>watersic_kv &mdash; Model Optimizer 0.0.1.dev1+g76825d766</title>
+  <title>watersic_kv &mdash; Model Optimizer 0.0.1.dev1+gcccbc4110</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -204,7 +204,7 @@ Cancellation for KV-Cache Quantization” (2024).</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;watersic_kv&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;moe_calib_experts_ratio&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;use_sequential&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;use_sequential&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;target_rate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;kl_aware&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;importance_clip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span>
@@ -288,7 +288,7 @@ Cancellation for KV-Cache Quantization” (2024).</p>
 <dt class="sig sig-object py" id="modelopt.torch.quantization.algorithms.watersic_kv.WaterSICKVCalibConfig.use_sequential">
 <em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_sequential</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#modelopt.torch.quantization.algorithms.watersic_kv.WaterSICKVCalibConfig.use_sequential" title="Link to this definition"></a></dt>
 <dd><p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show details</summary><p>When True, the WaterSIC calibration is applied layer-by-layer in decoder-block order so that each layer’s quantized KV representation is propagated to subsequent layers before they are calibrated.</p>
+<summary>Show details</summary><p>Must be False for WaterSIC. Unlike weight quantization, KV-cache quantization does not have progressive error accumulation between layers, so sequential calibration is not needed.</p>
 </details></p></dd></dl>
 
 </dd></dl>
@@ -351,7 +351,7 @@ Cancellation for KV-Cache Quantization” (2024).</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.quantization.algorithms.watersic_kv.WaterSICKVState" title="modelopt.torch.quantization.algorithms.watersic_kv.kv_quantizer.WaterSICKVState"><em>WaterSICKVState</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.quantization.algorithms.watersic_kv.WaterSICKVState" title="modelopt.torch.quantization.algorithms.watersic_kv.helper.WaterSICKVState"><em>WaterSICKVState</em></a></p>
 </dd>
 </dl>
 </dd></dl>

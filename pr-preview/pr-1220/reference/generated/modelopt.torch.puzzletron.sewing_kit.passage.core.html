@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>core &mdash; Model Optimizer 0.0.1.dev1+ge377194e4</title>
+  <title>core &mdash; Model Optimizer 0.0.1.dev1+g753d8ade8</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -95,7 +95,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -109,6 +109,7 @@
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.prune.html">prune</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.puzzletron.html">puzzletron</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.html">anymodel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.block_config.html">block_config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.build_library_and_stats.html">build_library_and_stats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.dataset.html">dataset</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron.html">puzzletron</a></li>
@@ -441,7 +442,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassageInputAdapter</span></code></a> | <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputArgs</span></code></a>]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputOverrides.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_overrides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputOverrides.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_overrides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputOverrides.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>input_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputAdapter"><em>PassageInputAdapter</em></a><em> | </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>]</em>)</p>
@@ -527,7 +528,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassageOutputAdapter</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code>]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputOverrides.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_overrides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputOverrides.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_overrides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputOverrides.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>output_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputAdapter"><em>PassageOutputAdapter</em></a><em> | </em><em>Any</em><em>]</em>)</p>

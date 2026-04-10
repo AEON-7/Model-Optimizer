@@ -1,43 +1,8 @@
-puzzletron
-==========
+block\_config
+=============
 
 .. List the submodules
 
-
-
-.. rubric:: Modules
-
-.. autosummary::
-   :toctree:
-   :recursive:
-
-
-
-   modelopt.torch.puzzletron.anymodel
-
-
-
-   modelopt.torch.puzzletron.block_config
-
-
-
-   modelopt.torch.puzzletron.build_library_and_stats
-
-
-
-   modelopt.torch.puzzletron.dataset
-
-
-
-   modelopt.torch.puzzletron.puzzletron
-
-
-
-   modelopt.torch.puzzletron.sewing_kit
-
-
-
-   modelopt.torch.puzzletron.tools
 
 
 
@@ -50,7 +15,7 @@ puzzletron
    __module__ should be manually overridden -- i.e. in the ``__init__.py`` which contains ``from xxx import YYY``,
    add in ``YYY.__module__ = __name__``.
 
-.. automodule:: modelopt.torch.puzzletron
+.. automodule:: modelopt.torch.puzzletron.block_config
    :members:
    :undoc-members:
 
@@ -61,10 +26,31 @@ puzzletron
    .. Overview table of available classes in the module
    
    
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      AttentionConfig
+      BaseDataclass
+      BlockConfig
+      FFNConfig
+      Llama4AttentionConfig
+      MambaConfig
+      MoEConfig
+      SubblockConfig
+   
    
 
 
    .. Overview table of available functions in the module
    
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      maybe_cast_block_configs
    
    

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>anymodel &mdash; Model Optimizer 0.0.1.dev1+gb83793b7b</title>
+  <title>anymodel &mdash; Model Optimizer 0.0.1.dev1+g1ed88700e</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -33,7 +33,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="build_library_and_stats" href="modelopt.torch.puzzletron.build_library_and_stats.html" />
+    <link rel="next" title="block_config" href="modelopt.torch.puzzletron.block_config.html" />
     <link rel="prev" title="puzzletron" href="modelopt.torch.puzzletron.html" /> 
 </head>
 
@@ -109,6 +109,7 @@
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.prune.html">prune</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.puzzletron.html">puzzletron</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">anymodel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.block_config.html">block_config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.build_library_and_stats.html">build_library_and_stats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.dataset.html">dataset</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron.html">puzzletron</a></li>
@@ -332,7 +333,7 @@ modifications during the compression pipeline.</p>
 </p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>List</em> of BlockConfig, one per hidden layer. Each BlockConfig contains</p>
+<dd class="field-odd"><p><em>List</em> of <a class="reference internal" href="modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.BlockConfig" title="modelopt.torch.puzzletron.block_config.BlockConfig"><em>BlockConfig</em></a>, one per hidden layer. Each BlockConfig contains</p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -466,7 +467,7 @@ Usage can be seen in <cite>deci_x_patcher</cite> under the method <cite>_patched
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>block_config</strong> (<em>BlockConfig</em>)</p>
+<dd class="field-odd"><p><strong>block_config</strong> (<a class="reference internal" href="modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.BlockConfig" title="modelopt.torch.puzzletron.block_config.BlockConfig"><em>BlockConfig</em></a>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Dict</em>[<em>str</em>, <em>Any</em>]</p>
@@ -786,7 +787,7 @@ layer-specific overrides (e.g., different intermediate_size per layer).</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model_descriptor</strong> (<a class="reference internal" href="#modelopt.torch.puzzletron.anymodel.ModelDescriptor" title="modelopt.torch.puzzletron.anymodel.model_descriptor.model_descriptor.ModelDescriptor"><em>ModelDescriptor</em></a>) – The model descriptor that defines which classes to patch
 and how to map block_configs to layer overrides.</p></li>
-<li><p><strong>block_configs</strong> (<em>List</em><em>[</em><em>BlockConfig</em><em> | </em><em>dict</em><em>] </em><em>| </em><em>None</em>) – Optional list of BlockConfig (one per layer). If not provided,
+<li><p><strong>block_configs</strong> (<em>List</em><em>[</em><a class="reference internal" href="modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.BlockConfig" title="modelopt.torch.puzzletron.block_config.BlockConfig"><em>BlockConfig</em></a><em> | </em><em>dict</em><em>] </em><em>| </em><em>None</em>) – Optional list of BlockConfig (one per layer). If not provided,
 will try to read from config.block_configs during model initialization.</p></li>
 </ul>
 </dd>
@@ -831,7 +832,7 @@ that return (hidden_states, attn_weights)).</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modelopt.torch.puzzletron.html" class="btn btn-neutral float-left" title="puzzletron" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modelopt.torch.puzzletron.build_library_and_stats.html" class="btn btn-neutral float-right" title="build_library_and_stats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modelopt.torch.puzzletron.block_config.html" class="btn btn-neutral float-right" title="block_config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

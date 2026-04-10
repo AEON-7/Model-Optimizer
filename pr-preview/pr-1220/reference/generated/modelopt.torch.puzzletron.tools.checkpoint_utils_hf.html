@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>checkpoint_utils_hf &mdash; Model Optimizer 0.0.1.dev1+g753d8ade8</title>
+  <title>checkpoint_utils_hf &mdash; Model Optimizer 0.0.1.dev1+ga1520f1e3</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -108,13 +108,22 @@
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.peft.html">peft</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.prune.html">prune</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.puzzletron.html">puzzletron</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.activation_scoring.html">activation_scoring</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.html">anymodel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.block_config.html">block_config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.build_library_and_stats.html">build_library_and_stats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.dataset.html">dataset</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron.html">puzzletron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.entrypoint.html">entrypoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.mip.html">mip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.plugins.html">plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.pruning.html">pruning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron_nas_plugin.html">puzzletron_nas_plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.replacement_library.html">replacement_library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.scoring.html">scoring</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.html">sewing_kit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.subblock_stats.html">subblock_stats</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="modelopt.torch.puzzletron.tools.html">tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.utils.html">utils</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a></li>
@@ -249,7 +258,7 @@ trust the source of the model. Defaults to False for security.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<em>PreTrainedModel</em>)</p></li>
 <li><p><strong>checkpoint_dir</strong> (<em>Path</em><em> | </em><em>str</em>)</p></li>
-<li><p><strong>descriptor</strong> (<a class="reference internal" href="modelopt.torch.puzzletron.anymodel.html#modelopt.torch.puzzletron.anymodel.ModelDescriptor" title="modelopt.torch.puzzletron.anymodel.ModelDescriptor"><em>ModelDescriptor</em></a>)</p></li>
+<li><p><strong>descriptor</strong> (<a class="reference internal" href="modelopt.torch.puzzletron.anymodel.model_descriptor.base.html#modelopt.torch.puzzletron.anymodel.model_descriptor.base.ModelDescriptor" title="modelopt.torch.puzzletron.anymodel.model_descriptor.base.ModelDescriptor"><em>ModelDescriptor</em></a>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>

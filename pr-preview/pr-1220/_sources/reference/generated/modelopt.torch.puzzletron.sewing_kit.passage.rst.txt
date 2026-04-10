@@ -5,17 +5,6 @@ passage
 
 
 
-.. rubric:: Modules
-
-.. autosummary::
-   :toctree:
-   :recursive:
-
-
-
-   modelopt.torch.puzzletron.sewing_kit.passage.core
-
-
 
 
 .. Autodoc anything defined in the module itself
@@ -37,10 +26,32 @@ passage
    .. Overview table of available classes in the module
    
    
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      InputArgs
+      OutputValue
+      Passage
+      PassageInputAdapter
+      PassageInputOverrides
+      PassageOutput
+      PassageOutputAdapter
+      PassageOutputOverrides
+   
    
 
 
    .. Overview table of available functions in the module
    
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      always_false_predicate
+      always_true_predicate
    
    

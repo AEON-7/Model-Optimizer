@@ -37,7 +37,7 @@ common
    .. autosummary::
       :nosignatures:
    
-      infer_weights_dtype
       resolve_torch_dtype
+      infer_weights_dtype
    
    

@@ -31,45 +31,21 @@ core
    .. autosummary::
       :nosignatures:
    
-      ConstantTarget
       ExternalTarget
+      ConstantTarget
       FunctionTarget
-      IOReducer
-      InputDescriptor
-      InputReducer
       ModuleTarget
-      Needle
-      Node
-      OutputDescriptor
-      OutputReducer
-      RemoteDataDescriptor
-      RemotePythonDataDescriptor
       RemoteTarget
-      RemoteTensorDataDescriptor
-      Singleton
-      StitchDescriptor
+      Needle
       StitchedModule
       StitchedModuleOutput
-      Target
-      TargetWithInput
-      TargetWithNamedInputs
-      TargetWithNamedOutputs
-      TargetWithOutput
+      InputReducer
+      OutputReducer
    
    
 
 
    .. Overview table of available functions in the module
    
-   
-   .. rubric:: Functions
-
-   .. autosummary::
-      :nosignatures:
-   
-      default_input_adapter_fn
-      default_input_reducer_fn
-      default_output_adapter_fn
-      default_output_reducer_fn
    
    

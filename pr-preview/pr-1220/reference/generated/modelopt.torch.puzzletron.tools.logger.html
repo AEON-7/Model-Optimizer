@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>logger &mdash; Model Optimizer 0.0.1.dev1+g753d8ade8</title>
+  <title>modelopt.torch.puzzletron.tools.logger &mdash; Model Optimizer 0.0.1.dev1+ga1520f1e3</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -108,13 +108,22 @@
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.peft.html">peft</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.prune.html">prune</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.puzzletron.html">puzzletron</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.activation_scoring.html">activation_scoring</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.html">anymodel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.block_config.html">block_config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.build_library_and_stats.html">build_library_and_stats</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.dataset.html">dataset</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron.html">puzzletron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.entrypoint.html">entrypoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.mip.html">mip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.plugins.html">plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.pruning.html">pruning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.puzzletron_nas_plugin.html">puzzletron_nas_plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.replacement_library.html">replacement_library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.scoring.html">scoring</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.html">sewing_kit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.subblock_stats.html">subblock_stats</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="modelopt.torch.puzzletron.tools.html">tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.puzzletron.utils.html">utils</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a></li>
@@ -151,7 +160,7 @@
           <li class="breadcrumb-item"><a href="modelopt.torch.html">torch</a></li>
           <li class="breadcrumb-item"><a href="modelopt.torch.puzzletron.html">puzzletron</a></li>
           <li class="breadcrumb-item"><a href="modelopt.torch.puzzletron.tools.html">tools</a></li>
-      <li class="breadcrumb-item active">logger</li>
+      <li class="breadcrumb-item active">modelopt.torch.puzzletron.tools.logger</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/reference/generated/modelopt.torch.puzzletron.tools.logger.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -161,169 +170,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="logger">
-<h1>logger<a class="headerlink" href="#logger" title="Link to this heading"></a></h1>
-<span class="target" id="module-modelopt.torch.puzzletron.tools.logger"></span><p class="rubric">Classes</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.logger.DistributedLogger" title="modelopt.torch.puzzletron.tools.logger.DistributedLogger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DistributedLogger</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.logger.LogColors" title="modelopt.torch.puzzletron.tools.logger.LogColors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogColors</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Functions</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.logger.aprint" title="modelopt.torch.puzzletron.tools.logger.aprint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aprint</span></code></a></p></td>
-<td><p>All ranks from all nodes prints</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.logger.lmprint" title="modelopt.torch.puzzletron.tools.logger.lmprint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmprint</span></code></a></p></td>
-<td><p>All local main ranks prints (rank 0 in each node)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.logger.lprint" title="modelopt.torch.puzzletron.tools.logger.lprint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lprint</span></code></a></p></td>
-<td><p>Last rank prints only (rank -1 in node 0)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.logger.mprint" title="modelopt.torch.puzzletron.tools.logger.mprint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mprint</span></code></a></p></td>
-<td><p>Master prints only (rank 0 in node 0)</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.DistributedLogger">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DistributedLogger</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.DistributedLogger" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.DistributedLogger.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.DistributedLogger.__init__" title="Link to this definition"></a></dt>
+  <section id="modelopt-torch-puzzletron-tools-logger">
+<h1>modelopt.torch.puzzletron.tools.logger<a class="headerlink" href="#modelopt-torch-puzzletron-tools-logger" title="Link to this heading"></a></h1>
+<dl class="py data">
+<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger">
+<span class="sig-name descname"><span class="pre">logger</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;DistributedLogger</span> <span class="pre">modelopt.torch.puzzletron.tools.logger</span> <span class="pre">(DEBUG)&gt;</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger" title="Link to this definition"></a></dt>
 <dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.DistributedLogger.dist_log">
-<span class="sig-name descname"><span class="pre">dist_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'main'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.DistributedLogger.dist_log" title="Link to this definition"></a></dt>
-<dd><p>Log parameter msg with the given ranks.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>msg</strong> (<em>str</em>) – The message to log.</p></li>
-<li><p><strong>ranks</strong> (<em>str</em>) – The ranks to log the message to. Choices are:
-“all”: log with all ranks
-“main”: log with only rank 0 in node 0
-“last”: log with only rank -1 in node 0
-“local_main”: log with only rank 0 in all nodes</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.DistributedLogger.get_caller_location">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_caller_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.DistributedLogger.get_caller_location" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>str</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.DistributedLogger.verbosity">
-<span class="sig-name descname"><span class="pre">verbosity</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.DistributedLogger.verbosity" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.LogColors">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LogColors</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.LogColors" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.LogColors.BLUE">
-<span class="sig-name descname"><span class="pre">BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[94m'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.LogColors.BLUE" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.LogColors.BOLD">
-<span class="sig-name descname"><span class="pre">BOLD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[1m'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.LogColors.BOLD" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.LogColors.CYAN">
-<span class="sig-name descname"><span class="pre">CYAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[96m'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.LogColors.CYAN" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.LogColors.GREEN">
-<span class="sig-name descname"><span class="pre">GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[92m'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.LogColors.GREEN" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.LogColors.RED">
-<span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[91m'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.LogColors.RED" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.LogColors.RESET">
-<span class="sig-name descname"><span class="pre">RESET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[0m'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.LogColors.RESET" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.LogColors.UNDERLINE">
-<span class="sig-name descname"><span class="pre">UNDERLINE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[4m'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.LogColors.UNDERLINE" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.LogColors.YELLOW">
-<span class="sig-name descname"><span class="pre">YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[93m'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.LogColors.YELLOW" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.aprint">
-<span class="sig-name descname"><span class="pre">aprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.aprint" title="Link to this definition"></a></dt>
-<dd><p>All ranks from all nodes prints</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>msg</strong> (<em>str</em><em> | </em><em>None</em>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.lmprint">
-<span class="sig-name descname"><span class="pre">lmprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.lmprint" title="Link to this definition"></a></dt>
-<dd><p>All local main ranks prints (rank 0 in each node)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>msg</strong> (<em>str</em><em> | </em><em>None</em>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.lprint">
-<span class="sig-name descname"><span class="pre">lprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.lprint" title="Link to this definition"></a></dt>
-<dd><p>Last rank prints only (rank -1 in node 0)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>msg</strong> (<em>str</em><em> | </em><em>None</em>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.logger.mprint">
-<span class="sig-name descname"><span class="pre">mprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.logger.mprint" title="Link to this definition"></a></dt>
-<dd><p>Master prints only (rank 0 in node 0)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>msg</strong> (<em>str</em><em> | </em><em>None</em>)</p>
-</dd>
-</dl>
-</dd></dl>
 
 </section>
 

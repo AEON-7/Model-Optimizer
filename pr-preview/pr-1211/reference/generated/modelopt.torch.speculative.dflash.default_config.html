@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>default_config &mdash; Model Optimizer 0.0.1.dev1+g6b096eb25</title>
+  <title>default_config &mdash; Model Optimizer 0.0.1.dev1+gec64ea88c</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -95,7 +95,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -165,8 +165,9 @@
 <h1>default_config<a class="headerlink" href="#default-config" title="Link to this heading"></a></h1>
 <p id="module-modelopt.torch.speculative.dflash.default_config">Default DFlash architecture config.</p>
 <p>Model-specific settings (hidden_size, num_attention_heads, rope_*, etc.)
-are inherited from the base model in HFDFlashModel.modify(). Only
-DFlash-specific defaults are set here.</p>
+are inherited from the base model in HFDFlashModel.modify(). Static
+defaults that don’t depend on the base model are set here, similar to
+<code class="docutils literal notranslate"><span class="pre">eagle/default_config.py</span></code>.</p>
 </section>
 
 

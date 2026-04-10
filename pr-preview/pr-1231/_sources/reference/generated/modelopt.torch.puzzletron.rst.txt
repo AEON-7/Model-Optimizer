@@ -17,6 +17,10 @@ puzzletron
 
 
 
+   modelopt.torch.puzzletron.block_config
+
+
+
    modelopt.torch.puzzletron.build_library_and_stats
 
 

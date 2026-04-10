@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dataset_utils &mdash; Model Optimizer 0.0.1.dev1+g7db34dd2e</title>
+  <title>dataset_utils &mdash; Model Optimizer 0.0.1.dev1+g5f8a44fc0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -95,7 +95,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -204,7 +204,7 @@
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.utils.dataset_utils.create_forward_loop">
-<span class="sig-name descname"><span class="pre">create_forward_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cnn_dailymail'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_sample_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.dataset_utils.create_forward_loop" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">create_forward_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cnn_dailymail'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_sample_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowed_non_tensor_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.dataset_utils.create_forward_loop" title="Link to this definition"></a></dt>
 <dd><p>Creates and returns a forward loop function configured for a specific model, dataset, and tokenizer.</p>
 <p>This function initializes a forward loop function tailored to process batches of data from the specified dataset
 using the given model and tokenizer. The forward loop function, when called, iterates over the dataset, applies the
@@ -222,6 +222,9 @@ for the model.</p></li>
 <li><p><strong>device</strong> (<em>str</em><em> | </em><em>None</em>) – Target device for the returned dataloader.</p></li>
 <li><p><strong>include_labels</strong> (<em>bool</em>) – Whether to include labels in the dataloader.</p></li>
 <li><p><strong>dataloader</strong> (<em>DataLoader</em><em> | </em><em>None</em>) – If provided, use the provided dataloader instead.</p></li>
+<li><p><strong>allowed_non_tensor_keys</strong> (<em>set</em><em> | </em><em>None</em>) – Set of key names whose batch values may be non-tensor types.
+Useful when the dataloader yields batches with non-standard fields (e.g., nested
+model outputs).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -263,6 +266,7 @@ for the model.</p></li>
 <li><p><strong>device</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
 <li><p><strong>include_labels</strong> (<em>bool</em>)</p></li>
 <li><p><strong>dataloader</strong> (<em>DataLoader</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>allowed_non_tensor_keys</strong> (<em>set</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -273,7 +277,7 @@ for the model.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.utils.dataset_utils.download_hf_dataset_as_jsonl">
-<span class="sig-name descname"><span class="pre">download_hf_dataset_as_jsonl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['text']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_samples_per_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_proc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.dataset_utils.download_hf_dataset_as_jsonl" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">download_hf_dataset_as_jsonl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['text']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_samples_per_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_proc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.dataset_utils.download_hf_dataset_as_jsonl" title="Link to this definition"></a></dt>
 <dd><p>Download a Hugging Face dataset and save as JSONL files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -282,7 +286,7 @@ for the model.</p></li>
 <li><p><strong>output_dir</strong> (<em>str</em><em> | </em><em>Path</em>) – Directory to save the JSONL files</p></li>
 <li><p><strong>json_keys</strong> (<em>str</em><em> | </em><em>list</em><em>[</em><em>str</em><em>]</em>) – Key or list of keys to extract from the dataset. Defaults to [“text”].</p></li>
 <li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – Name of the subset to download</p></li>
-<li><p><strong>split</strong> (<em>str</em><em> | </em><em>None</em>) – Split of the dataset to download. Defaults to “train”.</p></li>
+<li><p><strong>split</strong> (<em>str</em><em> | </em><em>None</em>) – Split of the dataset to download. Defaults to None (all splits).</p></li>
 <li><p><strong>max_samples_per_split</strong> (<em>int</em><em> | </em><em>None</em>) – Maximum number of samples to download per split. Defaults to None.</p></li>
 <li><p><strong>num_proc</strong> (<em>int</em><em> | </em><em>None</em>) – Number of processes to use for parallel processing. Defaults to None.</p></li>
 </ul>

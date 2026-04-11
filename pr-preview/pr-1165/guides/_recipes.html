@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recipes &mdash; Model Optimizer 0.0.1.dev1+gd0b0cc97c</title>
+  <title>Recipes &mdash; Model Optimizer 0.0.1.dev1+gcba6068cf</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -81,7 +81,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Recipes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#design-overview">Design overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#recipe-file-format">Recipe file format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recipe-format">Recipe format</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#single-file-format">Single-file format</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#directory-format">Directory format</a></li>
 </ul>
@@ -170,16 +170,18 @@
              
   <section id="recipes">
 <span id="id1"></span><h1>Recipes<a class="headerlink" href="#recipes" title="Link to this heading"></a></h1>
-<p>A <strong>recipe</strong> is a declarative YAML specification that fully describes how to optimize a model.
+<p>A <strong>recipe</strong> is a declarative specification that fully describes how to optimize a model.
+A recipe can be a single YAML file or a directory containing YAML configs and other files
+that together define a model optimization workflow.
 Recipes decouple optimization settings from Python code, enabling reuse, sharing, version
 control, and reproducibility.  Instead of editing Python scripts to change quantization
-parameters, you author (or select) a recipe file and pass it to the ModelOpt tooling.</p>
+parameters, you author (or select) a recipe and pass it to the ModelOpt tooling.</p>
 <nav class="contents local" id="on-this-page">
 <p class="topic-title">On this page</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#motivation" id="id2">Motivation</a></p></li>
 <li><p><a class="reference internal" href="#design-overview" id="id3">Design overview</a></p></li>
-<li><p><a class="reference internal" href="#recipe-file-format" id="id4">Recipe file format</a></p>
+<li><p><a class="reference internal" href="#recipe-format" id="id4">Recipe format</a></p>
 <ul>
 <li><p><a class="reference internal" href="#single-file-format" id="id5">Single-file format</a></p></li>
 <li><p><a class="reference internal" href="#directory-format" id="id6">Directory format</a></p></li>
@@ -220,25 +222,26 @@ constants, and ad-hoc code edits.  This makes it difficult to:</p>
 settings to tweak.</p></li>
 </ul>
 <p>Recipes solve these problems by capturing <strong>all</strong> the configuration needed to optimize a
-model in a single YAML file (or a small directory of files).</p>
+model in a single, portable artifact – either a YAML file or a directory of files.</p>
 </section>
 <section id="design-overview">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">Design overview</a><a class="headerlink" href="#design-overview" title="Link to this heading"></a></h2>
 <p>The recipe system is part of the <code class="xref py py-mod docutils literal notranslate"><span class="pre">modelopt.recipe</span></code> package and consists of three
 layers:</p>
 <ol class="arabic simple">
-<li><p><strong>Recipe files</strong> – YAML documents stored in the <code class="docutils literal notranslate"><span class="pre">modelopt_recipes/</span></code> directory (shipped
-with the package) or on the user’s filesystem.</p></li>
+<li><p><strong>Recipe sources</strong> – YAML files or directories stored in the <code class="docutils literal notranslate"><span class="pre">modelopt_recipes/</span></code>
+directory (shipped with the package) or on the user’s filesystem.</p></li>
 <li><p><strong>Config loader</strong> – <code class="xref py py-func docutils literal notranslate"><span class="pre">load_config()</span></code> reads YAML files, resolves
 paths, and performs automatic <code class="docutils literal notranslate"><span class="pre">ExMy</span></code> floating-point notation conversion.</p></li>
-<li><p><strong>Recipe loader</strong> – <code class="xref py py-func docutils literal notranslate"><span class="pre">load_recipe()</span></code> validates the YAML against
-Pydantic models and returns a typed recipe object ready for use.</p></li>
+<li><p><strong>Recipe loader</strong> – <code class="xref py py-func docutils literal notranslate"><span class="pre">load_recipe()</span></code> validates the loaded
+configuration against Pydantic models and returns a typed recipe object ready for use.</p></li>
 </ol>
 </section>
-<section id="recipe-file-format">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Recipe file format</a><a class="headerlink" href="#recipe-file-format" title="Link to this heading"></a></h2>
-<p>A recipe is a YAML file with two top-level sections: <code class="docutils literal notranslate"><span class="pre">metadata</span></code> and a
-type-specific configuration section (currently <code class="docutils literal notranslate"><span class="pre">quantize</span></code> for PTQ recipes).</p>
+<section id="recipe-format">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Recipe format</a><a class="headerlink" href="#recipe-format" title="Link to this heading"></a></h2>
+<p>A recipe contains two top-level sections: <code class="docutils literal notranslate"><span class="pre">metadata</span></code> and a type-specific
+configuration section (for example, <code class="docutils literal notranslate"><span class="pre">quantize</span></code> for PTQ recipes).  These can live
+in a single YAML file or be split across files in a directory.</p>
 <section id="single-file-format">
 <h3><a class="toc-backref" href="#id5" role="doc-backlink">Single-file format</a><a class="headerlink" href="#single-file-format" title="Link to this heading"></a></h3>
 <p>The simplest form is a single <code class="docutils literal notranslate"><span class="pre">.yml</span></code> or <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file:</p>
@@ -303,7 +306,7 @@ quantization configuration, use a directory with two files:</p>
 </section>
 <section id="metadata-section">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">Metadata section</a><a class="headerlink" href="#metadata-section" title="Link to this heading"></a></h2>
-<p>Every recipe file must contain a <code class="docutils literal notranslate"><span class="pre">metadata</span></code> mapping with at least a <code class="docutils literal notranslate"><span class="pre">recipe_type</span></code> field:</p>
+<p>Every recipe must contain a <code class="docutils literal notranslate"><span class="pre">metadata</span></code> mapping with at least a <code class="docutils literal notranslate"><span class="pre">recipe_type</span></code> field:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -361,7 +364,7 @@ formats that need no calibration (e.g. MX formats).</p></td>
 </section>
 <section id="exmy-floating-point-notation">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">ExMy floating-point notation</a><a class="headerlink" href="#exmy-floating-point-notation" title="Link to this heading"></a></h2>
-<p>Recipe files support a convenient shorthand for floating-point bit formats in
+<p>Recipe YAML files support a convenient shorthand for floating-point bit formats in
 <code class="docutils literal notranslate"><span class="pre">num_bits</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_bits</span></code> fields.  Instead of writing a Python tuple, you
 write the format name directly:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">num_bits</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">e4m3</span><span class="w">       </span><span class="c1"># automatically converted to (4, 3)</span>
@@ -481,8 +484,9 @@ against the built-in library first, then the filesystem:</p>
 <span class="n">model</span> <span class="o">=</span> <span class="n">mtq</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">recipe</span><span class="o">.</span><span class="n">quantize</span><span class="p">,</span> <span class="n">forward_loop</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load a custom recipe from the filesystem</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load a custom recipe from the filesystem (file or directory)</span>
 <span class="n">recipe</span> <span class="o">=</span> <span class="n">load_recipe</span><span class="p">(</span><span class="s2">&quot;/path/to/my_custom_recipe.yml&quot;</span><span class="p">)</span>
+<span class="c1"># or: recipe = load_recipe(&quot;/path/to/my_recipe_dir/&quot;)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">mtq</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">recipe</span><span class="o">.</span><span class="n">quantize</span><span class="p">,</span> <span class="n">forward_loop</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -520,8 +524,9 @@ resolve paths using the same strategy:</p>
 <ol class="arabic simple">
 <li><p>If the path is absolute, use it directly.</p></li>
 <li><p>If relative, check the <strong>built-in recipes library</strong> first
-(<code class="docutils literal notranslate"><span class="pre">modelopt_recipes/</span></code>), probing <code class="docutils literal notranslate"><span class="pre">.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> suffixes.</p></li>
-<li><p>Then check the <strong>filesystem</strong>, probing the same suffixes.</p></li>
+(<code class="docutils literal notranslate"><span class="pre">modelopt_recipes/</span></code>), probing <code class="docutils literal notranslate"><span class="pre">.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> suffixes as well as
+directories.</p></li>
+<li><p>Then check the <strong>filesystem</strong>, probing the same suffixes and directories.</p></li>
 </ol>
 <p>This means built-in recipes can be referenced without any prefix:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># These are all equivalent:</span>
@@ -538,7 +543,7 @@ resolve paths using the same strategy:</p>
 <li><p>Copy it and modify the <code class="docutils literal notranslate"><span class="pre">quant_cfg</span></code> entries as needed (see <a class="reference internal" href="_quant_cfg.html#quant-cfg"><span class="std std-ref">Quantization Configuration (quant_cfg)</span></a>
 for entry format details).</p></li>
 <li><p>Update the <code class="docutils literal notranslate"><span class="pre">metadata.description</span></code> to describe your changes.</p></li>
-<li><p>Save the file and pass its path to <code class="docutils literal notranslate"><span class="pre">load_recipe()</span></code> or <code class="docutils literal notranslate"><span class="pre">--recipe</span></code>.</p></li>
+<li><p>Save the file (or directory) and pass its path to <code class="docutils literal notranslate"><span class="pre">load_recipe()</span></code> or <code class="docutils literal notranslate"><span class="pre">--recipe</span></code>.</p></li>
 </ol>
 <p>Example – creating an INT8 per-channel recipe:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># my_int8_recipe.yml</span>

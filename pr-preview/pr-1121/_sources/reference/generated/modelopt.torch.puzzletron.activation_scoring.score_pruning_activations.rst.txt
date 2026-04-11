@@ -37,9 +37,6 @@ score\_pruning\_activations
    .. autosummary::
       :nosignatures:
    
-      check_scoring_completion
-      has_checkpoint_support
       launch_score_activations
-      should_skip_scoring_completely
    
    

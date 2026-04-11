@@ -31,9 +31,9 @@ mistral\_small\_model\_descriptor
    .. autosummary::
       :nosignatures:
    
+      MistralSmallModelDescriptor
       MistralFFNIntermediateLayerDescriptor
       MistralKVHeadsLayerDescriptor
-      MistralSmallModelDescriptor
    
    
 

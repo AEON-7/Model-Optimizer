@@ -37,8 +37,8 @@ utils
    .. autosummary::
       :nosignatures:
    
-      consecutive_ngrams
-      get_nested_key
       sort_replacements
+      get_nested_key
+      consecutive_ngrams
    
    

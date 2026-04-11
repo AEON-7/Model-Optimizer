@@ -26,13 +26,6 @@ run\_puzzle
    .. Overview table of available classes in the module
    
    
-   .. rubric:: Classes
-
-   .. autosummary::
-      :nosignatures:
-   
-      PuzzleConstraints
-   
    
 
 
@@ -44,11 +37,8 @@ run\_puzzle
    .. autosummary::
       :nosignatures:
    
-      filter_subblock_stats_by_args
-      gather_multi_layer_puzzle_metrics
-      gather_puzzle_metrics
-      parse_args
       run_puzzle
-      run_single_puzzle_config
+      gather_multi_layer_puzzle_metrics
+      filter_subblock_stats_by_args
    
    

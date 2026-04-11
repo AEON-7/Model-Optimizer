@@ -38,10 +38,10 @@ checkpoint\_utils\_hf
       :nosignatures:
    
       force_cache_dynamic_modules
-      init_model_from_config
       load_model_config
+      init_model_from_config
       save_checkpoint
-      save_model_config
       save_subblocks
+      save_model_config
    
    

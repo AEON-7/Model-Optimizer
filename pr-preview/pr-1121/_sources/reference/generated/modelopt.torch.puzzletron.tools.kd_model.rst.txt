@@ -37,7 +37,7 @@ kd\_model
    .. autosummary::
       :nosignatures:
    
-      cosine_embedding_loss_batched
       normalized_mse_loss
+      cosine_embedding_loss_batched
    
    

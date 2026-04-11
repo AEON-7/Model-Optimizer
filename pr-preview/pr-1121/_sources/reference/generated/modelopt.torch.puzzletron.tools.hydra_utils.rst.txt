@@ -37,7 +37,6 @@ hydra\_utils
    .. autosummary::
       :nosignatures:
    
-      warmup_steps
       register_hydra_resolvers
       initialize_hydra_config_for_dir
       initialize_hydra_config

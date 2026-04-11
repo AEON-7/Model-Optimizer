@@ -38,6 +38,5 @@ mip\_with\_multi\_layer\_replacements
       :nosignatures:
    
       run_mip
-      usage_example
    
    

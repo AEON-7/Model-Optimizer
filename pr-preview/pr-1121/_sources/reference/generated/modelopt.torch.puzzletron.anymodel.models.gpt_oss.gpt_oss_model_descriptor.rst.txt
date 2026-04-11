@@ -31,8 +31,8 @@ gpt\_oss\_model\_descriptor
    .. autosummary::
       :nosignatures:
    
-      GptOssExpertRemovalLayerDescriptor
       GptOssModelDescriptor
+      GptOssExpertRemovalLayerDescriptor
    
    
 

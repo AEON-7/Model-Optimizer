@@ -37,13 +37,10 @@ sharded\_checkpoint\_utils
    .. autosummary::
       :nosignatures:
    
-      create_local_shard_
-      create_sharded_model
-      is_in_safetensors_format
-      load_and_shard_model
-      load_sharded_state_dict
-      load_state_dict_to_shards
-      save_sharded_model
       set_submodule
+      load_and_shard_model
+      create_sharded_model
+      load_sharded_state_dict
+      is_in_safetensors_format
    
    

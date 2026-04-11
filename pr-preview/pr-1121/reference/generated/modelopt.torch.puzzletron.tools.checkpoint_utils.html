@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>checkpoint_utils &mdash; Model Optimizer 0.0.1.dev1+gd50d00036</title>
+  <title>checkpoint_utils &mdash; Model Optimizer 0.0.1.dev1+gc1ceff657</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -176,23 +176,26 @@
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.copy_tokenizer" title="modelopt.torch.puzzletron.tools.checkpoint_utils.copy_tokenizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_tokenizer</span></code></a></p></td>
-<td><p>Prefer loading the tokenizer from huggingface hub (when tokenizer_name.txt file is available) to avoid collision between transformers versions.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.init_empty_module" title="modelopt.torch.puzzletron.tools.checkpoint_utils.init_empty_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_empty_module</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.load_state_dict" title="modelopt.torch.puzzletron.tools.checkpoint_utils.load_state_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_state_dict</span></code></a></p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.load_model_config" title="modelopt.torch.puzzletron.tools.checkpoint_utils.load_model_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_model_config</span></code></a></p></td>
+<td><p>Load model configuration from a checkpoint directory.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.init_module_with_state_dict" title="modelopt.torch.puzzletron.tools.checkpoint_utils.init_module_with_state_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_module_with_state_dict</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.init_empty_module" title="modelopt.torch.puzzletron.tools.checkpoint_utils.init_empty_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_empty_module</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.skip_init" title="modelopt.torch.puzzletron.tools.checkpoint_utils.skip_init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">skip_init</span></code></a></p></td>
+<td><p>Heavily inspired by torch.nn.utils.skip_init but does not require the module to accept a &quot;device&quot; kwarg.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.is_valid_decilm_checkpoint" title="modelopt.torch.puzzletron.tools.checkpoint_utils.is_valid_decilm_checkpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_valid_decilm_checkpoint</span></code></a></p></td>
 <td><p>True if the checkpoint config loads and defines <code class="docutils literal notranslate"><span class="pre">block_configs</span></code> (AnyModel / puzzletron layout).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.load_state_dict" title="modelopt.torch.puzzletron.tools.checkpoint_utils.load_state_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_state_dict</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.skip_init" title="modelopt.torch.puzzletron.tools.checkpoint_utils.skip_init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">skip_init</span></code></a></p></td>
-<td><p>Heavily inspired by torch.nn.utils.skip_init but does not require the module to accept a &quot;device&quot; kwarg.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.copy_tokenizer" title="modelopt.torch.puzzletron.tools.checkpoint_utils.copy_tokenizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_tokenizer</span></code></a></p></td>
+<td><p>Prefer loading the tokenizer from huggingface hub (when tokenizer_name.txt file is available) to avoid collision between transformers versions.</p></td>
 </tr>
 </tbody>
 </table>
@@ -266,6 +269,27 @@ trust the source of the model. Defaults to False for security.</p></li>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>bool</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.checkpoint_utils.load_model_config">
+<span class="sig-name descname"><span class="pre">load_model_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">checkpoint_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_config_overrides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_unexpected_config_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_remote_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.checkpoint_utils.load_model_config" title="Link to this definition"></a></dt>
+<dd><p>Load model configuration from a checkpoint directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>checkpoint_dir</strong> (<em>Path</em><em> | </em><em>str</em>) – Path to the checkpoint directory (e.g. containing config.json).</p></li>
+<li><p><strong>model_config_overrides</strong> (<em>Mapping</em><em> | </em><em>None</em>) – Optional mapping of config overrides.</p></li>
+<li><p><strong>ignore_unexpected_config_keys</strong> (<em>bool</em>) – If True, ignore unexpected config keys.</p></li>
+<li><p><strong>trust_remote_code</strong> (<em>bool</em>) – If True, allows execution of custom code from the model repository.
+This is a security risk if the model source is untrusted. Only set to True if you
+trust the source of the model. Defaults to False for security.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Loaded model configuration (PretrainedConfig).</p>
 </dd>
 </dl>
 </dd></dl>

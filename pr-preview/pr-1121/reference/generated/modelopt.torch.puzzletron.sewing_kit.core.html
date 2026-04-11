@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>core &mdash; Model Optimizer 0.0.1.dev1+gd50d00036</title>
+  <title>core &mdash; Model Optimizer 0.0.1.dev1+gc1ceff657</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -178,72 +178,30 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.ExternalTarget" title="modelopt.torch.puzzletron.sewing_kit.core.ExternalTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExternalTarget</span></code></a></p></td>
 <td><p>External target for stitched modules.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.ConstantTarget" title="modelopt.torch.puzzletron.sewing_kit.core.ConstantTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConstantTarget</span></code></a></p></td>
-<td><p>ConstantTarget(name: 'str', value: 'Any')</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.FunctionTarget" title="modelopt.torch.puzzletron.sewing_kit.core.FunctionTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FunctionTarget</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.FunctionTarget" title="modelopt.torch.puzzletron.sewing_kit.core.FunctionTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FunctionTarget</span></code></a></p></td>
 <td><p>FunctionTarget(name: 'str', function: 'Callable[..., Any]')</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.ModuleTarget" title="modelopt.torch.puzzletron.sewing_kit.core.ModuleTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModuleTarget</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.ModuleTarget" title="modelopt.torch.puzzletron.sewing_kit.core.ModuleTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModuleTarget</span></code></a></p></td>
 <td><p>ModuleTarget(name: 'str', module: 'nn.Module')</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.RemoteTarget" title="modelopt.torch.puzzletron.sewing_kit.core.RemoteTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RemoteTarget</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.RemoteTarget" title="modelopt.torch.puzzletron.sewing_kit.core.RemoteTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RemoteTarget</span></code></a></p></td>
 <td><p>RemoteTarget(peer_rank: 'Union[int, Sequence[int]]', process_group: 'Optional[torch.distributed.ProcessGroup]' = None, blocking: 'bool' = True)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.Needle" title="modelopt.torch.puzzletron.sewing_kit.core.Needle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Needle</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.Needle" title="modelopt.torch.puzzletron.sewing_kit.core.Needle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Needle</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.StitchedModule" title="modelopt.torch.puzzletron.sewing_kit.core.StitchedModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StitchedModule</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.StitchedModule" title="modelopt.torch.puzzletron.sewing_kit.core.StitchedModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StitchedModule</span></code></a></p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput" title="modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StitchedModuleOutput</span></code></a></p></td>
-<td><p>StitchedModuleOutput(captured_inputs: 'dict[str, InputArgs]', captured_outputs: 'dict[str, Any]')</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.InputReducer" title="modelopt.torch.puzzletron.sewing_kit.core.InputReducer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputReducer</span></code></a></p></td>
-<td><p>InputReducer(reducer_fn: 'Callable[[InputArgs, InputArgs, InputArgs, int, list[InputArgs]], InputArgs]' = &lt;function default_input_reducer_fn at 0x7ff1c5b57c40&gt;)</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer" title="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutputReducer</span></code></a></p></td>
-<td><p>OutputReducer(reducer_fn: 'Callable[[OutputValue, OutputValue, Optional[OutputValue], int, list[OutputValue]], OutputValue]' = &lt;function default_output_reducer_fn at 0x7ff1c5769760&gt;, requires_original_output: 'bool' = False)</p></td>
+<td><p>InputReducer(reducer_fn: 'Callable[[InputArgs, InputArgs, InputArgs, int, list[InputArgs]], InputArgs]' = &lt;function default_input_reducer_fn at 0x7fb7381e1800&gt;)</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py exception">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.CantResolveNodeDependenciesException">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CantResolveNodeDependenciesException</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.CantResolveNodeDependenciesException" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleException" title="modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleException"><code class="xref py py-class docutils literal notranslate"><span class="pre">StitchedModuleException</span></code></a></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.ConstantTarget">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConstantTarget</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.ConstantTarget" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TargetWithOutput</span></code></p>
-<p>ConstantTarget(name: ‘str’, value: ‘Any’)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.ConstantTarget.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.ConstantTarget.__init__" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>)</p></li>
-<li><p><strong>value</strong> (<em>Any</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>None</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.ConstantTarget.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.ConstantTarget.name" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.ConstantTarget.value">
-<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.ConstantTarget.value" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StitchedModuleException</span></code></p>
 </dd></dl>
 
 <dl class="py class">
@@ -300,13 +258,13 @@
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.InputReducer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InputReducer</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.InputReducer" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IOReducer</span></code></p>
-<p>InputReducer(reducer_fn: ‘Callable[[InputArgs, InputArgs, InputArgs, int, list[InputArgs]], InputArgs]’ = &lt;function default_input_reducer_fn at 0x7ff1c5b57c40&gt;)</p>
+<p>InputReducer(reducer_fn: ‘Callable[[InputArgs, InputArgs, InputArgs, int, list[InputArgs]], InputArgs]’ = &lt;function default_input_reducer_fn at 0x7fb7381e1800&gt;)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.InputReducer.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reducer_fn=&lt;function</span> <span class="pre">default_input_reducer_fn&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.InputReducer.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>reducer_fn</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>, </em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>, </em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>, </em><em>int</em><em>, </em><em>list</em><em>[</em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>]</em><em>]</em><em>, </em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>]</em>)</p>
+<dd class="field-odd"><p><strong>reducer_fn</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>, </em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>, </em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>, </em><em>int</em><em>, </em><em>list</em><em>[</em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>]</em><em>]</em><em>, </em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>]</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>None</em></p>
@@ -330,8 +288,8 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>acc</strong> (<a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a>)</p></li>
-<li><p><strong>input_override</strong> (<a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a>)</p></li>
+<li><p><strong>acc</strong> (<a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a>)</p></li>
+<li><p><strong>input_override</strong> (<a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -340,21 +298,9 @@
 </dd></dl>
 
 <dl class="py exception">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.InputsLoopFoundException">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InputsLoopFoundException</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.InputsLoopFoundException" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.LoopFoundException" title="modelopt.torch.puzzletron.sewing_kit.core.LoopFoundException"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoopFoundException</span></code></a></p>
-</dd></dl>
-
-<dl class="py exception">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.KnotException">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">KnotException</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.KnotException" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-</dd></dl>
-
-<dl class="py exception">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.LoopFoundException">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LoopFoundException</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.LoopFoundException" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.KnotException" title="modelopt.torch.puzzletron.sewing_kit.core.KnotException"><code class="xref py py-class docutils literal notranslate"><span class="pre">KnotException</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -457,61 +403,10 @@
 <dd><p>Bases: <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.KnotException" title="modelopt.torch.puzzletron.sewing_kit.core.KnotException"><code class="xref py py-class docutils literal notranslate"><span class="pre">KnotException</span></code></a></p>
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OutputReducer</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IOReducer</span></code></p>
-<p>OutputReducer(reducer_fn: ‘Callable[[OutputValue, OutputValue, Optional[OutputValue], int, list[OutputValue]], OutputValue]’ = &lt;function default_output_reducer_fn at 0x7ff1c5769760&gt;, requires_original_output: ‘bool’ = False)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reducer_fn=&lt;function</span> <span class="pre">default_output_reducer_fn&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requires_original_output=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer.__init__" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>reducer_fn</strong> (<em>Callable</em><em>[</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>, </em><em>Any</em><em> | </em><em>None</em><em>, </em><em>int</em><em>, </em><em>list</em><em>[</em><em>Any</em><em>]</em><em>]</em><em>, </em><em>Any</em><em>]</em>)</p></li>
-<li><p><strong>requires_original_output</strong> (<em>bool</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>None</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer.default">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer.default" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer" title="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer"><em>OutputReducer</em></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer.reducer_fn">
-<span class="sig-name descname"><span class="pre">reducer_fn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_override</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer.reducer_fn" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>acc</strong> (<em>Any</em>)</p></li>
-<li><p><strong>input_override</strong> (<em>Any</em>)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer.requires_original_output">
-<span class="sig-name descname"><span class="pre">requires_original_output</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer.requires_original_output" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="py exception">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.OutputsLoopFoundException">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OutputsLoopFoundException</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputsLoopFoundException" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.LoopFoundException" title="modelopt.torch.puzzletron.sewing_kit.core.LoopFoundException"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoopFoundException</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoopFoundException</span></code></p>
 </dd></dl>
 
 <dl class="py class">
@@ -559,7 +454,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>)</p></li>
 <li><p><strong>adapter</strong> (<em>Callable</em><em>[</em><em>[</em><em>...</em><em>]</em><em>, </em><em>Any</em><em>]</em>)</p></li>
-<li><p><strong>reducer</strong> (<a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.OutputReducer" title="modelopt.torch.puzzletron.sewing_kit.core.OutputReducer"><em>OutputReducer</em></a>)</p></li>
+<li><p><strong>reducer</strong> (<em>OutputReducer</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -598,7 +493,7 @@
 <dd class="field-odd"><p><strong>values_to_node</strong> (<em>dict</em><em>[</em><em>InputDescriptor</em><em> | </em><em>OutputDescriptor</em><em>, </em><em>Any</em><em>]</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputOverrides"><em>PassageInputOverrides</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides"><em>PassageInputOverrides</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -611,7 +506,7 @@
 <dd class="field-odd"><p><strong>values_to_node</strong> (<em>dict</em><em>[</em><em>InputDescriptor</em><em> | </em><em>OutputDescriptor</em><em>, </em><em>Any</em><em>]</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputOverrides"><em>PassageOutputOverrides</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides"><em>PassageOutputOverrides</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -627,49 +522,10 @@
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput" title="modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput"><em>StitchedModuleOutput</em></a></p>
+<dd class="field-even"><p><em>StitchedModuleOutput</em></p>
 </dd>
 </dl>
 </dd></dl>
-
-</dd></dl>
-
-<dl class="py exception">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleException">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StitchedModuleException</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleException" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StitchedModuleOutput</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>StitchedModuleOutput(captured_inputs: ‘dict[str, InputArgs]’, captured_outputs: ‘dict[str, Any]’)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">captured_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">captured_outputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput.__init__" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>captured_inputs</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>]</em>)</p></li>
-<li><p><strong>captured_outputs</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>None</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput.captured_inputs">
-<span class="sig-name descname"><span class="pre">captured_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="modelopt.torch.puzzletron.sewing_kit.passage.html#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><span class="pre">InputArgs</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput.captured_inputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput.captured_outputs">
-<span class="sig-name descname"><span class="pre">captured_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.core.StitchedModuleOutput.captured_outputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 

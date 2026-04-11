@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>calc_subblock_stats &mdash; Model Optimizer 0.0.1.dev1+gd50d00036</title>
+  <title>calc_subblock_stats &mdash; Model Optimizer 0.0.1.dev1+gc1ceff657</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -176,32 +176,17 @@
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.add_int8_runtime_estimates" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.add_int8_runtime_estimates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_int8_runtime_estimates</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.calculate_subblock_stats" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.calculate_subblock_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_subblock_stats</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.calculate_subblock_stats_for_puzzle_dir" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.calculate_subblock_stats_for_puzzle_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_subblock_stats_for_puzzle_dir</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.calculate_subblock_stats" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.calculate_subblock_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_subblock_stats</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.launch_calc_subblock_stats" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.launch_calc_subblock_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">launch_calc_subblock_stats</span></code></a></p></td>
 <td><p>Launch the calc subblock stats function with Hydra configuration.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.add_int8_runtime_estimates" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.add_int8_runtime_estimates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_int8_runtime_estimates</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
-<dl class="py data">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.T_DataClass">
-<span class="sig-name descname"><span class="pre">T_DataClass</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.T_DataClass" title="Link to this definition"></a></dt>
-<dd><p>Usage:
-python -m modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats PUZZLE_DIR [ –benchmark_iterations 1000 ]</p>
-<dl class="simple">
-<dt>–benchmark_iterations=None (the default) means that the code won’t use infery to benchmark runtime,</dt><dd><p>only memory stats will be calculated. If you want to benchmark runtime, run inside an infery-llm docker.</p>
-</dd>
-</dl>
-<p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dataclass</span></code>]</p>
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.add_int8_runtime_estimates">
 <span class="sig-name descname"><span class="pre">add_int8_runtime_estimates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subblock_stats</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.add_int8_runtime_estimates" title="Link to this definition"></a></dt>
@@ -245,36 +230,6 @@ python -m modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats PUZZLE_DI
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>dict</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.calculate_subblock_stats_for_puzzle_dir">
-<span class="sig-name descname"><span class="pre">calculate_subblock_stats_for_puzzle_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calc_subblock_stats_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master_puzzle_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">teacher_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_hidden_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ffn_hidden_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">8,</span> <span class="pre">16,</span> <span class="pre">32,</span> <span class="pre">64,</span> <span class="pre">128,</span> <span class="pre">256)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefill_seq_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2048</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generation_seq_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2048</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_active_tokens_override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefill_queue_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allocate_prefill_query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">benchmark_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_with_existing_stats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subblock_stats_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'subblock_stats.json'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moe_stats_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'moe_stats.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_stats.calculate_subblock_stats_for_puzzle_dir" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>calc_subblock_stats_config</strong> (<em>DictConfig</em>)</p></li>
-<li><p><strong>master_puzzle_dir</strong> (<em>Path</em><em> | </em><em>str</em>)</p></li>
-<li><p><strong>teacher_dir</strong> (<em>Path</em><em> | </em><em>str</em>)</p></li>
-<li><p><strong>descriptor</strong> (<em>Type</em><em>[</em><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.model_descriptor.base.html#modelopt.torch.puzzletron.anymodel.model_descriptor.base.ModelDescriptor" title="modelopt.torch.puzzletron.anymodel.model_descriptor.base.ModelDescriptor"><em>ModelDescriptor</em></a><em>]</em>)</p></li>
-<li><p><strong>model_hidden_sizes</strong> (<em>ListConfig</em>)</p></li>
-<li><p><strong>ffn_hidden_sizes</strong> (<em>ListConfig</em>)</p></li>
-<li><p><strong>batch_sizes</strong> (<em>Iterable</em><em>[</em><em>int</em><em>]</em>)</p></li>
-<li><p><strong>prefill_seq_len</strong> (<em>int</em>)</p></li>
-<li><p><strong>generation_seq_len</strong> (<em>int</em>)</p></li>
-<li><p><strong>num_active_tokens_override</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>prefill_queue_size</strong> (<em>int</em>)</p></li>
-<li><p><strong>allocate_prefill_query</strong> (<em>bool</em>)</p></li>
-<li><p><strong>benchmark_iterations</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>merge_with_existing_stats</strong> (<em>bool</em>)</p></li>
-<li><p><strong>subblock_stats_filename</strong> (<em>str</em>)</p></li>
-<li><p><strong>moe_stats_filename</strong> (<em>str</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>None</em></p>
 </dd>
 </dl>
 </dd></dl>

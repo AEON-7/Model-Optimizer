@@ -38,7 +38,7 @@ build\_replacement\_library
       :nosignatures:
    
       build_replacement_library
-      infer_teacher_dir
       launch_build_replacement_library
+      infer_teacher_dir
    
    

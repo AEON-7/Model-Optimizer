@@ -33,12 +33,12 @@ passage
    
       InputArgs
       OutputValue
-      Passage
       PassageInputAdapter
-      PassageInputOverrides
-      PassageOutput
       PassageOutputAdapter
+      PassageInputOverrides
       PassageOutputOverrides
+      PassageOutput
+      Passage
    
    
 
@@ -52,6 +52,6 @@ passage
       :nosignatures:
    
       always_false_predicate
-      always_true_predicate
+      patch_module
    
    

@@ -37,8 +37,7 @@ validate\_puzzle\_with\_multi\_replacements
    .. autosummary::
       :nosignatures:
    
-      can_realize_as_symlinks
-      load_puzzle_solutions
       validate_puzzle_solutions
+      load_puzzle_solutions
    
    

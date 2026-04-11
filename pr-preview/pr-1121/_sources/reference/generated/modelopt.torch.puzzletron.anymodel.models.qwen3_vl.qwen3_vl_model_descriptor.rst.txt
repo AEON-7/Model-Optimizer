@@ -31,10 +31,10 @@ qwen3\_vl\_model\_descriptor
    .. autosummary::
       :nosignatures:
    
-      Qwen3VLExpertRemovalLayerDescriptor
+      Qwen3VLModelDescriptor
       Qwen3VLFFNIntermediateLayerDescriptor
       Qwen3VLKVHeadsLayerDescriptor
-      Qwen3VLModelDescriptor
+      Qwen3VLExpertRemovalLayerDescriptor
    
    
 

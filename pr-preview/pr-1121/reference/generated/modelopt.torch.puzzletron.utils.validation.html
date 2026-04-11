@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>validation &mdash; Model Optimizer 0.0.1.dev1+gd50d00036</title>
+  <title>validation &mdash; Model Optimizer 0.0.1.dev1+gc1ceff657</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -178,13 +178,7 @@ and similarity losses for knowledge distillation.</p>
 <p class="rubric">Classes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.ClipEpsilon" title="modelopt.torch.puzzletron.utils.validation.ClipEpsilon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ClipEpsilon</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.LowMemorySparseTensor" title="modelopt.torch.puzzletron.utils.validation.LowMemorySparseTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LowMemorySparseTensor</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor" title="modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnshardedLowMemorySparseTensor</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.LowMemorySparseTensor" title="modelopt.torch.puzzletron.utils.validation.LowMemorySparseTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LowMemorySparseTensor</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -192,59 +186,26 @@ and similarity losses for knowledge distillation.</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.calculate_batch_outputs" title="modelopt.torch.puzzletron.utils.validation.calculate_batch_outputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_batch_outputs</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.calculate_losses" title="modelopt.torch.puzzletron.utils.validation.calculate_losses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_losses</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.calculate_losses" title="modelopt.torch.puzzletron.utils.validation.calculate_losses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_losses</span></code></a></p></td>
 <td><p>Do model forward on each batch and calculate LM loss.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.calculate_batch_outputs" title="modelopt.torch.puzzletron.utils.validation.calculate_batch_outputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_batch_outputs</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.cosine_embedding_loss" title="modelopt.torch.puzzletron.utils.validation.cosine_embedding_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cosine_embedding_loss</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.js_div" title="modelopt.torch.puzzletron.utils.validation.js_div"><code class="xref py py-obj docutils literal notranslate"><span class="pre">js_div</span></code></a></p></td>
-<td><p>Jensen-Shannon Divergence for a single sample.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.kl_div" title="modelopt.torch.puzzletron.utils.validation.kl_div"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kl_div</span></code></a></p></td>
-<td><p>Kullback-Leibler Divergence for a single sample.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.mae_loss" title="modelopt.torch.puzzletron.utils.validation.mae_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mae_loss</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.mse_loss" title="modelopt.torch.puzzletron.utils.validation.mse_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mse_loss</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.normalized_mse_loss" title="modelopt.torch.puzzletron.utils.validation.normalized_mse_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalized_mse_loss</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.top_p_top_k" title="modelopt.torch.puzzletron.utils.validation.top_p_top_k"><code class="xref py py-obj docutils literal notranslate"><span class="pre">top_p_top_k</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.mse_loss" title="modelopt.torch.puzzletron.utils.validation.mse_loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mse_loss</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.tv_dist" title="modelopt.torch.puzzletron.utils.validation.tv_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tv_dist</span></code></a></p></td>
-<td><p>Total Variation Distance (L1-loss) for a single sample.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.kl_div" title="modelopt.torch.puzzletron.utils.validation.kl_div"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kl_div</span></code></a></p></td>
+<td><p>Kullback-Leibler Divergence for a single sample.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.ClipEpsilon">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ClipEpsilon</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.ClipEpsilon" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.ClipEpsilon.CLIP_NO_RENORMALIZE">
-<span class="sig-name descname"><span class="pre">CLIP_NO_RENORMALIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CLIP_NO_RENORMALIZE'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.ClipEpsilon.CLIP_NO_RENORMALIZE" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.ClipEpsilon.CLIP_RENORMALIZE">
-<span class="sig-name descname"><span class="pre">CLIP_RENORMALIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CLIP_RENORMALIZE'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.ClipEpsilon.CLIP_RENORMALIZE" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.ClipEpsilon.NO_CLIP">
-<span class="sig-name descname"><span class="pre">NO_CLIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NO_CLIP'</span></em><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.ClipEpsilon.NO_CLIP" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.LowMemorySparseTensor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LowMemorySparseTensor</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.LowMemorySparseTensor" title="Link to this definition"></a></dt>
@@ -272,52 +233,6 @@ and similarity losses for knowledge distillation.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.LowMemorySparseTensor.to_dense">
 <span class="sig-name descname"><span class="pre">to_dense</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.LowMemorySparseTensor.to_dense" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>Tensor</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UnshardedLowMemorySparseTensor</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor.__init__" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>Tensor</em>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor.to">
-<span class="sig-name descname"><span class="pre">to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor.to" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>Self</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor.to_dense">
-<span class="sig-name descname"><span class="pre">to_dense</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor.to_dense" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>Tensor</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor.to_sparse_coo">
-<span class="sig-name descname"><span class="pre">to_sparse_coo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.UnshardedLowMemorySparseTensor.to_sparse_coo" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>Tensor</em></p>
@@ -403,27 +318,6 @@ Does not support data-parallel.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.js_div">
-<span class="sig-name descname"><span class="pre">js_div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ClipEpsilon.NO_CLIP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.js_div" title="Link to this definition"></a></dt>
-<dd><p>Jensen-Shannon Divergence for a single sample.
-logits: [tokens, vocab]
-target_probs: [tokens, vocab]</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<em>Tensor</em>)</p></li>
-<li><p><strong>target_probs</strong> (<em>Tensor</em>)</p></li>
-<li><p><strong>clip_epsilon</strong> (<a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.ClipEpsilon" title="modelopt.torch.puzzletron.utils.validation.ClipEpsilon"><em>ClipEpsilon</em></a>)</p></li>
-<li><p><strong>epsilon_factor</strong> (<em>float</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>float</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.kl_div">
 <span class="sig-name descname"><span class="pre">kl_div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ClipEpsilon.NO_CLIP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.kl_div" title="Link to this definition"></a></dt>
 <dd><p>Kullback-Leibler Divergence for a single sample.
@@ -434,28 +328,12 @@ target_probs: [tokens, vocab]</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>logits</strong> (<em>Tensor</em>)</p></li>
 <li><p><strong>target_probs</strong> (<em>Tensor</em>)</p></li>
-<li><p><strong>clip_epsilon</strong> (<a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.ClipEpsilon" title="modelopt.torch.puzzletron.utils.validation.ClipEpsilon"><em>ClipEpsilon</em></a>)</p></li>
+<li><p><strong>clip_epsilon</strong> (<em>ClipEpsilon</em>)</p></li>
 <li><p><strong>epsilon_factor</strong> (<em>float</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>float</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.mae_loss">
-<span class="sig-name descname"><span class="pre">mae_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hidden_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_hidden_states</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.mae_loss" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_states</strong> (<em>Tensor</em>)</p></li>
-<li><p><strong>target_hidden_states</strong> (<em>Tensor</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>list</em>[<em>float</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -488,44 +366,6 @@ target_probs: [tokens, vocab]</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>list</em>[<em>float</em>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.top_p_top_k">
-<span class="sig-name descname"><span class="pre">top_p_top_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.999</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.top_p_top_k" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<em>Tensor</em>)</p></li>
-<li><p><strong>top_p</strong> (<em>float</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>top_k</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Tensor</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.validation.tv_dist">
-<span class="sig-name descname"><span class="pre">tv_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ClipEpsilon.NO_CLIP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.validation.tv_dist" title="Link to this definition"></a></dt>
-<dd><p>Total Variation Distance (L1-loss) for a single sample.
-logits: [tokens, vocab]
-target_probs: [tokens, vocab]</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>logits</strong> (<em>Tensor</em>)</p></li>
-<li><p><strong>target_probs</strong> (<em>Tensor</em>)</p></li>
-<li><p><strong>clip_epsilon</strong> (<a class="reference internal" href="#modelopt.torch.puzzletron.utils.validation.ClipEpsilon" title="modelopt.torch.puzzletron.utils.validation.ClipEpsilon"><em>ClipEpsilon</em></a>)</p></li>
-<li><p><strong>epsilon_factor</strong> (<em>float</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>float</em></p>
 </dd>
 </dl>
 </dd></dl>

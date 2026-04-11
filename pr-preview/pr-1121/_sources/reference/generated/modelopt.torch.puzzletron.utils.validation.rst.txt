@@ -31,9 +31,7 @@ validation
    .. autosummary::
       :nosignatures:
    
-      ClipEpsilon
       LowMemorySparseTensor
-      UnshardedLowMemorySparseTensor
    
    
 
@@ -46,15 +44,11 @@ validation
    .. autosummary::
       :nosignatures:
    
-      calculate_batch_outputs
       calculate_losses
+      calculate_batch_outputs
       cosine_embedding_loss
-      js_div
-      kl_div
-      mae_loss
-      mse_loss
       normalized_mse_loss
-      top_p_top_k
-      tv_dist
+      mse_loss
+      kl_div
    
    

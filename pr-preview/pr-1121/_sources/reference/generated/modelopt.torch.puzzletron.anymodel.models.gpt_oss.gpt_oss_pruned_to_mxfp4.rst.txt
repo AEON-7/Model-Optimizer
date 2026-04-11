@@ -26,6 +26,15 @@ gpt\_oss\_pruned\_to\_mxfp4
    .. Overview table of available classes in the module
    
    
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      Any
+      safe_open
+      tqdm
+   
    
 
 
@@ -37,6 +46,7 @@ gpt\_oss\_pruned\_to\_mxfp4
    .. autosummary::
       :nosignatures:
    
+      convert_moe_packed_tensors
       copy_config_files
       copy_non_moe_weights
       deduce_experts_for_layer
@@ -44,5 +54,6 @@ gpt\_oss\_pruned\_to\_mxfp4
       load_original_index
       main
       process_single_layer
+      save_file
    
    

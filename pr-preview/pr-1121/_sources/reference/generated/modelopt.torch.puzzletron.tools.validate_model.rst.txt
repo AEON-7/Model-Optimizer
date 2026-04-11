@@ -37,8 +37,8 @@ validate\_model
    .. autosummary::
       :nosignatures:
    
-      prepare_dataloader
-      prepare_model
       validate_model
+      prepare_model
+      prepare_dataloader
    
    

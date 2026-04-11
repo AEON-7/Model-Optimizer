@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sharded_checkpoint_utils &mdash; Model Optimizer 0.0.1.dev1+gd50d00036</title>
+  <title>sharded_checkpoint_utils &mdash; Model Optimizer 0.0.1.dev1+gc1ceff657</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -178,42 +178,23 @@ large language model checkpoints across multiple GPUs/processes.</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.create_local_shard_" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.create_local_shard_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_local_shard_</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.create_sharded_model" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.create_sharded_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_sharded_model</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.is_in_safetensors_format" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.is_in_safetensors_format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_safetensors_format</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.set_submodule" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.set_submodule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_submodule</span></code></a></p></td>
+<td><p>Set a submodule on a model by dotted path.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_and_shard_model" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_and_shard_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_and_shard_model</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_sharded_state_dict" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_sharded_state_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_sharded_state_dict</span></code></a></p></td>
-<td><p>keys_to_load: entire state_dict if None, else partial state_dict containing only these keys</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_state_dict_to_shards" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_state_dict_to_shards"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_state_dict_to_shards</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.create_sharded_model" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.create_sharded_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_sharded_model</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.save_sharded_model" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.save_sharded_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_sharded_model</span></code></a></p></td>
-<td><p>out_path is usually output_checkpoint_path / &quot;model.safetensors&quot;</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_sharded_state_dict" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_sharded_state_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_sharded_state_dict</span></code></a></p></td>
+<td><p>keys_to_load: entire state_dict if None, else partial state_dict containing only these keys</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.set_submodule" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.set_submodule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_submodule</span></code></a></p></td>
-<td><p>Set a submodule on a model by dotted path.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.is_in_safetensors_format" title="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.is_in_safetensors_format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_in_safetensors_format</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.create_local_shard_">
-<span class="sig-name descname"><span class="pre">create_local_shard_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owned_block_indexes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.create_local_shard_" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>owned_block_indexes</strong> (<em>set</em><em>[</em><em>int</em><em>]</em>)</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.create_sharded_model">
 <span class="sig-name descname"><span class="pre">create_sharded_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">runtime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owned_block_indexes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'meta'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">torch.float32</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.create_sharded_model" title="Link to this definition"></a></dt>
@@ -270,36 +251,6 @@ large language model checkpoints across multiple GPUs/processes.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>dict</em>[<em>str</em>, <em>Tensor</em>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_state_dict_to_shards">
-<span class="sig-name descname"><span class="pre">load_state_dict_to_shards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_shard</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loaded_state_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.load_state_dict_to_shards" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model_shard</strong> (<em>Module</em>)</p></li>
-<li><p><strong>loaded_state_dict</strong> (<em>dict</em><em> | </em><em>None</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>None</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.save_sharded_model">
-<span class="sig-name descname"><span class="pre">save_sharded_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_shard</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.sharded_checkpoint_utils.save_sharded_model" title="Link to this definition"></a></dt>
-<dd><p>out_path is usually output_checkpoint_path / “model.safetensors”</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model_shard</strong> (<em>Module</em><em> | </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Tensor</em><em>]</em>)</p></li>
-<li><p><strong>out_path</strong> (<em>str</em><em> | </em><em>Path</em>)</p></li>
-</ul>
 </dd>
 </dl>
 </dd></dl>

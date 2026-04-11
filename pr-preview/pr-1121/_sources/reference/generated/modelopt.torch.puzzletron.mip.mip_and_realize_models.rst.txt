@@ -37,7 +37,6 @@ mip\_and\_realize\_models
    .. autosummary::
       :nosignatures:
    
-      launch_mip
       launch_realize_model
       launch_mip_and_realize_model
    

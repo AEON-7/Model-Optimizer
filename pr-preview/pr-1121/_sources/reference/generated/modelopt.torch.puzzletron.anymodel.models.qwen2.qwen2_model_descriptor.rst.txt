@@ -31,8 +31,8 @@ qwen2\_model\_descriptor
    .. autosummary::
       :nosignatures:
    
-      Qwen2FFNIntermediateLayerDescriptor
       Qwen2ModelDescriptor
+      Qwen2FFNIntermediateLayerDescriptor
    
    
 

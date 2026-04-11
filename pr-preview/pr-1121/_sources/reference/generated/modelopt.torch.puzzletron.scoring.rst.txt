@@ -5,17 +5,6 @@ scoring
 
 
 
-.. rubric:: Modules
-
-.. autosummary::
-   :toctree:
-   :recursive:
-
-
-
-   modelopt.torch.puzzletron.scoring.score
-
-
 
 
 .. Autodoc anything defined in the module itself
@@ -42,5 +31,12 @@ scoring
 
    .. Overview table of available functions in the module
    
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      launch_scoring
    
    

@@ -37,17 +37,15 @@ calc\_subblock\_params\_and\_memory
    .. autosummary::
       :nosignatures:
    
-      calc_subblock_active_params
-      calculate_attention_memory
-      calculate_ffn_memory
-      calculate_mamba_memory
-      calculate_mamba_state_size
-      calculate_non_block_memory
-      calculate_non_block_params
       calculate_subblock_memory
       calculate_subblock_params
-      estimate_moe_active_params
-      estimate_num_active_experts
+      calc_subblock_active_params
       load_moe_stats
+      estimate_num_active_experts
+      calculate_mamba_memory
+      calculate_mamba_state_size
+      calculate_ffn_memory
+      calculate_non_block_memory
+      calculate_non_block_params
    
    

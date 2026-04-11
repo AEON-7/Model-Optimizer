@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hydra_utils &mdash; Model Optimizer 0.0.1.dev1+gd50d00036</title>
+  <title>hydra_utils &mdash; Model Optimizer 0.0.1.dev1+gc1ceff657</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -176,16 +176,13 @@
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.hydra_utils.warmup_steps" title="modelopt.torch.puzzletron.tools.hydra_utils.warmup_steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">warmup_steps</span></code></a></p></td>
-<td><p>Calculate warmup steps based on total tokens, block size, micro batch size, and warmup percentage.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.hydra_utils.register_hydra_resolvers" title="modelopt.torch.puzzletron.tools.hydra_utils.register_hydra_resolvers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_hydra_resolvers</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.hydra_utils.register_hydra_resolvers" title="modelopt.torch.puzzletron.tools.hydra_utils.register_hydra_resolvers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_hydra_resolvers</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.hydra_utils.initialize_hydra_config_for_dir" title="modelopt.torch.puzzletron.tools.hydra_utils.initialize_hydra_config_for_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_hydra_config_for_dir</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.hydra_utils.initialize_hydra_config_for_dir" title="modelopt.torch.puzzletron.tools.hydra_utils.initialize_hydra_config_for_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_hydra_config_for_dir</span></code></a></p></td>
 <td><p>Initialize a hydra config from an absolute path for a config directory</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.hydra_utils.initialize_hydra_config" title="modelopt.torch.puzzletron.tools.hydra_utils.initialize_hydra_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_hydra_config</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.hydra_utils.initialize_hydra_config" title="modelopt.torch.puzzletron.tools.hydra_utils.initialize_hydra_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_hydra_config</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -229,26 +226,6 @@
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.hydra_utils.register_hydra_resolvers">
 <span class="sig-name descname"><span class="pre">register_hydra_resolvers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.hydra_utils.register_hydra_resolvers" title="Link to this definition"></a></dt>
 <dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.hydra_utils.warmup_steps">
-<span class="sig-name descname"><span class="pre">warmup_steps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mbs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.hydra_utils.warmup_steps" title="Link to this definition"></a></dt>
-<dd><p>Calculate warmup steps based on total tokens, block size, micro batch size, and warmup percentage.
-Used as a resolver in hydra configs.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tokens</strong> (<em>int</em>)</p></li>
-<li><p><strong>block</strong> (<em>int</em>)</p></li>
-<li><p><strong>mbs</strong> (<em>int</em>)</p></li>
-<li><p><strong>pct</strong> (<em>float</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>int</em></p>
-</dd>
-</dl>
-</dd></dl>
 
 </section>
 

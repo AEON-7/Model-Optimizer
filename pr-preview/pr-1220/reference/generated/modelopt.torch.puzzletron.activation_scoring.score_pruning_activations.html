@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>score_pruning_activations &mdash; Model Optimizer 0.0.1.dev1+g98b791a3d</title>
+  <title>score_pruning_activations &mdash; Model Optimizer 0.0.1.dev1+gcfeef5e5f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -175,82 +175,17 @@
 <span class="target" id="module-modelopt.torch.puzzletron.activation_scoring.score_pruning_activations"></span><p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.check_scoring_completion" title="modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.check_scoring_completion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_scoring_completion</span></code></a></p></td>
-<td><p>Check if scoring is already completed by looking for the expected output files.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.has_checkpoint_support" title="modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.has_checkpoint_support"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_checkpoint_support</span></code></a></p></td>
-<td><p>Determine if the activation hook method has proper checkpoint support implemented.</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.launch_score_activations" title="modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.launch_score_activations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">launch_score_activations</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.should_skip_scoring_completely" title="modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.should_skip_scoring_completely"><code class="xref py py-obj docutils literal notranslate"><span class="pre">should_skip_scoring_completely</span></code></a></p></td>
-<td><p>Determine if we should skip scoring entirely (only if 100% complete).</p></td>
-</tr>
 </tbody>
 </table>
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.check_scoring_completion">
-<span class="sig-name descname"><span class="pre">check_scoring_completion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activations_log_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation_hooks_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.check_scoring_completion" title="Link to this definition"></a></dt>
-<dd><p>Check if scoring is already completed by looking for the expected output files.
-Also checks if the scoring method is safe for resume.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>activations_log_dir</strong> (<em>str</em>) – Directory where activation logs should be stored</p></li>
-<li><p><strong>activation_hooks_kwargs</strong> – Hook configuration to check if resume is safe</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if scoring is completed (has rank files and args.json)</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>bool</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.has_checkpoint_support">
-<span class="sig-name descname"><span class="pre">has_checkpoint_support</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activation_hooks_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.has_checkpoint_support" title="Link to this definition"></a></dt>
-<dd><p>Determine if the activation hook method has proper checkpoint support implemented.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>activation_hooks_kwargs</strong> (<em>dict</em>) – Hook configuration</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if the hook method has save_state/load_state implemented</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>bool</em></p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.launch_score_activations">
 <span class="sig-name descname"><span class="pre">launch_score_activations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.launch_score_activations" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>cfg</strong> (<em>DictConfig</em>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.should_skip_scoring_completely">
-<span class="sig-name descname"><span class="pre">should_skip_scoring_completely</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.activation_scoring.score_pruning_activations.should_skip_scoring_completely" title="Link to this definition"></a></dt>
-<dd><p>Determine if we should skip scoring entirely (only if 100% complete).
-Partial progress should proceed to validate_model for proper resume.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>cfg</strong> (<em>DictConfig</em>) – Configuration object</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if we should skip scoring (100% completed), False if we should run/resume it</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>bool</em></p>
 </dd>
 </dl>
 </dd></dl>

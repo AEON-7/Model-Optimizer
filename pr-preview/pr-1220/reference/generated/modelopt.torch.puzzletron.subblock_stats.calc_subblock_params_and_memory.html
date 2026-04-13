@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>calc_subblock_params_and_memory &mdash; Model Optimizer 0.0.1.dev1+g98b791a3d</title>
+  <title>calc_subblock_params_and_memory &mdash; Model Optimizer 0.0.1.dev1+gcfeef5e5f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -179,13 +179,19 @@ considering various data types, batch sizes, and sequence lengths.</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_subblock_memory" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_subblock_memory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_subblock_memory</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">model_config</span></code> / <code class="docutils literal notranslate"><span class="pre">descriptor</span></code> are required (puzzletron-style); FFN uses them for meta init.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_subblock_params" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_subblock_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_subblock_params</span></code></a></p></td>
+<td><p>Count parameters on one meta decoder layer.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calc_subblock_active_params" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calc_subblock_active_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_subblock_active_params</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_attention_memory" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_attention_memory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_attention_memory</span></code></a></p></td>
-<td><p>allocate_prefill_query: infery-llm style.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.load_moe_stats" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.load_moe_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_moe_stats</span></code></a></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_ffn_memory" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_ffn_memory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_ffn_memory</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.estimate_num_active_experts" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.estimate_num_active_experts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_num_active_experts</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_mamba_memory" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_mamba_memory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_mamba_memory</span></code></a></p></td>
@@ -194,25 +200,13 @@ considering various data types, batch sizes, and sequence lengths.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_mamba_state_size" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_mamba_state_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_mamba_state_size</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_non_block_memory" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_non_block_memory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_non_block_memory</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_ffn_memory" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_ffn_memory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_ffn_memory</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_non_block_params" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_non_block_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_non_block_params</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_non_block_memory" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_non_block_memory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_non_block_memory</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_subblock_memory" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_subblock_memory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_subblock_memory</span></code></a></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">model_config</span></code> / <code class="docutils literal notranslate"><span class="pre">descriptor</span></code> are required (puzzletron-style); FFN uses them for meta init.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_subblock_params" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_subblock_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_subblock_params</span></code></a></p></td>
-<td><p>Count parameters on one meta decoder layer.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.estimate_moe_active_params" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.estimate_moe_active_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_moe_active_params</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.estimate_num_active_experts" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.estimate_num_active_experts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_num_active_experts</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.load_moe_stats" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.load_moe_stats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_moe_stats</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_non_block_params" title="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_non_block_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_non_block_params</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -234,35 +228,6 @@ considering various data types, batch sizes, and sequence lengths.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>int</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_attention_memory">
-<span class="sig-name descname"><span class="pre">calculate_attention_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attention_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefill_seq_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generation_seq_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefill_queue_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_embd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_head</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kv_cache_dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allocate_prefill_query</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.calculate_attention_memory" title="Link to this definition"></a></dt>
-<dd><p>allocate_prefill_query: infery-llm style.
-Infery used a unified Wqkv matrix, so before extracting the kv-cache,
-the query also had to be kept in-memory, once per layer.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>attention_config</strong> (<a class="reference internal" href="modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.AttentionConfig" title="modelopt.torch.puzzletron.block_config.AttentionConfig"><em>AttentionConfig</em></a>)</p></li>
-<li><p><strong>model_config</strong> (<em>PreTrainedConfig</em>)</p></li>
-<li><p><strong>descriptor</strong> (<em>Type</em><em>[</em><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.model_descriptor.base.html#modelopt.torch.puzzletron.anymodel.model_descriptor.base.ModelDescriptor" title="modelopt.torch.puzzletron.anymodel.model_descriptor.base.ModelDescriptor"><em>ModelDescriptor</em></a><em>]</em>)</p></li>
-<li><p><strong>batch_size</strong> (<em>int</em>)</p></li>
-<li><p><strong>prefill_seq_len</strong> (<em>int</em>)</p></li>
-<li><p><strong>generation_seq_len</strong> (<em>int</em>)</p></li>
-<li><p><strong>prefill_queue_size</strong> (<em>int</em>)</p></li>
-<li><p><strong>n_embd</strong> (<em>int</em>)</p></li>
-<li><p><strong>n_head</strong> (<em>int</em>)</p></li>
-<li><p><strong>weights_dtype</strong> (<em>dtype</em>)</p></li>
-<li><p><strong>kv_cache_dtype</strong> (<em>dtype</em>)</p></li>
-<li><p><strong>allocate_prefill_query</strong> (<em>bool</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>dict</em>[<em>str</em>, <em>float</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -392,25 +357,6 @@ the query also had to be kept in-memory, once per layer.</p>
 <li><p><strong>config</strong> (<em>PreTrainedConfig</em>)</p></li>
 <li><p><strong>layer_config</strong> (<a class="reference internal" href="modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.BlockConfig" title="modelopt.torch.puzzletron.block_config.BlockConfig"><em>BlockConfig</em></a><em> | </em><a class="reference internal" href="modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.FFNConfig" title="modelopt.torch.puzzletron.block_config.FFNConfig"><em>FFNConfig</em></a><em> | </em><a class="reference internal" href="modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.AttentionConfig" title="modelopt.torch.puzzletron.block_config.AttentionConfig"><em>AttentionConfig</em></a>)</p></li>
 <li><p><strong>descriptor</strong> (<em>Type</em><em>[</em><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.model_descriptor.base.html#modelopt.torch.puzzletron.anymodel.model_descriptor.base.ModelDescriptor" title="modelopt.torch.puzzletron.anymodel.model_descriptor.base.ModelDescriptor"><em>ModelDescriptor</em></a><em>]</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>int</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.estimate_moe_active_params">
-<span class="sig-name descname"><span class="pre">estimate_moe_active_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subblock_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_embd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moe_stats_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.subblock_stats.calc_subblock_params_and_memory.estimate_moe_active_params" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>subblock_config</strong> (<a class="reference internal" href="modelopt.torch.puzzletron.block_config.html#modelopt.torch.puzzletron.block_config.FFNConfig" title="modelopt.torch.puzzletron.block_config.FFNConfig"><em>FFNConfig</em></a>)</p></li>
-<li><p><strong>n_embd</strong> (<em>int</em>)</p></li>
-<li><p><strong>moe_stats_file</strong> (<em>Path</em><em> | </em><em>str</em>)</p></li>
-<li><p><strong>batch_size</strong> (<em>int</em>)</p></li>
-<li><p><strong>block_idx</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>

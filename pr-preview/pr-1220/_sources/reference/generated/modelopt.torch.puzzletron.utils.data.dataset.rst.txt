@@ -44,7 +44,7 @@ dataset
    .. autosummary::
       :nosignatures:
    
-      get_fim_token_ids
       permute
+      get_fim_token_ids
    
    

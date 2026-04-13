@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>misc &mdash; Model Optimizer 0.0.1.dev1+g98b791a3d</title>
+  <title>misc &mdash; Model Optimizer 0.0.1.dev1+gcfeef5e5f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -183,14 +183,8 @@
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.block_config_to_str" title="modelopt.torch.puzzletron.utils.misc.block_config_to_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">block_config_to_str</span></code></a></p></td>
-<td><p>Convert a BlockConfig to a human-readable string representation.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.calculate_kv_dim" title="modelopt.torch.puzzletron.utils.misc.calculate_kv_dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_kv_dim</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.calculate_kv_dim" title="modelopt.torch.puzzletron.utils.misc.calculate_kv_dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_kv_dim</span></code></a></p></td>
 <td><p>Calculate the key-value dimension for grouped-query attention.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.load_json" title="modelopt.torch.puzzletron.utils.misc.load_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_json</span></code></a></p></td>
-<td><p>Load and parse a JSON file.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.raise_unknown_subblock_config_error" title="modelopt.torch.puzzletron.utils.misc.raise_unknown_subblock_config_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">raise_unknown_subblock_config_error</span></code></a></p></td>
 <td><p>Raise an error for invalid subblock configuration types.</p></td>
@@ -198,8 +192,14 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.sizeof_dtype" title="modelopt.torch.puzzletron.utils.misc.sizeof_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sizeof_dtype</span></code></a></p></td>
 <td><p>Return the size in bytes of the given data type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.solution_to_str" title="modelopt.torch.puzzletron.utils.misc.solution_to_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">solution_to_str</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.load_json" title="modelopt.torch.puzzletron.utils.misc.load_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_json</span></code></a></p></td>
+<td><p>Load and parse a JSON file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.solution_to_str" title="modelopt.torch.puzzletron.utils.misc.solution_to_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">solution_to_str</span></code></a></p></td>
 <td><p>Convert a list of block configurations to a human-readable string representation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.block_config_to_str" title="modelopt.torch.puzzletron.utils.misc.block_config_to_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">block_config_to_str</span></code></a></p></td>
+<td><p>Convert a BlockConfig to a human-readable string representation.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.misc.subblock_config_to_str" title="modelopt.torch.puzzletron.utils.misc.subblock_config_to_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subblock_config_to_str</span></code></a></p></td>
 <td><p>Convert a subblock config (FFN, Attention, Mamba, or MoE) to string.</p></td>

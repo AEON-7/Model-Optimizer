@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>child_init &mdash; Model Optimizer 0.0.1.dev1+g98b791a3d</title>
+  <title>child_init &mdash; Model Optimizer 0.0.1.dev1+gcfeef5e5f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -174,47 +174,17 @@
   <section id="child-init">
 <h1>child_init<a class="headerlink" href="#child-init" title="Link to this heading"></a></h1>
 <p id="module-modelopt.torch.puzzletron.tools.bypassed_training.child_init">Core logic for creating pruned child model state dicts from parent models. Used by init_child_from_parent.</p>
-<p class="rubric">Classes</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.bypassed_training.child_init.Printer" title="modelopt.torch.puzzletron.tools.bypassed_training.child_init.Printer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Printer</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.bypassed_training.child_init.create_child_state_dict" title="modelopt.torch.puzzletron.tools.bypassed_training.child_init.create_child_state_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_child_state_dict</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.bypassed_training.child_init.default_ignore_fn" title="modelopt.torch.puzzletron.tools.bypassed_training.child_init.default_ignore_fn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_ignore_fn</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.bypassed_training.child_init.update_model_config" title="modelopt.torch.puzzletron.tools.bypassed_training.child_init.update_model_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_model_config</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.tools.bypassed_training.child_init.update_model_config" title="modelopt.torch.puzzletron.tools.bypassed_training.child_init.update_model_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_model_config</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.bypassed_training.child_init.Printer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Printer</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.bypassed_training.child_init.Printer" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.bypassed_training.child_init.Printer.print">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.bypassed_training.child_init.Printer.print" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>s</strong> (<em>str</em>)</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>None</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.bypassed_training.child_init.create_child_state_dict">
 <span class="sig-name descname"><span class="pre">create_child_state_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pruning_mixin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descriptor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_state_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_state_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gqa_init_mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_fn=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_init_mode=MlpInitMode.CopyAsIs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_init_config=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owned_block_indexes=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_init_mode=LinearInitMode.Random</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size_init_mode=HiddenSizeInitMode.CopyAsIs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_importance_path=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_layer_workers=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.bypassed_training.child_init.create_child_state_dict" title="Link to this definition"></a></dt>
@@ -238,11 +208,6 @@
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.bypassed_training.child_init.default_ignore_fn">
-<span class="sig-name descname"><span class="pre">default_ignore_fn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.tools.bypassed_training.child_init.default_ignore_fn" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.tools.bypassed_training.child_init.update_model_config">

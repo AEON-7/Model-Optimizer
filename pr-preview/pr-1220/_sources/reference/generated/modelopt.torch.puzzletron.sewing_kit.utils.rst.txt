@@ -32,10 +32,6 @@ utils
       :nosignatures:
    
       ActivityContext
-      DynamoDisable
-      DynamoSkip
-      ModuleRef
-      MyFakeTensor
    
    
 
@@ -48,16 +44,17 @@ utils
    .. autosummary::
       :nosignatures:
    
-      distributed_isend_obj
-      distributed_recv_obj
-      distributed_send_obj
+      dynamo_skip
+      dynamo_disable
+      is_submodule_of
+      is_submodule_or_same
       fake_tensor
       fake_tensor_like
       fake_tensors
-      has_fake_tensor
-      is_fake_tensor
-      is_submodule_of
-      is_submodule_or_same
       real_tensors
+      has_fake_tensor
+      distributed_isend_obj
+      distributed_send_obj
+      distributed_recv_obj
    
    

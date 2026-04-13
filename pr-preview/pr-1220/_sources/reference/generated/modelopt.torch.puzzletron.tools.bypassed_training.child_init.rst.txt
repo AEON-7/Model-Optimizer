@@ -26,13 +26,6 @@ child\_init
    .. Overview table of available classes in the module
    
    
-   .. rubric:: Classes
-
-   .. autosummary::
-      :nosignatures:
-   
-      Printer
-   
    
 
 
@@ -45,7 +38,6 @@ child\_init
       :nosignatures:
    
       create_child_state_dict
-      default_ignore_fn
       update_model_config
    
    

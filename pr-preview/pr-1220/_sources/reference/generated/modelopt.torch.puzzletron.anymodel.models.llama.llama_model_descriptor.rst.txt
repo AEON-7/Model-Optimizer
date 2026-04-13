@@ -31,9 +31,9 @@ llama\_model\_descriptor
    .. autosummary::
       :nosignatures:
    
+      LlamaModelDescriptor
       LlamaFFNIntermediateLayerDescriptor
       LlamaKVHeadsLayerDescriptor
-      LlamaModelDescriptor
    
    
 

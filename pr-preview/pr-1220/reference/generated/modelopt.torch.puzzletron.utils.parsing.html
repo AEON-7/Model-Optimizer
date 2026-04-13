@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>parsing &mdash; Model Optimizer 0.0.1.dev1+g98b791a3d</title>
+  <title>parsing &mdash; Model Optimizer 0.0.1.dev1+gcfeef5e5f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -180,23 +180,11 @@
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.format_block_configs" title="modelopt.torch.puzzletron.utils.parsing.format_block_configs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_block_configs</span></code></a></p></td>
-<td><p>Formats block_configs from a model configuration into a beautiful, readable string.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.format_global_config" title="modelopt.torch.puzzletron.utils.parsing.format_global_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_global_config</span></code></a></p></td>
-<td><p>Pretty prints a global DictConfig with nice formatting and visual indicators.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.format_stitched_losses" title="modelopt.torch.puzzletron.utils.parsing.format_stitched_losses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_stitched_losses</span></code></a></p></td>
-<td><p>Pretty prints stitched module losses with comprehensive tracking and visual indicators.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.get_nested_key" title="modelopt.torch.puzzletron.utils.parsing.get_nested_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_nested_key</span></code></a></p></td>
-<td><p>If nested_key is &quot;a.b.c&quot; returns dictionary[&quot;a&quot;][&quot;b&quot;][&quot;c&quot;]</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.handle_arg_string" title="modelopt.torch.puzzletron.utils.parsing.handle_arg_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">handle_arg_string</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.parse_dtype" title="modelopt.torch.puzzletron.utils.parsing.parse_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_dtype</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.simple_parse_args_string" title="modelopt.torch.puzzletron.utils.parsing.simple_parse_args_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple_parse_args_string</span></code></a></p></td>
+<td><p>Parse <code class="docutils literal notranslate"><span class="pre">args1=val1,arg2=val2</span></code> into a dictionary.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.parse_json" title="modelopt.torch.puzzletron.utils.parsing.parse_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_json</span></code></a></p></td>
 <td><p></p></td>
@@ -204,37 +192,17 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.parse_path" title="modelopt.torch.puzzletron.utils.parsing.parse_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_path</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.simple_parse_args_string" title="modelopt.torch.puzzletron.utils.parsing.simple_parse_args_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simple_parse_args_string</span></code></a></p></td>
-<td><p>Parse <code class="docutils literal notranslate"><span class="pre">args1=val1,arg2=val2</span></code> into a dictionary.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.get_nested_key" title="modelopt.torch.puzzletron.utils.parsing.get_nested_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_nested_key</span></code></a></p></td>
+<td><p>If nested_key is &quot;a.b.c&quot; returns dictionary[&quot;a&quot;][&quot;b&quot;][&quot;c&quot;]</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.format_global_config" title="modelopt.torch.puzzletron.utils.parsing.format_global_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_global_config</span></code></a></p></td>
+<td><p>Pretty prints a global DictConfig with nice formatting and visual indicators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.parsing.format_stitched_losses" title="modelopt.torch.puzzletron.utils.parsing.format_stitched_losses"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_stitched_losses</span></code></a></p></td>
+<td><p>Pretty prints stitched module losses with comprehensive tracking and visual indicators.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.parsing.format_block_configs">
-<span class="sig-name descname"><span class="pre">format_block_configs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.parsing.format_block_configs" title="Link to this definition"></a></dt>
-<dd><p>Formats block_configs from a model configuration into a beautiful, readable string.</p>
-<p>Each line represents a layer with attention and FFN configuration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> – PretrainedConfig object containing block_configs</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Formatted string with layer configurations</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>str</em></p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Example output:</dt><dd><p>╭─────────────────────── Model Architecture ────────────────────────╮
-│  Layer  1  │  Attention: no_op                │  FFN: mult = 4.95   │
-│  Layer  2  │  Attention: 4 heads in group     │  FFN: mult = 4.95   │
-│  Layer  3  │  Attention: 4 heads in group     │  FFN: no_op         │
-╰────────────────────────────────────────────────────────────────────╯</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.parsing.format_global_config">
 <span class="sig-name descname"><span class="pre">format_global_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Global</span> <span class="pre">Configuration'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.parsing.format_global_config" title="Link to this definition"></a></dt>
@@ -324,19 +292,6 @@
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.parsing.handle_arg_string">
 <span class="sig-name descname"><span class="pre">handle_arg_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.parsing.handle_arg_string" title="Link to this definition"></a></dt>
 <dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.parsing.parse_dtype">
-<span class="sig-name descname"><span class="pre">parse_dtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtype_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.utils.parsing.parse_dtype" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dtype_name</strong> (<em>str</em>)</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>dtype</em></p>
-</dd>
-</dl>
-</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.utils.parsing.parse_json">

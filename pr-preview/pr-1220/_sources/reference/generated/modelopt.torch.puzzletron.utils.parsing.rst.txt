@@ -37,14 +37,12 @@ parsing
    .. autosummary::
       :nosignatures:
    
-      format_block_configs
-      format_global_config
-      format_stitched_losses
-      get_nested_key
       handle_arg_string
-      parse_dtype
+      simple_parse_args_string
       parse_json
       parse_path
-      simple_parse_args_string
+      get_nested_key
+      format_global_config
+      format_stitched_losses
    
    

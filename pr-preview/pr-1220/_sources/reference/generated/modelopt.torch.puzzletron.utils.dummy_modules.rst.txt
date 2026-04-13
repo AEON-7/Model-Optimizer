@@ -31,10 +31,10 @@ dummy\_modules
    .. autosummary::
       :nosignatures:
    
-      DummyBlock
-      DummyLMHead
       DummyModule
+      DummyBlock
       DummyWTE
+      DummyLMHead
    
    
 

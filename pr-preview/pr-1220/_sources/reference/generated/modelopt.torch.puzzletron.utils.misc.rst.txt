@@ -44,12 +44,12 @@ misc
    .. autosummary::
       :nosignatures:
    
-      block_config_to_str
       calculate_kv_dim
-      load_json
       raise_unknown_subblock_config_error
       sizeof_dtype
+      load_json
       solution_to_str
+      block_config_to_str
       subblock_config_to_str
    
    

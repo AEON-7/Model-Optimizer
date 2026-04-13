@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g98b791a3d</title>
+  <title>utils &mdash; Model Optimizer 0.0.1.dev1+gcfeef5e5f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -178,46 +178,16 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.ActivityContext" title="modelopt.torch.puzzletron.sewing_kit.utils.ActivityContext"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ActivityContext</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.DynamoDisable" title="modelopt.torch.puzzletron.sewing_kit.utils.DynamoDisable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DynamoDisable</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.DynamoSkip" title="modelopt.torch.puzzletron.sewing_kit.utils.DynamoSkip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DynamoSkip</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.ModuleRef" title="modelopt.torch.puzzletron.sewing_kit.utils.ModuleRef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModuleRef</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor" title="modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MyFakeTensor</span></code></a></p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.distributed_isend_obj" title="modelopt.torch.puzzletron.sewing_kit.utils.distributed_isend_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributed_isend_obj</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.dynamo_skip" title="modelopt.torch.puzzletron.sewing_kit.utils.dynamo_skip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dynamo_skip</span></code></a></p></td>
+<td><p>Skip frames associated with the function code, but still process recursively invoked frames</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.distributed_recv_obj" title="modelopt.torch.puzzletron.sewing_kit.utils.distributed_recv_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributed_recv_obj</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.distributed_send_obj" title="modelopt.torch.puzzletron.sewing_kit.utils.distributed_send_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributed_send_obj</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.fake_tensor" title="modelopt.torch.puzzletron.sewing_kit.utils.fake_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fake_tensor</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.fake_tensor_like" title="modelopt.torch.puzzletron.sewing_kit.utils.fake_tensor_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fake_tensor_like</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.fake_tensors" title="modelopt.torch.puzzletron.sewing_kit.utils.fake_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fake_tensors</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.has_fake_tensor" title="modelopt.torch.puzzletron.sewing_kit.utils.has_fake_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_fake_tensor</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.is_fake_tensor" title="modelopt.torch.puzzletron.sewing_kit.utils.is_fake_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_fake_tensor</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.dynamo_disable" title="modelopt.torch.puzzletron.sewing_kit.utils.dynamo_disable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dynamo_disable</span></code></a></p></td>
+<td><p>Decorator to disable TorchDynamo</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.is_submodule_of" title="modelopt.torch.puzzletron.sewing_kit.utils.is_submodule_of"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_submodule_of</span></code></a></p></td>
 <td><p></p></td>
@@ -225,7 +195,28 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.is_submodule_or_same" title="modelopt.torch.puzzletron.sewing_kit.utils.is_submodule_or_same"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_submodule_or_same</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.real_tensors" title="modelopt.torch.puzzletron.sewing_kit.utils.real_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">real_tensors</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.fake_tensor" title="modelopt.torch.puzzletron.sewing_kit.utils.fake_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fake_tensor</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.fake_tensor_like" title="modelopt.torch.puzzletron.sewing_kit.utils.fake_tensor_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fake_tensor_like</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.fake_tensors" title="modelopt.torch.puzzletron.sewing_kit.utils.fake_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fake_tensors</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.real_tensors" title="modelopt.torch.puzzletron.sewing_kit.utils.real_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">real_tensors</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.has_fake_tensor" title="modelopt.torch.puzzletron.sewing_kit.utils.has_fake_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_fake_tensor</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.distributed_isend_obj" title="modelopt.torch.puzzletron.sewing_kit.utils.distributed_isend_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributed_isend_obj</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.distributed_send_obj" title="modelopt.torch.puzzletron.sewing_kit.utils.distributed_send_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributed_send_obj</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.distributed_recv_obj" title="modelopt.torch.puzzletron.sewing_kit.utils.distributed_recv_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distributed_recv_obj</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -270,89 +261,6 @@
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.ActivityContextDuplicateException">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ActivityContextDuplicateException</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.ActivityContextDuplicateException" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-</dd></dl>
-
-<dl class="py exception">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.ActivityContextMaxDepthException">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ActivityContextMaxDepthException</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.ActivityContextMaxDepthException" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.DynamoDisable">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DynamoDisable</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.DynamoDisable" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.DynamoDisable.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.DynamoDisable.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.DynamoSkip">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DynamoSkip</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.DynamoSkip" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.DynamoSkip.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.DynamoSkip.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.ModuleRef">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ModuleRef</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.ModuleRef" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">TModule</span></code>]</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.ModuleRef.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.ModuleRef.__init__" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>module</strong> (<em>TModule</em>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MyFakeTensor</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor.__init__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor.__new__">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor.__new__" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor" title="modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor"><em>MyFakeTensor</em></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor.create">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor.create" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>Tensor</em>)</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor" title="modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor"><em>MyFakeTensor</em></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor.device">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">device</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.MyFakeTensor.device" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="py function">
@@ -403,6 +311,32 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.dynamo_disable">
+<span class="sig-name descname"><span class="pre">dynamo_disable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reason</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.dynamo_disable" title="Link to this definition"></a></dt>
+<dd><p>Decorator to disable TorchDynamo</p>
+<p>If recursive=True, Dynamo is completely skipped on the decorated function
+frame as well as the recursively invoked functions.</p>
+<p>If recursive=False, Dynamo skips frames associated with the function code,
+but still process recursively invoked frames.</p>
+<p>If reason is provided, it will be printed when Dynamo attempts to trace the disabled function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.dynamo_skip">
+<span class="sig-name descname"><span class="pre">dynamo_skip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.dynamo_skip" title="Link to this definition"></a></dt>
+<dd><p>Skip frames associated with the function code, but still process recursively
+invoked frames</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fn</strong> (<em>Callable</em><em>[</em><em>[</em><em>~_P</em><em>]</em><em>, </em><em>_R</em><em>] </em><em>| </em><em>None</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Callable</em>[[…], <em>Any</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.fake_tensor">
 <span class="sig-name descname"><span class="pre">fake_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.fake_tensor" title="Link to this definition"></a></dt>
 <dt class="sig sig-object py">
@@ -443,19 +377,6 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>v</strong> (<em>Any</em>)</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>bool</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.utils.is_fake_tensor">
-<span class="sig-name descname"><span class="pre">is_fake_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.utils.is_fake_tensor" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>t</strong> (<em>Any</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>bool</em></p>

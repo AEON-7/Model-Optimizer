@@ -37,9 +37,8 @@ calc\_subblock\_stats
    .. autosummary::
       :nosignatures:
    
-      add_int8_runtime_estimates
       calculate_subblock_stats
-      calculate_subblock_stats_for_puzzle_dir
       launch_calc_subblock_stats
+      add_int8_runtime_estimates
    
    

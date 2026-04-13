@@ -40,11 +40,4 @@ nemotron\_h\_v2\_model\_descriptor
    .. Overview table of available functions in the module
    
    
-   .. rubric:: Functions
-
-   .. autosummary::
-      :nosignatures:
-   
-      get_dynamic_modules
-   
    

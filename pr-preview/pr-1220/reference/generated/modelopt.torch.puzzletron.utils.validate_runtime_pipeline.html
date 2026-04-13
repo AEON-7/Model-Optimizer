@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>validate_runtime_pipeline &mdash; Model Optimizer 0.0.1.dev1+g98b791a3d</title>
+  <title>validate_runtime_pipeline &mdash; Model Optimizer 0.0.1.dev1+gcfeef5e5f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -179,11 +179,11 @@ using sewing_kit’s StitchedModule framework. Relies on validation.py for core 
 <p class="rubric">Classes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validate_runtime_pipeline.HiddenStatesAndLMHead" title="modelopt.torch.puzzletron.utils.validate_runtime_pipeline.HiddenStatesAndLMHead"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HiddenStatesAndLMHead</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validate_runtime_pipeline.LMHead" title="modelopt.torch.puzzletron.utils.validate_runtime_pipeline.LMHead"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LMHead</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validate_runtime_pipeline.LMHead" title="modelopt.torch.puzzletron.utils.validate_runtime_pipeline.LMHead"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LMHead</span></code></a></p></td>
 <td><p>Special class to allow FSDP wrapping without affecting other Linear layers in the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.utils.validate_runtime_pipeline.HiddenStatesAndLMHead" title="modelopt.torch.puzzletron.utils.validate_runtime_pipeline.HiddenStatesAndLMHead"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HiddenStatesAndLMHead</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -256,7 +256,7 @@ Does not support data-parallel.
 <li><p><strong>calculate_full_score_ablations</strong> (<em>bool</em>)</p></li>
 <li><p><strong>calc_on_cpu</strong> (<em>bool</em>)</p></li>
 <li><p><strong>just_model_forward</strong> (<em>bool</em>)</p></li>
-<li><p><strong>autocast_dtype</strong> (<em>dtype</em>)</p></li>
+<li><p><strong>autocast_dtype</strong> (<em>torch.dtype</em>)</p></li>
 <li><p><strong>descriptor</strong> (<em>Type</em><em>[</em><a class="reference internal" href="modelopt.torch.puzzletron.anymodel.model_descriptor.base.html#modelopt.torch.puzzletron.anymodel.model_descriptor.base.ModelDescriptor" title="modelopt.torch.puzzletron.anymodel.model_descriptor.base.ModelDescriptor"><em>ModelDescriptor</em></a><em>]</em>)</p></li>
 <li><p><strong>use_autocast</strong> (<em>bool</em>)</p></li>
 </ul>

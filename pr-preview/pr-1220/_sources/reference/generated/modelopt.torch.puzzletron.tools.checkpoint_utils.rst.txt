@@ -37,11 +37,12 @@ checkpoint\_utils
    .. autosummary::
       :nosignatures:
    
-      copy_tokenizer
-      init_empty_module
-      init_module_with_state_dict
-      is_valid_decilm_checkpoint
       load_state_dict
+      load_model_config
+      init_module_with_state_dict
+      init_empty_module
       skip_init
+      is_valid_decilm_checkpoint
+      copy_tokenizer
    
    

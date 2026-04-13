@@ -31,8 +31,8 @@ validate\_runtime\_pipeline
    .. autosummary::
       :nosignatures:
    
-      HiddenStatesAndLMHead
       LMHead
+      HiddenStatesAndLMHead
    
    
 

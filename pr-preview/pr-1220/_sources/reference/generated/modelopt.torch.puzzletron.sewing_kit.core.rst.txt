@@ -32,15 +32,12 @@ core
       :nosignatures:
    
       ExternalTarget
-      ConstantTarget
       FunctionTarget
       ModuleTarget
       RemoteTarget
       Needle
       StitchedModule
-      StitchedModuleOutput
       InputReducer
-      OutputReducer
    
    
 

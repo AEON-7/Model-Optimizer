@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>passage &mdash; Model Optimizer 0.0.1.dev1+g98b791a3d</title>
+  <title>passage &mdash; Model Optimizer 0.0.1.dev1+gcfeef5e5f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -181,22 +181,22 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.OutputValue" title="modelopt.torch.puzzletron.sewing_kit.passage.OutputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutputValue</span></code></a></p></td>
 <td><p>alias of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.Passage" title="modelopt.torch.puzzletron.sewing_kit.passage.Passage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Passage</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassageInputAdapter</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassageInputAdapter</span></code></a></p></td>
 <td><p>PassageInputAdapter(adapter_fn: 'Callable[[InputArgs, Optional[str], Optional[nn.Module]], InputArgs]')</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassageOutputAdapter</span></code></a></p></td>
+<td><p>PassageOutputAdapter(adapter_fn: 'Callable[[Any, Optional[str], Optional[nn.Module]], Any]')</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassageInputOverrides</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassageOutput</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassageOutputOverrides</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassageOutput</span></code></a></p></td>
 <td><p>PassageOutput(captured_inputs: 'dict[str, InputArgs]', captured_outputs: 'dict[str, Any]', captured_fake_outputs: 'dict[str, Any]', module_output: 'Any')</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassageOutputAdapter</span></code></a></p></td>
-<td><p>PassageOutputAdapter(adapter_fn: 'Callable[[Any, Optional[str], Optional[nn.Module]], Any]')</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PassageOutputOverrides</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.Passage" title="modelopt.torch.puzzletron.sewing_kit.passage.Passage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Passage</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -207,7 +207,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.always_false_predicate" title="modelopt.torch.puzzletron.sewing_kit.passage.always_false_predicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">always_false_predicate</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.always_true_predicate" title="modelopt.torch.puzzletron.sewing_kit.passage.always_true_predicate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">always_true_predicate</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.patch_module" title="modelopt.torch.puzzletron.sewing_kit.passage.patch_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">patch_module</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -235,7 +235,7 @@
 <dd class="field-odd"><p><strong>index</strong> (<em>int</em><em> | </em><em>slice</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -248,7 +248,7 @@
 <dd class="field-odd"><p><strong>keys</strong> (<em>Sequence</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -263,6 +263,12 @@
 <span class="sig-name descname"><span class="pre">kwargs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs.kwargs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.NoActivePassageContextError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NoActivePassageContextError</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.NoActivePassageContextError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -284,8 +290,8 @@
 <li><p><strong>module</strong> (<em>Module</em>)</p></li>
 <li><p><strong>inputs_to_capture</strong> (<em>Iterable</em><em>[</em><em>str</em><em>]</em>)</p></li>
 <li><p><strong>outputs_to_capture</strong> (<em>Iterable</em><em>[</em><em>str</em><em>]</em>)</p></li>
-<li><p><strong>input_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputAdapter"><em>PassageInputAdapter</em></a><em> | </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>]</em>)</p></li>
-<li><p><strong>output_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputAdapter"><em>PassageOutputAdapter</em></a><em> | </em><em>Any</em><em>]</em>)</p></li>
+<li><p><strong>input_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter"><em>PassageInputAdapter</em></a><em> | </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>]</em>)</p></li>
+<li><p><strong>output_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter"><em>PassageOutputAdapter</em></a><em> | </em><em>Any</em><em>]</em>)</p></li>
 <li><p><strong>outputs_cache</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>)</p></li>
 <li><p><strong>capture_fake_outputs_predicate</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>, </em><em>Module</em><em>]</em><em>, </em><em>bool</em><em>]</em>)</p></li>
 <li><p><strong>capture_cache_outputs_predicate</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>, </em><em>Module</em><em>]</em><em>, </em><em>bool</em><em>]</em>)</p></li>
@@ -318,8 +324,8 @@
 <li><p><strong>module</strong> (<em>Module</em>)</p></li>
 <li><p><strong>inputs_to_capture</strong> (<em>Iterable</em><em>[</em><em>str</em><em>]</em>)</p></li>
 <li><p><strong>outputs_to_capture</strong> (<em>Iterable</em><em>[</em><em>str</em><em>]</em>)</p></li>
-<li><p><strong>input_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputAdapter"><em>PassageInputAdapter</em></a><em> | </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>]</em>)</p></li>
-<li><p><strong>output_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputAdapter"><em>PassageOutputAdapter</em></a><em> | </em><em>Any</em><em>]</em>)</p></li>
+<li><p><strong>input_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter"><em>PassageInputAdapter</em></a><em> | </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>]</em>)</p></li>
+<li><p><strong>output_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter"><em>PassageOutputAdapter</em></a><em> | </em><em>Any</em><em>]</em>)</p></li>
 <li><p><strong>outputs_cache</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>)</p></li>
 <li><p><strong>capture_fake_outputs_predicate</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>, </em><em>Module</em><em>]</em><em>, </em><em>bool</em><em>]</em>)</p></li>
 <li><p><strong>capture_cache_outputs_predicate</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>, </em><em>Module</em><em>]</em><em>, </em><em>bool</em><em>]</em>)</p></li>
@@ -328,7 +334,7 @@
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.Passage" title="modelopt.torch.puzzletron.sewing_kit.passage.core.Passage"><em>Passage</em></a></p>
+<dd class="field-even"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.Passage" title="modelopt.torch.puzzletron.sewing_kit.passage.Passage"><em>Passage</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -351,7 +357,7 @@
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.Passage.forward" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutput"><em>PassageOutput</em></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput"><em>PassageOutput</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -363,7 +369,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.Passage.input_overrides">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_overrides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputOverrides"><span class="pre">PassageInputOverrides</span></a></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.Passage.input_overrides" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_overrides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides"><span class="pre">PassageInputOverrides</span></a></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.Passage.input_overrides" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -391,7 +397,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.Passage.output_overrides">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_overrides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputOverrides"><span class="pre">PassageOutputOverrides</span></a></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.Passage.output_overrides" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_overrides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides"><span class="pre">PassageOutputOverrides</span></a></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.Passage.output_overrides" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -404,7 +410,7 @@
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.Passage.run" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutput"><em>PassageOutput</em></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput"><em>PassageOutput</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -426,7 +432,7 @@
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adapter_fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>adapter_fn</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>, </em><em>str</em><em> | </em><em>None</em><em>, </em><em>Module</em><em> | </em><em>None</em><em>]</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>]</em>)</p>
+<dd class="field-odd"><p><strong>adapter_fn</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>, </em><em>str</em><em> | </em><em>None</em><em>, </em><em>Module</em><em> | </em><em>None</em><em>]</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>]</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>None</em></p>
@@ -436,7 +442,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter.adapter_fn">
-<span class="sig-name descname"><span class="pre">adapter_fn</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><span class="pre">InputArgs</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Module</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><span class="pre">InputArgs</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter.adapter_fn" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">adapter_fn</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><span class="pre">InputArgs</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Module</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><span class="pre">InputArgs</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter.adapter_fn" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -444,13 +450,13 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PassageInputOverrides</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassageInputAdapter</span></code></a> | <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputArgs</span></code></a>]</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassageInputAdapter</span></code></a> | <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputArgs</span></code></a>]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_overrides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputOverrides.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>input_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageInputAdapter"><em>PassageInputAdapter</em></a><em> | </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>]</em>)</p>
+<dd class="field-odd"><p><strong>input_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageInputAdapter"><em>PassageInputAdapter</em></a><em> | </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -468,7 +474,7 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>captured_inputs</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><em>InputArgs</em></a><em>]</em>)</p></li>
+<li><p><strong>captured_inputs</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><em>InputArgs</em></a><em>]</em>)</p></li>
 <li><p><strong>captured_outputs</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>)</p></li>
 <li><p><strong>captured_fake_outputs</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>)</p></li>
 <li><p><strong>module_output</strong> (<em>Any</em>)</p></li>
@@ -487,7 +493,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput.captured_inputs">
-<span class="sig-name descname"><span class="pre">captured_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.core.InputArgs"><span class="pre">InputArgs</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput.captured_inputs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">captured_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.InputArgs" title="modelopt.torch.puzzletron.sewing_kit.passage.InputArgs"><span class="pre">InputArgs</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutput.captured_inputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -530,17 +536,23 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PassageOutputOverrides</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassageOutputAdapter</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code>]</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassageOutputAdapter</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code>]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_overrides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputOverrides.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>output_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.core.PassageOutputAdapter"><em>PassageOutputAdapter</em></a><em> | </em><em>Any</em><em>]</em>)</p>
+<dd class="field-odd"><p><strong>output_overrides</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter" title="modelopt.torch.puzzletron.sewing_kit.passage.PassageOutputAdapter"><em>PassageOutputAdapter</em></a><em> | </em><em>Any</em><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.RequiredPassageOutputsCapturedSignal">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RequiredPassageOutputsCapturedSignal</span></span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.RequiredPassageOutputsCapturedSignal" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 </dd></dl>
 
 <dl class="py function">
@@ -560,17 +572,14 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.always_true_predicate">
-<span class="sig-name descname"><span class="pre">always_true_predicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.always_true_predicate" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="modelopt.torch.puzzletron.sewing_kit.passage.patch_module">
+<span class="sig-name descname"><span class="pre">patch_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.puzzletron.sewing_kit.passage.patch_module" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>module_name</strong> (<em>str</em>)</p></li>
+<li><p><strong>module_name_</strong> (<em>str</em>)</p></li>
 <li><p><strong>module</strong> (<em>Module</em>)</p></li>
 </ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>bool</em></p>
 </dd>
 </dl>
 </dd></dl>

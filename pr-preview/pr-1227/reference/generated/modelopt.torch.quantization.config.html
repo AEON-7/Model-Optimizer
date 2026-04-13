@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>config &mdash; Model Optimizer 0.0.1.dev1+gf052bf41c</title>
+  <title>config &mdash; Model Optimizer 0.0.1.dev1+gb5902481f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -868,7 +868,7 @@ reconstruction error of a tensor after uniform Q→DQ:</p>
 <dt class="sig sig-object py" id="modelopt.torch.quantization.config.QuantizeAlgorithmConfig.use_sequential">
 <em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_sequential</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#modelopt.torch.quantization.config.QuantizeAlgorithmConfig.use_sequential" title="Link to this definition"></a></dt>
 <dd><p><details  class="autodoc_pydantic_collapsable_json">
-<summary>Show details</summary><p>If True, the calibration algorithm is applied sequentially to each decoder block. The current approach recomputes a full forward pass per layer to propagate updated activations,incurring O(N²) cost. Future revisions will add caching to eliminate redundant passes.</p>
+<summary>Show details</summary><p>If True, the calibration algorithm is applied sequentially to each decoder block. Each layer’s inputs are captured via a single forward pass that reflects the quantization of all preceding layers, incurring O(N) forward passes for N layers.</p>
 </details></p></dd></dl>
 
 </dd></dl>

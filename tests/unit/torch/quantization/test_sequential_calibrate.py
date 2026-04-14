@@ -591,36 +591,3 @@ def test_cleanup_restores_original_layers(monkeypatch):
     for i, orig in enumerate(originals):
         assert model.layers[i] is orig, f"Layer {i} not restored to original after cleanup"
         assert not hasattr(orig, "_seq_calib"), f"Layer {i} still has _seq_calib"
-
-
-def test_skip_dummy_has_no_hf_hook(monkeypatch):
-    """Dummies must not carry _hf_hook from the original layer."""
-    accelerate = pytest.importorskip("accelerate")
-    from accelerate.hooks import AlignDevicesHook
-
-    _register_test_discoverer(monkeypatch)
-    model = _TupleUnpackingModel(n_layers=4, dim=16)
-    data = [torch.randn(2, 16)]
-
-    # Attach a no-op AlignDevicesHook to every layer
-    for layer in model.layers:
-        hook = AlignDevicesHook(execution_device=torch.device("cpu"))
-        accelerate.hooks.add_hook_to_module(layer, hook)
-
-    def forward_loop(m):
-        for d in data:
-            m(d)
-
-    collector = LayerActivationCollector(model)
-    collector._patch_all_layers()
-    try:
-        for layer in list(model.layers):
-            collector.get_input_activations(layer, forward_loop)
-
-        # Layers 0 and 1 should be dummies without _hf_hook
-        for i in range(2):
-            dummy = model.layers[i]
-            assert isinstance(dummy, _SkipLayer)
-            assert not hasattr(dummy, "_hf_hook"), f"Dummy at {i} should not have _hf_hook"
-    finally:
-        collector._unpatch_all_layers()

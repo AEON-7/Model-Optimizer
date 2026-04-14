@@ -368,3 +368,67 @@ def test_sequential_gptq_checkpoint_resume_cpu_offloaded(tmp_path):
     assert torch.allclose(output_ref.logits, output_resumed.logits), (
         "GPTQ resumed checkpoint should produce identical output to full run"
     )
+
+
+class _TupleReturningBlock(torch.nn.Module):
+    """Decoder layer that returns a tuple, mimicking HuggingFace decoder layers."""
+
+    def __init__(self, dim=16):
+        super().__init__()
+        self.linear = torch.nn.Linear(dim, dim, bias=False)
+
+    def forward(self, x, **kwargs):
+        return (self.linear(x), None)
+
+
+class _TupleUnpackingModel(torch.nn.Module):
+    """Parent model that unpacks layer outputs as tuples."""
+
+    def __init__(self, n_layers=4, dim=16):
+        super().__init__()
+        self.layers = torch.nn.ModuleList([_TupleReturningBlock(dim) for _ in range(n_layers)])
+
+    def forward(self, x):
+        for layer in self.layers:
+            x, _ = layer(x)
+        return x
+
+
+def test_skip_dummy_has_no_hf_hook(monkeypatch):
+    """Dummies must not carry _hf_hook from the original layer."""
+    from accelerate.hooks import AlignDevicesHook, add_hook_to_module
+
+    from modelopt.torch.quantization.utils.layerwise_calib import (
+        LayerActivationCollector,
+        _SkipLayer,
+    )
+
+    monkeypatch.setattr(
+        LayerActivationCollector,
+        "_decoder_layer_support",
+        [(lambda m: hasattr(m, "layers"), lambda m: m.layers)],
+    )
+
+    model = _TupleUnpackingModel(n_layers=4, dim=16)
+    data = [torch.randn(2, 16)]
+
+    for layer in model.layers:
+        hook = AlignDevicesHook(execution_device=torch.device("cpu"))
+        add_hook_to_module(layer, hook)
+
+    def forward_loop(m):
+        for d in data:
+            m(d)
+
+    collector = LayerActivationCollector(model)
+    collector._patch_all_layers()
+    try:
+        for layer in list(model.layers):
+            collector.get_input_activations(layer, forward_loop)
+
+        for i in range(2):
+            dummy = model.layers[i]
+            assert isinstance(dummy, _SkipLayer)
+            assert not hasattr(dummy, "_hf_hook"), f"Dummy at {i} should not have _hf_hook"
+    finally:
+        collector._unpatch_all_layers()

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>unified_export_hf &mdash; Model Optimizer 0.0.1.dev1+g7b0743ff4</title>
+  <title>unified_export_hf &mdash; Model Optimizer 0.0.1.dev1+g7aa17aba9</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -73,6 +73,7 @@
 <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/0_support_matrix.html">Support Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/10_recipes.html">Recipes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/2_save_load.html">Saving &amp; Restoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/3_pruning.html">Pruning</a></li>
@@ -205,26 +206,9 @@ model data type if None.</p></li>
 to export. If None, all quantized components are exported.</p></li>
 <li><p><strong>extra_state_dict</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Tensor</em><em>] </em><em>| </em><em>None</em>) – Extra state dictionary to add to the exported model.</p></li>
 <li><p><strong>max_shard_size</strong> (<em>int</em><em> | </em><em>str</em>) – Maximum size of each safetensors shard file. Defaults to “10GB”.</p></li>
-<li><p><strong>**kwargs</strong> – Internal-only keyword arguments. Supported keys:
-merged_base_safetensor_path (str, optional). When provided, merges the
-exported diffusion transformer weights with non-transformer components
-(VAE, vocoder, text encoders, etc.) from this base safetensors file to
-produce a single-file checkpoint compatible with ComfyUI. Value should be
-the path to a full base model <code class="docutils literal notranslate"><span class="pre">.safetensors</span></code> file
-(e.g. <code class="docutils literal notranslate"><span class="pre">&quot;path/to/ltx-2-19b-dev.safetensors&quot;</span></code>).
-Only used for diffusion model exports.
-enable_layerwise_quant_metadata (bool, optional). When True (default),
-includes per-layer <code class="docutils literal notranslate"><span class="pre">_quantization_metadata</span></code> in the checkpoint metadata
-so that inference runtimes (e.g., ComfyUI) can identify which layers are
-quantized and in what format. Set to False to skip.
-enable_swizzle_layout (bool, optional). When True, rearranges NVFP4 block
-scales from ModelOpt’s flat layout to cuBLAS 2-D tiled layout. Required
-for runtimes that consume cuBLAS block-scaled GEMM (e.g., comfy_kitchen).
-Defaults to False.
-padding_strategy (str | None, optional). Padding strategy for NVFP4 weight
-and scale tensors. <code class="docutils literal notranslate"><span class="pre">&quot;row&quot;</span></code> pads rows to multiples of 16 (columns assumed
-already aligned). <code class="docutils literal notranslate"><span class="pre">&quot;row_col&quot;</span></code> pads both dimensions. <code class="docutils literal notranslate"><span class="pre">None</span></code> (default)
-disables padding. Independent of <code class="docutils literal notranslate"><span class="pre">enable_swizzle_layout</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – Runtime-specific post-processing options forwarded to
+<code class="xref py py-func docutils literal notranslate"><span class="pre">_postprocess_safetensors()</span></code> for diffusion model exports.
+See its docstring for supported keys.</p></li>
 </ul>
 </dd>
 </dl>

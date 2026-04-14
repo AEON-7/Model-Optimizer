@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dataset_utils &mdash; Model Optimizer 0.0.1.dev1+gb6d6538a1</title>
+  <title>dataset_utils &mdash; Model Optimizer 0.0.1.dev1+g3b897a198</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -73,6 +73,7 @@
 <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/0_support_matrix.html">Support Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/10_recipes.html">Recipes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/2_save_load.html">Saving &amp; Restoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/3_pruning.html">Pruning</a></li>
@@ -184,17 +185,11 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.utils.dataset_utils.download_hf_dataset_as_jsonl" title="modelopt.torch.utils.dataset_utils.download_hf_dataset_as_jsonl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download_hf_dataset_as_jsonl</span></code></a></p></td>
 <td><p>Download a Hugging Face dataset and save as JSONL files.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.utils.dataset_utils.get_calib_and_holdout_dataloaders" title="modelopt.torch.utils.dataset_utils.get_calib_and_holdout_dataloaders"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_calib_and_holdout_dataloaders</span></code></a></p></td>
-<td><p>Create a calibration DataLoader and save holdout data to disk.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.utils.dataset_utils.get_dataset_dataloader" title="modelopt.torch.utils.dataset_utils.get_dataset_dataloader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataset_dataloader</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.utils.dataset_utils.get_dataset_dataloader" title="modelopt.torch.utils.dataset_utils.get_dataset_dataloader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataset_dataloader</span></code></a></p></td>
 <td><p>Get a dataloader with the dataset name and tokenizer of the target model.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.utils.dataset_utils.get_dataset_samples" title="modelopt.torch.utils.dataset_utils.get_dataset_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataset_samples</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.utils.dataset_utils.get_dataset_samples" title="modelopt.torch.utils.dataset_utils.get_dataset_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataset_samples</span></code></a></p></td>
 <td><p>Load a portion of a dataset with the dataset name and a given size.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.utils.dataset_utils.get_dataset_samples_with_holdout" title="modelopt.torch.utils.dataset_utils.get_dataset_samples_with_holdout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataset_samples_with_holdout</span></code></a></p></td>
-<td><p>Load calibration and holdout samples from a dataset in a single streaming pass.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.utils.dataset_utils.get_jsonl_text_samples" title="modelopt.torch.utils.dataset_utils.get_jsonl_text_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_jsonl_text_samples</span></code></a></p></td>
 <td><p>Load up to <code class="docutils literal notranslate"><span class="pre">num_samples</span></code> entries from a JSONL file using the <code class="docutils literal notranslate"><span class="pre">text</span></code> field.</p></td>
@@ -306,41 +301,6 @@ model outputs).</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.utils.dataset_utils.get_calib_and_holdout_dataloaders">
-<span class="sig-name descname"><span class="pre">get_calib_and_holdout_dataloaders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">holdout_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_sample_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_chat_template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.dataset_utils.get_calib_and_holdout_dataloaders" title="Link to this definition"></a></dt>
-<dd><p>Create a calibration DataLoader and save holdout data to disk.</p>
-<p>On the first call the function streams <code class="docutils literal notranslate"><span class="pre">calib_size</span> <span class="pre">+</span> <span class="pre">holdout_size</span></code> samples
-from <code class="docutils literal notranslate"><span class="pre">dataset_name</span></code>, tokenizes both splits, saves them as <code class="docutils literal notranslate"><span class="pre">.pt</span></code> files
-under <code class="docutils literal notranslate"><span class="pre">save_dir</span></code>, and returns the calibration DataLoader.</p>
-<p>On subsequent calls, if both <code class="docutils literal notranslate"><span class="pre">calib.pt</span></code> and <code class="docutils literal notranslate"><span class="pre">holdout.pt</span></code> already exist
-under <code class="docutils literal notranslate"><span class="pre">save_dir</span></code>, the function reloads directly from disk (skipping the
-dataset download) and validates that calibration and holdout have zero
-overlapping <code class="docutils literal notranslate"><span class="pre">input_ids</span></code> rows.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset_name</strong> (<em>str</em><em> | </em><em>list</em><em>[</em><em>str</em><em>]</em>) – Name(s) of the dataset(s) to load.</p></li>
-<li><p><strong>tokenizer</strong> (<em>PreTrainedTokenizerBase</em>) – HuggingFace tokenizer instance.</p></li>
-<li><p><strong>batch_size</strong> (<em>int</em>) – Batch size for the calibration DataLoader.</p></li>
-<li><p><strong>calib_size</strong> (<em>int</em><em> | </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Number of calibration samples (per dataset if list).</p></li>
-<li><p><strong>holdout_size</strong> (<em>int</em>) – Total number of holdout samples.</p></li>
-<li><p><strong>max_sample_length</strong> (<em>int</em>) – Maximum token length per sample.</p></li>
-<li><p><strong>device</strong> (<em>device</em><em> | </em><em>None</em>) – Target device for the calibration DataLoader tensors.</p></li>
-<li><p><strong>include_labels</strong> (<em>bool</em>) – Whether to include labels in the calibration DataLoader.</p></li>
-<li><p><strong>apply_chat_template</strong> (<em>bool</em>) – Whether to apply the chat template.</p></li>
-<li><p><strong>save_dir</strong> (<em>str</em><em> | </em><em>None</em>) – Directory to save/load <code class="docutils literal notranslate"><span class="pre">calib.pt</span></code> and <code class="docutils literal notranslate"><span class="pre">holdout.pt</span></code>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">(calib_dataloader,</span> <span class="pre">holdout_path)</span></code> tuple.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>tuple</em>[<em>DataLoader</em>, <em>Path</em> | <em>None</em>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.utils.dataset_utils.get_dataset_dataloader">
 <span class="sig-name descname"><span class="pre">get_dataset_dataloader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cnn_dailymail'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_sample_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_chat_template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.dataset_utils.get_dataset_dataloader" title="Link to this definition"></a></dt>
 <dd><p>Get a dataloader with the dataset name and tokenizer of the target model.</p>
@@ -399,35 +359,6 @@ registered datasets, or <code class="docutils literal notranslate"><span class="
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Samples</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="modelopt.torch.utils.dataset_utils.get_dataset_samples_with_holdout">
-<span class="sig-name descname"><span class="pre">get_dataset_samples_with_holdout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_holdout</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_chat_template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.utils.dataset_utils.get_dataset_samples_with_holdout" title="Link to this definition"></a></dt>
-<dd><p>Load calibration and holdout samples from a dataset in a single streaming pass.</p>
-<p>Samples are loaded sequentially: the first <code class="docutils literal notranslate"><span class="pre">num_samples</span></code> non-empty samples go to the
-calibration set, and the next <code class="docutils literal notranslate"><span class="pre">num_holdout</span></code> non-empty samples go to the holdout set.
-Empty samples are skipped without counting toward either quota.  This guarantees zero
-overlap between the two sets by construction.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset_name</strong> (<em>str</em>) – Name or HuggingFace path of the dataset to load, a local directory path,
-or a path to a <code class="docutils literal notranslate"><span class="pre">.jsonl</span></code> file.</p></li>
-<li><p><strong>num_samples</strong> (<em>int</em>) – Number of non-empty samples for the calibration set.</p></li>
-<li><p><strong>num_holdout</strong> (<em>int</em>) – Number of non-empty samples for the holdout set.</p></li>
-<li><p><strong>apply_chat_template</strong> (<em>bool</em>) – Whether to apply the chat template to the samples.</p></li>
-<li><p><strong>tokenizer</strong> (<em>PreTrainedTokenizerBase</em><em> | </em><em>None</em>) – Tokenizer to use for applying the chat template.</p></li>
-<li><p><strong>split</strong> (<em>str</em><em> | </em><em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – Override the split(s) to load.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A tuple <code class="docutils literal notranslate"><span class="pre">(calib_samples,</span> <span class="pre">holdout_samples)</span></code>.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>tuple</em>[<em>list</em>[<em>str</em>], <em>list</em>[<em>str</em>]]</p>
 </dd>
 </dl>
 </dd></dl>

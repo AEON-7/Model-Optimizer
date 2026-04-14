@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recipes &mdash; Model Optimizer 0.0.1.dev1+gb65371171</title>
+  <title>Recipes &mdash; Model Optimizer 0.0.1.dev1+g12bd0baed</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -80,6 +80,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#single-file-format">Single-file format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#directory-format">Directory format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#composable-imports">Composable imports</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#multi-document-snippets">Multi-document snippets</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#built-in-config-snippets">Built-in config snippets</a></li>
 </ul>
 </li>
@@ -346,7 +347,15 @@ This eliminates duplication — numeric format definitions and standard exclusio
 lists are authored once and referenced by name across recipes.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">imports</span></code> section is a dict mapping short names to config file paths.
 References use the explicit <code class="docutils literal notranslate"><span class="pre">{$import:</span> <span class="pre">name}</span></code> marker so they are never
-confused with literal values.  The marker can appear anywhere in the recipe:</p>
+confused with literal values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">imports</span></code> (no <code class="docutils literal notranslate"><span class="pre">$</span></code>) is a <strong>top-level structural section</strong> — like
+<code class="docutils literal notranslate"><span class="pre">metadata</span></code> or <code class="docutils literal notranslate"><span class="pre">quantize</span></code>, it declares the recipe’s dependencies.
+<code class="docutils literal notranslate"><span class="pre">$import</span></code> (with <code class="docutils literal notranslate"><span class="pre">$</span></code>) is an <strong>inline directive</strong> that appears inside
+data values and gets resolved at load time.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">$import</span></code> marker can appear anywhere in the recipe:</p>
 <ul class="simple">
 <li><p>As a <strong>dict value</strong> — the marker is replaced with the snippet content.</p></li>
 <li><p>As a <strong>list element</strong> — the snippet (which must itself be a list) is spliced
@@ -417,6 +426,31 @@ built-in <code class="docutils literal notranslate"><span class="pre">modelopt_r
 section.  Each file’s imports are scoped to that file — the same name can be
 used in different files without conflict.  Circular imports are detected and
 raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<section id="multi-document-snippets">
+<h4>Multi-document snippets<a class="headerlink" href="#multi-document-snippets" title="Link to this heading"></a></h4>
+<p>Dict-valued snippets (e.g., numeric format definitions) can use <code class="docutils literal notranslate"><span class="pre">imports</span></code>
+directly because the <code class="docutils literal notranslate"><span class="pre">imports</span></code> key and the snippet content are both part of
+the same YAML mapping.  List-valued snippets have a problem: YAML only allows
+one root node per document, so a file cannot be both a mapping (for
+<code class="docutils literal notranslate"><span class="pre">imports</span></code>) and a list (for entries) at the same time.</p>
+<p>The solution is <strong>multi-document YAML</strong>: the first document holds the
+<code class="docutils literal notranslate"><span class="pre">imports</span></code>, and the second document (after <code class="docutils literal notranslate"><span class="pre">---</span></code>) holds the list content.
+The loader parses both documents, resolves <code class="docutils literal notranslate"><span class="pre">$import</span></code> markers in the content,
+and returns the resolved list:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># configs/ptq/fp8_kv.yaml — list snippet that imports a dict snippet</span>
+<span class="nt">imports</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">fp8</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">configs/numerics/fp8</span>
+<span class="nn">---</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">quantizer_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;*[kv]_bmm_quantizer&#39;</span>
+<span class="w">  </span><span class="nt">cfg</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">$import</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fp8</span>
+</pre></div>
+</div>
+<p>This enables full composability — list snippets can reference dict snippets,
+dict snippets can reference other dict snippets, and recipes can reference
+any of them.  All import resolution happens at load time with the same
+precedence rules.</p>
+</section>
 <section id="built-in-config-snippets">
 <h4>Built-in config snippets<a class="headerlink" href="#built-in-config-snippets" title="Link to this heading"></a></h4>
 <p>Reusable snippets are stored under <code class="docutils literal notranslate"><span class="pre">modelopt_recipes/configs/</span></code>:</p>
@@ -445,6 +479,9 @@ raise <code class="docutils literal notranslate"><span class="pre">ValueError</s
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">configs/ptq/default_disabled_quantizers</span></code></p></td>
 <td><p>Standard exclusions (LM head, routers, BatchNorm, etc.)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">configs/ptq/fp8_kv</span></code></p></td>
+<td><p>FP8 E4M3 KV cache quantization (multi-document, imports <code class="docutils literal notranslate"><span class="pre">fp8</span></code>)</p></td>
 </tr>
 </tbody>
 </table>

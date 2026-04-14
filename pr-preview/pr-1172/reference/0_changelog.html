@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog &mdash; Model Optimizer 0.0.1.dev1+g9bf24b384</title>
+  <title>Changelog &mdash; Model Optimizer 0.0.1.dev1+g218711587</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -73,6 +73,7 @@
 <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guides/0_support_matrix.html">Support Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/10_recipes.html">Recipes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/1_quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/2_save_load.html">Saving &amp; Restoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/3_pruning.html">Pruning</a></li>
@@ -156,6 +157,9 @@
 <h2>0.44 (2026-05-xx)<a class="headerlink" href="#xx" title="Link to this heading"></a></h2>
 <p><strong>New Features</strong></p>
 <ul class="simple">
+<li><p>Add model-agnostic <a class="reference external" href="https://github.com/linkedin/Liger-Kernel" rel="noopener noreferrer" target="_blank">Liger kernel</a> fused loss support in <code class="docutils literal notranslate"><span class="pre">ModelOptHFTrainer</span></code> for any HuggingFace causal LM, with distributed param gathering for FSDP2, DeepSpeed ZeRO-3, and DDP. Extends HuggingFace’s built-in Liger integration which is limited to <a class="reference external" href="https://github.com/linkedin/Liger-Kernel/blob/main/src/liger_kernel/transformers/monkey_patch.py" rel="noopener noreferrer" target="_blank">a fixed set of model architectures</a>, FSDP only, and CrossEntropy loss. ModelOpt additionally supports Liger fused KD loss (JSD) for knowledge distillation.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">ModelOptTrainerArguments</span></code> to <code class="docutils literal notranslate"><span class="pre">ModelOptHFTrainer</span></code> with <code class="docutils literal notranslate"><span class="pre">--trainable_params</span></code>, <code class="docutils literal notranslate"><span class="pre">--frozen_params</span></code>, <code class="docutils literal notranslate"><span class="pre">--lr_config</span></code>, <code class="docutils literal notranslate"><span class="pre">--save_dtype</span></code>, and <code class="docutils literal notranslate"><span class="pre">--manual_gc</span></code> flags. Add per-parameter learning rate support via YAML config.</p></li>
+<li><p>Simplify <code class="docutils literal notranslate"><span class="pre">KDTrainer</span></code> for HuggingFace knowledge distillation: remove <code class="docutils literal notranslate"><span class="pre">mtd.convert()</span></code> class-swap in favor of explicit teacher forwarding with logit-level distillation support.</p></li>
 <li><p>Support full Transformer Engine spec for Minitron pruning (<code class="docutils literal notranslate"><span class="pre">mcore_minitron</span></code>). Now we no longer need to use custom ModelOpt spec. Note that this does not affect the usage of the pruning workflow but makes pruning slightly faster and may result in slightly different pruned model because of different kernel and numerics.</p></li>
 <li><p>Added iterator interface using CalibrationDataReader in ONNX quantization workflow.</p></li>
 <li><p>Add N:M sparse softmax support to the Triton flash attention kernel (<code class="docutils literal notranslate"><span class="pre">modelopt.torch.kernels.triton_fa</span></code>). See <a class="reference external" href="https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity" rel="noopener noreferrer" target="_blank">examples/llm_sparsity/attention_sparsity/README.md</a> for usage.</p></li>

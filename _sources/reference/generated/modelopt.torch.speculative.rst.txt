@@ -17,6 +17,10 @@ speculative
 
 
 
+   modelopt.torch.speculative.dflash
+
+
+
    modelopt.torch.speculative.eagle
 
 

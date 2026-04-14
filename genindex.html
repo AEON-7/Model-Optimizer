@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g73be81037</title>
+  <title>Index &mdash; Model Optimizer 0.0.1.dev1+g313119524</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -960,18 +960,20 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.nas.hparams.concat.html#modelopt.torch.nas.hparams.concat.ConcatTracedHp">ConcatTracedHp (class in modelopt.torch.nas.hparams.concat)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.opt.searcher.html#modelopt.torch.opt.searcher.BaseSearcher.config">config (BaseSearcher attribute)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.quantization.autotune.html#modelopt.onnx.quantization.autotune.Config">Config (class in modelopt.onnx.quantization.autotune)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.opt.dynamic.html#modelopt.torch.opt.dynamic.DynamicSpace.config">config() (DynamicSpace method)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.nas.autonas.html#modelopt.torch.nas.autonas.AutoNASModeDescriptor.config_class">config_class (AutoNASModeDescriptor property)</a>
 
       <ul>
         <li><a href="reference/generated/modelopt.torch.quantization.mode.html#modelopt.torch.quantization.mode.BaseCalibrateModeDescriptor.config_class">(BaseCalibrateModeDescriptor property)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.DFlashModeDescriptor.config_class">(DFlashModeDescriptor property)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.EagleModeDescriptor.config_class">(EagleModeDescriptor property)</a>
 </li>
@@ -1043,6 +1045,8 @@
       <ul>
         <li><a href="reference/generated/modelopt.torch.quantization.mode.html#modelopt.torch.quantization.mode.BaseCalibrateModeDescriptor.convert">(BaseCalibrateModeDescriptor property)</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.DFlashModeDescriptor.convert">(DFlashModeDescriptor property)</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.EagleModeDescriptor.convert">(EagleModeDescriptor property)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.nas.conversion.html#modelopt.torch.nas.conversion.ExportNASModeDescriptor.convert">(ExportNASModeDescriptor property)</a>
@@ -1105,6 +1109,8 @@
       <li><a href="reference/generated/modelopt.torch.nas.autonas.html#modelopt.torch.nas.autonas.convert_searchspace">convert_searchspace() (in module modelopt.torch.nas.autonas)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.sparsity.weight_sparsity.mode.html#modelopt.torch.sparsity.weight_sparsity.mode.convert_sparse_model">convert_sparse_model() (in module modelopt.torch.sparsity.weight_sparsity.mode)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.dflash.conversion.html#modelopt.torch.speculative.dflash.conversion.convert_to_dflash_model">convert_to_dflash_model() (in module modelopt.torch.speculative.dflash.conversion)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.opt.dynamic.html#modelopt.torch.opt.dynamic.DynamicSpace.convert_to_dynamic">convert_to_dynamic() (DynamicSpace method)</a>
 </li>
@@ -1283,6 +1289,28 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.utils.memory_monitor.html#modelopt.torch.utils.memory_monitor.GPUMemoryMonitor.device_count">device_count (GPUMemoryMonitor attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.DFlashConfig.dflash_architecture_config">dflash_architecture_config (DFlashConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.DFlashConfig.dflash_block_size">dflash_block_size (DFlashConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.DFlashConfig.dflash_freeze_base_model">dflash_freeze_base_model (DFlashConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.DFlashConfig.dflash_loss_decay_factor">dflash_loss_decay_factor (DFlashConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.DFlashConfig.dflash_mask_token_id">dflash_mask_token_id (DFlashConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.DFlashConfig.dflash_num_anchors">dflash_num_anchors (DFlashConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.DFlashConfig.dflash_report_acc">dflash_report_acc (DFlashConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.DFlashConfig.dflash_self_logit_distillation">dflash_self_logit_distillation (DFlashConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.config.html#modelopt.torch.speculative.config.DFlashConfig.dflash_use_torch_compile">dflash_use_torch_compile (DFlashConfig attribute)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.DFlashModeDescriptor">DFlashModeDescriptor (class in modelopt.torch.speculative.mode)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.dflash.dflash_model.html#modelopt.torch.speculative.dflash.dflash_model.DFlashModel">DFlashModel (class in modelopt.torch.speculative.dflash.dflash_model)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.qtensor.base_qtensor.html#modelopt.torch.quantization.qtensor.base_qtensor.QTensorWrapper.dim">dim() (QTensorWrapper method)</a>
 </li>
@@ -4102,8 +4130,6 @@
         <li><a href="reference/generated/modelopt.torch.quantization.qtensor.mxfp8_tensor.html#module-modelopt.torch.quantization.qtensor.mxfp8_tensor">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     modelopt.torch.quantization.qtensor.nf4_tensor
 
@@ -4125,6 +4151,8 @@
         <li><a href="reference/generated/modelopt.torch.quantization.tensor_quant.html#module-modelopt.torch.quantization.tensor_quant">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     modelopt.torch.quantization.triton
 
@@ -4326,6 +4354,34 @@
 
       <ul>
         <li><a href="reference/generated/modelopt.torch.speculative.config.html#module-modelopt.torch.speculative.config">module</a>
+</li>
+      </ul></li>
+      <li>
+    modelopt.torch.speculative.dflash
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.speculative.dflash.html#module-modelopt.torch.speculative.dflash">module</a>
+</li>
+      </ul></li>
+      <li>
+    modelopt.torch.speculative.dflash.conversion
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.speculative.dflash.conversion.html#module-modelopt.torch.speculative.dflash.conversion">module</a>
+</li>
+      </ul></li>
+      <li>
+    modelopt.torch.speculative.dflash.default_config
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.speculative.dflash.default_config.html#module-modelopt.torch.speculative.dflash.default_config">module</a>
+</li>
+      </ul></li>
+      <li>
+    modelopt.torch.speculative.dflash.dflash_model
+
+      <ul>
+        <li><a href="reference/generated/modelopt.torch.speculative.dflash.dflash_model.html#module-modelopt.torch.speculative.dflash.dflash_model">module</a>
 </li>
       </ul></li>
       <li>
@@ -4625,9 +4681,11 @@
 </li>
       <li><a href="reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.ModeloptStateManager.modes_with_states">modes_with_states() (ModeloptStateManager method)</a>
 </li>
-      <li><a href="reference/generated/modelopt.torch.distill.distillation_model.html#modelopt.torch.distill.distillation_model.DistillationModel.modify">modify() (DistillationModel method)</a>
+      <li><a href="reference/generated/modelopt.torch.speculative.dflash.dflash_model.html#modelopt.torch.speculative.dflash.dflash_model.DFlashModel.modify">modify() (DFlashModel method)</a>
 
       <ul>
+        <li><a href="reference/generated/modelopt.torch.distill.distillation_model.html#modelopt.torch.distill.distillation_model.DistillationModel.modify">(DistillationModel method)</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.opt.dynamic.html#modelopt.torch.opt.dynamic.DynamicModule.modify">(DynamicModule method)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.speculative.eagle.eagle_model.html#modelopt.torch.speculative.eagle.eagle_model.EagleModel.modify">(EagleModel method)</a>
@@ -5007,6 +5065,14 @@
 </li>
         <li><a href="reference/generated/modelopt.torch.speculative.config.html#module-modelopt.torch.speculative.config">modelopt.torch.speculative.config</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.speculative.dflash.html#module-modelopt.torch.speculative.dflash">modelopt.torch.speculative.dflash</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.speculative.dflash.conversion.html#module-modelopt.torch.speculative.dflash.conversion">modelopt.torch.speculative.dflash.conversion</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.speculative.dflash.default_config.html#module-modelopt.torch.speculative.dflash.default_config">modelopt.torch.speculative.dflash.default_config</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.speculative.dflash.dflash_model.html#module-modelopt.torch.speculative.dflash.dflash_model">modelopt.torch.speculative.dflash.dflash_model</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.speculative.eagle.html#module-modelopt.torch.speculative.eagle">modelopt.torch.speculative.eagle</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.speculative.eagle.conversion.html#module-modelopt.torch.speculative.eagle.conversion">modelopt.torch.speculative.eagle.conversion</a>
@@ -5132,6 +5198,8 @@
 
       <ul>
         <li><a href="reference/generated/modelopt.torch.quantization.mode.html#modelopt.torch.quantization.mode.BaseCalibrateModeDescriptor.name">(BaseCalibrateModeDescriptor property)</a>
+</li>
+        <li><a href="reference/generated/modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.DFlashModeDescriptor.name">(DFlashModeDescriptor property)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.EagleModeDescriptor.name">(EagleModeDescriptor property)</a>
 </li>
@@ -6040,10 +6108,10 @@
         <li><a href="reference/generated/modelopt.torch.sparsity.attention_sparsity.stats_manager.html#modelopt.torch.sparsity.attention_sparsity.stats_manager.SparseAttentionStatsManager.reset">(SparseAttentionStatsManager method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.reset_amax">reset_amax() (TensorQuantizer method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="reference/generated/modelopt.torch.nas.patch.html#modelopt.torch.nas.patch.PatchManager.reset_before_sample">reset_before_sample() (PatchManager method)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.reset_bias">reset_bias() (TensorQuantizer method)</a>
@@ -6085,6 +6153,8 @@
       <ul>
         <li><a href="reference/generated/modelopt.torch.quantization.mode.html#modelopt.torch.quantization.mode.BaseCalibrateModeDescriptor.restore">(BaseCalibrateModeDescriptor property)</a>
 </li>
+        <li><a href="reference/generated/modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.DFlashModeDescriptor.restore">(DFlashModeDescriptor property)</a>
+</li>
         <li><a href="reference/generated/modelopt.torch.speculative.mode.html#modelopt.torch.speculative.mode.EagleModeDescriptor.restore">(EagleModeDescriptor property)</a>
 </li>
         <li><a href="reference/generated/modelopt.torch.nas.conversion.html#modelopt.torch.nas.conversion.ExportNASModeDescriptor.restore">(ExportNASModeDescriptor property)</a>
@@ -6113,6 +6183,8 @@
       <li><a href="reference/generated/modelopt.torch.opt.conversion.html#modelopt.torch.opt.conversion.restore">restore() (in module modelopt.torch.opt.conversion)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.nas.autonas.html#modelopt.torch.nas.autonas.restore_autonas_searchspace">restore_autonas_searchspace() (in module modelopt.torch.nas.autonas)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.dflash.conversion.html#modelopt.torch.speculative.dflash.conversion.restore_dflash_model">restore_dflash_model() (in module modelopt.torch.speculative.dflash.conversion)</a>
 </li>
       <li><a href="reference/generated/modelopt.torch.speculative.eagle.conversion.html#modelopt.torch.speculative.eagle.conversion.restore_eagle_model">restore_eagle_model() (in module modelopt.torch.speculative.eagle.conversion)</a>
 </li>
@@ -6835,6 +6907,8 @@
       <li><a href="reference/generated/modelopt.torch.quantization.nn.modules.tensor_quantizer.html#modelopt.torch.quantization.nn.modules.tensor_quantizer.TensorQuantizer.validate_attr">validate_attr() (TensorQuantizer method)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.validate_batch_size">validate_batch_size() (in module modelopt.onnx.utils)</a>
+</li>
+      <li><a href="reference/generated/modelopt.torch.speculative.utils.html#modelopt.torch.speculative.utils.AcceptanceRateValidation.validate_online">validate_online() (AcceptanceRateValidation method)</a>
 </li>
       <li><a href="reference/generated/modelopt.onnx.utils.html#modelopt.onnx.utils.validate_onnx">validate_onnx() (in module modelopt.onnx.utils)</a>
 </li>

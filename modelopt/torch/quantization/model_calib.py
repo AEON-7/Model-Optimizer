@@ -28,7 +28,7 @@ import torch.nn.functional as F
 from tqdm import tqdm
 
 from modelopt.torch.opt.searcher import ForwardLoop
-from modelopt.torch.quantization.utils.activation_collector import LayerActivationCollector
+from modelopt.torch.quantization.utils.layerwise_calib import LayerActivationCollector
 from modelopt.torch.utils import print_rank_0
 from modelopt.torch.utils.distributed import DistributedProcessGroup, ParallelState
 from modelopt.torch.utils.network import bind_forward_method, unpatch_forward_method
@@ -1563,7 +1563,15 @@ def sequential_calibrate(
     Runs the full model forward per layer but patches decoder layers with a
     skip / run / capture strategy so that inter-layer logic in parent modules
     (e.g. mask construction) executes naturally without model-specific hooks.
+
+    If ``checkpoint_dir`` is passed (via ``calib_kwargs``), per-layer checkpoints
+    are saved after each layer completes. On restart, calibration resumes from
+    the last completed layer.
     """
+    from modelopt.torch.quantization.utils.layerwise_calib import _CheckpointState
+
+    checkpoint_dir = calib_kwargs.pop("checkpoint_dir", None)
+
     if forward_loop is None:
         raise ValueError(
             "forward_loop must not be None for sequential calibration. "
@@ -1577,26 +1585,51 @@ def sequential_calibrate(
             "Sequential calibration requires a model with identifiable transformer layers."
         )
 
-    print_rank_0(f"Sequential calibration: Found {len(transformer_layers)} transformer layers")
+    num_layers = len(transformer_layers)
+    print_rank_0(f"Sequential calibration: Found {num_layers} transformer layers")
+
+    ckpt = _CheckpointState.from_folder(checkpoint_dir, num_layers)
+    start_layer = ckpt.start_layer if ckpt else 0
 
     input_getter = LayerActivationCollector(model)
     input_getter._patch_all_layers(decoder_layers=transformer_layers)
 
-    try:
-        for layer_idx, layer in enumerate(transformer_layers):
-            print_rank_0(f"Calibrating layer {layer_idx + 1}/{len(transformer_layers)}")
-            layer_inputs = input_getter.get_input_activations(layer, forward_loop)
+    resumed_inputs = ckpt.setup_resume(transformer_layers) if ckpt and start_layer > 0 else None
 
-            def _layer_forward_loop(m, _inputs=layer_inputs):
-                for args, kwargs_input in _inputs:
+    try:
+        # Bootstrap: get first layer's inputs (or use resumed inputs).
+        layer_inputs = input_getter.get_first_layer_inputs(
+            start_layer, resumed_inputs, forward_loop
+        )
+
+        for layer_idx in range(start_layer, num_layers):
+            layer = transformer_layers[layer_idx]
+
+            def _layer_forward_loop(m):
+                for args, kwargs_input in layer_inputs:
                     m(*args, **kwargs_input)
 
             calib_func(layer, _layer_forward_loop, **calib_kwargs)
 
+            # Run one more forward to get next layer's inputs and set
+            # output_meta on the just-calibrated layer (via "run" mode).
+            is_last = layer_idx + 1 >= num_layers
+            if not is_last:
+                next_inputs = input_getter.cache_outputs_for_next_layer_calib(layer, forward_loop)
+            else:
+                next_inputs = None
+
+            if ckpt:
+                ckpt.save(layer_idx, layer, model, transformer_layers, next_inputs)
+
             del layer_inputs
             torch.cuda.empty_cache()
+            layer_inputs = next_inputs
     finally:
         input_getter._unpatch_all_layers()
+
+    if ckpt:
+        ckpt.full_restore(transformer_layers, model)
 
     print_rank_0("Sequential calibration completed")
 
@@ -1663,8 +1696,10 @@ def gptq(
         handle.cleanup()
 
     print_rank_0("Updating weights using GPTQ algorithm...")
+    name_to_module = dict(model.named_modules())
     for handle in gptq_handles.values():
-        handle.update_weights(block_size, perc_damp)
+        with enable_weight_access_and_writeback(handle.module, model, name_to_module):
+            handle.update_weights(block_size, perc_damp)
         handle.free()
     del gptq_handles
 

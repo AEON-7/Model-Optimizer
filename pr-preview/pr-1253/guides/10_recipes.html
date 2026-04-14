@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recipes &mdash; Model Optimizer 0.0.1.dev1+ge7f343c77</title>
+  <title>Recipes &mdash; Model Optimizer 0.0.1.dev1+gb65371171</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -352,32 +352,37 @@ confused with literal values.  The marker can appear anywhere in the recipe:</p>
 <li><p>As a <strong>list element</strong> — the snippet (which must itself be a list) is spliced
 into the surrounding list.</p></li>
 </ul>
-<p>As a <strong>dict value</strong>, <code class="docutils literal notranslate"><span class="pre">$import</span></code> supports three composition modes:</p>
-<ul class="simple">
-<li><p><strong>Single import:</strong> <code class="docutils literal notranslate"><span class="pre">$import:</span> <span class="pre">name</span></code> — replaced with the snippet content.</p></li>
-<li><p><strong>Multiple imports:</strong> <code class="docutils literal notranslate"><span class="pre">$import:</span> <span class="pre">[name1,</span> <span class="pre">name2]</span></code> — snippets are merged into
-one dict.  The snippets must not have overlapping keys.</p></li>
-<li><p><strong>Import + extend:</strong> extra keys alongside <code class="docutils literal notranslate"><span class="pre">$import</span></code> are merged in after the
-import(s).  Extra keys must not conflict with any imported key.</p></li>
-</ul>
+<p>As a <strong>dict value</strong>, <code class="docutils literal notranslate"><span class="pre">$import</span></code> supports composition with clear override
+precedence (lowest to highest):</p>
+<ol class="arabic simple">
+<li><p><strong>Imports in list order</strong> — <code class="docutils literal notranslate"><span class="pre">$import:</span> <span class="pre">[base,</span> <span class="pre">override]</span></code>: later snippets
+override earlier ones on key conflicts.</p></li>
+<li><p><strong>Inline keys</strong> — extra keys alongside <code class="docutils literal notranslate"><span class="pre">$import</span></code> override all imported
+values.</p></li>
+</ol>
+<p>This is equivalent to calling <code class="docutils literal notranslate"><span class="pre">dict.update()</span></code> in order: imports first (in
+list order), then inline keys last.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Single import</span>
 <span class="nt">cfg</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">$import</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fp8</span>
+<span class="w">  </span><span class="nt">$import</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nvfp4</span>
 
-<span class="c1"># Multiple imports — merge two non-overlapping snippets</span>
+<span class="c1"># Import + override — import nvfp4_dynamic, then override type inline</span>
+<span class="nt">cfg</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">$import</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nvfp4</span><span class="w">    </span><span class="c1"># imports {num_bits: e2m1, block_sizes: {-1: 16, type: dynamic, ...}}</span>
+<span class="w">  </span><span class="nt">block_sizes</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">-1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">static</span><span class="w">    </span><span class="c1"># overrides type: dynamic → static calibration</span>
+
+<span class="c1"># Multiple imports — later snippet overrides earlier on conflict</span>
+<span class="nt">cfg</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">$import</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">base_format</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">kv_tweaks</span><span class="p p-Indicator">]</span><span class="w">   </span><span class="c1"># kv_tweaks wins on shared keys</span>
+
+<span class="c1"># All three: multi-import + inline override</span>
 <span class="nt">cfg</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">$import</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">bits</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">scale</span><span class="p p-Indicator">]</span>
-
-<span class="c1"># Import + extend — add axis on top of imported fp8</span>
-<span class="nt">cfg</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">$import</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fp8</span>
-<span class="w">  </span><span class="nt">axis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">          </span><span class="c1"># result: {num_bits: e4m3, axis: 0}</span>
+<span class="w">  </span><span class="nt">axis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">            </span><span class="c1"># highest precedence</span>
 </pre></div>
 </div>
-<p>Key conflicts are never allowed — whether between imported snippets or between
-imports and inline keys.  If a key appears in more than one source, the loader
-raises an error.  This avoids ambiguous merge semantics.  If you need different
-values for an existing key, create a new snippet instead.</p>
 <p>As a <strong>list element</strong>, <code class="docutils literal notranslate"><span class="pre">$import</span></code> must be the only key — extra keys alongside
 a list splice are not supported.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">imports</span><span class="p">:</span>

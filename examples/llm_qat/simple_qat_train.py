@@ -26,6 +26,7 @@ from utils import get_daring_anteater
 
 import modelopt.torch.opt as mto
 import modelopt.torch.quantization as mtq
+from modelopt.recipe import ModelOptPTQRecipe, load_recipe
 
 
 def get_dataloader(args, tokenizer):
@@ -85,11 +86,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--epochs", type=int, default=2, help="Number of epochs")
     parser.add_argument("--lr", type=float, default=1e-5, help="Learning rate")
     parser.add_argument(
-        "--quant-cfg",
+        "--recipe",
         type=str,
-        default="NVFP4_DEFAULT_CFG",
-        choices=mtq.config.choices,
-        help="Quantization configuration",
+        default="general/ptq/nvfp4_default-fp8_kv",
+        help="Path to a quantization recipe YAML (built-in or custom)",
     )
     # Reproducibility
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
@@ -120,8 +120,12 @@ def main() -> None:
         for batch in calib_dataloader:
             m(batch["input_ids"].to(device))
 
-    # Quantize the model
-    model = mtq.quantize(model, getattr(mtq, args.quant_cfg), calibrate)
+    # Load recipe and quantize the model
+    recipe = load_recipe(args.recipe)
+    assert isinstance(recipe, ModelOptPTQRecipe), (
+        f"Expected PTQ recipe, but got {type(recipe).__name__} from {args.recipe}"
+    )
+    model = mtq.quantize(model, recipe.ptq_cfg, calibrate)
 
     # Initialize optimizer
     optimizer = AdamW(model.parameters(), lr=args.lr)

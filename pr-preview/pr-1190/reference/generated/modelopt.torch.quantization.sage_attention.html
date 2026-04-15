@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sage_attention &mdash; Model Optimizer 0.0.1.dev1+g95c040b01</title>
+  <title>sage_attention &mdash; Model Optimizer 0.0.1.dev1+g8262d561f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -73,6 +73,7 @@
 <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/0_support_matrix.html">Support Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/10_recipes.html">Recipes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/2_save_load.html">Saving &amp; Restoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/3_pruning.html">Pruning</a></li>
@@ -95,7 +96,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -228,6 +229,9 @@ and diffusers backend registration)</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.quantization.sage_attention.apply_sage_attention" title="modelopt.torch.quantization.sage_attention.apply_sage_attention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_sage_attention</span></code></a></p></td>
 <td><p>Patch a diffusers transformer to use NVFP4 P-matrix quantization.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#modelopt.torch.quantization.sage_attention.apply_sage_attention_v3" title="modelopt.torch.quantization.sage_attention.apply_sage_attention_v3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_sage_attention_v3</span></code></a></p></td>
+<td><p>Patch a diffusers transformer with SageAttention v3 microscaling NVFP4.</p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py function">
@@ -249,6 +253,30 @@ for WAN2.2 / LTX Video).</p></li>
 <li><p><strong>quantize_p</strong> (<em>bool</em>) – If True (default), quantize the post-softmax P tile to
 NVFP4 E2M1 with per-tile max scaling inside the Triton kernel.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ImportError</strong> – If <code class="docutils literal notranslate"><span class="pre">modelopt.torch.sparsity.attention_sparsity</span></code> is not
+    installed (required for the Triton kernel and diffusers backend).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>None</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelopt.torch.quantization.sage_attention.apply_sage_attention_v3">
+<span class="sig-name descname"><span class="pre">apply_sage_attention_v3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.quantization.sage_attention.apply_sage_attention_v3" title="Link to this definition"></a></dt>
+<dd><p>Patch a diffusers transformer with SageAttention v3 microscaling NVFP4.</p>
+<p>Wraps <code class="docutils literal notranslate"><span class="pre">transformer.forward</span></code> to quantize <strong>Q, K, V, and P</strong> to NVFP4 E2M1
+using per-group microscaling (groups of 16 elements along the head dimension),
+following the SageAttention v3 paper (arxiv 2505.11594).</p>
+<p>Compared to <a class="reference internal" href="#modelopt.torch.quantization.sage_attention.apply_sage_attention" title="modelopt.torch.quantization.sage_attention.apply_sage_attention"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_sage_attention()</span></code></a> (which only quantizes P with per-tile
+scaling), this also quantizes Q, K, and V with finer per-group scales, targeting
+Blackwell / Ada GPUs where FP4 tensor cores provide maximum throughput.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>transformer</strong> (<em>Module</em>) – A diffusers transformer module (e.g. <code class="docutils literal notranslate"><span class="pre">pipe.transformer</span></code>).</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ImportError</strong> – If <code class="docutils literal notranslate"><span class="pre">modelopt.torch.sparsity.attention_sparsity</span></code> is not

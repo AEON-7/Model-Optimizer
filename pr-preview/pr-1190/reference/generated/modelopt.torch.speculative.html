@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>speculative &mdash; Model Optimizer 0.0.1.dev1+g95c040b01</title>
+  <title>speculative &mdash; Model Optimizer 0.0.1.dev1+g8262d561f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -73,6 +73,7 @@
 <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/0_support_matrix.html">Support Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/10_recipes.html">Recipes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/2_save_load.html">Saving &amp; Restoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/3_pruning.html">Pruning</a></li>
@@ -95,7 +96,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -111,6 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.sparsity.html">sparsity</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">speculative</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.config.html">config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.dflash.html">dflash</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.eagle.html">eagle</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.medusa.html">medusa</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.mode.html">mode</a></li>
@@ -166,22 +168,25 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.speculative.config.html#module-modelopt.torch.speculative.config" title="modelopt.torch.speculative.config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.config</span></code></a></p></td>
 <td><p>Configurations for speculative decoding modes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.speculative.eagle.html#module-modelopt.torch.speculative.eagle" title="modelopt.torch.speculative.eagle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.eagle</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.speculative.dflash.html#module-modelopt.torch.speculative.dflash" title="modelopt.torch.speculative.dflash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.dflash</span></code></a></p></td>
+<td><p>DFlash Optimization Method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.speculative.eagle.html#module-modelopt.torch.speculative.eagle" title="modelopt.torch.speculative.eagle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.eagle</span></code></a></p></td>
 <td><p>Eagle Optimization Method.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.speculative.medusa.html#module-modelopt.torch.speculative.medusa" title="modelopt.torch.speculative.medusa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.medusa</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.speculative.medusa.html#module-modelopt.torch.speculative.medusa" title="modelopt.torch.speculative.medusa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.medusa</span></code></a></p></td>
 <td><p>Medusa Optimization Method.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.speculative.mode.html#module-modelopt.torch.speculative.mode" title="modelopt.torch.speculative.mode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.mode</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.speculative.mode.html#module-modelopt.torch.speculative.mode" title="modelopt.torch.speculative.mode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.mode</span></code></a></p></td>
 <td><p>This module contains the mode descriptor for the quantization mode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.speculative.plugins.html#module-modelopt.torch.speculative.plugins" title="modelopt.torch.speculative.plugins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.plugins</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.speculative.plugins.html#module-modelopt.torch.speculative.plugins" title="modelopt.torch.speculative.plugins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.plugins</span></code></a></p></td>
 <td><p>Handles speculative plugins for third-party modules.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.speculative.speculative_decoding.html#module-modelopt.torch.speculative.speculative_decoding" title="modelopt.torch.speculative.speculative_decoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.speculative_decoding</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.speculative.speculative_decoding.html#module-modelopt.torch.speculative.speculative_decoding" title="modelopt.torch.speculative.speculative_decoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.speculative_decoding</span></code></a></p></td>
 <td><p>User-facing API for converting a model into a <cite>modelopt.torch.speculative.MedusaModel</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.torch.speculative.utils.html#module-modelopt.torch.speculative.utils" title="modelopt.torch.speculative.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.utils</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="modelopt.torch.speculative.utils.html#module-modelopt.torch.speculative.utils" title="modelopt.torch.speculative.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.torch.speculative.utils</span></code></a></p></td>
 <td><p>Utils for speculative decoding.</p></td>
 </tr>
 </tbody>

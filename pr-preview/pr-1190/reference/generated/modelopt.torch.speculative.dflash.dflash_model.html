@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>llm_export_utils &mdash; Model Optimizer 0.0.1.dev1+g95c040b01</title>
+  <title>dflash_model &mdash; Model Optimizer 0.0.1.dev1+g8262d561f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -33,8 +33,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="export_utils" href="modelopt.onnx.llm_export_utils.export_utils.html" />
-    <link rel="prev" title="graph_surgery" href="modelopt.onnx.graph_surgery.html" /> 
+    <link rel="next" title="eagle" href="modelopt.torch.speculative.eagle.html" />
+    <link rel="prev" title="default_config" href="modelopt.torch.speculative.dflash.default_config.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -73,6 +73,7 @@
 <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/0_support_matrix.html">Support Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/10_recipes.html">Recipes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/2_save_load.html">Saving &amp; Restoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/3_pruning.html">Pruning</a></li>
@@ -95,27 +96,35 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="modelopt.onnx.html">onnx</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.autocast.html">autocast</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.export.html">export</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.graph_surgery.html">graph_surgery</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">llm_export_utils</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.llm_export_utils.export_utils.html">export_utils</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.llm_export_utils.quantization_utils.html">quantization_utils</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modelopt.onnx.llm_export_utils.surgeon_utils.html">surgeon_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modelopt.torch.html">torch</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.distill.html">distill</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.export.html">export</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.kernels.html">kernels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.nas.html">nas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.opt.html">opt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.peft.html">peft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.prune.html">prune</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.quantization.html">quantization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.sparsity.html">sparsity</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.speculative.html">speculative</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.config.html">config</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="modelopt.torch.speculative.dflash.html">dflash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.eagle.html">eagle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.medusa.html">medusa</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.mode.html">mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.plugins.html">plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.speculative_decoding.html">speculative_decoding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.utils.html">utils</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.logging_config.html">logging_config</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.op_types.html">op_types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.quantization.html">quantization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.trt_utils.html">trt_utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modelopt.onnx.utils.html">utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.trace.html">trace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelopt.torch.utils.html">utils</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modelopt.torch.html">torch</a></li>
 </ul>
 </li>
 </ul>
@@ -140,10 +149,12 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../1_modelopt_api.html">modelopt API</a></li>
-          <li class="breadcrumb-item"><a href="modelopt.onnx.html">onnx</a></li>
-      <li class="breadcrumb-item active">llm_export_utils</li>
+          <li class="breadcrumb-item"><a href="modelopt.torch.html">torch</a></li>
+          <li class="breadcrumb-item"><a href="modelopt.torch.speculative.html">speculative</a></li>
+          <li class="breadcrumb-item"><a href="modelopt.torch.speculative.dflash.html">dflash</a></li>
+      <li class="breadcrumb-item active">dflash_model</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/reference/generated/modelopt.onnx.llm_export_utils.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/reference/generated/modelopt.torch.speculative.dflash.dflash_model.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -151,31 +162,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="llm-export-utils">
-<h1>llm_export_utils<a class="headerlink" href="#llm-export-utils" title="Link to this heading"></a></h1>
-<p class="rubric">Modules</p>
+  <section id="dflash-model">
+<h1>dflash_model<a class="headerlink" href="#dflash-model" title="Link to this heading"></a></h1>
+<p id="module-modelopt.torch.speculative.dflash.dflash_model">DFlash model to support block-wise parallel speculative decoding.</p>
+<p class="rubric">Classes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.onnx.llm_export_utils.export_utils.html#module-modelopt.onnx.llm_export_utils.export_utils" title="modelopt.onnx.llm_export_utils.export_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.llm_export_utils.export_utils</span></code></a></p></td>
-<td><p>Utilities for exporting LLM models to ONNX.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modelopt.onnx.llm_export_utils.quantization_utils.html#module-modelopt.onnx.llm_export_utils.quantization_utils" title="modelopt.onnx.llm_export_utils.quantization_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.llm_export_utils.quantization_utils</span></code></a></p></td>
-<td><p>Quantization utilities for LLM models.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modelopt.onnx.llm_export_utils.surgeon_utils.html#module-modelopt.onnx.llm_export_utils.surgeon_utils" title="modelopt.onnx.llm_export_utils.surgeon_utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modelopt.onnx.llm_export_utils.surgeon_utils</span></code></a></p></td>
-<td><p>Utilities to surgeon ONNX graph after export.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#modelopt.torch.speculative.dflash.dflash_model.DFlashModel" title="modelopt.torch.speculative.dflash.dflash_model.DFlashModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DFlashModel</span></code></a></p></td>
+<td><p>Base DFlash Model.</p></td>
 </tr>
 </tbody>
 </table>
-<p id="module-modelopt.onnx.llm_export_utils">Utilities for exporting LLM models to ONNX.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="modelopt.torch.speculative.dflash.dflash_model.DFlashModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DFlashModel</span></span><a class="headerlink" href="#modelopt.torch.speculative.dflash.dflash_model.DFlashModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="modelopt.torch.opt.dynamic.html#modelopt.torch.opt.dynamic.DynamicModule" title="modelopt.torch.opt.dynamic.DynamicModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">DynamicModule</span></code></a></p>
+<p>Base DFlash Model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelopt.torch.speculative.dflash.dflash_model.DFlashModel.modify">
+<span class="sig-name descname"><span class="pre">modify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.speculative.dflash.dflash_model.DFlashModel.modify" title="Link to this definition"></a></dt>
+<dd><p>Base DFlash Model modify function. Child class should implement the details.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modelopt.onnx.graph_surgery.html" class="btn btn-neutral float-left" title="graph_surgery" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modelopt.onnx.llm_export_utils.export_utils.html" class="btn btn-neutral float-right" title="export_utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modelopt.torch.speculative.dflash.default_config.html" class="btn btn-neutral float-left" title="default_config" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modelopt.torch.speculative.eagle.html" class="btn btn-neutral float-right" title="eagle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

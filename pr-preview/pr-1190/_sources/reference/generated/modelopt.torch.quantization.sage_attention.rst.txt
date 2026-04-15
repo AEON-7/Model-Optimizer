@@ -38,5 +38,6 @@ sage\_attention
       :nosignatures:
    
       apply_sage_attention
+      apply_sage_attention_v3
    
    

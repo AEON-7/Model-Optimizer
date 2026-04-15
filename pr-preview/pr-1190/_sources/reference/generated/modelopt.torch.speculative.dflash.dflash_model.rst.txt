@@ -1,5 +1,5 @@
-quantization\_utils
-===================
+dflash\_model
+=============
 
 .. List the submodules
 
@@ -15,7 +15,7 @@ quantization\_utils
    __module__ should be manually overridden -- i.e. in the ``__init__.py`` which contains ``from xxx import YYY``,
    add in ``YYY.__module__ = __name__``.
 
-.. automodule:: modelopt.onnx.llm_export_utils.quantization_utils
+.. automodule:: modelopt.torch.speculative.dflash.dflash_model
    :members:
    :undoc-members:
 
@@ -26,18 +26,17 @@ quantization\_utils
    .. Overview table of available classes in the module
    
    
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      DFlashModel
+   
    
 
 
    .. Overview table of available functions in the module
    
-   
-   .. rubric:: Functions
-
-   .. autosummary::
-      :nosignatures:
-   
-      get_quant_config
-      quantize
    
    

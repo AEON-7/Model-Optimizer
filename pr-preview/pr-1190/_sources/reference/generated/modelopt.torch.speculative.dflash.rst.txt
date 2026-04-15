@@ -1,5 +1,5 @@
-llm\_export\_utils
-==================
+dflash
+======
 
 .. List the submodules
 
@@ -13,15 +13,15 @@ llm\_export\_utils
 
 
 
-   modelopt.onnx.llm_export_utils.export_utils
+   modelopt.torch.speculative.dflash.conversion
 
 
 
-   modelopt.onnx.llm_export_utils.quantization_utils
+   modelopt.torch.speculative.dflash.default_config
 
 
 
-   modelopt.onnx.llm_export_utils.surgeon_utils
+   modelopt.torch.speculative.dflash.dflash_model
 
 
 
@@ -34,7 +34,7 @@ llm\_export\_utils
    __module__ should be manually overridden -- i.e. in the ``__init__.py`` which contains ``from xxx import YYY``,
    add in ``YYY.__module__ = __name__``.
 
-.. automodule:: modelopt.onnx.llm_export_utils
+.. automodule:: modelopt.torch.speculative.dflash
    :members:
    :undoc-members:
 

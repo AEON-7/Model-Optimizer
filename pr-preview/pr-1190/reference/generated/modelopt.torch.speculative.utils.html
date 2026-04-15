@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g95c040b01</title>
+  <title>utils &mdash; Model Optimizer 0.0.1.dev1+g8262d561f</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -73,6 +73,7 @@
 <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/0_support_matrix.html">Support Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/10_recipes.html">Recipes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/1_quantization.html">Quantization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/2_save_load.html">Saving &amp; Restoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/3_pruning.html">Pruning</a></li>
@@ -95,7 +96,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">NVIDIA Model Optimizer Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../0_changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../1_modelopt_api.html">modelopt API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="modelopt.deploy.html">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelopt.onnx.html">onnx</a></li>
@@ -111,6 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="modelopt.torch.sparsity.html">sparsity</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelopt.torch.speculative.html">speculative</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.config.html">config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.dflash.html">dflash</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.eagle.html">eagle</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.medusa.html">medusa</a></li>
 <li class="toctree-l4"><a class="reference internal" href="modelopt.torch.speculative.mode.html">mode</a></li>
@@ -277,6 +279,26 @@ rank to adopt rank 0’s data.</p>
 <dd><p>This function validate the AR of the model given the input sequence.</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="modelopt.torch.speculative.utils.AcceptanceRateValidation.validate_online">
+<span class="sig-name descname"><span class="pre">validate_online</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">osl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.speculative.utils.AcceptanceRateValidation.validate_online" title="Link to this definition"></a></dt>
+<dd><p>Validate AR with online (context-dependent) ground truth.</p>
+<p>Instead of pre-computing a fixed ground truth, this method verifies
+draft tokens against the target model’s response to the current
+sequence (including previously accepted draft tokens). This matches
+the actual speculative decoding verification loop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>osl</strong> – output sequence length</p></li>
+<li><p><strong>prompt</strong> – text prompt (alternative to input_ids)</p></li>
+<li><p><strong>input_ids</strong> – tokenized input</p></li>
+<li><p><strong>steps</strong> – number of draft tokens per step</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -410,7 +432,7 @@ at each level.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="modelopt.torch.speculative.utils.load_vlm_or_llm">
-<span class="sig-name descname"><span class="pre">load_vlm_or_llm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name_or_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_fake_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_offline_training</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">torch_dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_remote_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.speculative.utils.load_vlm_or_llm" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_vlm_or_llm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name_or_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_fake_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_offline_training</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_remote_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelopt.torch.speculative.utils.load_vlm_or_llm" title="Link to this definition"></a></dt>
 <dd><p>Load a VLM or LLM. Returns the model.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">use_offline_training=True</span></code>, returns a
 <code class="xref py py-class docutils literal notranslate"><span class="pre">FakeBaseModel</span></code> containing only
@@ -421,7 +443,7 @@ Otherwise, falls back to loading with <code class="docutils literal notranslate"
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model_name_or_path</strong> (<em>str</em>) – Local path or HuggingFace repo ID of the model.</p></li>
 <li><p><strong>use_offline_training</strong> (<em>bool</em>) – Whether to load a memory-efficient model for offline training.</p></li>
-<li><p><strong>torch_dtype</strong> (<em>str</em><em> | </em><em>dtype</em><em> | </em><em>None</em>) – dtype to use when loading the model.</p></li>
+<li><p><strong>dtype</strong> (<em>str</em><em> | </em><em>dtype</em><em> | </em><em>None</em>) – dtype to use when loading the model.</p></li>
 <li><p><strong>device_map</strong> (<em>str</em><em> | </em><em>None</em>) – Device map passed to <code class="docutils literal notranslate"><span class="pre">from_pretrained</span></code>.</p></li>
 <li><p><strong>trust_remote_code</strong> (<em>bool</em>) – Whether to trust remote code.</p></li>
 <li><p><strong>use_fake_base</strong> (<em>bool</em>)</p></li>

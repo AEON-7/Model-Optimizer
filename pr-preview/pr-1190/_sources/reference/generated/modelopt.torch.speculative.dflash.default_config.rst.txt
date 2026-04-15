@@ -1,5 +1,5 @@
-export\_utils
-=============
+default\_config
+===============
 
 .. List the submodules
 
@@ -15,7 +15,7 @@ export\_utils
    __module__ should be manually overridden -- i.e. in the ``__init__.py`` which contains ``from xxx import YYY``,
    add in ``YYY.__module__ = __name__``.
 
-.. automodule:: modelopt.onnx.llm_export_utils.export_utils
+.. automodule:: modelopt.torch.speculative.dflash.default_config
    :members:
    :undoc-members:
 
@@ -26,27 +26,10 @@ export\_utils
    .. Overview table of available classes in the module
    
    
-   .. rubric:: Classes
-
-   .. autosummary::
-      :nosignatures:
-   
-      ModelLoader
-      RopeType
-      WrapperModelForCausalLM
-   
    
 
 
    .. Overview table of available functions in the module
    
-   
-   .. rubric:: Functions
-
-   .. autosummary::
-      :nosignatures:
-   
-      llm_to_onnx
-      torch_to_onnx
    
    
